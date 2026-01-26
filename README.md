@@ -1,8 +1,3 @@
-<p align="center">
-  <a href="https://www.metalsmith.io">
-    <img alt="Metalsmith" src="https://www.glinka.co/assets/images/metalsmith2025-logo-bug.png" width="80" />
-  </a>
-</p>
 <h1 align="center">
   Nunjucks Components
 </h1>
