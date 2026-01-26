@@ -1,0 +1,105 @@
+---
+layout: pages/sections.njk
+bodyClasses: 'home'
+hasHero: true
+
+topMessage:
+  text: 'New Image Grid component available.'
+  link:
+    url: '/references/sections/image-grid/'
+    label: 'View the component'
+  dismissible: true
+
+navigation:
+  navLabel: 'Home'
+  navIndex: 0
+
+seo:
+  title: Nunjucks Components - Modular Page Building Framework
+  description: 'Build dynamic web pages with reusable Nunjucks components for static site generators that use Nunjucks templating. A modern component-based architecture with structured content, flexible layouts, and composable sections.'
+  socialImage: '/assets/images/sample2.jpg'
+  canonicalURL: ''
+  keywords: 'nunjucks, metalsmith, eleventy, static site generator, components, modular design, web components, page builder, structured content, nunjucks templates, reusable sections'
+
+sections:
+  - sectionType: hero
+    containerTag: section
+    classes: ''
+    id: ''
+    description: 'This is a hero section'
+
+    isDisabled: false
+    isFullScreen: false
+    isReverse: true
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        isDark: true
+        color: ''
+        image: '/assets/images/sample4.jpg'
+        imageScreen: 'dark' # light, dark, none
+    text:
+      leadIn: ''
+      title: Nunjucks Components
+      titleTag: 'h1'
+      subTitle: 'A collection of page section components for static site generators that use Nunjucks templating'
+      prose: These page sections are bare-bones interpretations of universal information presentation patterns found on almost every website. Each section is composed of smaller partials, enabling flexible composition and easy customization.
+    ctas:
+      - url: '/references'
+        label: 'Browse Components'
+        isButton: true
+        buttonStyle: 'primary'
+      - url: '/blog'
+        label: 'Read the Guide'
+        isButton: false
+        buttonStyle: 'primary'
+    image:
+      src: ''
+      alt: ''
+      caption: ''
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: ''
+    isDisabled: false
+    isReverse: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none' # light, dark, none
+    text:
+      leadIn: ''
+      title: Before We Start
+      titleTag: 'h2'
+      isCentered: false
+      subTitle: ''
+      prose: |-
+        ### Why This Approach?
+
+        Static site generators like Metalsmith and Eleventy excel at one thing: staying out of your way. Unlike opinionated frameworks that dictate how you must structure content, organize files, or build pages, these tools provide the foundation and let you make the architectural decisions.
+
+        This component library represents a structured content approach where pages are composed from reusable sections defined in frontmatter rather than written in Markdown. Some might argue this is "too specific" for tools designed to be flexible. I see it differently.
+
+        Every tool becomes specific the moment you use it. The choices you make—how you organize content, structure templates, handle assets—these decisions define your project's architecture. The question isn't whether to make opinionated choices, but whether those choices align with modern web development practices and scale with your needs.
+
+        Component-based architecture isn't just my preference—it's become a widely acknowledged pattern for building maintainable websites. React, Vue, and modern frontend frameworks have proven the value of composable, reusable components. This library brings that same paradigm to static site generation with Nunjucks templates, demonstrating that you can have both the flexibility of a minimal build tool and the structure of a component system.
+
+        These components work with any Nunjucks-based static site generator. If you value component reusability, separation of concerns, and a clear content model that scales from simple landing pages to complex multi-section layouts, this approach might be yours too.
+---

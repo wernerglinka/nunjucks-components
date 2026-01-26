@@ -1,0 +1,79 @@
+---
+layout: pages/sections-with-sidebar.njk
+bodyClass: ''
+
+navigation:
+  navLabel: 'References'
+  navIndex: 1
+
+seo:
+  title: Nunjucks Component Library References
+  description: 'Browse our collection of reusable partial components. These building blocks are used within sections to create consistent UI elements across your site.'
+  socialImage: '/assets/images/metalsmith-starter-social.png'
+  canonicalOverwrite: ''
+  keywords: 'nunjucks partials, UI components, reusable elements, component building blocks, static site components'
+
+sections:
+  - sectionType: text-only
+    containerTag: section
+    id: ''
+    description: 'Introduction to partials'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: false
+      noPadding:
+        top: true
+        bottom: false
+      background:
+        isDark: false
+    text:
+      title: 'Nunjucks Components Reference Overview'
+      titleTag: 'h1'
+      prose: |
+        This section provides detailed reference documentation for working with Nunjucks Components. For an introduction to Nunjucks Components, please visit the [Home](/) page, followed by [Section Anatomy](/section-anatomy/) and finally [From YAML to HTML](/yaml-to-html/).
+
+        The Nunjucks Components reference documentation is divided into two subsections:
+
+        ### Partials
+        Partials are the smallest template building units that are used to compose page sections.
+
+        ### Sections
+        Sections are self contained page components, built from smaller, reusable partials.
+
+  - sectionType: banner
+    containerTag: aside
+    classes: 'download-banner'
+    id: ''
+    isDisabled: false
+    isReverse: false
+    isAnimated: false
+    componentDownload: 'hero'
+    containerFields:
+      inContainer: true
+      noMargin:
+        top: true
+        bottom: false
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        isDark: false
+        color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: 'Download All Components'
+      titleTag: 'h3'
+      subTitle: ''
+      prose: 'Get the complete components package including partials and sections'
+    ctas:
+      - url: '/downloads/nunjucks-components.zip'
+        label: 'Download All Components'
+        isButton: true
+        buttonStyle: 'primary'
+---

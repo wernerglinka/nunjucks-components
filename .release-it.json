@@ -1,0 +1,24 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "requireCleanWorkingDir": true,
+    "requireBranch": "main",
+    "tag": true,
+    "tagName": "v${version}",
+    "push": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}",
+    "draft": false,
+    "releaseNotes": "git log --pretty=format:'- %s' ${latestTag}...HEAD --no-merges | grep -v '^- chore:' | grep -v '^- style:' || echo 'See commits for changes'",
+    "tokenRef": "GH_TOKEN"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:init": ["npm test", "npm run lint"],
+    "after:bump": "npx auto-changelog -p --commit-limit false --ignore-commit-pattern '^((dev|chore|ci):|Release)' && git add CHANGELOG.md"
+  }
+}

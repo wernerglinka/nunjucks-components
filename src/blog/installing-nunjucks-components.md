@@ -1,0 +1,722 @@
+---
+layout: pages/sections.njk
+bodyClasses: 'sections-page'
+hasHero: true
+
+card:
+  title: 'Installing Nunjucks Components in Your Project'
+  description: 'Step-by-step guide to downloading and installing component packages. Learn how to add sections and partials to your project with automated install scripts.'
+  date: '2025-10-15'
+  author: 'Nunjucks Components Team'
+  thumbnail: '/assets/images/sample8.jpg'
+
+seo:
+  title: Installing Nunjucks Components - Download and Setup Guide
+  description: 'Complete installation guide for Nunjucks components. Download individual sections or the complete bundle, use automated install scripts, and manage dependencies.'
+  socialImage: '/assets/images/sample8.jpg'
+  canonicalURL: ''
+  keywords: 'nunjucks components, install components, download sections, component packages, static site setup, component installation'
+
+sections:
+  - sectionType: hero
+    containerTag: section
+    classes: 'first-section'
+    id: ''
+    isDisabled: false
+    isFullScreen: false
+    isReverse: true
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        isDark: true
+        color: ''
+        image: '/assets/images/sample8.jpg'
+        imageScreen: 'dark'
+    text:
+      leadIn: 'Component Installation Guide'
+      title: Installing Nunjucks Components
+      titleTag: 'h1'
+      subTitle: 'Add powerful, reusable components to your project'
+      prose: 'Learn how to download and install component packages from the Nunjucks Components library. Whether you need a single section or the complete collection, this guide walks you through the installation process.'
+    ctas:
+      - url: '#getting-started'
+        label: 'Get Started'
+        isButton: true
+        buttonStyle: 'primary'
+    image:
+      src: ''
+      alt: ''
+      caption: ''
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'getting-started'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Getting Started
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        The Nunjucks Components library provides downloadable packages for all sections and partials. Each package includes everything you need to use the component in your project.
+
+        **What's included in each package:**
+        - Component template (`.njk` file)
+        - Styles (`.css` file, if applicable)
+        - JavaScript (`.js` file, if applicable)
+        - Manifest file with metadata and dependencies
+        - Configuration examples (`.yaml` file)
+        - Comprehensive README with usage instructions
+        - Automated installation script
+
+        Components are designed to work seamlessly with Nunjucks-based static site generators like Metalsmith and Eleventy.
+
+        ### Required Configuration
+
+        Before installing any components, create a `nunjucks-components.config.json` file in your project root:
+
+        ```json
+        {
+          "componentsBasePath": "lib/layouts/components",
+          "sectionsDir": "sections",
+          "partialsDir": "_partials"
+        }
+        ```
+
+        This configuration file is **required** for installation. Edit the values to match your project's directory structure. The install scripts read this file to determine where to place component files.
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'download-options'
+    isDisabled: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Download Options
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        You have three options for downloading components, depending on your needs.
+
+        ### Individual Section Components
+
+        Download specific section components as needed. Perfect when you only need a few components or want to keep your project lean.
+
+        **Available sections include:**
+        - Hero sections (full-screen and standard)
+        - Banner sections with images and CTAs
+        - Media sections (image, video, audio)
+        - Content sections (text, code blocks, accordions)
+        - Interactive sections (sliders, flip cards, testimonials)
+        - Utility sections (maps, search, logos)
+
+        Visit any [section reference page](/references/sections/) and click the download button at the bottom of the page.
+
+        ### Individual Partial Components
+
+        Download reusable partial components that are used within sections. These are smaller UI elements that sections depend on.
+
+        **Available partials include:**
+        - Text partial (headings, prose content)
+        - CTAs partial (buttons and links)
+        - Image partial (responsive images with captions)
+        - Navigation partial (menus and breadcrumbs)
+        - Author/date partial (blog metadata)
+        - And many more...
+
+        Visit any [partial reference page](/references/partials/) and click the download button.
+
+        ### Complete Bundle
+
+        Download all components in one package. Ideal for new projects or when you want access to the full library.
+
+        The complete bundle includes:
+        - All 30 section components
+        - All 21 partial components
+        - Organized into `sections/` and `partials/` folders
+        - Master installation script for batch installation
+        - Complete documentation
+
+        [Download Complete Bundle](/downloads/nunjucks-components.zip) (256KB)
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'automated-installation'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Automated Installation
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        Every component package includes an automated installation script that handles the setup for you.
+
+        ### Installing an Individual Component
+
+        After downloading a component package, navigate to your project root directory (where your `package.json` file is located), extract the package there, and run the install script:
+
+        ```bash
+        # Navigate to your project root
+        cd /path/to/your/project
+
+        # Extract the package in the project root
+        unzip ~/Downloads/hero.zip
+
+        # Navigate into the extracted component directory
+        cd hero
+
+        # Run the installation script
+        ./install.sh
+        ```
+
+        **Important:** Always extract component packages in your project root directory. The install script needs to be run from within the extracted component folder, but it will copy files to the correct locations (`lib/layouts/components/sections/` or `lib/layouts/components/_partials/`) in your project.
+
+        After installation completes successfully, you can safely delete the extracted component folder (e.g., `hero/`) and the downloaded ZIP file.
+
+        The installation script will:
+        1. Verify `nunjucks-components.config.json` exists in your project root
+        2. Read component paths from your configuration
+        3. Check for existing installations and compare versions
+        4. Validate that required dependencies are installed
+        5. Copy component files to the correct locations
+        6. Report any missing dependencies with download links
+
+        ### Example Installation Output
+
+        ```bash
+        🔧 Installing hero v0.0.1...
+
+        Checking dependencies...
+        ⚠ Warning: Missing required partials:
+          • text
+          • ctas
+          • image
+
+        Download from: https://nunjucks-components.netlify.app/downloads/
+
+        Continue installation anyway? (y/n)
+        ```
+
+        If you proceed, the component files will be installed even if dependencies are missing. You can download the required partials later.
+
+        ### Installing the Complete Bundle
+
+        The bundle includes a master installation script with two modes: **full install** and **update-only**.
+
+        #### Full Install (Default)
+
+        Install all components or update your existing subset:
+
+        ```bash
+        # Navigate to your project root
+        cd /path/to/your/project
+
+        # Ensure nunjucks-components.config.json exists (required)
+        # Create it if you haven't already - see "Required Configuration" above
+
+        # Extract the bundle in the project root
+        unzip ~/Downloads/nunjucks-components.zip
+
+        # Run the master installation script from project root
+        ./nunjucks-components/install-all.sh
+        ```
+
+        **Important:** The install script requires `nunjucks-components.config.json` in your project root. Create this file before running the installation (see "Required Configuration" in the Getting Started section above).
+
+        If you already have components installed, the script will prompt you to choose:
+        - **Install all components** - Adds new components, updates existing ones (52 total)
+        - **Update existing components only** - Only updates components you already have (skips new ones)
+
+        #### Update-Only Mode
+
+        Only update components you're already using:
+
+        ```bash
+        ./nunjucks-components/install-all.sh --update-only
+        # or use the short form:
+        ./nunjucks-components/install-all.sh -u
+        ```
+
+        This mode is perfect for:
+        - Getting updates for the specific components you use
+        - Avoiding bloat from components you don't need
+        - Quick updates when new versions are released
+
+        The update-only mode detects installed components by checking for `manifest.json` files. Only components with matching names will be updated. For example, if you're using one of the starter projects, approximately 22 components will be detected and updated.
+
+        The install script automatically:
+        - Installs all partials first (resolving dependencies)
+        - Then installs all sections
+        - Reports which components were installed/updated and which were skipped
+        - Provides a summary of the installation
+
+        After installation completes, you can clean up:
+        ```bash
+        # Remove the extracted bundle folder
+        rm -rf nunjucks-components
+
+        # Optionally remove the downloaded ZIP file
+        rm ~/Downloads/nunjucks-components.zip
+        ```
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'manual-installation'
+    isDisabled: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Manual Installation
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        If you prefer to install components manually or need more control over the process, you can copy files directly.
+
+        ### Component File Structure
+
+        Each component follows this structure in your project:
+
+        ```bash
+        lib/layouts/components/
+        ├── sections/
+        │   └── hero/
+        │       ├── hero.njk          # Template
+        │       ├── hero.css          # Styles
+        │       ├── hero.js           # Scripts (if applicable)
+        │       └── manifest.json     # Metadata
+        └── _partials/
+            └── text/
+                ├── text.njk          # Template
+                ├── text.css          # Styles (if applicable)
+                └── manifest.json     # Metadata
+        ```
+
+        ### Manual Installation Steps
+
+        1. **Navigate to your project root and extract the component package**
+        ```bash
+        # Navigate to your project root
+        cd /path/to/your/project
+
+        # Extract the package in the project root
+        unzip ~/Downloads/hero.zip
+        ```
+
+        2. **Create the component directory**
+        ```bash
+        # For section components
+        mkdir -p lib/layouts/components/sections/hero
+
+        # For partial components, use:
+        # mkdir -p lib/layouts/components/_partials/component-name
+        ```
+
+        3. **Copy the component files**
+        ```bash
+        # Copy from extracted folder to component directory
+        cp hero/hero.njk lib/layouts/components/sections/hero/
+        cp hero/hero.css lib/layouts/components/sections/hero/
+        cp hero/manifest.json lib/layouts/components/sections/hero/
+
+        # If the component has JavaScript:
+        # cp hero/hero.js lib/layouts/components/sections/hero/
+        ```
+
+        4. **Clean up the extracted folder**
+        ```bash
+        # Navigate back to project root
+        cd ..
+
+        # Remove the extracted component folder
+        rm -rf hero
+
+        # Optionally remove the downloaded ZIP file
+        rm ~/Downloads/hero.zip
+        ```
+
+        5. **Install required dependencies**
+        Check the manifest.json `requires` field and install any missing partials using the same process.
+
+        6. **Verify installation**
+        Build your project to ensure the component is properly integrated:
+        ```bash
+        npm run build
+        ```
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'dependency-management'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Managing Dependencies
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        Understanding and managing component dependencies ensures your components work correctly.
+
+        ### How Dependencies Work
+
+        Most section components depend on one or more partial components. For example, the hero section requires:
+        - **text** partial - for headings and prose content
+        - **ctas** partial - for call-to-action buttons
+        - **image** partial - for hero images
+        - **commons** partial - for shared utilities
+
+        These dependencies are automatically detected by your component bundler plugin (`metalsmith-bundled-components` for Metalsmith, `eleventy-plugin-components-bundler` for Eleventy), which bundles only the CSS and JavaScript actually used on each page.
+
+        ### Checking Dependencies
+
+        Each component's manifest.json file lists its dependencies:
+
+        ```json
+        {
+          "name": "hero",
+          "requires": ["text", "ctas", "image", "commons"]
+        }
+        ```
+
+        You can also check the README.md file included in each package for a complete list.
+
+        ### Installing Missing Dependencies
+
+        If you're missing required partials, the installation script will warn you and provide download links. You can:
+
+        1. Download individual partials from their reference pages
+        2. Use the complete bundle to get all partials at once
+        3. Continue without the dependency (component may not render correctly)
+
+        ### Version Compatibility
+
+        All components share the same version number as the main project. When downloading components, they'll work together seamlessly regardless of when you downloaded them.
+
+        However, the `contentHash` field in each manifest.json tracks actual changes to component files. This allows the install script to detect when a component has truly changed vs. just having a version bump.
+
+        ### Context Requirements
+
+        Some components need more than just partial dependencies—they need access to external data or site-wide information. Check each component's `manifest.json` for a `context` array:
+
+        ```json
+        {
+          "name": "podcast",
+          "context": ["data.podcasts"],
+          "requires": ["ctas", "commons"]
+        }
+        ```
+
+        Components with context requirements need those properties passed through the template render chain via `sections-renderer.njk` and `render-section.njk`. For example, the podcast component needs `data.podcasts` to access podcast configuration files.
+
+        For details on setting up context passing, see [Working with Data in Nunjucks Components](/blog/working-with-data-in-nunjucks-components/).
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'using-components'
+    isDisabled: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Using Installed Components
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        Once installed, components are ready to use in your page frontmatter.
+
+        ### Basic Usage
+
+        Add components to your pages by listing them in the `sections` array:
+
+        ```yaml
+        ---
+        layout: pages/sections.njk
+        title: My Page
+
+        sections:
+          - sectionType: hero
+            containerTag: section
+            containerFields:
+              background:
+                image: '/images/hero-bg.jpg'
+            text:
+              title: 'Welcome to My Site'
+              prose: 'A compelling introduction'
+            ctas:
+              - url: '/contact'
+                label: 'Get Started'
+                isButton: true
+        ---
+        ```
+
+        ### Configuration Examples
+
+        Each component package includes an `examples.yaml` file with multiple configuration examples showing different use cases:
+
+        - Minimal configuration
+        - Common patterns
+        - Advanced features
+        - Real-world scenarios
+
+        Refer to these examples as templates for your own implementations.
+
+        ### Reference Documentation
+
+        Visit the component's reference page on this site for:
+        - Live examples
+        - Complete configuration options
+        - Implementation notes
+        - Common patterns and best practices
+
+        **Sections:** Browse all [section components](/references/sections/)
+        **Partials:** Browse all [partial components](/references/partials/)
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'troubleshooting'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Troubleshooting
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        Common issues and solutions when installing components.
+
+        ### Component Not Rendering
+
+        **Problem:** Component doesn't appear on the page after installation.
+
+        **Solutions:**
+        - Verify all required dependencies are installed
+        - Check that file paths are correct in your project structure
+        - Ensure your build process completed without errors
+        - Review the component's manifest.json for missing files
+
+        ### Build Errors
+
+        **Problem:** Build fails after installing a component.
+
+        **Solutions:**
+        - Check for YAML syntax errors in your frontmatter
+        - Verify the component's `sectionType` matches the component name
+        - Ensure all required fields are provided in your configuration
+        - Review build output for specific error messages
+
+        ### Missing Styles or Scripts
+
+        **Problem:** Component appears but styling or interactivity is missing.
+
+        **Solutions:**
+        - Verify your component bundler plugin is configured
+        - Check that CSS/JS files exist in the component directory
+        - Ensure your build process includes PostCSS for CSS processing
+        - Clear your browser cache and rebuild
+
+        ### Version Conflicts
+
+        **Problem:** Install script reports version conflicts.
+
+        **Solutions:**
+        - Check the `contentHash` to see if files actually changed
+        - Review the component's README for breaking changes
+        - Consider downloading the complete bundle for consistency
+        - Backup your customizations before upgrading
+
+        ### Permission Errors
+
+        **Problem:** Install script fails with permission errors.
+
+        **Solutions:**
+        - Make the install script executable: `chmod +x install.sh`
+        - Run from your project root directory
+        - Ensure you have write permissions in the project directory
+
+        For additional help, visit the [Component Architecture](/section-anatomy/) guide or review the [YAML to HTML](/yaml-to-html/) documentation.
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: text-only
+    containerTag: article
+    classes: ''
+    id: 'next-steps'
+    isDisabled: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: false
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Next Steps
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        Now that you know how to install components, explore these resources to make the most of them:
+
+        **Browse Components**
+        - [Section Components Library](/references/sections/) - All available sections
+        - [Partial Components Library](/references/partials/) - All available partials
+        - [Complete Component Bundle](/downloads/nunjucks-components.zip) - Download everything
+
+        **Learn the Architecture**
+        - [Section Anatomy](/section-anatomy/) - How components are structured
+        - [From YAML to HTML](/yaml-to-html/) - Understanding the rendering process
+        - [Building Pages with Components](/blog/building-pages-with-components/) - Page construction guide
+
+        **Advanced Topics**
+        - [Building Interactive Components](/blog/building-interactive-components/) - Adding JavaScript behavior
+        - [Component Search System](/blog/building-component-search-system/) - Finding the right components
+
+        **Get a Starter**
+        Starter projects provide a complete foundation with several components pre-installed. Choose the [Metalsmith Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) or the [Eleventy Starter](https://github.com/wernerglinka/eleventy-nunjucks-components-starter) based on your preferred static site generator.
+    ctas:
+      - url: '/references/sections/'
+        label: 'Browse All Components'
+        isButton: true
+        buttonStyle: 'primary'
+      - url: '/downloads/nunjucks-components.zip'
+        label: 'Download Complete Bundle'
+        isButton: true
+        buttonStyle: 'secondary'
+---

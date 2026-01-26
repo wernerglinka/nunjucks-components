@@ -1,0 +1,53 @@
+/**
+ * Banner Section Styles
+ *
+ * Design Tokens:
+ * - --space-s-l
+ * - --space-m-l
+ * - --glass-border-radius
+ * - --color-primary
+ * - --space-s
+ */
+
+.banner {
+  /* Use consistent threshold with other components */
+  --threshold: 50rem;
+
+  /* Design token integration */
+  --banner-padding: var(--space-s-l);
+  --banner-gap: var(--space-m-l);
+  --banner-border-radius: var(--glass-border-radius);
+  --transition-duration: 0.5s;
+  --transition-timing: ease-in-out;
+  --max-accordion-height: 1000px;
+
+  .content {
+    /* Fluid layout system similar to hero-slider */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--banner-gap);
+    max-width: var(--threshold);
+    margin: 0 auto;
+    text-align: center;
+
+    > * {
+      flex-grow: 1;
+      flex-basis: calc((var(--threshold) - 100%) * 999);
+      align-self: stretch;
+    }
+
+    &.is-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .text {
+    padding: var(--banner-padding);
+  }
+
+  .image {
+    border-radius: var(--banner-border-radius);
+    overflow: hidden;
+  }
+}

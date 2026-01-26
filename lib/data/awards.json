@@ -1,0 +1,38 @@
+[
+  {
+    "url": "",
+    "src": "/assets/awards/award1.png",
+    "alt": "Best Award",
+    "caption": ""
+  },
+  {
+    "url": "",
+    "src": "/assets/awards/award2.png",
+    "alt": "More Better Award",
+    "caption": ""
+  },
+  {
+    "url": "/",
+    "src": "/assets/awards/award3.png",
+    "alt": "Bigga Award",
+    "caption": ""
+  },
+  {
+    "url": "#",
+    "src": "/assets/awards/service-award.png",
+    "alt": "Even More Bigga",
+    "caption": ""
+  },
+  {
+    "url": "https://github.com/",
+    "icon": "github",
+    "alt": "GitHub",
+    "caption": ""
+  },
+  {
+    "url": "https://feathericons.com/",
+    "icon": "feather",
+    "alt": "Feather Icons",
+    "caption": ""
+  }
+]

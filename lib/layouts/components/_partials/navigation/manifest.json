@@ -1,0 +1,27 @@
+{
+  "name": "navigation",
+  "type": "partial",
+  "styles": ["navigation.css"],
+  "scripts": ["navigation.js"],
+  "requires": [],
+  "context": ["urlPath"],
+  "validation": {
+    "required": ["mainMenu", "urlPath"],
+    "properties": {
+      "mainMenu": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["path", "title"],
+          "properties": {
+            "path": { "type": "string" },
+            "title": { "type": "string" }
+          }
+        }
+      },
+      "urlPath": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "image",
+  "type": "partial",
+  "styles": ["image.css"],
+  "scripts": [],
+  "requires": [],
+  "validation": {
+    "required": ["src", "alt"],
+    "properties": {
+      "src": {
+        "type": "string"
+      },
+      "alt": {
+        "type": "string"
+      },
+      "caption": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      }
+    }
+  }
+}
