@@ -2,9 +2,11 @@
   Nunjucks Components
 </h1>
 
-A reference implementation and documentation site for building component-based static sites with Metalsmith. The library contains 60 production-ready components (22 partials, 38 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages.
+> **New Release** — This component library is freshly published. If you encounter issues or have suggestions, please [open an issue](https://github.com/wernerglinka/nunjucks-components/issues). This library provides components for both the [Metalsmith](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and [Eleventy](https://github.com/wernerglinka/eleventy-structured-content-starter) structured content starters.
 
-This library provides the component catalog for the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter). All components are compatible with the starter's architecture and can be integrated into projects using the automated packaging system.
+A reference implementation and documentation site for building component-based static sites with Metalsmith and Eleventy. The library contains 61 production-ready components (23 partials, 38 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages.
+
+This library provides the component catalog for both the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and the [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter). All components are compatible with both starters' architecture and can be integrated into projects using the automated packaging system.
 
 [View the live site](https://nunjucks-components.com)
 
@@ -12,11 +14,11 @@ This library provides the component catalog for the [Metalsmith2025 Structured C
 
 ### Component Library
 
-The library contains 60 production-ready components organized in two categories:
+The library contains 61 production-ready components organized in two categories:
 
-**22 Partials** - Small, reusable UI elements used within larger sections:
+**23 Partials** - Small, reusable UI elements used within larger sections:
 
-- audio, author-date, branding, breadcrumbs, button, collection-card, collection-pagination, ctas, dark-light-theme-switcher, flip-card, icon, image, lottie, manual-card, navigation, overlay, page-transitions, search, slider-pagination, text, text-link, video
+- audio, author-date, branding, breadcrumbs, button, collection-card, collection-pagination, ctas, dark-light-theme-switcher, flip-card, icon, image, language-switcher, lottie, manual-card, navigation, overlay, page-transitions, search, slider-pagination, text, text-link, video
 
 **38 Sections** - Large page sections and main building blocks:
 
@@ -38,50 +40,57 @@ The library contains 60 production-ready components organized in two categories:
 
 ### Documentation & Learning
 
-The site includes 14 technical guides covering component development and implementation:
+The site includes 18 technical guides covering component development and implementation:
 
 - **Building Pages with Nunjucks Components** - Construct pages from reusable components defined in structured frontmatter
-- **How Component Bundling Works** - Deep dive into automatic component discovery and bundling with metalsmith-bundled-components
-- **Building a Site-Wide Search System** - Implement robust search using metalsmith-search plugin and client-side Fuse.js filtering
+- **How Component Bundling Works** - Deep dive into automatic component discovery and bundling (works with both Metalsmith and Eleventy)
+- **Building a Site-Wide Search System** - Implement robust search using search plugins and client-side Fuse.js filtering
 - **Working with Data in Nunjucks Components** - Structure, load, and use JSON data files in components
 - **Building Interactive Components with JavaScript** - JavaScript patterns for dynamic library loading, event handling, and state management without frameworks
 - **Understanding Component Validation with Manifest Schemas** - Use JSON Schema validation in manifest.json files to catch errors early
 - **Theming Architecture** - Implement dark mode with semantic color tokens and adaptive sections
 - **Section Anatomy** - Deep dive into component architecture with YAML configuration and Nunjucks templates
-- **Building Structured Pages** - Understand how Metalsmith transforms YAML configurations into HTML pages
-- **Getting Started with the Metalsmith2025 Starter** - Complete guide from installation to deployment
+- **Building Structured Pages** - Understand how the build system transforms YAML configurations into HTML pages
+- **Getting Started with the Metalsmith Starter** - Complete guide from installation to deployment
+- **Getting Started with the Eleventy Starter** - Complete guide from installation to deployment
 - **Installing Nunjucks Components in Your Project** - Download and install component packages with automated install scripts
 - **Adding a Top Message Bar to Your Header** - Implement a dismissible announcement bar with cookie persistence and dark mode support
 - **Adding Smooth Page Transitions** - Implement SWUP page transitions with component re-initialization and multi-layout support
+- **Adding a Dark/Light Theme Switcher** - Implement theme toggle with localStorage persistence
+- **Adding Header Search** - Integrate search functionality into the site header
+- **Building a Component from Scratch** - Step-by-step guide to creating new components
+- **Building Multi-Language Sites** - Implement internationalization with the language switcher component
 
 ### Technical Implementation
 
 The build system implements several architectural patterns for optimal performance:
 
-- **Component Dependency Bundling**: `metalsmith-bundled-components` scans all pages and bundles only CSS/JS for components actually used, creating single site-wide optimized files
+- **Component Dependency Bundling**: Dedicated plugins for each SSG (`metalsmith-bundled-components` or `eleventy-plugin-components-bundler`) scan all pages and bundle only CSS/JS for components actually used, creating single site-wide optimized files
 - **PostCSS Processing**: Automatic autoprefixing, stylelint validation, and cssnano minification for all component styles
 - **Component Encapsulation**: Each component contains its own `.njk` template, `.css` styles, `.js` scripts, and `manifest.json` with dependencies and JSON Schema validation
 - **Zero Runtime Dependencies**: Outputs pure HTML/CSS/JS without framework overhead (React, Vue, etc.)
-- **Build-Time Search Indexing**: `metalsmith-search` generates unified search index from 200+ entries across pages, sections, and structured content
-- **JSON Data Architecture**: External data files in `lib/data/` provide clean separation between content and configuration for maps, podcasts, blurbs, and collections
+- **Build-Time Search Indexing**: Search plugins generate unified search index from 200+ entries across pages, sections, and structured content
+- **JSON Data Architecture**: External data files provide clean separation between content and configuration for maps, podcasts, blurbs, and collections
 - **Component Packaging**: Automated ZIP package generation during production builds with install scripts for easy distribution
 - **46 Nunjucks Filters**: Custom template filters across 8 categories (string, date, markdown, array, debug, validation, object)
 
 ## Using This Library
 
-### For Metalsmith2025 Starter Users
+### For Starter Users (Metalsmith or Eleventy)
 
-To integrate components from this library into projects built with the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter):
+To integrate components from this library into projects built with either the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) or the [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter):
 
 1. Browse the live site or source code to identify needed components
 2. Download component packages from production builds (available in `build/downloads/`)
-3. Run the included install script to copy component files to your project's `lib/layouts/components/` directory
+3. Run the included install script to copy component files to your project's components directory
 4. Add component dependencies to your project if not already present
 5. Use components in page frontmatter by specifying `sectionType` in the sections array
 
+Both starters use identical component architecture, so components work interchangeably between Metalsmith and Eleventy projects.
+
 ### As a Reference Implementation
 
-This repository demonstrates production-ready patterns for component-based static site generation with Metalsmith. Developers can examine the source code to understand:
+This repository demonstrates production-ready patterns for component-based static site generation with Metalsmith and Eleventy. Developers can examine the source code to understand:
 
 - Structured content architecture using YAML frontmatter
 - Component dependency management with manifest.json files
@@ -237,15 +246,15 @@ Production build outputs to `build/` directory with HTML minification, optimized
 
 ## Architecture
 
-### Relationship with Metalsmith2025 Starter
+### Relationship with Starter Projects
 
-This library demonstrates the same structured content paradigm used by the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter). The starter provides the foundation and build system for component-based Metalsmith sites, while this library provides a catalog of production-ready components that integrate with that system.
+This library demonstrates the same structured content paradigm used by both the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and the [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter). Each starter provides the foundation and build system for component-based sites, while this library provides a catalog of production-ready components that integrate with both systems.
 
-Both projects share:
+All three projects share:
 
 - Component architecture with manifest.json dependency tracking
 - Structured frontmatter approach instead of Markdown body content
-- Metalsmith-bundled-components for asset optimization
+- Automatic component bundling for asset optimization (metalsmith-bundled-components or eleventy-plugin-components-bundler)
 - Nunjucks template engine with custom filters
 - JSON Schema validation in component manifests
 
@@ -311,7 +320,7 @@ Components supporting multiple libraries (maps with Leaflet/OpenLayers, podcast 
 
 ### Dependency Bundling System
 
-The `metalsmith-bundled-components` plugin implements build-time asset optimization:
+Both `metalsmith-bundled-components` and `eleventy-plugin-components-bundler` implement build-time asset optimization using the same approach:
 
 1. Scans all pages site-wide to identify which components are used
 2. Bundles CSS/JS only for components actually present on pages
@@ -406,7 +415,7 @@ items:
 - **header** - Site header/navigation with optional top message bar (dismissible announcements with cookie persistence)
 - **footer** - Site footer
 
-### Partial Components (22)
+### Partial Components (23)
 
 **Content Elements**:
 
@@ -439,6 +448,7 @@ items:
 - **breadcrumbs** - Navigation breadcrumbs
 - **branding** - Logo and branding element
 - **author-date** - Author and publication date display
+- **language-switcher** - Multi-language site navigation
 
 **UI Elements**:
 
@@ -453,7 +463,7 @@ The repository includes 4 comprehensive Mocha test suites validating the compone
 
 **Test Coverage**:
 
-- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 60 components
+- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 61 components
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination, and static assets
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata, and content consistency
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, manifest dependencies, and bundler integration
@@ -487,10 +497,24 @@ BASE_PATH=/subdirectory npm run build
 
 ### Related Projects
 
-- [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) - Foundation template using the same component paradigm
+**Starter Templates:**
+
+- [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) - Foundation template for Metalsmith
+- [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter) - Foundation template for Eleventy
+
+**Static Site Generators:**
+
 - [Metalsmith](https://www.metalsmith.io) - Pluggable static site generator
-- [metalsmith-bundled-components](https://www.npmjs.com/package/metalsmith-bundled-components) - Component dependency bundler plugin
-- [metalsmith-search](https://www.npmjs.com/package/metalsmith-search) - Build-time search index generator
+- [Eleventy](https://www.11ty.dev) - Simpler static site generator
+
+**Component Bundler Plugins:**
+
+- [metalsmith-bundled-components](https://www.npmjs.com/package/metalsmith-bundled-components) - Component dependency bundler for Metalsmith
+- [eleventy-plugin-components-bundler](https://www.npmjs.com/package/eleventy-plugin-components-bundler) - Component dependency bundler for Eleventy
+
+**Search Plugins:**
+
+- [metalsmith-search](https://www.npmjs.com/package/metalsmith-search) - Build-time search index generator for Metalsmith
 
 ### Developer Documentation
 
@@ -498,8 +522,9 @@ Additional technical documentation for developers is located in the [`docs/`](do
 
 - [Developer Guide](docs/DEVELOPER-GUIDE.md) - Best practices, patterns, and lessons learned
 - [Component Package Specification](docs/COMPONENT-PACKAGE-SPEC.md) - ZIP package structure and implementation
-- [Recurring Events Fix](docs/RECURRING-EVENTS-FIX.md) - Calendar component bug fix documentation
-- [Adding ZIP Packages](docs/adding-zip-packages.md) - Component packaging system implementation
+- [Context Requirements](docs/CONTEXT-REQUIREMENTS.md) - Component context patterns and data flow
+- [Code Highlighting](docs/CODE-HIGHLIGHTING.md) - Syntax highlighting configuration
+- [Image Grid Algorithm](docs/IMAGE-GRID-ALGORITHM.md) - Justified gallery layout algorithm
 
 ### Technical Documentation
 
@@ -514,10 +539,15 @@ The site includes detailed technical guides available at [nunjucks-components.co
 7. Theming Architecture
 8. Section Anatomy
 9. Building Structured Pages
-10. Getting Started with the Metalsmith2025 Starter
-11. Installing Nunjucks Components in Your Project
-12. Adding a Top Message Bar to Your Header
-13. Adding Smooth Page Transitions
+10. Getting Started with the Metalsmith Starter
+11. Getting Started with the Eleventy Starter
+12. Installing Nunjucks Components in Your Project
+13. Adding a Top Message Bar to Your Header
+14. Adding Smooth Page Transitions
+15. Adding a Dark/Light Theme Switcher
+16. Adding Header Search
+17. Building a Component from Scratch
+18. Building Multi-Language Sites
 
 Browse the complete [Component Library](https://nunjucks-components.com/library) for live examples and implementation details.
 
@@ -541,6 +571,11 @@ MIT License - see LICENSE file for details.
 
 - [Gitter Chat](https://gitter.im/metalsmith/community)
 - [GitHub Discussions](https://github.com/metalsmith/metalsmith/discussions)
+
+**Eleventy Community**:
+
+- [Discord](https://www.11ty.dev/blog/discord/)
+- [GitHub Discussions](https://github.com/11ty/eleventy/discussions)
 
 **Component Library**:
 
