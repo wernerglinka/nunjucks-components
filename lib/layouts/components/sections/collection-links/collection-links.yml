@@ -1,4 +1,5 @@
 - sectionType: collection-links
+  collectionName: 'blog'
   containerTag: section
   classes: ""
   id: ""

@@ -49,9 +49,9 @@ sections:
 
         ## How It Works
 
-        Unlike most section components, collection-links doesn't use frontmatter configuration for its content. Instead, it reads `previous` and `next` variables that are automatically populated by Metalsmith's collections plugin when processing collection items.
+        The component uses the `collectionName` property to determine which collection to navigate. This defaults to `'blog'` if not specified, making it backwards compatible while allowing use with any named collection.
 
-        The component only renders when a page has previous or next items available, making it safe to include in any collection item template.
+        It reads `previous` and `next` variables that are automatically populated by Metalsmith's collections plugin when processing collection items. The component only renders when a page has previous or next items available, making it safe to include in any collection item template.
 
         ## Live Example
 
@@ -87,6 +87,7 @@ sections:
 
         ```yaml
         - sectionType: collection-links
+          collectionName: 'blog'
           containerTag: section
           classes: ""
           id: ""
@@ -161,6 +162,7 @@ sections:
         | Property | Type | Required | Description |
         |----------|------|----------|-------------|
         | `sectionType` | string | Yes | Must be `collection-links` |
+        | `collectionName` | string | No | The name of the collection to navigate. Defaults to `'blog'` |
         | `isDisabled` | boolean | No | Set to `true` to hide the section |
         | `containerFields` | object | No | Standard container configuration |
 
