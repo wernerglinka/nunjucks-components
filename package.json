@@ -1,6 +1,6 @@
 {
   "name": "nunjucks-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A reference library for Metalsmith in 2025",
   "type": "module",
   "keywords": [
