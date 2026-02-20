@@ -141,7 +141,7 @@ Quick reference for creating a new component:
 - `package.json` - Dependencies, scripts, and project metadata (Node.js >=18.0.0 required)
 - `eslint.config.js` - ESLint configuration for JavaScript linting
 - `prettier.config.js` - Prettier formatting rules (excludes .njk files)
-- `plugins/generate-maps-icons.js` - Build-time icon registry generation for maps components
+- `lib/plugins/generate-maps-icons.js` - Build-time icon registry generation for maps components
 - `lib/plugins/component-package-generator.js` - Component packaging system (production-only)
 
 ### Content Structure
@@ -152,6 +152,7 @@ Quick reference for creating a new component:
   - `src/blog/` - Blog posts (18 articles)
   - `src/references/sections/` - Section component reference pages (38 files)
   - `src/references/partials/` - Partial component reference pages (22 files)
+  - `src/assets/` - Static images, audio, icons, and lotties (copied to build via Metalsmith's `statik` method)
 - `lib/data/` - Global JSON data files (site.json, author.json, socialLinks.json, languages.json, etc.)
   - `lib/data/maps/` - Map data JSON files
   - `lib/data/podcasts/` - Podcast RSS feed configurations
@@ -161,10 +162,10 @@ Quick reference for creating a new component:
   - `lib/layouts/components/sections/` - 38 section components
   - `lib/layouts/pages/` - Page templates (sections.njk, etc.)
   - `lib/layouts/icons/` - 299 Feather icon SVG templates
-- `lib/assets/` - Images, main CSS/JS entry points, and global styles
+- `lib/assets/` - CSS/JS entry points and styles (bundler inputs, not static files)
   - `main.css` - Main CSS entry point (processed through component bundler)
   - `main.js` - Main JavaScript entry point (bundled with esbuild)
-  - `styles/` - Design tokens and base styles
+  - `styles/` - Design tokens and base styles (imported by bundler)
 
 ### Build Output
 

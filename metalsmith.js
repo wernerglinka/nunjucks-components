@@ -13,7 +13,7 @@ import * as fs from 'node:fs'; // File system operations (read/write files)
 // The main Metalsmith library and plugins that transform your content
 import Metalsmith from 'metalsmith'; // The core static site generator
 import drafts from '@metalsmith/drafts'; // Excludes draft content from builds
-import generateMapsIcons from './plugins/generate-maps-icons.js'; // Generates maps icon registry
+import generateMapsIcons from './lib/plugins/generate-maps-icons.js'; // Generates maps icon registry
 import componentPackageGenerator from './lib/plugins/component-package-generator.js'; // Generates downloadable component packages
 import collections from '@metalsmith/collections';
 import paginatePages from 'metalsmith-sectioned-blog-pagination';
@@ -25,7 +25,7 @@ import safeLinks from 'metalsmith-safe-links';
 
 import componentDependencyBundler from 'metalsmith-bundled-components';
 
-import assets from 'metalsmith-static-files'; // Copies static assets to build
+// Static assets are now handled by Metalsmith's native statik() method
 import optimizeImages from 'metalsmith-optimize-images'; // Optimizes images for web
 import htmlMinifier from 'metalsmith-optimize-html'; // Minifies HTML in production
 
@@ -109,7 +109,9 @@ metalsmith
   .watch( isProduction ? false : [
     'src/**/*',
     'lib/layouts/**/*',
-    'lib/assets/**/*',
+    'lib/assets/main.css',
+    'lib/assets/main.js',
+    'lib/assets/styles/**/*',
     'lib/data/**/*',
     '!lib/layouts/components/sections/maps/modules/helpers/icon-loader.js' // Exclude generated file to prevent rebuild loops
   ] )
@@ -119,6 +121,8 @@ metalsmith
   .source( './src' )
   // Where to output the built site
   .destination( './build' )
+  // Static files in src/assets/ are copied without processing
+  .statik( [ 'assets' ] )
   .metadata( {
     msVersion: dependencies.metalsmith,
     nodeVersion: process.version
@@ -295,17 +299,7 @@ metalsmith
     } )
   )
 
-  /**
-   * Copy static assets to the build directory
-   * Learn more: https://github.com/wernerglinka/metalsmith-static-files
-   */
-  .use(
-    assets( {
-      source: 'lib/assets/', // Where to find assets
-      destination: 'assets/', // Where to copy assets
-      ignore: [ 'main.css', 'main.js', 'styles/' ] // Exclude files handled by bundled-components
-    } )
-  );
+;
 
 // These plugins only run in production mode to optimize the site
 if ( isProduction ) {

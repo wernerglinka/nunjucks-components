@@ -73,6 +73,7 @@ The build system implements several architectural patterns for optimal performan
 - **JSON Data Architecture**: External data files provide clean separation between content and configuration for maps, podcasts, blurbs, and collections
 - **Component Packaging**: Automated ZIP package generation during production builds with install scripts for easy distribution
 - **46 Nunjucks Filters**: Custom template filters across 8 categories (string, date, markdown, array, debug, validation, object)
+- **Static Asset Handling**: Uses Metalsmith 2.7.0's native `statik` method for pass-through copying of images, audio, icons, and lotties from `src/assets/` without loading them into memory. Bundler inputs (CSS/JS entry points) remain in `lib/assets/` for processing
 
 ## Using This Library
 
@@ -189,10 +190,14 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   ├── references/
 │   │   ├── sections/                      # Reference pages for 38 section components
 │   │   └── partials/                      # Reference pages for 21 partial components
-│   └── partials.md                        # Partials index page
+│   ├── partials.md                        # Partials index page
+│   └── assets/                            # Static assets (copied via Metalsmith statik)
+│       ├── images/                        # Static images
+│       ├── audio/                         # Audio files
+│       ├── icons/                         # Icon files (favicon, etc.)
+│       └── lotties/                       # Lottie animation JSON files
 ├── lib/
-│   ├── assets/
-│   │   ├── images/                        # Static images
+│   ├── assets/                            # Bundler inputs only (not static files)
 │   │   ├── main.css                       # Main CSS entry point (processed by bundler)
 │   │   ├── main.js                        # Main JS entry point (bundled with esbuild)
 │   │   └── styles/                        # Design tokens and base styles
@@ -218,16 +223,15 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   │   │               └── helpers/       # Utilities & icon loader
 │   │   ├── icons/                         # 299 Feather icon SVG templates
 │   │   └── pages/                         # Page layout templates
-│   └── plugins/
-│       └── component-package-generator.js # Production-only ZIP packaging
+│   └── plugins/                           # Build-time Metalsmith plugins
+│       ├── component-package-generator.js # Production-only ZIP packaging
+│       └── generate-maps-icons.js         # Build-time icon registry generator
 ├── nunjucks-filters/                      # 46 custom template filters in 8 categories
 │   ├── index.js                           # Filter exports
 │   ├── string-filters.js, date-filters.js
 │   ├── markdown-filter.js, array-filters.js
 │   ├── debug-filters.js, validation-filters.js
 │   └── object-filters.js
-├── plugins/
-│   └── generate-maps-icons.js             # Build-time icon registry generator
 ├── test/                                  # 4 comprehensive Mocha test suites
 │   ├── component-manifests.test.js        # Validates all 59 component manifests
 │   ├── build-integration.test.js          # Tests build pipeline and HTML output
@@ -525,6 +529,7 @@ Additional technical documentation for developers is located in the [`docs/`](do
 - [Context Requirements](docs/CONTEXT-REQUIREMENTS.md) - Component context patterns and data flow
 - [Code Highlighting](docs/CODE-HIGHLIGHTING.md) - Syntax highlighting configuration
 - [Image Grid Algorithm](docs/IMAGE-GRID-ALGORITHM.md) - Justified gallery layout algorithm
+- [Metalsmith 2.7.0 Migration](MIGRATION-MS2.7.md) - Migration from Metalsmith 2.6.3 to 2.7.0, including lessons learned about the new `statik` method and `clean(true)` behavior changes
 
 ### Technical Documentation
 

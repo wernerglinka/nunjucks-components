@@ -25,7 +25,7 @@ import Metalsmith from 'metalsmith';
 import drafts from '@metalsmith/drafts';
 import collections from '@metalsmith/collections';
 import permalinks from '@metalsmith/permalinks';
-import assets from 'metalsmith-static-files';
+// Static assets are now handled by Metalsmith's native statik() method
 
 /**
  * Current directory path for test file location
@@ -284,16 +284,18 @@ describe('Build Integration', () => {
      * Test static asset copying
      *
      * Functional Purpose:
-     * - Validates that static assets are copied from lib/assets to build/assets
+     * - Validates that static assets are copied from src/assets to build/assets
      * - Ensures the asset directory structure is preserved
-     * - Tests that essential files like global CSS and images are available
+     * - Tests that essential files like images are available
      *
      * What it tests:
-     * - Assets plugin configuration and execution
+     * - Metalsmith statik() method configuration and execution
      * - Source to destination directory mapping
      * - File copying process completion
      * - Directory structure preservation
      * - Specific file existence validation
+     *
+     * Note: main.css is now handled by the component bundler, not static copy
      *
      * @param {Function} done - Mocha callback for async test completion
      */
@@ -302,20 +304,14 @@ describe('Build Integration', () => {
         .clean(false)
         .source('./src')
         .destination(testBuildDir)
-        .use(drafts(false))
-        .use(
-          assets({
-            source: 'lib/assets/',
-            destination: 'assets/'
-          })
-        );
+        .statik(['assets'])  // Use native statik method
+        .use(drafts(false));
 
       metalsmith.build((err) => {
         assert.ok(!err, `Build should complete without errors: ${err ? err.message : ''}`);
 
         // Check that assets were copied
         assert.ok(existsSync(join(testBuildDir, 'assets')), 'Assets directory should be created');
-        assert.ok(existsSync(join(testBuildDir, 'assets/main.css')), 'Main CSS should be copied');
         assert.ok(existsSync(join(testBuildDir, 'assets/images')), 'Images directory should be copied');
 
         done();

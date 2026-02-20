@@ -1,6 +1,6 @@
 {
   "name": "nunjucks-components",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A reference library for Metalsmith in 2025",
   "type": "module",
   "keywords": [
@@ -64,7 +64,7 @@
     "jstransformer-nunjucks": "^1.2.0",
     "marked": "^17.0.3",
     "marked-highlight": "^2.2.3",
-    "metalsmith": "^2.6.3",
+    "metalsmith": "^2.7.0",
     "metalsmith-blog-lists": "^2.1.1",
     "metalsmith-bundled-components": "^0.6.0",
     "metalsmith-menu-plus": "^0.3.0",
@@ -76,7 +76,6 @@
     "metalsmith-seo": "^0.4.0",
     "metalsmith-simple-pagination": "^0.1.0",
     "metalsmith-sitemap": "^1.2.2",
-    "metalsmith-static-files": "^2.0.0",
     "metalsmith-unified-markdown": "^0.0.4",
     "npm-check-updates": "^19.4.1",
     "postcss": "^8.5.6",
