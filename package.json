@@ -64,7 +64,7 @@
     "jstransformer-nunjucks": "^1.2.0",
     "marked": "^17.0.3",
     "marked-highlight": "^2.2.3",
-    "metalsmith": "^2.7.0",
+    "metalsmith": "^2.6.3",
     "metalsmith-blog-lists": "^2.1.1",
     "metalsmith-bundled-components": "^0.6.0",
     "metalsmith-menu-plus": "^0.3.0",
