@@ -4,9 +4,7 @@
 <div class="content container">
   {% if section.text %}
     <div class="text flow">
-      {% if section.text %}
-        {{ text(section.text)}}
-      {% endif %}
+      {{ text(section.text)}}
       {% if section.ctas | hasCtas %}
         {{ ctas(section.ctas) }}
       {% endif %}

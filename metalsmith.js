@@ -14,7 +14,7 @@ import * as fs from 'node:fs'; // File system operations (read/write files)
 import Metalsmith from 'metalsmith'; // The core static site generator
 import drafts from '@metalsmith/drafts'; // Excludes draft content from builds
 import generateMapsIcons from './lib/plugins/generate-maps-icons.js'; // Generates maps icon registry
-import componentPackageGenerator from './lib/plugins/component-package-generator.js'; // Generates downloadable component packages
+import componentPackageGenerator from './lib/plugins/component-package-generator/index.js'; // Generates downloadable component packages
 import collections from '@metalsmith/collections';
 import paginatePages from 'metalsmith-sectioned-blog-pagination';
 import search from 'metalsmith-search'; // Adds search functionality

@@ -224,7 +224,11 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   │   ├── icons/                         # 299 Feather icon SVG templates
 │   │   └── pages/                         # Page layout templates
 │   └── plugins/                           # Build-time Metalsmith plugins
-│       ├── component-package-generator.js # Production-only ZIP packaging
+│       ├── component-package-generator/   # Production-only ZIP packaging (modular)
+│       │   ├── index.js                   # Main plugin orchestration
+│       │   ├── scanner.js                 # Component discovery
+│       │   ├── packager.js                # ZIP archive creation
+│       │   └── ...                        # Additional modules
 │       └── generate-maps-icons.js         # Build-time icon registry generator
 ├── nunjucks-filters/                      # 46 custom template filters in 8 categories
 │   ├── index.js                           # Filter exports

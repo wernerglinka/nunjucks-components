@@ -36,6 +36,7 @@ npm run build
 - `npm run start:debug` - Start development server with debug output for all @metalsmith\* plugins
 - `npm run build` - Create production build in `build/` directory
 - `npm run build:debug` - Production build with debug output for metalsmith-optimize-html
+- `npm run build:verify` - Run production build without post-processing (tests production plugins)
 - `npm run serve` - Serve the build directory with Browser-Sync
 
 ### Code Quality & Testing
@@ -142,7 +143,7 @@ Quick reference for creating a new component:
 - `eslint.config.js` - ESLint configuration for JavaScript linting
 - `prettier.config.js` - Prettier formatting rules (excludes .njk files)
 - `lib/plugins/generate-maps-icons.js` - Build-time icon registry generation for maps components
-- `lib/plugins/component-package-generator.js` - Component packaging system (production-only)
+- `lib/plugins/component-package-generator/` - Component packaging system (production-only, modular)
 
 ### Content Structure
 

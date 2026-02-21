@@ -146,7 +146,7 @@ describe('Component Dependency Bundler Setup', () => {
       }
 
       // We expect some components to have CSS
-      assert.ok(foundCssFiles >= 0, 'Some components should have CSS files');
+      assert.ok(foundCssFiles > 0, 'Some components should have CSS files');
     });
 
     it('should have JavaScript files for interactive components', () => {
@@ -166,8 +166,8 @@ describe('Component Dependency Bundler Setup', () => {
         }
       }
 
-      // JS files are optional, so we just check they're valid if they exist
-      assert.ok(foundJsFiles >= 0, 'JavaScript files should be valid when present');
+      // Interactive components should have JS files
+      assert.ok(foundJsFiles > 0, 'Some components should have JavaScript files');
     });
 
     /**

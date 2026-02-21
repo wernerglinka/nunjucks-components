@@ -194,6 +194,122 @@ describe('Component Manifests', () => {
   });
 
   /**
+   * Manifest Field Validation Test Suite
+   *
+   * Tests that manifest fields contain correct values, not just valid JSON.
+   * Catches typos, misconfigurations, and inconsistencies early.
+   */
+  describe('Manifest Field Validation', () => {
+    const partialsDir = join(componentsDir, '_partials');
+    const sectionsDir = join(componentsDir, 'sections');
+
+    /**
+     * Test manifest name matches directory name
+     *
+     * Functional Purpose:
+     * - Ensures manifest.name field matches the component directory name
+     * - Catches copy-paste errors when creating new components
+     * - Validates naming consistency across the component system
+     */
+    it('should have manifest name matching directory name', () => {
+      const allDirs = [
+        ...getComponentDirs(partialsDir),
+        ...getComponentDirs(sectionsDir)
+      ];
+
+      for (const dir of allDirs) {
+        const dirName = dir.split('/').pop();
+        const manifestPath = join(dir, 'manifest.json');
+        const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+
+        assert.strictEqual(
+          manifest.name,
+          dirName,
+          `Manifest name "${manifest.name}" should match directory name "${dirName}"`
+        );
+      }
+    });
+
+    /**
+     * Test manifest type is valid
+     *
+     * Functional Purpose:
+     * - Validates manifest.type is a recognized type
+     * - Ensures type matches the component's location
+     * - Catches misconfigured components
+     *
+     * Valid types:
+     * - "partial" for _partials directory
+     * - "section" or "aside" for sections directory (aside for sidebar components)
+     */
+    it('should have correct manifest type for component location', () => {
+      // Check partials have type "partial"
+      const partialDirs = getComponentDirs(partialsDir);
+      for (const dir of partialDirs) {
+        const dirName = dir.split('/').pop();
+        const manifestPath = join(dir, 'manifest.json');
+        const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+
+        assert.strictEqual(
+          manifest.type,
+          'partial',
+          `Partial component "${dirName}" should have type "partial", got "${manifest.type}"`
+        );
+      }
+
+      // Check sections have type "section" or "aside"
+      const validSectionTypes = ['section', 'aside'];
+      const sectionDirs = getComponentDirs(sectionsDir);
+      for (const dir of sectionDirs) {
+        const dirName = dir.split('/').pop();
+        const manifestPath = join(dir, 'manifest.json');
+        const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+
+        assert.ok(
+          validSectionTypes.includes(manifest.type),
+          `Section component "${dirName}" should have type "section" or "aside", got "${manifest.type}"`
+        );
+      }
+    });
+
+    /**
+     * Test requires field references existing components
+     *
+     * Functional Purpose:
+     * - Validates that all dependencies in requires[] actually exist
+     * - Catches typos in component dependency names
+     * - Ensures the dependency graph is valid
+     */
+    it('should only reference existing components in requires', () => {
+      // Build list of all valid component names
+      const partialNames = getComponentDirs(partialsDir).map((dir) => dir.split('/').pop());
+      const sectionNames = getComponentDirs(sectionsDir).map((dir) => dir.split('/').pop());
+      const allComponentNames = new Set([...partialNames, ...sectionNames]);
+
+      // Check all components' requires fields
+      const allDirs = [
+        ...getComponentDirs(partialsDir),
+        ...getComponentDirs(sectionsDir)
+      ];
+
+      for (const dir of allDirs) {
+        const dirName = dir.split('/').pop();
+        const manifestPath = join(dir, 'manifest.json');
+        const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+
+        if (manifest.requires && Array.isArray(manifest.requires)) {
+          for (const dep of manifest.requires) {
+            assert.ok(
+              allComponentNames.has(dep),
+              `Component "${dirName}" requires non-existent component "${dep}"`
+            );
+          }
+        }
+      }
+    });
+  });
+
+  /**
    * Component Files Test Suite
    *
    * Tests the correspondence between component manifests and their template files.
