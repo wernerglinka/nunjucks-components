@@ -227,7 +227,7 @@ sections:
 
         Open `lib/layouts/components/sections/header/header.njk`. Currently it looks something like this:
 
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
         {% from "components/_partials/navigation/navigation.njk" import navigation %}
 
@@ -245,7 +245,7 @@ sections:
 
         Add the search toggle button and overlay form:
 
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
         {% from "components/_partials/navigation/navigation.njk" import navigation %}
 

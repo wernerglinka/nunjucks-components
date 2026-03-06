@@ -239,7 +239,7 @@ sections:
         - `alt`: Alternative text for accessibility
         - `caption`: Optional descriptive text
 
-        ```liquid
+        ```html
         {% from "components/_partials/ctas/ctas.njk" import ctas %}
         {% from "components/_partials/text/text.njk" import text %}
         {% from "components/_partials/image/image.njk" import image %}

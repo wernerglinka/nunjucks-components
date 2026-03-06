@@ -104,7 +104,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/icon/icon.njk" import icon %}
 
         {# Standalone icon #}

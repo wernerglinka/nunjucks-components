@@ -79,7 +79,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/breadcrumbs/breadcrumbs.njk" import breadcrumbs %}
 
         {{ breadcrumbs(navigation.breadcrumbs) }}

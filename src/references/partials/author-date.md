@@ -112,7 +112,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/author-date/author-date.njk" import authorDate %}
 
         {{ authorDate({ date: section.date, author: section.author }) }}

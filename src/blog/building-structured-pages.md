@@ -119,7 +119,7 @@ sections:
 
         Here's how the sections template processes your configuration:
 
-        ```liquid
+        ```html
         {% for section in sections %}
           {% if not section.isDisabled %}
             <{{ section.containerTag }} id="{{ section.id }}" {{ buildContainerAttributes(section) }}>
@@ -141,7 +141,7 @@ sections:
 
         The magic happens in the `renderSection` macro. This helper function dynamically loads and executes the appropriate component template based on the `sectionType` property. Since Nunjucks doesn't support dynamic macro invocation, the system uses template includes with a composed path:
 
-        ```liquid
+        ```html
         {% include "../sections/" + section.sectionType + "/" + section.sectionType + ".njk" %}
         ```
 
@@ -167,7 +167,7 @@ sections:
         #### Component Templates Using Macros
         Component templates import and compose these partials to create complete sections. Here's how a typical component template structures itself:
 
-        ```liquid
+        ```html
         {% from "components/_partials/ctas/ctas.njk" import ctas %}
         {% from "components/_partials/text/text.njk" import text %}
         {% from "components/_partials/image/image.njk" import image %}
@@ -288,7 +288,7 @@ sections:
 
         **Output YAML properties**: Add YAML properties in your templates to output debugging information during development:
 
-        ```liquid
+        ```html
         <pre>
           {{ section.sectionType }}
         </pre>

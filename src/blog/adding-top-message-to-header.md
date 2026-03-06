@@ -141,7 +141,7 @@ sections:
 
         Wrap your header in a container div and add the top message markup:
 
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
         {% from "components/_partials/navigation/navigation.njk" import navigation %}
 

@@ -163,7 +163,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/button/button.njk" import button %}
 
         {{ button(cta) }}

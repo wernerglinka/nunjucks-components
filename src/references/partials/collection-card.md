@@ -88,7 +88,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/collection-card/collection-card.njk" import collectionCard %}
 
         <ul class="collection-list">

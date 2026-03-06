@@ -79,7 +79,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
           {% from "components/_partials/collection-pagination/collection-pagination.njk" import collectionPagination %}
 
           {% set params = section.pagingParams %}

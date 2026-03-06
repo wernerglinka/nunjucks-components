@@ -84,7 +84,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
 
         {% set link = '/' %}

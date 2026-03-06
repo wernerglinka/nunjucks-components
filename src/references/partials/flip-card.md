@@ -147,7 +147,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/flip-card/flip-card.njk" import flipCard %}
 
         <ul class="flip-cards-list">

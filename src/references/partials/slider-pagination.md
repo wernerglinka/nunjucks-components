@@ -82,7 +82,7 @@ sections:
       title: 'Usage in Templates'
       titleTag: 'h2'
       prose: |
-        ```liquid
+        ```html
         {% from "components/_partials/slider-pagination/slider-pagination.njk" import sliderPagination %}
 
         {{ sliderPagination(section.slides, section.isTabs) }}

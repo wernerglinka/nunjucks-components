@@ -264,7 +264,7 @@ sections:
         All data files are accessible via the `data` object in templates. The path matches the file structure:
 
         **Top-level files:**
-        ```liquid
+        ```html
         {# Access lib/data/site.json #}
         {{ data.site.title }}
 
@@ -273,7 +273,7 @@ sections:
         ```
 
         **Subdirectory files:**
-        ```liquid
+        ```html
         {# Access lib/data/maps/london-landmarks.json #}
         {{ data.maps['london-landmarks'].latitude }}
 
@@ -394,7 +394,7 @@ sections:
         ```
 
         **Component template** (`logos-list.njk`):
-        ```liquid
+        ```html
         {# Load all items from data source #}
         {% if section.logos.scope === "all" %}
           {% set logosList = data[section.logos.source] %}
@@ -476,7 +476,7 @@ sections:
         ```
 
         **Component template:**
-        ```liquid
+        ```html
         {# Filter data by selection IDs #}
         {% if section.logos.scope === "selections" %}
           {% set logosList = data[section.logos.source] |
@@ -590,7 +590,7 @@ sections:
         ```
 
         **2. Load data in the component:**
-        ```liquid
+        ```html
         {% if section.items.scope === "all" %}
           {% set itemsList = data[section.items.source] %}
         {% endif %}
@@ -602,7 +602,7 @@ sections:
         ```
 
         **3. Render the data:**
-        ```liquid
+        ```html
         {% for item in itemsList %}
           {# Render item #}
         {% endfor %}
@@ -658,7 +658,7 @@ sections:
         ```
 
         **Template access:**
-        ```liquid
+        ```html
         {# Top-level properties #}
         {{ data.podcasts['show-1'].metadata.title }}
 
@@ -747,13 +747,13 @@ sections:
         When data doesn't appear as expected, use these debugging techniques:
 
         **1. Check the data object structure:**
-        ```liquid
+        ```html
         {# Add to your template temporarily #}
         <pre>{{ data | dump }}</pre>
         ```
 
         **2. Verify file loading:**
-        ```liquid
+        ```html
         {# Check if specific data exists #}
         {% if data.maps %}
           Maps data loaded: {{ data.maps | keys }}
@@ -763,7 +763,7 @@ sections:
         ```
 
         **3. Inspect array contents:**
-        ```liquid
+        ```html
         {# Show what's in an array #}
         Data count: {{ data.awards | length }}
         First item: {{ data.awards[0] | dump }}

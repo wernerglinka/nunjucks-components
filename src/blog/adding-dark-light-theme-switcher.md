@@ -201,7 +201,7 @@ sections:
 
         Open your header template at `lib/layouts/components/sections/header/header.njk`. It will look something like this:
 
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
         {% from "components/_partials/navigation/navigation.njk" import navigation %}
 
@@ -219,7 +219,7 @@ sections:
 
         Include the theme switcher partial in your header markup. Then add the theme switcher macro in a new div with class `misc`
 
-        ```liquid
+        ```html
         {% from "components/_partials/branding/branding.njk" import branding %}
         {% from "components/_partials/navigation/navigation.njk" import navigation %}
         {% from "components/_partials/dark-light-theme-switcher/dark-light-theme-switcher.njk" import darkLightThemeSwitcher %}
