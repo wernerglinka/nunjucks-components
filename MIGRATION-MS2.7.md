@@ -309,3 +309,54 @@ Adding console.log statements at key points in the component-package-generator r
 ### 6. Always verify the actual behavior, not just the documentation
 
 The fix required reading the Metalsmith 2.7.0 source code to understand the actual build order. The GitHub release notes and changelog provided useful context but didn't fully explain the implications for plugins that write directly to disk.
+
+---
+
+## Revert: Rolled Back to Metalsmith 2.6.3
+
+**Date:** March 5, 2026
+**Commits:** `e6d6685` (revert to 2.6.3), follow-up fix to move assets back
+
+### Why the revert was necessary
+
+Metalsmith 2.7.0 ships chokidar 4.0.3, which dropped glob pattern support. This caused `.watch()` to silently ignore glob paths like `src/**/*` and `lib/layouts/**/*`, resulting in watch mode detecting zero file changes. Rebuilds with `.clean(true)` also failed with `ENOTEMPTY` because Metalsmith tried to remove the build directory while Browser-Sync was serving from it — a timing issue that didn't occur with chokidar 3.
+
+Filed upstream: https://github.com/metalsmith/metalsmith/issues/412
+
+### What was reverted
+
+The initial revert (`e6d6685`) restored `metalsmith.js` and `package.json` to use Metalsmith 2.6.3 with `metalsmith-static-files`, but it did **not** move the static assets back from `src/assets/` to `lib/assets/`. This left the project in an inconsistent state: the assets were in `src/assets/` (where the 2.7 `statik` method expected them), but the build was using `metalsmith-static-files` (which copies from `lib/assets/`).
+
+The assets still appeared in the build because Metalsmith's source pipeline processed everything under `src/`, but this had two side effects:
+
+1. **Phantom "assets" menu item:** Since `src/assets/` was inside the source directory, Metalsmith treated it as content, which created a navigation entry for `/assets/` that returned a 404 when clicked.
+2. **Inefficient processing:** Static files (images, audio, lotties) were loaded into memory and passed through the full plugin pipeline instead of being simply copied.
+
+### What was fixed in the follow-up
+
+The follow-up commit completed the revert by moving all static assets back to their original location:
+
+```
+src/assets/images/      → lib/assets/images/
+src/assets/audio/       → lib/assets/audio/
+src/assets/icons/       → lib/assets/icons/
+src/assets/lotties/     → lib/assets/lotties/
+src/assets/awards/      → lib/assets/awards/
+src/assets/wg-logo.svg  → lib/assets/wg-logo.svg
+```
+
+The `src/assets/` directory was removed entirely. The `metalsmith-static-files` plugin config in `metalsmith.js` already handled copying from `lib/assets/` with the correct ignore list for bundler inputs.
+
+The asset handling test in `test/build-integration.test.js` was also updated — it was still using the 2.7 `statik()` method and needed to use `metalsmith-static-files` instead.
+
+### Checklist for the next 2.7 migration attempt
+
+When Metalsmith 2.7 resolves the chokidar/watch issues upstream, re-attempt this migration with these reminders:
+
+- [ ] Verify chokidar glob pattern support is restored (or Metalsmith provides an alternative)
+- [ ] Verify `.clean(true)` doesn't race with Browser-Sync in watch mode
+- [ ] Move static assets from `lib/assets/` to `src/assets/` (Phase 1 above)
+- [ ] Update the asset handling test to use `statik()` instead of `metalsmith-static-files`
+- [ ] Update the `component-package-generator` plugin to add files to the Metalsmith `files` object (see "Additional Fix" section above)
+- [ ] Test watch mode thoroughly — the silent failure is easy to miss
+- [ ] Run a full production build and verify downloads are generated

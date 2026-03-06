@@ -219,7 +219,7 @@ metalsmith
     menus( {
       metadataKey: 'mainMenu', // Where to store menu data
       usePermalinks: true, // Use clean URLs in menu
-      navExcludePatterns: [ '404.html', 'robots.txt', 'search-index.json' ] // Files to exclude from menu
+      navExcludePatterns: [ '404.html', 'robots.txt', 'search-index.json', 'assets/**.*' ] // Files to exclude from menu
     } )
   )
 

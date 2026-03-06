@@ -25,7 +25,7 @@ import Metalsmith from 'metalsmith';
 import drafts from '@metalsmith/drafts';
 import collections from '@metalsmith/collections';
 import permalinks from '@metalsmith/permalinks';
-// Static assets are now handled by Metalsmith's native statik() method
+import assets from 'metalsmith-static-files';
 
 /**
  * Current directory path for test file location
@@ -289,7 +289,7 @@ describe('Build Integration', () => {
      * - Tests that essential files like images are available
      *
      * What it tests:
-     * - Metalsmith statik() method configuration and execution
+     * - metalsmith-static-files plugin configuration and execution
      * - Source to destination directory mapping
      * - File copying process completion
      * - Directory structure preservation
@@ -304,7 +304,11 @@ describe('Build Integration', () => {
         .clean(false)
         .source('./src')
         .destination(testBuildDir)
-        .statik(['assets'])  // Use native statik method
+        .use(assets({
+          source: 'lib/assets/',
+          destination: 'assets/',
+          ignore: ['main.css', 'main.js', 'styles/']
+        }))
         .use(drafts(false));
 
       metalsmith.build((err) => {
