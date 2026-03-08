@@ -14,7 +14,7 @@ card:
   tags: ['link', 'text', 'external', 'navigation', 'cta']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -66,7 +66,7 @@ sections:
         | `label` | string | Yes | Link text content |
         | `isButton` | boolean | Yes | Must be `false` |
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -88,7 +88,7 @@ sections:
         label: 'External Text Link'
         isButton: false
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -118,7 +118,7 @@ sections:
         {% endfor %}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

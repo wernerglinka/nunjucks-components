@@ -1,6 +1,10 @@
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import Prism from 'prismjs';
+import imageWithClass from '@wernerglinka/marked-image-with-class';
+import linkWithClass from '@wernerglinka/marked-link-with-class';
+import directiveBlock from '@wernerglinka/marked-directive-block';
+import paragraphWithClass from '@wernerglinka/marked-paragraph-with-class';
 
 // Load language components for the languages you need
 import 'prismjs/components/prism-javascript.js';
@@ -13,7 +17,11 @@ import 'prismjs/components/prism-yaml.js';
 import 'prismjs/components/prism-markdown.js';
 
 /**
- * Configured marked instance with syntax highlighting
+ * Configured marked instance with syntax highlighting and content extensions
+ *
+ * Extensions add Pandoc-style attribute syntax for images, links, and paragraphs,
+ * plus triple-colon directive blocks for CTAs, audio, video, quotes, figures,
+ * asides, and collapsible details.
  */
 const markedInstance = new Marked(
   markedHighlight( {
@@ -39,6 +47,15 @@ const renderer = {
 };
 
 markedInstance.use( { renderer } );
+
+markedInstance.use( {
+  extensions: [
+    paragraphWithClass(),
+    imageWithClass(),
+    linkWithClass(),
+    directiveBlock()
+  ]
+} );
 
 /**
  * Converts markdown string to HTML with syntax highlighting

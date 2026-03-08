@@ -61,7 +61,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -99,7 +99,7 @@ sections:
 
         Best of all, SWUP is entirely progressive enhancement. If JavaScript fails to load or a user has it disabled, your site works exactly as it always did with traditional navigation.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -137,7 +137,7 @@ sections:
 
         The key insight is that SWUP only replaces content inside designated containers. Elements outside these containers (like your header, footer, and navigation) remain untouched, providing visual continuity during transitions.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -176,7 +176,7 @@ sections:
         - **@swup/scroll-plugin**: Handles scroll position and smooth scrolling to anchors
         - **@swup/preload-plugin**: Prefetches pages on link hover for instant navigation
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -234,7 +234,7 @@ sections:
         - Everything outside `#swup` persists across page transitions
         - The breadcrumbs, if you have them, should be inside the SWUP container since they change per page
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -394,7 +394,7 @@ sections:
 
         **Important timing note:** We use the `visit:end` hook rather than `page:view` because `visit:end` fires after the transition animation completes. This ensures the new DOM content is fully rendered before components try to initialize.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -452,7 +452,7 @@ sections:
 
         You can create more elaborate transitions (slide, scale, etc.) by targeting different animation classes. The `animationSelector` option in SWUP config determines which elements receive animation classes.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -486,7 +486,7 @@ sections:
 
         Components outside the SWUP container (header, footer, navigation) don't need to register because they're never replaced.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -556,7 +556,7 @@ sections:
         2. **Conditional registration**: `if (window.PageTransitions)` ensures backwards compatibility - the component works identically without SWUP
         3. **Immediate initialization check**: The `document.readyState` check handles cases where the script loads after DOM is ready
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -615,7 +615,7 @@ sections:
 
         This approach is simpler than deferring registration - the registry exists from the start, so all components can register immediately without timing concerns.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -714,7 +714,7 @@ sections:
         - Audio/video continuing to play after navigation
         - Performance degradation over time
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -835,7 +835,7 @@ sections:
 
         The key refactor was extracting all the initialization logic from inline `DOMContentLoaded` callbacks into named functions, then calling them from a single `initMain()` function.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -901,7 +901,7 @@ sections:
 
         The `preloadHoveredLinks` option is the magic that makes navigation feel instant. When users hover over a link, the target page starts loading immediately.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -959,7 +959,7 @@ sections:
 
         Without `ignoreVisit`, clicking a download button throws an error because SWUP fetches the file, can't find the `#swup` container in the binary content, and fails. With this configuration, download links work exactly as expected while page navigation remains smooth.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -1017,7 +1017,7 @@ sections:
         });
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -1104,7 +1104,7 @@ sections:
 
         The `with-sidebar` class on the body element is what the layout detection checks for.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -1157,7 +1157,7 @@ sections:
         - Remove SWUP later without breaking anything
         - Use the same components in projects with or without SWUP
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -1214,7 +1214,7 @@ sections:
         window.swup.navigate('/some-page/');
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -1276,7 +1276,7 @@ sections:
         - Verify no console errors during navigation
         - Check for memory leaks with DevTools
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

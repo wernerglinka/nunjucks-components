@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith hero slider, carousel hero, slideshow hero, hero carousel, multi-slide hero, hero with transitions, autoplay hero'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -266,7 +266,7 @@ sections:
             alt: 'Vimeo background video for hero slider'
           imageScreen: 'dark'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

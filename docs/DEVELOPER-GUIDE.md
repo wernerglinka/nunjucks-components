@@ -97,13 +97,13 @@ card:
   description: 'Description for search results and cards'
   tags: ['relevant', 'search', 'tags']
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     text:
       title: 'Component Name'
       prose: |
         Overview of what this component does and when to use it.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     text:
       title: 'Usage'
       prose: |
@@ -113,7 +113,7 @@ sections:
         {{ componentName(data) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     text:
       title: 'Configuration'
       prose: |
@@ -122,7 +122,7 @@ sections:
   - sectionType: component-name
     # Live example
 
-  - sectionType: text-only
+  - sectionType: rich-text
     text:
       title: 'Integration Notes'
       prose: |

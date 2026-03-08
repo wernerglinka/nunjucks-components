@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith banner, CTA section, call-to-action component, banner with background image, promotional banner, static site components'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -81,7 +81,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

@@ -14,7 +14,7 @@ card:
   tags: ['overlay', 'modal', 'background', 'css', 'transition']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -46,7 +46,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

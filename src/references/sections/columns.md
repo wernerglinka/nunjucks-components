@@ -22,7 +22,7 @@ seo:
   keywords: 'nunjucks columns section, metalsmith, eleventy, multi-column layout, flexible layouts, custom sections, column blocks, image gallery component, composable layouts'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -47,7 +47,7 @@ sections:
       prose: |-
         A flexible multi-column section that allows custom layouts by composing different content blocks. Each column can contain multiple blocks.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'first-section'
@@ -124,7 +124,7 @@ sections:
                 isButton: true
                 buttonStyle: 'button'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'first-section'
@@ -200,7 +200,7 @@ sections:
               alt: 'sample image 9'
               caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

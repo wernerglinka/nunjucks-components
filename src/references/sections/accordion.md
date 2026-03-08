@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith accordion, FAQ component, collapsible content, accordion section, FAQ accordion, expandable panels, question answer component'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -153,7 +153,7 @@ sections:
     hasCenteredContent: false
     ctas: []
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -240,7 +240,7 @@ sections:
         - Hover and focus states for accessibility
         - Customizable through CSS variables
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

@@ -14,7 +14,7 @@ card:
   tags: ['text', 'content', 'typography', 'headlines', 'prose', 'markdown']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -68,7 +68,7 @@ sections:
         | `subTitle` | string | No | - | Supporting text below title |
         | `prose` | string | No | - | Main content with markdown support |
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -83,7 +83,7 @@ sections:
       titleTag: 'h2'
       prose: 'Below are examples of the text partial with different configurations:'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: 'has-demo-background'
     containerFields:
@@ -108,7 +108,7 @@ sections:
         - Multiple items
         - Clean formatting
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: 'has-demo-background'
     containerFields:
@@ -128,7 +128,7 @@ sections:
 
         The partial gracefully handles missing properties without rendering empty elements.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

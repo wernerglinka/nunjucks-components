@@ -14,7 +14,7 @@ card:
   tags: ['button', 'cta', 'action', 'link', 'ui']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -71,7 +71,7 @@ sections:
         | `buttonStyle` | string | No | 'primary' | Visual style: 'primary', 'secondary', 'tertiary' |
         | `isSmall` | boolean | No | false | Render as small button |
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -108,7 +108,7 @@ sections:
         isButton: true
         buttonStyle: 'tertiary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -148,7 +148,7 @@ sections:
         buttonStyle: 'tertiary'
         isSmall: true
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -169,7 +169,7 @@ sections:
         {{ button(cta) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

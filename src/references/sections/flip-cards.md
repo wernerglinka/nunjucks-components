@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith flip cards, interactive cards, card UI component, flip animation, card interface, hover cards, two-sided cards'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: 'first-section'
     isDisabled: false
@@ -162,7 +162,7 @@ sections:
               isButton: true
               buttonStyle: 'primary small'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

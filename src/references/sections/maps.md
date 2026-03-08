@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith maps, leaflet maps, openlayers maps, interactive maps, custom markers, maps component, map integration'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -52,7 +52,7 @@ sections:
         isButton: true
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -117,7 +117,7 @@ sections:
     mapData: 'london-landmarks'
     height: '300px'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -181,7 +181,7 @@ sections:
     mapProvider: 'openlayers'
     mapData: 'paris-monuments'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -248,7 +248,7 @@ sections:
 
         If no icon is specified, the default red location pin marker is used.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -323,7 +323,7 @@ sections:
         isButton: true
         buttonStyle: 'secondary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -406,7 +406,7 @@ sections:
 
         When clustering is enabled, markers within the specified radius are grouped together and displayed as numbered cluster markers. Clicking a cluster will zoom in to reveal individual markers, or expand the cluster if at maximum zoom level.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

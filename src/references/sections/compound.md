@@ -83,7 +83,7 @@ sections:
         image: ''
         imageScreen: 'none'
     compoundSections:
-      - sectionType: text-only
+      - sectionType: rich-text
         isDisabled: false
         containerTag: section
         text:
@@ -100,7 +100,7 @@ sections:
             isButton: true
             buttonStyle: 'primary'
 
-      - sectionType: text-only
+      - sectionType: rich-text
         isDisabled: false
         containerTag: aside
         text:
@@ -117,7 +117,7 @@ sections:
             isButton: true
             buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -143,11 +143,11 @@ sections:
         ```yaml
         - sectionType: compound
           compoundSections:
-            - sectionType: text-only
+            - sectionType: rich-text
               text:
                 title: 'First Section'
                 prose: 'Content for first section'
-            - sectionType: text-only
+            - sectionType: rich-text
               text:
                 title: 'Second Section'
                 prose: 'Content for second section'
@@ -167,7 +167,7 @@ sections:
 
         | Property | Type | Required | Description |
         |----------|------|----------|-------------|
-        | `sectionType` | string | Yes | Type of section ('text-only', 'media-image', etc.) |
+        | `sectionType` | string | Yes | Type of section ('rich-text', 'media-image', etc.) |
         | `containerTag` | string | No | HTML tag for the section wrapper |
         | `isDisabled` | boolean | No | Disable the section |
         | `text` | object | No | Text content for the section |

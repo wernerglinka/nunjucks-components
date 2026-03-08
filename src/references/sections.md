@@ -20,7 +20,7 @@ card:
   tags: ['sections', 'components', 'layouts', 'hero', 'content', 'media']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     id: ''
     description: 'Introduction to section components'

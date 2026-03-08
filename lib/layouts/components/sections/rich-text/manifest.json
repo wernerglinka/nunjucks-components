@@ -1,7 +1,7 @@
 {
-  "name": "text-only",
+  "name": "rich-text",
   "type": "section",
-  "styles": ["text-only.css"],
+  "styles": ["rich-text.css"],
   "scripts": [],
   "requires": ["ctas", "text", "commons"],
   "validation": {
@@ -9,7 +9,7 @@
     "properties": {
       "sectionType": {
         "type": "string",
-        "const": "text-only"
+        "const": "rich-text"
       },
       "containerFields.inContainer": {
         "type": "boolean"

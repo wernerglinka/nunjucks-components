@@ -63,7 +63,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'first-section'
@@ -146,7 +146,7 @@ sections:
         isButton: true
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -219,7 +219,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false

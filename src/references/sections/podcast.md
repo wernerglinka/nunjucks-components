@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith podcast player, RSS feed parser, shikwasa audio player, podcast component, dynamic episodes, progressive loading, podcast website'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -46,7 +46,7 @@ sections:
       subTitle: ''
       prose: 'A comprehensive podcast player component that dynamically fetches episodes from RSS feeds using the professional Shikwasa audio player. Features a single main player with episode selection, progressive loading, and fallback support for optimal user experience.'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -111,7 +111,7 @@ sections:
         isButton: true
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -172,7 +172,7 @@ sections:
       themeColor: '#666'
     ctas: []
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -239,7 +239,7 @@ sections:
       themeColor: '#666'
     ctas: []
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

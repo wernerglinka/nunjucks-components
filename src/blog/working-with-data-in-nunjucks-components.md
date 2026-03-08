@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -85,7 +85,7 @@ sections:
 
         If you're using Eleventy, see the [Eleventy Data Setup](#eleventy-data-setup) section at the end for the specific configuration needed.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -122,7 +122,7 @@ sections:
         - **Scalability**: Handle large datasets without cluttering pages
         - **Version control**: Track data changes separately
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -173,7 +173,7 @@ sections:
         - **Subdirectories**: Component-specific or categorized data
         - **Naming**: Use descriptive names that reflect content
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -235,7 +235,7 @@ sections:
 
         This recursively loads all JSON files and creates a nested object structure that mirrors your directory structure.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -283,7 +283,7 @@ sections:
 
         **Important**: Use bracket notation with quotes for filenames containing hyphens.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -355,7 +355,7 @@ sections:
 
         The maps component loads `data.maps['london-landmarks']` and renders all markers.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -413,7 +413,7 @@ sections:
         2. Loads data using `data[section.logos.source]`
         3. Iterates over the data to render items
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -486,7 +486,7 @@ sections:
 
         This renders only the items with IDs "award-1" and "award-3", skipping "award-2".
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -551,7 +551,7 @@ sections:
         - Objects: singular names (`config`, `settings`, `metadata`)
         - Booleans: is/has prefix (`isActive`, `hasIcon`)
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -610,7 +610,7 @@ sections:
 
         This pattern provides flexibility - users can show all items or a curated selection.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -673,7 +673,7 @@ sections:
         {% endfor %}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -718,7 +718,7 @@ sections:
         - Tags: Data file (list of valid tags)
         - Comments: Data file (associated with posts)
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -775,7 +775,7 @@ sections:
         - **JSON errors**: Invalid JSON won't load (check with a validator)
         - **Wrong path**: Verify subdirectory structure matches access pattern
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -883,9 +883,9 @@ sections:
         2. Ensure your `sections-renderer.njk` includes that property in the context object
         3. Ensure your `render-section.njk` extracts it before the `{% include %}`
 
-        Most components are self-contained and work out of the box without any context configuration. Components like text-only, hero, accordion, banner, cards-list, and most partials only need their frontmatter `section` data.
+        Most components are self-contained and work out of the box without any context configuration. Components like rich-text, hero, accordion, banner, cards-list, and most partials only need their frontmatter `section` data.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: 'eleventy-data-setup'
@@ -939,7 +939,7 @@ sections:
 
         This is why components are portable across static site generators - they use a consistent data interface regardless of how each SSG loads that data.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

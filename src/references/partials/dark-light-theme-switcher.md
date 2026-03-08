@@ -14,7 +14,7 @@ card:
   tags: ['theme', 'dark-mode', 'toggle', 'switcher', 'accessibility']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -49,7 +49,7 @@ sections:
         ### Example
         Click the theme switcher in the navigation above to see the toggle in action.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -68,7 +68,7 @@ sections:
         {{ darkLightThemeSwitcher() }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

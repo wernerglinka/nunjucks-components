@@ -1,4 +1,4 @@
-# Text Only Section Component
+# Rich Text Section Component
 
 A fundamental and versatile text-focused section component designed for article content, documentation, announcements, and any text-heavy layouts. Features optimal reading experience with fluid typography, centered alignment, and comprehensive Markdown support.
 
@@ -18,7 +18,7 @@ A fundamental and versatile text-focused section component designed for article 
 ## Data Structure
 
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   containerTag: article  # article, section, or div
   disabled: false
   id: ""
@@ -65,7 +65,7 @@ A fundamental and versatile text-focused section component designed for article 
 ## HTML Structure
 
 ```html
-<div class="text-only content container">
+<div class="rich-text content container">
   <div class="text flow">
     
     <!-- Text Content -->
@@ -112,7 +112,7 @@ A fundamental and versatile text-focused section component designed for article 
 ### Fluid Reading Width
 Uses clamp-based responsive design for optimal reading experience:
 ```css
-.section-wrapper .text-only > * {
+.section-wrapper .rich-text > * {
   max-width: clamp(45ch, 65ch, 80ch);  /* Fluid reading width */
   margin-inline: auto;                 /* Center the text block */
 }
@@ -120,10 +120,10 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### Typography Hierarchy
 ```css
-.text-only h1,
-.text-only h2,
-.text-only h3,
-.text-only .sub-title {
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text .sub-title {
   margin-bottom: var(--space-s);
   
   & + div {
@@ -134,7 +134,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### CTA Layout
 ```css
-.text-only .ctas {
+.rich-text .ctas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -157,7 +157,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### Article Introduction
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   containerTag: article
   text:
     leadIn: "Feature Article"
@@ -177,7 +177,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### Documentation Section
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   containerTag: section
   containerFields:
     inContainer: true
@@ -195,7 +195,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### Announcement
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   containerFields:
     background:
       color: "#f0f8ff"
@@ -218,7 +218,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### FAQ Answer
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   containerTag: div
   classes: "faq-answer"
   text:
@@ -236,7 +236,7 @@ Uses clamp-based responsive design for optimal reading experience:
 
 ### About Section
 ```yaml
-- sectionType: text-only
+- sectionType: rich-text
   text:
     leadIn: "About Us"
     title: "Our Story"
@@ -300,7 +300,7 @@ classes: "featured-content highlight-section"
 
 ### Styling Hooks
 Key CSS classes for customization:
-- `.text-only`: Main component container
+- `.rich-text`: Main component container
 - `.text`: Text content wrapper with flow layout
 - `.prose`: Content area with Markdown output
 - `.ctas`: Call-to-action container
@@ -310,11 +310,11 @@ Key CSS classes for customization:
 ### Width Customization
 Modify reading width for specific use cases:
 ```css
-.wide-text .text-only > * {
+.wide-text .rich-text > * {
   max-width: clamp(60ch, 80ch, 100ch);
 }
 
-.narrow-text .text-only > * {
+.narrow-text .rich-text > * {
   max-width: clamp(30ch, 45ch, 60ch);
 }
 ```
@@ -322,12 +322,12 @@ Modify reading width for specific use cases:
 ### Typography Adjustments
 Customize typography for different content types:
 ```css
-.documentation .text-only {
+.documentation .rich-text {
   font-size: var(--font-small);
   line-height: 1.6;
 }
 
-.featured-text .text-only .title {
+.featured-text .rich-text .title {
   font-size: var(--font-h1);
   color: var(--color-primary);
 }
@@ -336,11 +336,11 @@ Customize typography for different content types:
 ### Layout Variations
 Create alternative layouts:
 ```css
-.left-aligned .text-only > * {
+.left-aligned .rich-text > * {
   margin-inline: 0;  /* Remove centering */
 }
 
-.full-width .text-only > * {
+.full-width .rich-text > * {
   max-width: none;   /* Remove width constraints */
 }
 ```
@@ -379,4 +379,4 @@ Create alternative layouts:
 - **Font Optimization**: Uses system fonts and CSS custom properties
 - **Layout Stability**: Consistent spacing prevents layout shifts
 
-The text-only component provides a solid foundation for content-focused sections while maintaining excellent readability, accessibility, and performance across all devices and use cases.
+The rich-text component provides a solid foundation for content-focused sections while maintaining excellent readability, accessibility, and performance across all devices and use cases.

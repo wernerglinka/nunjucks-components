@@ -14,7 +14,7 @@ seo:
   keywords: 'nunjucks partials, UI components, reusable elements, component building blocks, static site components'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     id: ''
     description: 'Introduction to partials'

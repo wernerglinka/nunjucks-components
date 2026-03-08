@@ -122,9 +122,9 @@
   }
 }
 
-/* Override the text-only pre margins for this component */
+/* Override the rich-text pre margins for this component */
 
-/* Default theme (from text-only.css) should only apply to theme-default */
+/* Default theme (from rich-text.css) should only apply to theme-default */
 .code-block.theme-default pre {
   background: transparent;
 }

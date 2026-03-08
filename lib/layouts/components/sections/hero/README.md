@@ -4,7 +4,7 @@ A flexible hero section component that supports full-screen layouts, background 
 
 ## Features
 
-- **Flexible Layout**: Supports text-only, image-only, or combined layouts
+- **Flexible Layout**: Supports rich-text, image-only, or combined layouts
 - **Full-Screen Mode**: Optional full-screen hero with scroll-to-next functionality
 - **Background Images**: Configurable background images with optional screen overlays
 - **Responsive Design**: Fluid text width that adapts to viewport size

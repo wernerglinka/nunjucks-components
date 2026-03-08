@@ -2,27 +2,27 @@
 layout: pages/sections-with-sidebar.njk
 bodyClasses: 'sections-page'
 hasHero: true
-title: Text Only
+title: Rich Text
 
 navigation:
-  navLabel: 'Text Only'
+  navLabel: 'Rich Text'
   navIndex: 3
 
 card:
-  title: 'Text Only'
+  title: 'Rich Text'
   description: 'Versatile text section for articles, documentation, code snippets, and content-heavy layouts. '
   image: '/assets/images/sample16.jpg'
   tags: ['text', 'content', 'article', 'documentation', 'prose', 'typography']
 
 seo:
-  title: Text Only Component - Content Sections for Metalsmith
+  title: Rich Text Component - Content Sections for Metalsmith
   description: 'Versatile text section for articles, documentation, and content-heavy layouts. Supports markdown, headings, CTAs, and background styling for Metalsmith static sites.'
   socialImage: '/assets/images/sample.jpg'
   canonicalURL: ''
-  keywords: 'nunjucks text section, metalsmith, eleventy, content component, article section, markdown content, text-only layout, documentation component, prose section'
+  keywords: 'nunjucks text section, metalsmith, eleventy, content component, article section, markdown content, rich-text layout, documentation component, prose section'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -41,15 +41,17 @@ sections:
         imageScreen: 'none' # light, dark, none
     text:
       leadIn: 'Section Component'
-      title: 'Text Only'
+      title: 'Rich Text'
       titleTag: 'h1'
       subTitle: ''
       prose: |-
         A section for displaying text content with optional CTAs. Essentially a section wrapper for the text partial. Supports lead-in text, titles, subtitles, markdown-formatted prose, and flexible background options.
 
+        > This component was previously named **Text Only**. It was renamed to **Rich Text** to reflect its expanded capabilities with extended Markdown syntax. Read [Beyond the Black Box](https://glinka.co/blog/beyond-the-black-box/) for the full story.
+
         ## Examples
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -73,7 +75,7 @@ sections:
       titleTag: 'h3'
       subTitle: 'Everything you need to know'
       prose: |-
-        This is an example of a text-only section with all text elements populated. Notice how the lead-in text appears above the title, providing context for what follows.
+        This is an example of a rich-text section with all text elements populated. Notice how the lead-in text appears above the title, providing context for what follows.
 
         The prose content supports **markdown formatting**, allowing you to create *emphasized text*, [hyperlinks](https://example.com), and structured content with ease.
 
@@ -95,7 +97,7 @@ sections:
         isButton: false
         buttonStyle: 'secondary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -119,7 +121,7 @@ sections:
       titleTag: 'h3'
       subTitle: 'With a subtle background color'
       prose: |-
-        This text-only section demonstrates how background colors can be used to create visual separation between content blocks. The light gray background helps this section stand out from the surrounding content.
+        This rich-text section demonstrates how background colors can be used to create visual separation between content blocks. The light gray background helps this section stand out from the surrounding content.
 
         Background options include solid colors or images with optional screening effects for better text readability.
     ctas:
@@ -128,7 +130,7 @@ sections:
         isButton: true
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -153,9 +155,9 @@ sections:
       titleTag: 'h3'
       subTitle: 'With an image, dark screen and full screen width'
       prose: |-
-        This text-only section demonstrates how background images with screens can be used. The screen is used so text above the image has enough contrast to be readable. `containerFields.inContainer: false` will render the background accross the whole screen width.
+        This rich-text section demonstrates how background images with screens can be used. The screen is used so text above the image has enough contrast to be readable. `containerFields.inContainer: false` will render the background accross the whole screen width.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -182,7 +184,7 @@ sections:
         ## Configuration
 
         ```yaml
-        - sectionType: text-only
+        - sectionType: rich-text
           containerTag: article
           # container settings
 
@@ -192,7 +194,7 @@ sections:
             titleTag: 'h2'
             subTitle: 'Everything you need to know'
             prose: |-
-              This is an example of a text-only section with all text elements populated.
+              This is an example of a rich-text section with all text elements populated.
               The prose content supports **markdown formatting**.
           ctas:
             - url: 'https://example.com/docs'
@@ -219,7 +221,7 @@ sections:
     isDisabled: false
     isReverse: false
     isAnimated: false
-    componentDownload: 'text-only'
+    componentDownload: 'rich-text'
     containerFields:
       inContainer: true
       noMargin:
@@ -235,13 +237,13 @@ sections:
         imageScreen: 'none'
     text:
       leadIn: ''
-      title: 'Download Text Only Section'
+      title: 'Download Rich Text Section'
       titleTag: 'h3'
       subTitle: ''
-      prose: 'Get the complete text-only component package including template, styles, manifest, examples, and installation script.'
+      prose: 'Get the complete rich-text component package including template, styles, manifest, examples, and installation script.'
     ctas:
-      - url: '/downloads/sections/text-only.zip'
-        label: 'Download Text Only Section'
+      - url: '/downloads/sections/rich-text.zip'
+        label: 'Download Rich Text Section'
         isButton: true
         buttonStyle: 'primary'
     image:

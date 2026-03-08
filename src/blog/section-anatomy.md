@@ -58,7 +58,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''

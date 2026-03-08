@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith calendar, google calendar integration, event calendar, interactive calendar, monthly view, calendar navigation, event scheduling'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -46,7 +46,7 @@ sections:
       subTitle: ''
       prose: 'A self-contained calendar component that displays Google Calendar events in a modern monthly grid view. Features client-side data fetching, dynamic month navigation, event categorization, and detailed event viewing.'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -117,7 +117,7 @@ sections:
       titleTag: 'h2'
       prose: 'View upcoming events and important dates. Replace **YOUR_GOOGLE_CALENDAR_API_KEY** above with your own API key to see live data.'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -149,7 +149,7 @@ sections:
             source: 'holidays'  # References lib/data/calendars/holidays.json
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -185,7 +185,7 @@ sections:
             title: 'Team Schedule'
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

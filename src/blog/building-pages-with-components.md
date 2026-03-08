@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -103,8 +103,8 @@ sections:
         sections:
           - sectionType: hero
             # hero configuration
-          - sectionType: text-only
-            # text-only configuration
+          - sectionType: rich-text
+            # rich-text configuration
           - sectionType: media-image
             # media-image configuration
         ```
@@ -117,7 +117,7 @@ sections:
         - `seo` contains metadata for search engine optimization
         - `sections` array defines the sequence of components to render
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -189,7 +189,7 @@ sections:
             caption: 'Media section demonstration'
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -262,7 +262,7 @@ sections:
         </div>
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''

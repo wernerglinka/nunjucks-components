@@ -14,7 +14,7 @@ card:
   tags: ['pagination', 'navigation', 'collection', 'paging', 'blog']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -66,7 +66,7 @@ sections:
         ### Example
         For a fully functional live exaple please see the [sample blog](/blog/).
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -88,7 +88,7 @@ sections:
           {% endif %}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

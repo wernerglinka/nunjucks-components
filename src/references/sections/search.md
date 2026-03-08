@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith search, fuzzy search, search component, fuse.js, interactive search, site search, content discovery'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -79,7 +79,7 @@ sections:
       showRelevanceScore: true
       minCharacters: 3
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'search-architecture'
@@ -111,7 +111,7 @@ sections:
 
         This eliminates the common trade-off between search recall and precision. Users get results that handle typos while ensuring all results contain their search terms.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'plugin-configuration'
@@ -257,7 +257,7 @@ sections:
         }))
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'content-architecture'
@@ -296,7 +296,7 @@ sections:
               title: "Welcome"
               leadIn: "Get started"
               prose: "This content is automatically indexed"
-          - sectionType: text-only
+          - sectionType: rich-text
             text:
               prose: "More searchable content here"
         ---
@@ -343,7 +343,7 @@ sections:
 
         Common alternative field names: `components`, `blocks`, `content`, `pageComponents`
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'field-mapping'
@@ -381,7 +381,7 @@ sections:
         - `tags` - Content tags array
         - `url` - Page or section URL
         - `type` - Content type (page/section)
-        - `sectionType` - Component type (hero, text-only, etc.)
+        - `sectionType` - Component type (hero, rich-text, etc.)
 
         ### Client-Side Fuse.js Configuration
 
@@ -416,7 +416,7 @@ sections:
         - Prevents impact on initial page load for pages without search
         - Follows established component pattern for script loading
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'debugging'
@@ -512,7 +512,7 @@ sections:
           });
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     id: ''
     isDisabled: false

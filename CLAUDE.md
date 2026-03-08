@@ -97,7 +97,7 @@ Small, reusable UI elements (23 components):
 
 Large page sections and main building blocks (38 components):
 
-- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, text-only, timeline, video-only
+- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, rich-text, timeline, video-only
 
 ### Component Structure
 
@@ -350,7 +350,7 @@ When you encounter issues:
 2. Review [Component Development Guide](.claude/guides/COMPONENT-GUIDE.md) for patterns
 3. Run tests for specific error messages: `npm test`
 4. Enable debug output: `npm run build:debug` or `npm run start:debug`
-5. Compare your work to reference components like `text-only` or `hero`
+5. Compare your work to reference components like `rich-text` or `hero`
 6. Check the [DEVELOPER-GUIDE.md](DEVELOPER-GUIDE.md) for lessons learned
 
 When working with this codebase, always run tests before committing changes and ensure new components follow the established patterns and validation requirements.

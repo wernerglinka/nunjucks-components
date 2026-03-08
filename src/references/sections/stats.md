@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith stats, impact numbers, metrics display, statistics component, key figures'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -201,7 +201,7 @@ sections:
         - value: 'MIT'
           label: 'License'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

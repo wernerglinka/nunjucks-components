@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith media image, text and image layout, content with images, media section, image caption, reversible layout, feature showcase'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -82,7 +82,7 @@ sections:
       alt: 'Example media section image'
       caption: 'Images can include optional captions for additional context'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -148,7 +148,7 @@ sections:
       ogg: '/assets/audio/shattered-reflections.ogg'
       mpeg: '/assets/audio/shattered-reflections.mp3'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -256,7 +256,7 @@ sections:
       tn: '/assets/images/sample10.jpg'
       alt: 'Vimeo video demonstration - cinematic modal experience'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -324,7 +324,7 @@ sections:
       icon: 'feather'
       title: 'Feather'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -391,7 +391,7 @@ sections:
         autoplay: true
         loop: true
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''
@@ -421,7 +421,7 @@ sections:
         | `lottie.control.autoplay` | boolean | No | Start animation automatically (default: true) |
         | `lottie.control.loop` | boolean | No | Loop the animation (default: true) |
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

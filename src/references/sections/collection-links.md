@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith collection navigation, post navigation, previous next links, collection pagination, collection links, article navigation'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -57,7 +57,7 @@ sections:
 
         To see this component in action, visit any blog post on this site. For example, check the bottom of the [Sample Blog Post](/blog/sample-blogpost/) to see the previous and next navigation links.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -133,7 +133,7 @@ sections:
         - **Single item**: Component doesn't render at all
         - **Non-collection page**: Component doesn't render
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

@@ -14,7 +14,7 @@ card:
   tags: ['lottie', 'animation', 'interactive', 'json', 'player']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -90,7 +90,7 @@ sections:
         autoplay: true
         loop: true
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -109,7 +109,7 @@ sections:
         {{ lottie(section.lottie) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

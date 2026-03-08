@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith logos list, client logos, partner logos, logo grid, social media icons, brand showcase, logo carousel, scrolling logos'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -124,7 +124,7 @@ sections:
         isButton: true
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -198,7 +198,7 @@ sections:
         - 'Behance'
         - 'Github'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -291,7 +291,7 @@ sections:
         isButton: true
         buttonStyle: 'secondary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

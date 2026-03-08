@@ -22,7 +22,7 @@ The library contains 61 production-ready components organized in two categories:
 
 **38 Sections** - Large page sections and main building blocks:
 
-- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, text-only, timeline, video-only
+- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, rich-text, timeline, video-only
 
 **Advanced Components**:
 
@@ -374,7 +374,7 @@ items:
 
 - **hero** - Full-screen or standard hero sections with background images and CTAs
 - **banner** - Call-to-action sections with flexible backgrounds
-- **text-only** - Pure content sections with markdown support
+- **rich-text** - Pure content sections with markdown support
 - **image-only** - Image display sections
 - **icon-only** - Display-only icon sections
 - **audio-only** - Audio player sections

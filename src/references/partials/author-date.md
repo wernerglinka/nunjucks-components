@@ -14,7 +14,7 @@ card:
   tags: ['author', 'date', 'metadata', 'blog', 'article', 'time']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -97,7 +97,7 @@ sections:
       - 'John Smith'
     date: '2024-03-15'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -118,7 +118,7 @@ sections:
         {{ authorDate({ date: section.date, author: section.author }) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

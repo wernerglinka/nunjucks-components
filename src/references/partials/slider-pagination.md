@@ -14,7 +14,7 @@ card:
   tags: ['slider', 'pagination', 'carousel', 'navigation', 'tabs']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -69,7 +69,7 @@ sections:
         ### Example
         For a real live example please visit the [simple slider page](/references/sections/simple-slider/#default-example).
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -88,7 +88,7 @@ sections:
         {{ sliderPagination(section.slides, section.isTabs) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

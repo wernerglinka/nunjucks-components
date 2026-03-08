@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith steps, process section, how-it-works, numbered steps, workflow component'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -243,7 +243,7 @@ sections:
           description: 'Improve based on recommendations.'
           icon: 'trending-up'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

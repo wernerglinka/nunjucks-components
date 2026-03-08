@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -288,7 +288,7 @@ sections:
 
         ```yaml
         sections:
-          - sectionType: text-only
+          - sectionType: rich-text
             text:
               title: 'About Us'
               prose: |
@@ -299,7 +299,7 @@ sections:
 
         ```yaml
         sections:
-          - sectionType: text-only
+          - sectionType: rich-text
             text:
               title: 'Über uns'
               prose: |

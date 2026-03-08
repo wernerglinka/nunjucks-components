@@ -317,7 +317,7 @@ describe('Component Package Generator', function () {
       }
 
       // Check a few sections
-      const sectionsToCheck = ['hero', 'text-only', 'footer'];
+      const sectionsToCheck = ['hero', 'rich-text', 'footer'];
       await Promise.all(
         sectionsToCheck.map(async section => {
           const sectionInstallPath = path.join(

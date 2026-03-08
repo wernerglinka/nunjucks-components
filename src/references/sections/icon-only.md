@@ -22,7 +22,7 @@ seo:
   keywords: 'nunjucks icon section, metalsmith, eleventy, visual component, image gallery, featured image, photo section, image-only layout, visual content'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -70,7 +70,7 @@ sections:
       title: 'Feather'
       url: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

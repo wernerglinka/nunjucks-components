@@ -14,7 +14,7 @@ card:
   tags: ['language', 'i18n', 'internationalization', 'locale', 'switcher', 'dropdown']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -51,7 +51,7 @@ sections:
         ### Example
         Click the globe icon in the header navigation to see the language switcher in action.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -84,7 +84,7 @@ sections:
         - `fallbackUrl` - Where to navigate when a localized page doesn't exist
         - `available` - Array of language objects with `code` (ISO 639-1) and `label` (display name)
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -103,7 +103,7 @@ sections:
         {{ languageSwitcher(data.languages.available, data.languages.defaultLang, data.languages.fallbackUrl) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

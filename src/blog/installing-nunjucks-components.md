@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'getting-started'
@@ -111,7 +111,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'download-options'
@@ -183,7 +183,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'automated-installation'
@@ -322,7 +322,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'manual-installation'
@@ -424,7 +424,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'dependency-management'
@@ -508,7 +508,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'using-components'
@@ -586,7 +586,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'troubleshooting'
@@ -668,7 +668,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'next-steps'

@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -93,7 +93,7 @@ sections:
 
         Component bundler plugins solve all of this automatically. For Metalsmith, use `metalsmith-bundled-components`. For Eleventy, use `eleventy-plugin-components-bundler`. Both work identically.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -137,7 +137,7 @@ sections:
 
         This tells the bundler that the hero component has its own CSS and JavaScript, and depends on four partial components.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -173,7 +173,7 @@ sections:
 
         This ensures components load in the correct order - dependencies first, then components that use them.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -215,7 +215,7 @@ sections:
 
         The result is a single optimized CSS file and a single optimized JavaScript file containing only what's needed.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -264,7 +264,7 @@ sections:
 
         This pipeline ensures CSS is validated, processed, optimized, and compatible with all target browsers.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -355,7 +355,7 @@ sections:
         - `minifyOutput`: Enable minification in production
         - `postcss`: PostCSS configuration
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -422,7 +422,7 @@ sections:
 
         The manifest tells the bundler exactly what files to include and in what order.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -468,7 +468,7 @@ sections:
         - Tree-shaking removes unused exports
         - Static files served directly from CDN
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -516,7 +516,7 @@ sections:
         - Removing a component? Delete its directory
         - Dependencies are explicit and documented
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -556,21 +556,21 @@ sections:
               title: 'Features'
             image:
               src: '/assets/images/feature.jpg'
-          - sectionType: text-only
+          - sectionType: rich-text
             text:
               title: 'Documentation'
         ---
         ```
 
         The plugin:
-        1. Sees `hero`, `media-image`, and `text-only` section types
+        1. Sees `hero`, `media-image`, and `rich-text` section types
         2. Loads their manifests
         3. Resolves all dependencies (`text`, `ctas`, `image`, `commons`)
         4. Bundles only the CSS/JS needed for those components
 
         The page never needs to know about component dependencies - the bundler handles it.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -613,7 +613,7 @@ sections:
 
         **No assembly required** - each component is self-contained and ready to use.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -668,7 +668,7 @@ sections:
 
         The plugin handles discovery, dependency resolution, bundling, and optimization automatically. But if you're just using components from this library, simply copy the complete component directories into your project - everything is already set up and ready to work.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

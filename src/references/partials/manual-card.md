@@ -14,7 +14,7 @@ card:
   tags: ['card', 'manual', 'flexible', 'image', 'text', 'cta']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -127,7 +127,7 @@ sections:
             isButton: false
             buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -146,7 +146,7 @@ sections:
         {{ manualCard(section.cards) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

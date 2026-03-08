@@ -263,7 +263,7 @@ If you encounter issues not covered here:
 3. Run tests for specific error messages: `npm test`
 4. Enable debug output: `npm run build:debug` or `npm run start:debug`
 5. Review component examples in `src/references/` for working patterns
-6. Compare your component structure to working components like `text-only` or `hero`
+6. Compare your component structure to working components like `rich-text` or `hero`
 7. Check the [DEVELOPER-GUIDE.md](../../DEVELOPER-GUIDE.md) for lessons learned
 
 ## Common Debug Commands

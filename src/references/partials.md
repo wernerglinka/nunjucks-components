@@ -20,7 +20,7 @@ card:
   tags: ['author', 'date', 'metadata', 'blog', 'article', 'time']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     id: ''
     description: 'Introduction to partials'

@@ -22,7 +22,7 @@ seo:
   keywords: 'nunjucks video section, metalsmith, eleventy, video component, youtube embed, vimeo player, video-only layout, media section, video content'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -108,7 +108,7 @@ sections:
         isButton: true
         buttonStyle: 'inverted'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

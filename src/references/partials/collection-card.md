@@ -14,7 +14,7 @@ card:
   tags: ['card', 'collection', 'list', 'blog', 'article', 'thumbnail']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -75,7 +75,7 @@ sections:
         ### Example
         For a fully functional live exaple please see the [sample blog](/blog/).
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -108,7 +108,7 @@ sections:
         </ul>
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

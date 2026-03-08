@@ -1,5 +1,5 @@
 /**
- * Text Only Section Styles
+ * Rich Text Section Styles
  *
  * Design Tokens:
  * - --space-s
@@ -18,8 +18,8 @@
  * - --token-regex
  */
 
-.text-only {
-  /* Override commons.css .content flex layout for text-only sections */
+.rich-text {
+  /* Override commons.css .content flex layout for rich-text sections */
   .content {
     display: block; /* Override flex layout */
   }

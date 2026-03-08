@@ -14,7 +14,7 @@ card:
   tags: ['audio', 'media', 'player', 'sound', 'music']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -96,7 +96,7 @@ sections:
       title: 'Shattered Reflections - Audio Sample'
       alt: 'Album artwork'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -117,7 +117,7 @@ sections:
         {{ audio(section.audio) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

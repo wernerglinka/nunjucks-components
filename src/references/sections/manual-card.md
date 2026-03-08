@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith manual card, flexible card component, card with image background, clickable card, icon card'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -46,7 +46,7 @@ sections:
       subTitle: ''
       prose: 'Manual Cards provide complete control over content and presentation. Unlike the collection-card which automatically displays collection items, the manual-card allows for custom combinations of images, text, icons, and CTAs with various layout options.'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'configuration'
@@ -86,7 +86,7 @@ sections:
               title: ''
             text:
               leadIn: 'Condimentum Sollicitudin'
-              title: 'Text Only Section'
+              title: 'Rich Text Section'
               titleTag: 'h3'
               subTitle: 'Ornare Malesuada Ipsum'
               prose: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.'
@@ -246,7 +246,7 @@ sections:
             isButton: false
             buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'demo-section'
     id: 'background-image-cards'
@@ -394,7 +394,7 @@ sections:
             isButton: false
             buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'demo-section'
     id: 'linked-cards'
@@ -519,7 +519,7 @@ sections:
           prose: |
             Click `anywhere` on this card to navigate to the Siomple Accordion component page.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'demo-section'
     id: 'horizontal-cards'

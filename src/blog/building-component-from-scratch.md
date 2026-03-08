@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -119,7 +119,7 @@ sections:
         ### Sections
         Large page sections that compose partials and other elements into complete page blocks.
 
-        **Examples**: hero, text-only, cards-list, footer, header
+        **Examples**: hero, rich-text, cards-list, footer, header
 
         **Location**: `lib/layouts/components/sections/[name]/`
 
@@ -753,7 +753,7 @@ sections:
           keywords: 'quote block, blockquote, testimonial, author attribution'
 
         sections:
-          - sectionType: text-only
+          - sectionType: rich-text
             containerTag: section
             containerFields:
               inContainer: true
@@ -830,7 +830,7 @@ sections:
               image: "/assets/images/sample-author.jpg"
             style: "left-aligned"
 
-          - sectionType: text-only
+          - sectionType: rich-text
             containerTag: section
             containerFields:
               inContainer: true

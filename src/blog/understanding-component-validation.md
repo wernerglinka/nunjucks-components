@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -97,7 +97,7 @@ sections:
         - **Editor support**: IDEs can use schemas for autocomplete
         - **Confidence**: Know your components are configured correctly
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -149,7 +149,7 @@ sections:
         - **required**: Array of required property names
         - **properties**: Schema for each property's validation rules
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -216,7 +216,7 @@ sections:
         title: "Welcome"
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -289,7 +289,7 @@ sections:
         - Display modes (grid, list, masonry)
         - Theme options (light, dark, auto)
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -348,7 +348,7 @@ sections:
 
         Every component validates its `sectionType` to prevent copy-paste errors.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -424,7 +424,7 @@ sections:
               titleTag: h1
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -502,7 +502,7 @@ sections:
         # - ctas[0].buttonStyle must be one of: primary, secondary, tertiary, inverted
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -571,7 +571,7 @@ sections:
 
         Properties not in `required` are optional. In this example, `height` is optional with a sensible default.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -635,7 +635,7 @@ sections:
 
         Defaults document expected values and reduce configuration boilerplate.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -717,7 +717,7 @@ sections:
 
         This validates everything from required fields to nested container options.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -782,7 +782,7 @@ sections:
         - File location
         - Section number
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -844,7 +844,7 @@ sections:
         - Ensures all items follow the same schema
         - Catches errors in each array item
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -925,7 +925,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -965,7 +965,7 @@ sections:
           "validation": {
             "required": ["sectionType"],
             "properties": {
-              "sectionType": {"type": "string", "const": "text-only"}
+              "sectionType": {"type": "string", "const": "rich-text"}
               // Don't validate text.title, text.prose, etc.
               // They're free-form content
             }
@@ -980,7 +980,7 @@ sections:
         - Boolean flags that affect rendering
         - Nested configuration objects
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -1076,7 +1076,7 @@ sections:
 
         The build will show you if validation is working correctly.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

@@ -14,7 +14,7 @@ card:
   tags: ['breadcrumbs', 'navigation', 'hierarchy', 'accessibility', 'semantic']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -64,7 +64,7 @@ sections:
 
         [HOME](/) › [REFERENCES](/references/) › [PARTIALS](/references/partials/) › BREADCRUMBS
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -85,7 +85,7 @@ sections:
         {{ breadcrumbs(navigation.breadcrumbs) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

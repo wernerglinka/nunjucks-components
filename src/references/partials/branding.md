@@ -14,7 +14,7 @@ card:
   tags: ['branding', 'logo', 'navigation', 'home', 'header']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -69,7 +69,7 @@ sections:
 
         The branding element can be seen in the upper left corner of this page
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

@@ -14,7 +14,7 @@ card:
   tags: ['image', 'media', 'responsive', 'lazy-load', 'picture']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -80,7 +80,7 @@ sections:
       alt: 'Sample demonstration image'
       caption: 'Example image rendered with the image partial'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

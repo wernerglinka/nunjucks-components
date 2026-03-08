@@ -237,13 +237,13 @@ card:
   description: 'Description for search and cards'
   tags: ['relevant', 'search', 'tags']  # For search functionality
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     # Overview section
-  - sectionType: text-only
+  - sectionType: rich-text
     # Usage examples with code
   - sectionType: component-name
     # Live example
-  - sectionType: text-only
+  - sectionType: rich-text
     # Integration notes
 ---
 ```
@@ -528,7 +528,7 @@ This provides smooth transitions within the same layout type, and graceful reloa
 
 For best practices and patterns, refer to these well-established components:
 
-- **text-only**: Simple section with good documentation patterns
+- **rich-text**: Simple section with good documentation patterns
 - **hero**: Complex section with multiple configuration options
 - **cards-list**: Data loading and iteration patterns
 - **maps**: Multi-provider architecture example

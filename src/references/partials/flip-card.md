@@ -14,7 +14,7 @@ card:
   tags: ['card', 'interactive', 'flip', 'animation', 'hover']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -132,7 +132,7 @@ sections:
               isButton: true
               buttonStyle: 'primary small'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -157,7 +157,7 @@ sections:
         </ul>
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

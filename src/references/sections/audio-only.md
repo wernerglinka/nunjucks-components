@@ -22,7 +22,7 @@ seo:
   keywords: 'nunjucks audio section, metalsmith, eleventy, audio component, podcast player, music section, audio-only layout, media section, audio content'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -77,7 +77,7 @@ sections:
         isButton: true
         buttonStyle: 'tertiary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

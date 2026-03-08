@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith image grid, portfolio gallery, justified gallery, artwork gallery, hover overlay, artist portfolio component, image list'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -105,7 +105,7 @@ sections:
       gap: '8'
       targetRowHeight: '250'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

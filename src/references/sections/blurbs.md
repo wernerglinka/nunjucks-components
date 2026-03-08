@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith text blurbs layout, excerps with thumbnail image, text, optional cta, reversible layout, feature showcase'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -110,7 +110,7 @@ sections:
       source: 'grid-with-feature-example' # data file in 'lib/assets/data/blurbs'
       layout: 'featurePlus' # inline, featurePlus,
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false

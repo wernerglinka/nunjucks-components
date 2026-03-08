@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith pricing table, tier comparison, pricing cards, feature comparison, SaaS pricing, subscription tiers'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -103,7 +103,7 @@ sections:
       source: 'pricing-example'
       layout: 'comparison'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith timeline, company history, milestones, chronological display, timeline component'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -140,7 +140,7 @@ sections:
           description: 'Release to production.'
           icon: 'rocket'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'what-is-it'
@@ -90,7 +90,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'installation'
@@ -154,7 +154,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'project-structure'
@@ -231,7 +231,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'creating-pages'
@@ -292,7 +292,7 @@ sections:
                 label: 'Learn More'
                 isButton: true
 
-          - sectionType: text-only
+          - sectionType: rich-text
             containerTag: article
             containerFields:
               inContainer: true
@@ -325,7 +325,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'development-workflow'
@@ -420,7 +420,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'adding-components'
@@ -451,7 +451,7 @@ sections:
         The starter includes these essential components:
         - **hero** - Hero sections with images and CTAs
         - **banner** - Content banners with media
-        - **text-only** - Text content sections
+        - **rich-text** - Text content sections
         - **media** - Image and video sections
         - **text** partial - Headings and prose content
         - **ctas** partial - Call-to-action buttons
@@ -529,7 +529,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'customizing'
@@ -621,7 +621,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'deploying'
@@ -725,7 +725,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'next-steps'

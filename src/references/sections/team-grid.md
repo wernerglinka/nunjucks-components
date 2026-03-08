@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith team grid, staff directory, team members, people grid, company team'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -103,7 +103,7 @@ sections:
       source: 'team-example'
       layout: 'compact'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

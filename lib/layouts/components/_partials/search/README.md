@@ -148,7 +148,7 @@ The search component can find content in:
 
 - **Pages**: Complete page content and metadata
 - **Sections**: Individual component sections within pages
-- **Component Types**: Specific types like hero, text-only, media-image, etc.
+- **Component Types**: Specific types like hero, rich-text, media-image, etc.
 
 ### Search Behavior Examples
 
@@ -171,7 +171,7 @@ The search component can find content in:
 When `showCategories: true`:
 
 - **Content Type Filter**: Filter by "Pages" or "Sections"
-- **Component Type Filter**: Filter by specific component types (hero, text-only, etc.)
+- **Component Type Filter**: Filter by specific component types (hero, rich-text, etc.)
 
 ### Keyboard Shortcuts
 
@@ -244,7 +244,7 @@ import search from 'metalsmith-search';
   indexPath: 'search-index.json',
   indexLevels: ['page', 'section'],
   generateAnchors: true,
-  sectionTypes: ['hero', 'text-only', 'media-image', 'cta', 'banner', 'slider', 'flip-cards', 'logos-list', 'testimonial', 'columns', 'blog-list', 'maps']
+  sectionTypes: ['hero', 'rich-text', 'media-image', 'cta', 'banner', 'slider', 'flip-cards', 'logos-list', 'testimonial', 'columns', 'blog-list', 'maps']
 }))
 ```
 

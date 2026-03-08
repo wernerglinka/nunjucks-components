@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'philosophy'
@@ -101,7 +101,7 @@ sections:
         - These sections stay "dark" in both light and dark themes
         - They don't invert because they represent the designer's intent
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'design-tokens'
@@ -170,7 +170,7 @@ sections:
         --tertiary-button-text-color: #161616;
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'inversion-logic'
@@ -233,7 +233,7 @@ sections:
 
         The `:not(.is-dark)` selector is crucial - it prevents inverting sections that are intentionally dark as a design choice.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'component-patterns'
@@ -309,7 +309,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'special-cases'
@@ -402,7 +402,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'implementation-guide'
@@ -456,7 +456,7 @@ sections:
         - Verify logo/icon visibility in dark theme
         - Test third-party components (audio players, etc.)
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'best-practices'
@@ -500,7 +500,7 @@ sections:
         - Create per-component color tokens (use global semantic tokens)
         - Add dark theme overrides when semantic variables would work
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'limitations'
@@ -546,7 +546,7 @@ sections:
         - Some components use inline styles that can't be themed
         - Test thoroughly and document workarounds
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: 'conclusion'

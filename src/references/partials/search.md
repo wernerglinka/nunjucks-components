@@ -14,7 +14,7 @@ card:
   tags: ['search', 'interactive', 'filter', 'live-results', 'fuse']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -105,7 +105,7 @@ sections:
       maxResults: 10
       minCharacters: 2
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -129,7 +129,7 @@ sections:
         }) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

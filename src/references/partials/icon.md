@@ -14,7 +14,7 @@ card:
   tags: ['icon', 'svg', 'graphic', 'link', 'visual']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -91,7 +91,7 @@ sections:
         imageScreen: 'none' # light, dark, none
     icon: 'feather'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -118,7 +118,7 @@ sections:
         }) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

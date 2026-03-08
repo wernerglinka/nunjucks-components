@@ -92,7 +92,7 @@ For example, `data.podcasts` expects:
 
 Most components are self-contained and only need their `section` frontmatter data. These include:
 
-- text-only, hero, image-only, video-only, audio-only
+- rich-text, hero, image-only, video-only, audio-only
 - accordion, banner, cards-list, code, columns
 - flip-cards, icon-only, image-compare, image-grid
 - logos-list, lottie-only, multi-media, slider

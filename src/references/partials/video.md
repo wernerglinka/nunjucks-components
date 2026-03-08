@@ -14,7 +14,7 @@ card:
   tags: ['video', 'player', 'youtube', 'vimeo', 'modal', 'in situ', in place]
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -92,7 +92,7 @@ sections:
       alt: 'Demo video thumbnail'
       inSitu: false
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -118,7 +118,7 @@ sections:
         }) }}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

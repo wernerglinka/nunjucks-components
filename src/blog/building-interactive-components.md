@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -92,7 +92,7 @@ sections:
 
         This guide shows the patterns used in this component library's interactive components: sliders, image comparison, search, maps, and more.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -157,7 +157,7 @@ sections:
         - Each instance has isolated state
         - Event listeners are properly attached
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -248,7 +248,7 @@ sections:
         - Single update function syncs UI with state
         - Event listeners trigger state changes
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -319,7 +319,7 @@ sections:
         });
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -404,7 +404,7 @@ sections:
         - Error handling for network issues
         - Integrity checking for security
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -501,7 +501,7 @@ sections:
         - Shares helpers across providers
         - Simplifies testing and maintenance
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -586,7 +586,7 @@ sections:
         - Single render method updates all UI
         - Immutable-style updates prevent bugs
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -679,7 +679,7 @@ sections:
         handle.setAttribute('aria-label', 'Image comparison');
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -758,7 +758,7 @@ sections:
         // CSS handles the animation smoothly
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -835,7 +835,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
@@ -897,7 +897,7 @@ sections:
         - Monitor frame rate during animations
         - Test with many component instances
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: 'single-column'
     id: ''
@@ -992,7 +992,7 @@ sections:
         }
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

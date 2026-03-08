@@ -1,6 +1,6 @@
 # Code Section Component
 
-A specialized component for displaying syntax-highlighted code blocks with enhanced features. Extends the existing Prism.js implementation used in text-only sections with additional functionality including language labels, copy-to-clipboard, dynamic theme loading, and file naming capabilities.
+A specialized component for displaying syntax-highlighted code blocks with enhanced features. Extends the existing Prism.js implementation used in rich-text sections with additional functionality including language labels, copy-to-clipboard, dynamic theme loading, and file naming capabilities.
 
 ## Features
 
@@ -57,7 +57,7 @@ A specialized component for displaying syntax-highlighted code blocks with enhan
 
 The component supports multiple Prism themes that are loaded dynamically from CDN:
 
-- `default` - Uses the existing theme from text-only component
+- `default` - Uses the existing theme from rich-text component
 - `tomorrow` - GitHub-style dark theme
 - `okaidia` - Monokai-inspired theme
 - `twilight` - TextMate twilight theme
@@ -305,7 +305,7 @@ content: |-
 
 This approach:
 - Leverages existing metalsmith-prism plugin processing
-- Ensures consistency with text-only component behavior
+- Ensures consistency with rich-text component behavior
 - Provides build-time syntax highlighting for better performance
 - Maintains proper markdown structure in content files
 

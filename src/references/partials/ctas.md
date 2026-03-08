@@ -14,7 +14,7 @@ card:
   tags: ['cta', 'buttons', 'actions', 'group', 'navigation']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -77,7 +77,7 @@ sections:
 
         ### Examples
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     isFullScreen: false
     containerFields:
@@ -108,7 +108,7 @@ sections:
         label: 'View Documentation'
         isButton: false
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -141,7 +141,7 @@ sections:
         label: 'or learn more about features'
         isButton: false
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -164,7 +164,7 @@ sections:
 
         The `hasCtas` filter checks if a valid CTAs array exists before rendering.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false

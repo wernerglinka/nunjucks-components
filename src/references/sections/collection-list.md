@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith blog list, blog pagination, post grid, blog cards, collection display, paginated blog, blog archive component, metalsmith collections'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -49,7 +49,7 @@ sections:
 
         For an example including pagination see the [blog](/blog/) page
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

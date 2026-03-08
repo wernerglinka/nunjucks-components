@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith artist slider, artwork gallery, portfolio slider, fullscreen gallery, artwork showcase, artist portfolio'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -70,7 +70,7 @@ sections:
     showDots: false
     scrollTarget: '#configuration'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'configuration'

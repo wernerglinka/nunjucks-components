@@ -22,7 +22,7 @@ seo:
   keywords: 'nunjucks image section, metalsmith, eleventy, visual component, image compare, featured image, photo section, visual content'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -73,7 +73,7 @@ sections:
       alt: 'Description of the image for accessibility'
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     classes: ''
     id: ''

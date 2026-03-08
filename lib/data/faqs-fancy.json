@@ -20,7 +20,7 @@
   {
     "id": "fancy-3",
     "title": "Can I mix fancy and simple styles?",
-    "answer": "Yes! You can mix fancy accordion items with background images alongside simple text-only items in the same accordion. Just omit the `isFancy` flag and `background` properties for standard styling.",
+    "answer": "Yes! You can mix fancy accordion items with background images alongside simple rich-text items in the same accordion. Just omit the `isFancy` flag and `background` properties for standard styling.",
     "isFancy": true,
     "background": {
       "image": "/assets/images/sample8.jpg"

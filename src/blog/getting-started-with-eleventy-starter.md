@@ -55,7 +55,7 @@ sections:
       alt: ''
       caption: ''
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'what-is-it'
@@ -90,7 +90,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'installation'
@@ -154,7 +154,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'project-structure'
@@ -233,7 +233,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'creating-pages'
@@ -293,7 +293,7 @@ sections:
                   label: 'Learn More'
                   isButton: true
 
-          - component: text-only
+          - component: rich-text
             container: article
             data:
               title: 'What We Offer'
@@ -324,7 +324,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'development-workflow'
@@ -403,7 +403,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'adding-components'
@@ -450,7 +450,7 @@ sections:
         - **media-image** - Image with optional caption
         - **slider** - Image/content carousel
         - **testimonial** - Quote/testimonial display
-        - **text-only** - Markdown text content
+        - **rich-text** - Markdown text content
 
         **Partials** (16 components):
         - **author-date** - Author and date display
@@ -542,7 +542,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'customizing'
@@ -634,7 +634,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'deploying'
@@ -753,7 +753,7 @@ sections:
         isButton: false
         buttonStyle: 'primary'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: 'next-steps'

@@ -22,7 +22,7 @@ seo:
   keywords: 'metalsmith testimonial, customer quotes, review component, blockquote section, testimonial with portrait, client feedback, social proof'
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     id: ''
     isDisabled: false
@@ -78,7 +78,7 @@ sections:
       company: 'New York Yankees'
       logo: '/assets/images/new-york-yankees-logo.svg'
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''

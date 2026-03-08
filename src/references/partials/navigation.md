@@ -14,7 +14,7 @@ card:
   tags: ['navigation', 'menu', 'responsive', 'hamburger', 'active-state']
 
 sections:
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -61,7 +61,7 @@ sections:
         ### Example
         See the navigation in action in the header above.
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
@@ -80,7 +80,7 @@ sections:
         {{ navigation( mainMenu, urlPath )}}
         ```
 
-  - sectionType: text-only
+  - sectionType: rich-text
     containerTag: section
     containerFields:
       inContainer: false
