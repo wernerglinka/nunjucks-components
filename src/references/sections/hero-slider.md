@@ -293,41 +293,123 @@ sections:
         ```yaml
         sections:
           - sectionType: hero-slider
-            # other settings
-
+            containerTag: section
+            classes: 'first-section'
+            id: ''
+            description: 'Hero slider with multiple slides, each featuring unique content, backgrounds, and navigation controls'
+            isDisabled: false
+            isFullScreen: false
+            containerFields:
+              inContainer: true
+              isAnimated: false
+              noMargin:
+                top: true
+                bottom: true
+              noPadding:
+                top: true
+                bottom: true
+              background:
+                color: ''
+                image: ''
+                imageScreen: 'none'
             autoplay: true
-            autoPlayDelay: 5000
+            autoPlayDelay: 6000
             slides:
               - navLabel: 'Welcome'
                 isReverse: false
                 text:
-                  title: 'Welcome to Our Site'
+                  leadIn: 'Nunjucks Components Library'
+                  title: 'Hero Slider Component'
                   titleTag: 'h1'
-                  prose: 'Engaging content that captures attention'
+                  subTitle: 'Dynamic Multi-Slide Heroes'
+                  prose: 'Create engaging hero sections with multiple slides, smooth transitions, and rich media backgrounds. Perfect for showcasing multiple messages or features.'
                   isCentered: true
                 ctas:
-                  - url: '/get-started'
+                  - url: '#features'
+                    label: 'View Features'
+                    isButton: true
+                    buttonStyle: 'primary'
+                  - url: '/library'
+                    label: 'Back to Library'
+                    isButton: true
+                    buttonStyle: 'secondary'
+                background:
+                  color: ''
+                  isDark: false
+                  image:
+                    src: '/assets/images/sample13.jpg'
+                    alt: 'Hero background'
+                  imageScreen: 'none'
+              - navLabel: 'Features'
+                isReverse: true
+                text:
+                  leadIn: 'Powerful Capabilities'
+                  title: 'Built for Performance'
+                  titleTag: 'h2'
+                  subTitle: 'Optimized for Modern Web'
+                  prose: 'Hardware-accelerated animations, lazy loading, and intelligent resource management ensure smooth performance across all devices.'
+                  isCentered: false
+                ctas:
+                  - url: '#examples'
+                    label: 'See Examples'
+                    isButton: true
+                    buttonStyle: 'primary'
+                image:
+                  src: '/assets/images/old-tractor.png'
+                  alt: 'Feature showcase'
+                  caption: ''
+                background:
+                  color: '#f0f0f0'
+                  isDark: false
+                  image:
+                    src: ''
+                    alt: ''
+                  imageScreen: 'none'
+              - navLabel: 'Customizable'
+                isReverse: false
+                text:
+                  leadIn: ''
+                  title: 'Fully Customizable'
+                  titleTag: 'h2'
+                  subTitle: 'Adapt to Your Brand'
+                  prose: 'Extensive configuration options allow you to customize colors, transitions, timing, and layouts to match your design requirements.'
+                  isCentered: true
+                ctas:
+                  - url: '#'
                     label: 'Get Started'
                     isButton: true
                     buttonStyle: 'primary'
                 background:
-                  color: '#2c3e50'
+                  color: ''
                   isDark: true
                   image:
-                    src: '/assets/images/hero-bg.jpg'
-                    alt: 'Hero background'
+                    src: '/assets/images/sample12.jpg'
+                    alt: 'Customization background'
                   imageScreen: 'dark'
-              - navLabel: 'Features'
-                isReverse: true
+              - navLabel: 'Video BG'
+                isReverse: false
                 text:
-                  title: 'Amazing Features'
-                  prose: 'Discover what makes us different'
-                image:
-                  src: '/assets/images/feature.jpg'
-                  alt: 'Feature image'
+                  leadIn: 'Dynamic Backgrounds'
+                  title: 'Video Background Support'
+                  titleTag: 'h2'
+                  subTitle: 'Bring Your Slides to Life'
+                  prose: 'Add engaging video backgrounds to create immersive experiences. Videos play automatically when the slide is active and pause when transitioning.'
+                  isCentered: true
+                ctas:
+                  - url: '#'
+                    label: 'Watch Demo'
+                    isButton: true
+                    buttonStyle: 'primary'
                 background:
-                  color: '#34495e'
+                  color: ''
                   isDark: true
+                  video:
+                    inline: true
+                    src: 'cloudinary'
+                    cloudname: 'glinkaco'
+                    id: 'walking-feet_2_bblav0'
+                    tn: ''
+                  imageScreen: 'none'
         ```
 
         ### Configuration Options
