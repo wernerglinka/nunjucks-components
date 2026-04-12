@@ -4,7 +4,7 @@
 
 > **New Release** — This component library is freshly published. If you encounter issues or have suggestions, please [open an issue](https://github.com/wernerglinka/nunjucks-components/issues). This library provides components for both the [Metalsmith](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and [Eleventy](https://github.com/wernerglinka/eleventy-structured-content-starter) structured content starters.
 
-A reference implementation and documentation site for building component-based static sites with Metalsmith and Eleventy. The library contains 61 production-ready components (23 partials, 38 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages.
+A reference implementation and documentation site for building component-based static sites with Metalsmith and Eleventy. The library contains 65 production-ready components (23 partials, 42 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages.
 
 This library provides the component catalog for both the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and the [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter). All components are compatible with both starters' architecture and can be integrated into projects using the automated packaging system.
 
@@ -14,15 +14,15 @@ This library provides the component catalog for both the [Metalsmith2025 Structu
 
 ### Component Library
 
-The library contains 61 production-ready components organized in two categories:
+The library contains 65 production-ready components organized in two categories:
 
 **23 Partials** - Small, reusable UI elements used within larger sections:
 
 - audio, author-date, branding, breadcrumbs, button, collection-card, collection-pagination, ctas, dark-light-theme-switcher, flip-card, icon, image, language-switcher, lottie, manual-card, navigation, overlay, page-transitions, search, slider-pagination, text, text-link, video
 
-**38 Sections** - Large page sections and main building blocks:
+**42 Sections** - Large page sections and main building blocks:
 
-- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, rich-text, timeline, video-only
+- accordion, artist-slider, artwork, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, multi-tab, podcast, pricing-table, related-posts, rich-text, search-only, slider, social-shares, stats, steps, team-grid, testimonial, timeline, video-only
 
 **Advanced Components**:
 
@@ -185,11 +185,11 @@ Production build outputs to `build/` directory with HTML minification, optimized
 ├── src/                                    # Source content pages (Markdown with YAML frontmatter)
 │   ├── index.md                           # Homepage
 │   ├── blog.md                            # Blog index with pagination (6 posts per page)
-│   ├── blog/                              # 12 blog posts covering technical guides
+│   ├── blog/                              # 19 blog posts covering technical guides
 │   ├── library/                           # Component documentation and examples
 │   ├── references/
-│   │   ├── sections/                      # Reference pages for 38 section components
-│   │   └── partials/                      # Reference pages for 21 partial components
+│   │   ├── sections/                      # Reference pages for 42 section components
+│   │   └── partials/                      # Reference pages for 22 partial components
 │   ├── partials.md                        # Partials index page
 │   └── assets/                            # Static assets (copied via Metalsmith statik)
 │       ├── images/                        # Static images
@@ -211,8 +211,8 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   │   └── blurbs/                        # Blurbs content (2 JSON files)
 │   ├── layouts/
 │   │   ├── components/
-│   │   │   ├── _partials/                 # 21 partial components
-│   │   │   └── sections/                  # 38 section components
+│   │   │   ├── _partials/                 # 23 partial components
+│   │   │   └── sections/                  # 42 section components
 │   │   │       └── maps/                  # Example: maps component structure
 │   │   │           ├── maps.njk           # Template
 │   │   │           ├── maps.css           # Styles
@@ -237,7 +237,7 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   ├── debug-filters.js, validation-filters.js
 │   └── object-filters.js
 ├── test/                                  # 4 comprehensive Mocha test suites
-│   ├── component-manifests.test.js        # Validates all 59 component manifests
+│   ├── component-manifests.test.js        # Validates all 65 component manifests
 │   ├── build-integration.test.js          # Tests build pipeline and HTML output
 │   ├── content-structure.test.js          # Verifies frontmatter and data files
 │   └── component-dependency-bundler.test.js
@@ -368,7 +368,7 @@ items:
 
 ## Component Catalog
 
-### Section Components (38)
+### Section Components (42)
 
 **Content Display**:
 
@@ -384,6 +384,7 @@ items:
 - **code** - Code blocks with syntax highlighting via Prism.js
 - **testimonial** - Customer quotes with attribution
 - **blurbs** - Grid of content blurbs (text cards)
+- **artwork** - Single artwork display with image and structured property list (type, year, materials, dimensions, status)
 
 **Interactive & Advanced**:
 
@@ -404,6 +405,8 @@ items:
 - **timeline** - Chronological events with vertical alternating and horizontal layouts
 - **stats** - Impact numbers and metrics with grid, row, and compact layouts
 - **steps** - Process flows with numbered steps, icons, and connector lines
+- **multi-tab** - Tabbed interface where each pane can be any section type (rich-text, image-only, media, etc.) with ARIA roles, keyboard navigation, and a `tab:revealed` event for decoupled panel init
+- **social-shares** - Share buttons for the current page with built-in support for Bluesky, LinkedIn, Facebook, X (Twitter), and email, plus an extension point for custom networks
 
 **Layout & Structure**:
 
@@ -417,6 +420,7 @@ items:
 - **cards-list** - Displays cards from data arrays
 - **blog-author** - Author information for blog posts
 - **collection-links** - Previous/next post navigation
+- **related-posts** - Curated list of items from any collection, rendered as a simple text list or a card grid. Cross-collection slug resolution without requiring a `collectionName` prop
 
 **Site Structure**:
 
@@ -471,7 +475,7 @@ The repository includes 4 comprehensive Mocha test suites validating the compone
 
 **Test Coverage**:
 
-- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 61 components
+- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 65 components
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination, and static assets
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata, and content consistency
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, manifest dependencies, and bundler integration
