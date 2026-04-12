@@ -70,11 +70,15 @@ The component iterates every registered collection (`blog`, `sections`, `partial
 
 A flat `<ul>` with each entry showing title, description, and a link. Minimal styling, no thumbnails. Best for end-of-article "further reading" lists where density matters more than visual weight.
 
+Each entry's title and description read from `post.card.title` / `post.card.description` when present, with fallbacks to top-level `blogTitle` (or `title`) and `excerpt`. This means the text list works on projects that don't use the `card` frontmatter convention.
+
 ### Card grid (`hasCard: true`)
 
 A flex-wrap grid of `collection-card` partials, complete with thumbnail, title, description, and an arrow icon. Best when the section stands on its own and benefits from visual anchoring — for example, a "You might also like" block on an index or landing page.
 
 Card thumbnails come from `post.card.thumbnail` (blog convention) with a fallback to `post.card.image` (reference-page convention), so cards work uniformly across collections.
+
+If `hasCard: true` is set but any resolved post is missing its `card` object, the section silently falls back to the text list rather than rendering partial or broken cards.
 
 ## Empty State
 

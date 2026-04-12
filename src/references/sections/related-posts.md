@@ -268,6 +268,8 @@ sections:
         - Items render in the order listed in `selections`, not in any collection's natural sort order.
         - Unmatched slugs are silently skipped; if none resolve, the section renders nothing.
         - In card mode, the thumbnail falls back from `card.thumbnail` (blog convention) to `card.image` (reference-page convention), so cards work uniformly across collections.
+        - Text-list entries read `post.card.title` / `post.card.description` when present, falling back to top-level `blogTitle` (or `title`) and `excerpt`. The text list works on projects that don't use the `card` convention.
+        - If `hasCard: true` is set but any resolved post is missing its `card` object, the section falls back to the text list rather than rendering partial cards.
 
   - sectionType: banner
     containerTag: aside
