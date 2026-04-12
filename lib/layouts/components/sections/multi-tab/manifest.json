@@ -1,0 +1,35 @@
+{
+  "name": "multi-tab",
+  "type": "section",
+  "styles": ["multi-tab.css"],
+  "scripts": ["multi-tab.js"],
+  "requires": ["text", "commons"],
+  "context": ["data", "collections", "urlPath"],
+  "validation": {
+    "required": ["sectionType", "tabs"],
+    "properties": {
+      "sectionType": {
+        "type": "string",
+        "const": "multi-tab"
+      },
+      "defaultTab": {
+        "type": "string"
+      },
+      "tabs": {
+        "type": "array"
+      },
+      "containerFields.inContainer": {
+        "type": "boolean"
+      },
+      "containerFields.isAnimated": {
+        "type": "boolean"
+      },
+      "text.title": {
+        "type": "string"
+      },
+      "text.titleTag": {
+        "type": "string"
+      }
+    }
+  }
+}
