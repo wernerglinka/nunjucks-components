@@ -64,14 +64,13 @@ sections:
         ### Configuration
 
         ```yaml
-        searchIndex: '/library-search-index.json'
+        source: '/search-index.json'
         placeholder: 'Search components...'
         title: 'Search Components'
         subtitle: 'Find the component you need'
         settings:
           maxResults: 20
           minCharacters: 2
-          enableHighlighting: true
         ```
 
         ### Configuration Options
@@ -80,7 +79,8 @@ sections:
         |----------|------|----------|---------|-------------|
         | `title` | string | No | - | Search section title |
         | `subtitle` | string | No | - | Search section subtitle |
-        | `searchIndex` | string | No | '/search-index.json' | JSON data source URL |
+        | `source` | string | No | '/search-index.json' | JSON search index URL (also accepts `settings.source`) |
+        | `searchType` | string | No | 'default' | Search type key — selects Fuse.js weights (`site`, `library`, `default`) |
         | `placeholder` | string | No | 'Search...' | Input placeholder text |
         | `settings.maxResults` | number | No | 20 | Maximum search results |
         | `settings.minCharacters` | number | No | 2 | Minimum characters to trigger search |
@@ -99,7 +99,7 @@ sections:
         isDark: false
     title: 'Component Search Demo'
     subtitle: 'Search through the component library'
-    searchIndex: '/library-search-index.json'
+    source: '/search-index.json'
     placeholder: 'Search components...'
     settings:
       maxResults: 10
@@ -124,7 +124,7 @@ sections:
         {{ search({
           title: 'Search Components',
           subtitle: 'Find the component you need',
-          searchIndex: '/library-search-index.json',
+          source: '/search-index.json',
           placeholder: 'Search components...'
         }) }}
         ```

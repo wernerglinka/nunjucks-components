@@ -205,11 +205,11 @@ sections:
 
         **How It Works**:
         1. **HTML Parsing**: Uses Cheerio to parse final rendered HTML pages
-        2. **Content Exclusion**: Removes navigation, header, footer elements (configurable via `excludeSelectors`)
-        3. **Text Extraction**: Extracts all text content from the remaining HTML
-        4. **Heading Processing**: Finds all h1-h6 headings and ensures they have IDs for scroll-to functionality
-        5. **Frontmatter Integration**: Includes metadata fields like title, description, tags from page frontmatter
-        6. **Anchor Generation**: Automatically generates IDs for headings without them
+        2. **Content Exclusion**: Removes navigation, header, footer, script, and style elements (configurable via `excludeSelectors`)
+        3. **Title Resolution**: Reads the page title from the `<title>` tag or the first `<h1>`
+        4. **Text Extraction**: Extracts all remaining text content
+        5. **Heading Processing**: Finds all h1-h6 headings, preserves existing IDs, and auto-generates unique slug IDs for the rest (used for scroll-to anchors)
+        6. **Excerpt Generation**: Produces a 250-character excerpt cut at a word boundary
 
         **Each page generates a single search entry**:
 
@@ -219,9 +219,8 @@ sections:
           "type": "page",
           "url": "/blog/post",
           "title": "Blog Post Title",
-          "description": "Page description from frontmatter",
-          "tags": ["javascript", "tutorial"],
           "content": "All page text content extracted from HTML...",
+          "excerpt": "Auto-generated 250-character excerpt...",
           "headings": [
             {"level": "h2", "id": "introduction", "title": "Introduction"},
             {"level": "h3", "id": "overview", "title": "Overview"}
@@ -230,15 +229,14 @@ sections:
         }
         ```
 
-        **The `headings` array enables scroll-to functionality** - when Fuse.js finds matches, client-side JavaScript can determine which section the match is in and scroll users to the nearest heading anchor.
+        **The `headings` array enables scroll-to functionality** - when the client finds a match inside a heading title, it appends `#<headingId>` to the result URL so users land on the relevant section.
 
-        **Weighted Search Fields** (configured via `fuseOptions.keys`):
+        **Weighted Search Fields** (server-side default `fuseOptions.keys`):
         - `title` (weight: 10) - Page titles get highest priority
         - `content` (weight: 5) - Main text content
-        - `description` (weight: 3) - Page descriptions from frontmatter
-        - `tags` (weight: 7) - Content tags
+        - `excerpt` (weight: 3) - Auto-generated excerpt
 
-        You can customize which frontmatter fields are indexed using the `contentFields` option.
+        The server-side weights are embedded in the index under `config.fuseOptions`. The client-side `search.js` uses its own set of weights that also include `headings.title` (weight 7) for heading-level matches.
 
   - sectionType: rich-text
     containerTag: article
@@ -320,11 +318,8 @@ sections:
             // Collect all searchable fields from page-level entry
             const searchableFields = [];
             if (item.title) searchableFields.push(item.title);
-            if (item.description) searchableFields.push(item.description);
             if (item.content) searchableFields.push(item.content);
-            if (Array.isArray(item.tags)) {
-              searchableFields.push(...item.tags);
-            }
+            if (item.excerpt) searchableFields.push(item.excerpt);
 
             // Include heading titles for better matching
             if (Array.isArray(item.headings)) {
@@ -349,7 +344,7 @@ sections:
         You can tune these values in `search.js` to match your content:
 
         - **Relevance threshold**: Change `50` to be more strict (70+) or more permissive (30)
-        - **Searchable fields**: The HTML-first approach extracts content from rendered HTML, so you're working with clean text content plus frontmatter fields
+        - **Searchable fields**: The HTML-first approach extracts clean text from rendered HTML (`title`, `content`, `excerpt`) plus the `headings` array
         - **Heading integration**: The `headings` array enables scroll-to functionality and provides additional search context
         - **Exact match requirement**: This prevents false positives - keep this unless you have specific reasons to remove it
 

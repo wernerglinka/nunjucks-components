@@ -70,13 +70,9 @@ sections:
       titleTag: 'h2'
       subTitle: 'Find components, examples, and documentation'
       prose:
+    placeholder: 'Search components, features, or documentation...'
     settings:
-      placeholder: 'Search components, features, or documentation...'
-      showCategories: true
       maxResults: 15
-      resultTypes: []
-      enableHighlighting: true
-      showRelevanceScore: true
       minCharacters: 3
 
   - sectionType: rich-text
@@ -135,7 +131,7 @@ sections:
       titleTag: 'h2'
       subTitle: ''
       prose: |-
-        The search component requires the `metalsmith-search` plugin to be properly configured in `metalsmith.js` build file.
+        The search component requires the `metalsmith-search` plugin to be configured in your `metalsmith.js` build file.
 
         ### Basic Plugin Installation
 
@@ -145,17 +141,15 @@ sections:
         const metalsmith = Metalsmith(__dirname)
           .source('src')
           .destination('build')
-          
-          // Add search plugin EARLY in pipeline for clean content
-          .use(search({
-            // Default configuration processes clean markdown files
-            indexLevels: ['page', 'section']
-          }))
-          
-          // Content processing happens AFTER search indexing
+
+          // Render layouts FIRST so the plugin can parse the final HTML
           .use(layouts())
-          .use(collections())
-          
+
+          // Then generate the search index from rendered HTML
+          .use(search({
+            ignore: ['**/search.md', '**/search-index.json']
+          }))
+
           .build((err) => {
             if (err) throw err;
             console.log('Build complete with search index!');
@@ -164,96 +158,53 @@ sections:
 
         ### Plugin Position
 
-        Place the search plugin **before templating is applied** for optimal content extraction
+        Place the search plugin **after** `@metalsmith/layouts` so it operates on fully rendered HTML, not raw Markdown. The plugin uses Cheerio to parse the DOM and extract real, user-visible text — indexing before layout rendering would miss component output.
 
         ### Configuration Options
 
-        **File Processing:**
-
         | Property | Type | Default | Description |
         |----------|------|---------|-------------|
-        | `pattern` | string | '**/*.md' | Files to index |
-        | `ignore` | array | ['**/search.md'] | Exclude specific files |
+        | `pattern` | string \| string[] | `'**/*.html'` | Rendered files to index |
+        | `ignore` | string \| string[] | `['**/search-index.json']` | Patterns to exclude |
+        | `indexPath` | string | `'search-index.json'` | Output path for the generated index |
+        | `excludeSelectors` | string[] | `['nav', 'header', 'footer']` | CSS selectors to strip before extraction |
+        | `fuseOptions` | object | see below | Fuse.js configuration embedded in the index |
 
-        **Index Configuration:**
+        **Default `fuseOptions`:**
 
-        | Property | Type | Default | Description |
-        |----------|------|---------|-------------|
-        | `indexPath` | string | 'search-index.json' | Output file path |
-        | `indexLevels` | array | ['page', 'section'] | Content levels to index |
-        | `sectionsField` | string | 'sections' | Component array field name |
-
-        **Component Processing:**
-
-        | Property | Type | Default | Description |
-        |----------|------|---------|-------------|
-        | `autoDetectSectionTypes` | boolean | true | Auto-discover component types |
-        | `sectionTypeField` | string | 'sectionType' | Component type field |
-
-        **Content Processing:**
-
-        | Property | Type | Default | Description |
-        |----------|------|---------|-------------|
-        | `stripHtml` | boolean | true | Remove HTML markup |
-        | `generateAnchors` | boolean | true | Create section anchors |
-        | `maxSectionLength` | number | 2000 | Split long sections (characters) |
-        | `chunkSize` | number | 1500 | Target chunk size (characters) |
-        | `minSectionLength` | number | 50 | Skip tiny sections (characters) |
-        | `processMarkdownFields` | boolean | true | Process markdown in frontmatter |
-        | `frontmatterFields` | array | ['summary', 'intro', 'leadIn'] | Fields to process |
-
-        **Performance Options:**
-
-        | Property | Type | Default | Description |
-        |----------|------|---------|-------------|
-        | `batchSize` | number | 10 | Process files in batches (file count) |
-        | `async` | boolean | false | Enable for very large sites |
+        ```javascript
+        {
+          keys: [
+            { name: 'title', weight: 10 },   // <title> or first <h1>
+            { name: 'content', weight: 5 },  // All page text
+            { name: 'excerpt', weight: 3 }   // Auto-generated 250-char excerpt
+          ],
+          threshold: 0.3,
+          includeScore: true,
+          includeMatches: true,
+          minMatchCharLength: 3
+        }
+        ```
 
         **Complete Example:**
         ```javascript
         .use(search({
-          // File processing
-          pattern: '**/*.md',
-          ignore: ['**/search.md'],
-
-          // Index configuration
+          pattern: '**/*.html',
+          ignore: ['**/search.md', '**/search-index.json'],
           indexPath: 'search-index.json',
-          indexLevels: ['page', 'section'],
-          sectionsField: 'sections',
+          excludeSelectors: ['nav', 'header', 'footer', '.related-posts'],
 
-          // Component-based processing
-          autoDetectSectionTypes: true,
-          sectionTypeField: 'sectionType',
-
-          // Content processing
-          stripHtml: true,
-          generateAnchors: true,
-          maxSectionLength: 2000,
-          chunkSize: 1500,
-          minSectionLength: 50,
-
-          // Frontmatter markdown processing
-          processMarkdownFields: true,
-          frontmatterFields: ['summary', 'intro', 'leadIn'],
-
-          // Enhanced Fuse.js search configuration
           fuseOptions: {
             keys: [
               { name: 'title', weight: 10 },
-              { name: 'tags', weight: 8 },
-              { name: 'leadIn', weight: 5 },
-              { name: 'prose', weight: 3 },
-              { name: 'content', weight: 1 }
+              { name: 'content', weight: 5 },
+              { name: 'excerpt', weight: 3 }
             ],
-            threshold: 0.3,                     // Search sensitivity (0.0 = exact, 1.0 = loose)
-            includeScore: true,                 // Include relevance scores
-            includeMatches: true,              // Include match highlighting data
-            minMatchCharLength: 3              // Minimum characters for match
-          },
-
-          // Performance options
-          batchSize: 10,
-          async: false
+            threshold: 0.3,
+            includeScore: true,
+            includeMatches: true,
+            minMatchCharLength: 3
+          }
         }))
         ```
 
@@ -277,15 +228,15 @@ sections:
         imageScreen: 'none'
     text:
       leadIn: ''
-      title: 'Content Architecture Support'
+      title: 'Why HTML-First Indexing'
       titleTag: 'h2'
       subTitle: ''
       prose: |-
-        The metalsmith-search plugin intelligently handles both structured content architecture and traditional long-form content.
+        Because the plugin runs on rendered HTML, it works with any content architecture without special configuration.
 
         ### Structured Content Sites
 
-        For sites using structured frontmatter with component sections:
+        For sites using structured frontmatter with component sections, each page's components render into the final HTML — and that HTML is what gets indexed:
 
         ```yaml
         ---
@@ -302,46 +253,35 @@ sections:
         ---
         ```
 
-        **Auto-Detection Features:**
-        - Automatically discovers component types from `sectionType` fields
-        - Generates field mappings for discovered components
-        - No manual configuration needed when adding new components
-        - Debug with: `DEBUG=metalsmith-search* node metalsmith.js`
+        There's no need to declare component types, field names, or section schemas. Anything that ends up as visible text on the rendered page (after the `excludeSelectors` are removed) is part of the index.
 
         ### Traditional Markdown Sites
 
-        For traditional long-form content:
+        For traditional long-form content, the Markdown is rendered to HTML by `@metalsmith/layouts` before the plugin sees it:
 
         ```yaml
         ---
         title: "My Article"
-        summary: "Brief description with **markdown**"
-        tags: ["web", "development"]
         ---
 
         # Article Title
 
-        Long-form content that gets automatically chunked for search...
+        Long-form content that becomes searchable once rendered.
         ```
 
-        **Intelligent Processing:**
-        - Automatic content chunking for long articles
-        - Heading-based section navigation
-        - Frontmatter markdown processing
-        - Tag and metadata extraction
+        All body text is captured in the `content` field. Headings (h1–h6) are collected separately into the `headings` array so the client can jump to the matching section.
 
-        ### Custom Component Field Names
+        ### Excluding Site Chrome
 
-        If your site uses different field names for component arrays:
+        Use `excludeSelectors` to keep navigation, repeated promo banners, or related-post widgets out of the index:
 
         ```javascript
         .use(search({
-          sectionsField: 'myComponents',  // Instead of default 'sections'
-          indexLevels: ['page', 'section']
+          excludeSelectors: ['nav', 'header', 'footer', '.site-promo', '.related-posts']
         }))
         ```
 
-        Common alternative field names: `components`, `blocks`, `content`, `pageComponents`
+        `<script>` and `<style>` elements are always stripped automatically.
 
   - sectionType: rich-text
     containerTag: article
@@ -363,58 +303,64 @@ sections:
         imageScreen: 'none'
     text:
       leadIn: ''
-      title: 'Client-Server Field Mapping'
+      title: 'Index Structure and Client Configuration'
       titleTag: 'h2'
       subTitle: ''
       prose: |-
-        The search component's client-side Fuse.js configuration must match the fields generated by the metalsmith-search plugin.
+        ### Generated Index Fields
 
-        ### Server-Side Index Fields
+        The plugin writes one entry per page to `/search-index.json`. Each entry has this shape:
 
-        The plugin generates these searchable fields in `/search-index.json`:
+        ```json
+        {
+          "id": "page:/blog/post",
+          "type": "page",
+          "url": "/blog/post",
+          "title": "Page Title",
+          "content": "All page text extracted from rendered HTML...",
+          "excerpt": "Auto-generated 250-character excerpt...",
+          "headings": [
+            { "level": "h2", "id": "introduction", "title": "Introduction" },
+            { "level": "h3", "id": "overview", "title": "Overview" }
+          ],
+          "wordCount": 1523
+        }
+        ```
 
-        - `pageName` - Page title or filename
-        - `title` - Section or page title
-        - `leadIn` - Lead-in text from frontmatter
-        - `prose` - Main content text
-        - `content` - Combined full content
-        - `tags` - Content tags array
-        - `url` - Page or section URL
-        - `type` - Content type (page/section)
-        - `sectionType` - Component type (hero, rich-text, etc.)
+        The full JSON file also includes top-level metadata: `version`, `generated`, `totalEntries`, `stats`, and `config.fuseOptions` (so clients can reconstruct the same Fuse configuration if they want).
 
         ### Client-Side Fuse.js Configuration
 
-        The search component uses this optimized configuration:
+        The search partial (`search.js`) applies its own weights on top of the loaded index:
 
         ```javascript
         const fuseOptions = {
           keys: [
-            { name: 'pageName', weight: 10 },   // Highest priority
-            { name: 'title', weight: 8 },       // Section titles
-            { name: 'leadIn', weight: 5 },      // Lead-in text
-            { name: 'prose', weight: 3 },       // Main content
-            { name: 'content', weight: 1 },     // Full content
-            { name: 'tags', weight: 6 }         // Content tags
+            { name: 'title', weight: 10 },          // Page titles
+            { name: 'headings.title', weight: 7 },  // Section headings
+            { name: 'content', weight: 5 },         // Main content
+            { name: 'excerpt', weight: 3 }          // Excerpt
           ],
-          threshold: 0.3,                       // Balanced sensitivity
+          threshold: 0.4,
           includeScore: true,
           includeMatches: true,
-          minMatchCharLength: 3
+          minMatchCharLength: 3,
+          ignoreLocation: true
         };
         ```
 
+        When a match falls inside a heading's title, the client appends `#<headingId>` to the result URL so users land on the correct section.
+
         ### Performance Optimization
 
-        **Search Relevance Filtering:**
-        - Results below 50% relevance are automatically filtered out
-        - Prevents low-quality matches from cluttering results
-        - Maintains focus on meaningful content matches
+        **Two-Stage Relevance Filtering** (in `search.js`):
+        - Fuse returns fuzzy matches above threshold `0.4`
+        - Client then drops any result below 50% relevance (`(1 - score) * 100 < 50`)
+        - Client also requires an **exact case-insensitive substring match** in title, content, excerpt, or a heading — this removes typical fuzzy-search false positives
 
         **Dynamic Library Loading:**
-        - Fuse.js (145KB) loaded from CDN only when search component is used
-        - Prevents impact on initial page load for pages without search
-        - Follows established component pattern for script loading
+        - Fuse.js is loaded from jsDelivr CDN only when the search component renders
+        - The loader caches its promise so multiple search instances on a page share one network request
 
   - sectionType: rich-text
     containerTag: article
@@ -447,70 +393,26 @@ sections:
         ```
 
         This shows detailed information about:
-        - Files being processed and content extraction
-        - Auto-detected component types and field mappings
-        - Index generation progress and performance metrics
-        - Batch processing status and error handling
+        - Which HTML files were matched and processed
+        - Title, URL, and heading extraction for each page
+        - Total entries written and the index output path
 
         ## Common Issues & Solutions
 
         **Empty search index:**
-        - Verify plugin runs on correct file pattern (default: `**/*.md`)
-        - Check that markdown files contain valid frontmatter structure
-        - Ensure component sections use expected field names
+        - Ensure the plugin runs **after** `@metalsmith/layouts` so HTML exists to parse
+        - Verify the `pattern` matches your output (default `**/*.html`)
+        - Confirm pages actually produce text content after `excludeSelectors` are stripped
 
         **Poor search results:**
-        - Adjust `threshold` in `fuseOptions` (lower = more strict matching)
-        - Modify field weights to prioritize important content types
-        - Verify client-side Fuse.js keys match server-side index fields
-
-        **Large bundle size:**
-        - Use `stripHtml: true` to remove HTML markup from content
-        - Increase `minSectionLength` to filter out short content chunks (characters)
-        - Enable `async: true` and adjust `batchSize` for better performance (file count)
+        - Adjust the client-side relevance threshold (50%) in `search.js`
+        - Tune the client-side `threshold` in `fuseOptions` (lower = stricter)
+        - Add more specific `excludeSelectors` to remove repetitive chrome text
 
         **Missing anchor links:**
-        - Ensure `generateAnchors: true` in plugin configuration
-        - Verify section components render IDs in templates
-        - Check that plugin runs before permalink processing
-
-        ## Performance Tips
-
-        **For Large Sites:**
-        ```javascript
-        .use(search({
-          async: true,                    // Enable async processing
-          batchSize: 50,                  // Larger batches (file count)
-          maxSectionLength: 1500,         // Optimize content chunking (characters)
-          chunkSize: 1000,                // Target chunk size (characters)
-          stripHtml: true,                // Reduce index size (default)
-          minSectionLength: 100           // Skip short sections (characters)
-        }))
-        ```
-
-        **Production Optimization:**
-        ```javascript
-        // Search plugin positioned early for clean content access
-        const metalsmith = Metalsmith(__dirname)
-          .source('src')
-          .destination('build')
-          
-          // Search plugin EARLY - always runs to maintain pipeline position
-          .use(search({
-            indexPath: 'search-index.json',
-            // Optimize for production builds
-            minSectionLength: 100,        // Skip short sections (characters)
-            batchSize: 20                 // Process files in batches (file count)
-          }))
-          
-          .use(layouts())
-          .use(collections())
-          
-          .build((err) => {
-            if (err) throw err;
-            console.log('Build complete with optimized search index!');
-          });
-        ```
+        - Headings without existing IDs get auto-generated slug IDs at index time
+        - If you want stable, readable IDs, add `id` attributes in your templates
+        - Verify the rendered HTML actually contains the headings (not injected later by client JS)
 
   - sectionType: rich-text
     containerTag: section
@@ -536,50 +438,47 @@ sections:
       subTitle: ''
       prose: |-
         ```yaml
-        - sectionType: search
+        - sectionType: search-only
           containerTag: section
           # container settings
 
-          text:
-            title: 'Search Components'                    # Main heading (optional)
-            subtitle: 'Find what you need'               # Subtitle text (optional)
-            placeholder: 'Search...'                     # Input placeholder (default: "Search...")
+          title: 'Search Components'                      # Main heading (optional)
+          subtitle: 'Find what you need'                  # Subtitle text (optional)
+          placeholder: 'Search...'                        # Input placeholder (default: "Search...")
+          source: '/search-index.json'                    # Index URL (optional)
+          searchType: 'default'                           # 'site', 'library', or 'default'
 
           settings:
-            showCategories: true                         # Show filter dropdowns (default: false)
-            maxResults: 20                               # Maximum results to display (default: 20)
-            enableHighlighting: true                     # Highlight matching terms (default: true)
-            showRelevanceScore: true                     # Show relevance percentage (default: true)
-            minCharacters: 2                             # Min characters to trigger search (default: 2)
+            maxResults: 20                                # Maximum results to display (default: 20)
+            minCharacters: 2                              # Min characters to trigger search (default: 2)
         ```
 
         ### Notes
 
-        - **Fuzzy Search**: Powered by Fuse.js for intelligent search matching
-        - **Component-Aware**: Understands your site's component-based architecture
-        - **Multi-Level Search**: Search both page-level and section-level content
+        - **Fuzzy Search**: Powered by Fuse.js for typo-tolerant matching
+        - **Two-Stage Filter**: Fuzzy matching followed by exact substring verification to prevent false positives
         - **Real-time Results**: Instant search with debounced input (300ms)
-        - **Filtering**: Filter by content type and component type
-        - **Keyboard Shortcuts**: Ctrl/Cmd+K to focus search, Escape to clear
-        - **Match Highlighting**: Visually highlights matching terms in results
-        - **Accessibility**: Full ARIA support and screen reader compatibility
-        - **Responsive**: Works seamlessly across all device sizes
+        - **URL Auto-Execute**: Visiting `/search/?q=term` pre-fills and runs the query
+        - **Heading Anchors**: Matches inside headings append `#id` to result URLs for scroll-to
+        - **Keyboard Shortcut**: Escape clears the input
+        - **Match Highlighting**: Wraps the query in `<mark>` inside titles and excerpts
+        - **SWUP-Compatible**: Re-initializes after page transitions
+        - **Accessibility**: ARIA live region for status updates; full keyboard support
 
         ### Prerequisites
 
-        1. **metalsmith-search plugin** must be installed and configured in your Metalsmith build
-        2. **Fuse.js** is loaded from CDN automatically when the search component is used
-        3. The plugin must generate a `/search-index.json` file during build
+        1. **metalsmith-search plugin** must be installed and configured in your Metalsmith build (after `@metalsmith/layouts`)
+        2. **Fuse.js** is loaded from CDN automatically when the search component renders
+        3. The plugin generates a `/search-index.json` file during build
 
         ### Search Properties
 
-        - `text.title`: Main heading for the search section (optional)
-        - `text.subtitle`: Subtitle or description text (optional)
-        - `text.placeholder`: Placeholder text for search input (default: "Search...")
-        - `settings.showCategories`: Show filter dropdowns (default: false)
+        - `title`: Main heading above the search input (optional)
+        - `subtitle`: Subtitle or description text (optional)
+        - `placeholder`: Placeholder text for search input (default: "Search...")
+        - `source` / `settings.source`: Index URL (default: `/search-index.json`)
+        - `searchType` / `settings.searchType`: Selects client-side Fuse weight presets (`site`, `library`, `default`)
         - `settings.maxResults`: Maximum number of results to display (default: 20)
-        - `settings.enableHighlighting`: Highlight matching terms (default: true)
-        - `settings.showRelevanceScore`: Show relevance percentage (default: true)
         - `settings.minCharacters`: Minimum characters to trigger search (default: 2)
 
   - sectionType: banner

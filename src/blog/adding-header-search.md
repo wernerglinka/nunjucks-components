@@ -1196,7 +1196,7 @@ sections:
 
         ### Enhance the Search Index
 
-        Configure the metalsmith-search plugin to include additional metadata like categories, tags, or dates in the search index for more refined searching.
+        Tune what gets indexed by adjusting `excludeSelectors` (to drop sidebars, related-post widgets, etc.) or by rendering additional metadata into the page HTML so it's picked up during extraction.
 
         ### Add Search Filters
 
