@@ -12,7 +12,7 @@
 import fs from 'fs/promises';
 import { createWriteStream } from 'fs';
 import path from 'path';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -32,7 +32,7 @@ async function packageIcons() {
 
     // Create write stream for ZIP
     const output = createWriteStream(outputFile);
-    const archive = archiver('zip', { zlib: { level: 9 } });
+    const archive = new ZipArchive({ zlib: { level: 9 } });
 
     // Handle stream events
     output.on('close', () => {
