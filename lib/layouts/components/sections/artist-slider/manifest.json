@@ -59,5 +59,35 @@
         "description": "Anchor for scroll-down icon (e.g., '#first-section')"
       }
     }
+  },
+  "fields": {
+    "artworks": {
+      "source": {
+        "widget": "text",
+        "label": "Data source (file in lib/data)",
+        "default": ""
+      },
+      "imageFolder": {
+        "widget": "text",
+        "label": "Image folder path",
+        "default": ""
+      }
+    },
+    "cycleTime": {
+      "widget": "text",
+      "label": "Cycle time (ms)",
+      "default": "5000"
+    },
+    "showDots": {
+      "widget": "checkbox",
+      "label": "Show navigation dots",
+      "default": true
+    },
+    "scrollTarget": {
+      "widget": "text",
+      "label": "Scroll target (optional)",
+      "default": ""
+    },
+    "$extends": ["commons"]
   }
 }

@@ -44,5 +44,27 @@
         "enum": ["cards", "comparison"]
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "tiers": {
+      "source": {
+        "widget": "text",
+        "label": "Data source (file in lib/data)",
+        "default": ""
+      },
+      "layout": {
+        "widget": "select",
+        "label": "Layout",
+        "enum": ["grid", "columns"],
+        "default": "grid"
+      }
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

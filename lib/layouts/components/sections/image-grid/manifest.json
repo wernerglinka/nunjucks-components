@@ -51,5 +51,33 @@
         "type": "string"
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "hasCenteredContent": {
+      "widget": "checkbox",
+      "label": "Center text",
+      "default": false
+    },
+    "dataSource": {
+      "widget": "text",
+      "label": "Data source (file in lib/data)",
+      "default": ""
+    },
+    "settings": {
+      "gap": {
+        "widget": "text",
+        "label": "Gap (px)",
+        "default": "6"
+      },
+      "targetRowHeight": {
+        "widget": "text",
+        "label": "Target row height (px)",
+        "default": "200"
+      }
+    },
+    "$extends": ["commons"]
   }
 }

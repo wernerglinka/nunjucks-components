@@ -44,10 +44,59 @@
               "enum": ["primary", "secondary", "tertiary", "inverted"]
             },
             "isSmall": {
-              "type": "boolean"            }
+              "type": "boolean"
+            }
           }
         }
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "hasCenteredContent": {
+      "widget": "checkbox",
+      "label": "Center text",
+      "default": false
+    },
+    "faqs": {
+      "source": {
+        "widget": "text",
+        "label": "Data source (file in lib/data)",
+        "default": ""
+      },
+      "scope": {
+        "widget": "select",
+        "label": "Scope",
+        "enum": ["all", "selections"],
+        "default": "all"
+      },
+      "selections": {
+        "widget": "array",
+        "label": "Selected IDs (when scope is selections)",
+        "items": {
+          "id": {
+            "widget": "text",
+            "label": "ID",
+            "default": ""
+          }
+        }
+      }
+    },
+    "allowMultiple": {
+      "widget": "checkbox",
+      "label": "Allow multiple panels open",
+      "default": false
+    },
+    "expandIndex": {
+      "widget": "text",
+      "label": "Index of panel to expand on load (optional)",
+      "default": ""
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

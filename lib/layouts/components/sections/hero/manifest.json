@@ -68,5 +68,30 @@
         }
       }
     }
+  },
+  "fields": {
+    "isReverse": {
+      "widget": "checkbox",
+      "label": "Reverse layout (image on the right)",
+      "default": false
+    },
+    "isFullScreen": {
+      "widget": "checkbox",
+      "label": "Full-screen hero",
+      "default": false
+    },
+    "text": {
+      "$use": "text",
+      "titleTag": {
+        "default": "h1"
+      }
+    },
+    "image": {
+      "$use": "image"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

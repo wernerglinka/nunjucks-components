@@ -40,5 +40,18 @@
         "type": "boolean"
       }
     }
+  },
+  "fields": {
+    "name": {
+      "widget": "text",
+      "label": "Author name (must match an entry in data/author)",
+      "default": ""
+    },
+    "isReverse": {
+      "widget": "checkbox",
+      "label": "Reverse layout",
+      "default": false
+    },
+    "$extends": ["commons"]
   }
 }

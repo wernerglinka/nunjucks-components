@@ -38,10 +38,20 @@
               "enum": ["primary", "secondary", "tertiary", "inverted"]
             },
             "isSmall": {
-              "type": "boolean"            }
+              "type": "boolean"
+            }
           }
         }
       }
     }
+  },
+  "fields": {
+    "image": {
+      "$use": "image"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

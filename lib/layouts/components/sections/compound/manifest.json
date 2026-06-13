@@ -44,5 +44,25 @@
         "type": "array"
       }
     }
+  },
+  "fields": {
+    "compoundSections": {
+      "widget": "array",
+      "label": "Sections (each a nested section definition)",
+      "items": {
+        "sectionType": {
+          "widget": "text",
+          "label": "Section type",
+          "default": ""
+        },
+        "containerTag": {
+          "widget": "select",
+          "label": "Container tag",
+          "enum": ["section", "article", "aside", "div"],
+          "default": "section"
+        }
+      }
+    },
+    "$extends": ["commons"]
   }
 }

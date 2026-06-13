@@ -17,5 +17,22 @@
         "type": "string"
       }
     }
+  },
+  "fields": {
+    "icon": {
+      "widget": "text",
+      "label": "Icon name",
+      "default": ""
+    },
+    "url": {
+      "widget": "text",
+      "label": "Link URL (optional)",
+      "default": ""
+    },
+    "title": {
+      "widget": "text",
+      "label": "Title (optional)",
+      "default": ""
+    }
   }
 }

@@ -44,5 +44,14 @@
         }
       }
     }
+  },
+  "fields": {
+    "icon": {
+      "$use": "icon"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

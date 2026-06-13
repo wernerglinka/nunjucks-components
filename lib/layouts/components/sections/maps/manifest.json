@@ -78,5 +78,45 @@
         }
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "mapProvider": {
+      "widget": "select",
+      "label": "Map provider",
+      "enum": ["leaflet", "google"],
+      "default": "leaflet"
+    },
+    "mapData": {
+      "widget": "text",
+      "label": "Map data source (optional)",
+      "default": ""
+    },
+    "height": {
+      "widget": "text",
+      "label": "Map height (e.g. 400px)",
+      "default": ""
+    },
+    "latitude": {
+      "widget": "text",
+      "label": "Latitude",
+      "default": ""
+    },
+    "longitude": {
+      "widget": "text",
+      "label": "Longitude",
+      "default": ""
+    },
+    "zoom": {
+      "widget": "text",
+      "label": "Zoom",
+      "default": ""
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

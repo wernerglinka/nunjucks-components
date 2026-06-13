@@ -21,5 +21,29 @@
         "type": "boolean"
       }
     }
+  },
+  "fields": {
+    "src": {
+      "widget": "text",
+      "label": "Lottie JSON URL",
+      "default": ""
+    },
+    "speed": {
+      "widget": "text",
+      "label": "Playback speed",
+      "default": "1"
+    },
+    "control": {
+      "loop": {
+        "widget": "checkbox",
+        "label": "Loop",
+        "default": true
+      },
+      "autoplay": {
+        "widget": "checkbox",
+        "label": "Autoplay",
+        "default": true
+      }
+    }
   }
 }

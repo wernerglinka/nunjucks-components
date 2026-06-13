@@ -23,5 +23,27 @@
         "type": "boolean"
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "hasCard": {
+      "widget": "checkbox",
+      "label": "Render as cards",
+      "default": false
+    },
+    "selections": {
+      "widget": "array",
+      "label": "Post slugs",
+      "items": {
+        "slug": {
+          "widget": "text",
+          "label": "Slug",
+          "default": ""
+        }
+      }
+    },
+    "$extends": ["commons"]
   }
 }

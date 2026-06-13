@@ -47,5 +47,14 @@
         }
       }
     }
+  },
+  "fields": {
+    "audio": {
+      "$use": "audio"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

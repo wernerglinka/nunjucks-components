@@ -31,5 +31,39 @@
         "type": "string"
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "defaultTab": {
+      "widget": "text",
+      "label": "Default tab key (optional)",
+      "default": ""
+    },
+    "tabs": {
+      "widget": "array",
+      "label": "Tabs (each pane is a nested section)",
+      "items": {
+        "key": {
+          "widget": "text",
+          "label": "Key",
+          "default": ""
+        },
+        "label": {
+          "widget": "text",
+          "label": "Label",
+          "default": ""
+        },
+        "pane": {
+          "sectionType": {
+            "widget": "text",
+            "label": "Pane section type",
+            "default": ""
+          }
+        }
+      }
+    },
+    "$extends": ["commons"]
   }
 }

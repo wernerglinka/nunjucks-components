@@ -44,5 +44,24 @@
         "enum": ["grid", "compact"]
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "team": {
+      "source": {
+        "widget": "text",
+        "label": "Data source (file in lib/data)",
+        "default": ""
+      },
+      "layout": {
+        "widget": "select",
+        "label": "Layout",
+        "enum": ["grid", "list"],
+        "default": "grid"
+      }
+    },
+    "$extends": ["commons"]
   }
 }

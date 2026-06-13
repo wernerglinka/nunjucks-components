@@ -34,5 +34,48 @@
         "type": "boolean"
       }
     }
+  },
+  "fields": {
+    "id": {
+      "widget": "text",
+      "label": "Video ID",
+      "default": ""
+    },
+    "src": {
+      "widget": "select",
+      "label": "Source",
+      "enum": ["youtube", "vimeo", "cloudinary"],
+      "default": "youtube"
+    },
+    "tn": {
+      "widget": "image",
+      "label": "Thumbnail image",
+      "default": ""
+    },
+    "alt": {
+      "widget": "text",
+      "label": "Thumbnail alt text",
+      "default": ""
+    },
+    "cloudname": {
+      "widget": "text",
+      "label": "Cloudinary cloud name (optional)",
+      "default": ""
+    },
+    "start": {
+      "widget": "text",
+      "label": "Start time (optional)",
+      "default": ""
+    },
+    "end": {
+      "widget": "text",
+      "label": "End time (optional)",
+      "default": ""
+    },
+    "inSitu": {
+      "widget": "checkbox",
+      "label": "Play inline (in situ)",
+      "default": false
+    }
   }
 }

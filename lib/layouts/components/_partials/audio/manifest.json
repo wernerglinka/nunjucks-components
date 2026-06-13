@@ -19,5 +19,27 @@
         "type": "string"
       }
     }
+  },
+  "fields": {
+    "ogg": {
+      "widget": "text",
+      "label": "OGG file URL",
+      "default": ""
+    },
+    "mpeg": {
+      "widget": "text",
+      "label": "MP3/MPEG file URL",
+      "default": ""
+    },
+    "bgImage": {
+      "widget": "image",
+      "label": "Background image (optional)",
+      "default": ""
+    },
+    "alt": {
+      "widget": "text",
+      "label": "Background image alt text",
+      "default": ""
+    }
   }
 }

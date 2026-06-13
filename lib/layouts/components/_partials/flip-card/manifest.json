@@ -13,8 +13,12 @@
           "icon": {
             "type": "object",
             "properties": {
-              "icon": { "type": "string" },
-              "url": { "type": "string" }
+              "icon": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
             }
           },
           "text": {
@@ -35,6 +39,40 @@
             "type": "array"
           }
         }
+      }
+    }
+  },
+  "fields": {
+    "front": {
+      "icon": {
+        "widget": "text",
+        "label": "Front icon name (optional)",
+        "default": ""
+      },
+      "url": {
+        "widget": "text",
+        "label": "Front icon link URL (optional)",
+        "default": ""
+      },
+      "text": {
+        "$use": "text",
+        "titleTag": {
+          "default": "h3"
+        }
+      },
+      "ctas": {
+        "$use": "ctas"
+      }
+    },
+    "back": {
+      "text": {
+        "$use": "text",
+        "titleTag": {
+          "default": "h3"
+        }
+      },
+      "ctas": {
+        "$use": "ctas"
       }
     }
   }

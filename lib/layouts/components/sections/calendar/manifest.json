@@ -37,5 +37,28 @@
         }
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "calendars": {
+      "source": {
+        "widget": "text",
+        "label": "Data source (optional)",
+        "default": ""
+      },
+      "apiKey": {
+        "widget": "text",
+        "label": "Google API key (optional)",
+        "default": ""
+      },
+      "calendarId": {
+        "widget": "text",
+        "label": "Calendar ID (optional)",
+        "default": ""
+      }
+    },
+    "$extends": ["commons"]
   }
 }

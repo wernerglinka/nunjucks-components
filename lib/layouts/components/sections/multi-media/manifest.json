@@ -73,5 +73,40 @@
         }
       }
     }
+  },
+  "fields": {
+    "mediaType": {
+      "widget": "select",
+      "label": "Media type",
+      "enum": ["image", "video", "audio", "icon", "lottie"],
+      "default": "image"
+    },
+    "isReverse": {
+      "widget": "checkbox",
+      "label": "Reverse layout",
+      "default": false
+    },
+    "text": {
+      "$use": "text"
+    },
+    "image": {
+      "$use": "image"
+    },
+    "video": {
+      "$use": "video"
+    },
+    "audio": {
+      "$use": "audio"
+    },
+    "icon": {
+      "$use": "icon"
+    },
+    "lottie": {
+      "$use": "lottie"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

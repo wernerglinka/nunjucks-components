@@ -59,5 +59,22 @@
         }
       }
     }
+  },
+  "fields": {
+    "isReverse": {
+      "widget": "checkbox",
+      "label": "Reverse layout (image on the right)",
+      "default": false
+    },
+    "text": {
+      "$use": "text"
+    },
+    "image": {
+      "$use": "image"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

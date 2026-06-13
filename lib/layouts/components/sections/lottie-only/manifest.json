@@ -49,5 +49,14 @@
         }
       }
     }
+  },
+  "fields": {
+    "lottie": {
+      "$use": "lottie"
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

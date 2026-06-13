@@ -30,5 +30,45 @@
         }
       ]
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "stats": {
+      "layout": {
+        "widget": "select",
+        "label": "Layout",
+        "enum": ["grid", "inline"],
+        "default": "grid"
+      },
+      "items": {
+        "widget": "array",
+        "label": "Stats",
+        "items": {
+          "icon": {
+            "widget": "text",
+            "label": "Icon (optional)",
+            "default": ""
+          },
+          "value": {
+            "widget": "text",
+            "label": "Value",
+            "default": ""
+          },
+          "label": {
+            "widget": "text",
+            "label": "Label",
+            "default": ""
+          },
+          "description": {
+            "widget": "text",
+            "label": "Description (optional)",
+            "default": ""
+          }
+        }
+      }
+    },
+    "$extends": ["commons"]
   }
 }

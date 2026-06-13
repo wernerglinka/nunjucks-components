@@ -66,10 +66,60 @@
               "enum": ["primary", "secondary", "tertiary", "inverted"]
             },
             "isSmall": {
-              "type": "boolean"            }
+              "type": "boolean"
+            }
           }
         }
       }
     }
+  },
+  "fields": {
+    "podcast": {
+      "widget": "text",
+      "label": "Podcast feed URL or ID",
+      "default": ""
+    },
+    "options": {
+      "maxEpisodes": {
+        "widget": "text",
+        "label": "Max episodes",
+        "default": "10"
+      },
+      "initialEpisodes": {
+        "widget": "text",
+        "label": "Initial episodes",
+        "default": "5"
+      },
+      "showEpisodeList": {
+        "widget": "checkbox",
+        "label": "Show episode list",
+        "default": true
+      },
+      "showHeader": {
+        "widget": "checkbox",
+        "label": "Show header",
+        "default": true
+      },
+      "autoplay": {
+        "widget": "checkbox",
+        "label": "Autoplay",
+        "default": false
+      },
+      "theme": {
+        "widget": "select",
+        "label": "Theme",
+        "enum": ["light", "dark"],
+        "default": "light"
+      },
+      "themeColor": {
+        "widget": "text",
+        "label": "Theme color",
+        "default": ""
+      }
+    },
+    "ctas": {
+      "$use": "ctas"
+    },
+    "$extends": ["commons"]
   }
 }

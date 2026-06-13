@@ -44,5 +44,38 @@
         "default": 2
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "placeholder": {
+      "widget": "text",
+      "label": "Search placeholder",
+      "default": ""
+    },
+    "settings": {
+      "maxResults": {
+        "widget": "text",
+        "label": "Max results",
+        "default": "10"
+      },
+      "minCharacters": {
+        "widget": "text",
+        "label": "Minimum characters",
+        "default": "3"
+      },
+      "showRelevanceScore": {
+        "widget": "checkbox",
+        "label": "Show relevance score",
+        "default": false
+      },
+      "enableHighlighting": {
+        "widget": "checkbox",
+        "label": "Enable highlighting",
+        "default": true
+      }
+    },
+    "$extends": ["commons"]
   }
 }

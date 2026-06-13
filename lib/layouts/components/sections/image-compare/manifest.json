@@ -42,5 +42,14 @@
         "required": ["src", "alt"]
       }
     }
+  },
+  "fields": {
+    "imageBefore": {
+      "$use": "image"
+    },
+    "imageAfter": {
+      "$use": "image"
+    },
+    "$extends": ["commons"]
   }
 }

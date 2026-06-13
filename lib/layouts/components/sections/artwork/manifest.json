@@ -48,5 +48,41 @@
         "type": "string"
       }
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "image": {
+      "$use": "image"
+    },
+    "artworkProperties": {
+      "type": {
+        "widget": "text",
+        "label": "Type",
+        "default": ""
+      },
+      "year": {
+        "widget": "text",
+        "label": "Year",
+        "default": ""
+      },
+      "materials": {
+        "widget": "text",
+        "label": "Materials",
+        "default": ""
+      },
+      "dimensions": {
+        "widget": "text",
+        "label": "Dimensions",
+        "default": ""
+      },
+      "status": {
+        "widget": "text",
+        "label": "Status",
+        "default": ""
+      }
+    },
+    "$extends": ["commons"]
   }
 }

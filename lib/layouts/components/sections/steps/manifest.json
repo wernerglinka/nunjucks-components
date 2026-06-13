@@ -31,5 +31,45 @@
         }
       ]
     }
+  },
+  "fields": {
+    "text": {
+      "$use": "text"
+    },
+    "steps": {
+      "layout": {
+        "widget": "select",
+        "label": "Layout",
+        "enum": ["horizontal", "vertical"],
+        "default": "horizontal"
+      },
+      "showNumbers": {
+        "widget": "checkbox",
+        "label": "Show numbers",
+        "default": true
+      },
+      "items": {
+        "widget": "array",
+        "label": "Steps",
+        "items": {
+          "icon": {
+            "widget": "text",
+            "label": "Icon (optional)",
+            "default": ""
+          },
+          "title": {
+            "widget": "text",
+            "label": "Title",
+            "default": ""
+          },
+          "description": {
+            "widget": "text",
+            "label": "Description",
+            "default": ""
+          }
+        }
+      }
+    },
+    "$extends": ["commons"]
   }
 }
