@@ -172,7 +172,7 @@
 }
 
 .in-situ-video-link {
-  display: in-situ-block;
+  display: inline-block;
   height: 1.4em;
   width: 1.4em;
   line-height: 1.3;

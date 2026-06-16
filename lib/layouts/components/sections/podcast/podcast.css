@@ -344,7 +344,7 @@ a.shk-btn:visited {
   opacity: 0;
   visibility: hidden;
   margin-right: 44px;
-  padding-right: 0 8px;
+  padding-right: 8px;
   white-space: nowrap;
   overflow: hidden;
   z-index: 10;
@@ -502,7 +502,6 @@ svg.shk-btn_mute,
   padding: 0;
   white-space: nowrap;
   clip-path: inset(100%);
-  clip: rect(0 0 0 0);
   overflow: hidden;
 }
 

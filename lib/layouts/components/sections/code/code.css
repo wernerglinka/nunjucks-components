@@ -133,7 +133,3 @@
 .code-block:not(.theme-default) pre[class*='language-'] {
   /* Background will be set by the dynamically loaded theme CSS */
 }
-
-/* Dark theme support */
-.dark-theme .code {
-}

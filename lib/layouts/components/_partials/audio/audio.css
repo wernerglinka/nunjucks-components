@@ -181,8 +181,6 @@
 
       .volume-input {
         appearance: none;
-        appearance: none;
-        appearance: none;
         width: 100%;
         height: var(--audio-progress-bar-height);
         background: transparent;
@@ -217,7 +215,6 @@
 
         /* Thumb styling for WebKit browsers */
         &::-webkit-slider-thumb {
-          appearance: none;
           appearance: none;
           width: var(--audio-progress-handle-size);
           height: var(--audio-progress-handle-size);
