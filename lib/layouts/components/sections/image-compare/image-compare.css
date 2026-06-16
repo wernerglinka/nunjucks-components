@@ -58,9 +58,9 @@
     width: 0;
     height: 100%;
     overflow: hidden;
-    // backface-visibility: hidden; and transform: translateZ(0); is used to
-    // create a new stacking context, which can help to improve the performance
-    // of CSS animations and transitions.
+    /* backface-visibility: hidden and transform: translateZ(0) are used to
+       create a new stacking context, which can help to improve the performance
+       of CSS animations and transitions. */
     transform: translateZ(0);
     backface-visibility: hidden;
     
