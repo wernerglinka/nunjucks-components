@@ -1,0 +1,93 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**/*.js",
+      "**/*.json",
+      "!**/*.min.js",
+      "!test/fixtures",
+      "!package.json",
+      "!package-lock.json"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "none",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "style": {
+        "useConst": "error",
+        "useTemplate": "error",
+        "useBlockStatements": "error",
+        "noUselessElse": "error",
+        "useThrowOnlyError": "error"
+      },
+      "suspicious": {
+        "noVar": "error",
+        "noDoubleEquals": "error",
+        "noConsole": {
+          "level": "warn",
+          "options": {
+            "allow": ["warn", "error"]
+          }
+        },
+        "noAssignInExpressions": "off",
+        "noGlobalIsNan": "warn",
+        "noDocumentCookie": "off"
+      },
+      "complexity": {
+        "useArrowFunction": "error",
+        "useLiteralKeys": "error"
+      },
+      "correctness": {
+        "noUnusedVariables": "error"
+      }
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["test/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    }
+  ]
+}
