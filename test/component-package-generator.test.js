@@ -5,8 +5,8 @@
  * component packages and bundle installation scripts.
  */
 
-import { describe, it, before } from 'mocha';
-import { strict as assert } from 'assert';
+import { describe, it, before } from 'node:test';
+import { strict as assert } from 'node:assert';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,8 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
-describe('Component Package Generator', function () {
-  this.timeout(10000);
+describe('Component Package Generator', () => {
 
   let buildExists = false;
   let downloadsPath;

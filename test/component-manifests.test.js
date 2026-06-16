@@ -22,6 +22,7 @@
  * @since 1.0.0
  */
 
+import { describe, it } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
