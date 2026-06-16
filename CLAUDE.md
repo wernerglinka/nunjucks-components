@@ -41,12 +41,14 @@ npm run build
 
 ### Code Quality & Testing
 
-- `npm test` - Run all tests using Mocha
+- `npm test` - Run all tests using Node's native test runner (`node --test`)
 - `npm run test:watch` - Run tests in watch mode
-- `npm run format` - Format all code with Prettier (excludes .njk files)
-- `npm run lint` - Lint and fix JavaScript with ESLint
+- `npm run test:schema` - Run only the schema-consistency suite (no build needed)
+- `npm run format` - Format JS/JSON with Biome (`.njk` and CSS are excluded)
+- `npm run lint` - Lint and fix JavaScript/JSON with Biome
 - `npm run lint:css` - Lint and fix CSS with Stylelint
-- `npm run fix` - Run format, lint, and lint:css in sequence
+- `npm run check` - Verify formatting + lint with no writes (Biome + Stylelint)
+- `npm run fix` - Run Biome check --write (format + lint) then lint:css
 
 ### Utility Scripts
 
@@ -140,8 +142,8 @@ Quick reference for creating a new component:
 
 - `metalsmith.js` - Main build configuration with all plugins and settings
 - `package.json` - Dependencies, scripts, and project metadata (Node.js >=18.0.0 required)
-- `eslint.config.js` - ESLint configuration for JavaScript linting
-- `prettier.config.js` - Prettier formatting rules (excludes .njk files)
+- `biome.json` - Biome configuration: JS/JSON formatting + linting (CSS and `.njk` excluded)
+- `.stylelintrc.json` - Stylelint configuration for CSS linting
 - `lib/plugins/generate-maps-icons.js` - Build-time icon registry generation for maps components
 - `lib/plugins/component-package-generator/` - Component packaging system (production-only, modular)
 
@@ -177,7 +179,7 @@ Quick reference for creating a new component:
 
 ## Testing Framework
 
-Comprehensive test suite using Mocha:
+Comprehensive test suite using Node's native test runner (`node --test`, with `node:assert`):
 
 ### Test Files
 
@@ -185,13 +187,16 @@ Comprehensive test suite using Mocha:
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, bundler integration
+- `test/schema-consistency/` - Holds each section's template, manifest `validation`, `fields`, and example `.yml` in agreement (see its README)
 
 ### Testing Workflow
 
 1. Run `npm test` before committing changes
 2. Use `npm run test:watch` during development
 3. Run `npm run build:debug` if tests pass but build fails
-4. Check specific test file: `npx mocha test/[test-file].test.js`
+4. Check a specific file: `node --test test/[test-file].test.js`
+
+Note: the package-generator tests assert against a production build's `build/downloads`; run `npm run build` first, or they self-skip.
 
 **For troubleshooting test failures, see [Troubleshooting Guide](.claude/guides/TROUBLESHOOTING.md#testing-issues).**
 
@@ -215,7 +220,7 @@ The `icon-loader.js` file in the maps component is excluded from watch mode (`li
 
 ### Nunjucks Template Formatting
 
-**All Nunjucks template files (`.njk`) are excluded from Prettier formatting** due to compatibility issues. When editing `.njk` files, format them manually using consistent indentation and spacing to match the project's style.
+**All Nunjucks template files (`.njk`) are excluded from automated formatting** (Biome cannot parse Nunjucks). When editing `.njk` files, format them manually using consistent indentation and spacing to match the project's style.
 
 ### Environment Variables
 

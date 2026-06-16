@@ -16,13 +16,12 @@ component cannot render. These tests catch that drift in CI.
 ## Running
 
 ```bash
-npm run test:schema      # node --test, no build required
-npm test                 # existing Mocha suite, then this one
+npm run test:schema      # this suite only, no build required
+npm test                 # the whole test/ tree under node --test
 ```
 
-The suite uses Node's native test runner (`node --test`). It lives in its own
-directory so the Mocha glob (`test/*.test.js`) does not pick it up and vice
-versa.
+The whole project runs on Node's native test runner (`node --test`). `npm test`
+runs `test/**/*.test.js`; `test:schema` narrows to this directory.
 
 ## What each file guards
 
