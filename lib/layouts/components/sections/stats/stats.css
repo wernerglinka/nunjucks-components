@@ -110,8 +110,7 @@
   .stat-description {
     font-size: var(--font-s);
     color: var(--color-text-dark);
-    margin-block-start: var(--space-xs);
-    margin-block-end: 0;
+    margin-block: var(--space-xs) 0;
     line-height: 1.5;
   }
 }
@@ -141,6 +140,6 @@
   }
 
   .stat-description {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255 255 255 / 80%);
   }
 }

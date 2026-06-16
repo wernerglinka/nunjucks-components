@@ -51,8 +51,7 @@
 
   /* Card variant: grid of collection-card items */
   .related-posts-list.is-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 1.5rem;
     justify-content: center;
 

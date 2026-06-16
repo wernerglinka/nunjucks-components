@@ -27,6 +27,7 @@
   --hamburger-bar-radius: 2px;
 
   display: none; /* Hidden on desktop */
+
   /* background is reset in header.css */
   border: none;
   cursor: pointer;

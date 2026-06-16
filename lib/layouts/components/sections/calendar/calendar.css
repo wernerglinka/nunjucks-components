@@ -5,7 +5,7 @@
  */
 
 .calendar {
-  --calendar-bg: var(--color-background, #ffffff);
+  --calendar-bg: var(--color-background, #fff);
   --calendar-border: var(--color-border-light, #e0e0e0);
   --calendar-text: var(--color-text, #1f2937);
   --calendar-text-muted: var(--color-text-muted, #6b7280);
@@ -203,7 +203,7 @@
 
 .calendar .event:hover {
   transform: translateX(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 /* Event Categories */
@@ -264,7 +264,7 @@
   max-width: 100%;
   background: var(--calendar-bg);
   border-left: 1px solid var(--calendar-border);
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px 0 12px rgb(0 0 0 / 10%);
   z-index: 1000;
   overflow-y: auto;
   transform: translateX(100%);
@@ -286,7 +286,7 @@
 }
 
 .calendar .event-details h3 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   padding-right: 2.5rem;
   font-size: 1.5rem;
   color: var(--calendar-text);
@@ -412,7 +412,7 @@
 
 .calendar .list-event:hover {
   transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .calendar .list-event--default {

@@ -12,6 +12,7 @@
   .container.content {
     display: block;
   }
+
   .text {
     max-width: clamp(45ch, 65ch, 80ch);
     margin: 0 auto var(--space-l-xl);

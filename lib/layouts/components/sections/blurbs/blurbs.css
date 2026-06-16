@@ -73,6 +73,7 @@
     align-items: start;
 
     /* Intrinsic responsive grid - automatically switches between 1 and 2 columns */
+
     /* min() ensures items stack when container is narrow */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
 
@@ -113,6 +114,7 @@
       gap: var(--space-s-m);
 
       /* Intrinsic responsive grid - automatically flows from 1 to 2 columns */
+
       /* The minmax with min() creates natural breakpoint around 15rem */
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 
@@ -160,6 +162,7 @@
     /* Handle reverse layout using CSS logical properties */
     &.is-reverse {
       /* Use flexbox direction for reversing without media queries */
+
       /* Grid items will respect visual order */
       direction: rtl;
 

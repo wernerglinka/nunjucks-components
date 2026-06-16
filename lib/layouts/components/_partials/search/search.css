@@ -123,6 +123,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
       /* Use container query units instead of viewport units */
       max-width: clamp(20ch, 50cqw, 40ch);
     }

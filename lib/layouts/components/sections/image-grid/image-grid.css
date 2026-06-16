@@ -33,6 +33,7 @@
 .image-grid-item {
   position: relative;
   overflow: hidden;
+
   /* Dimensions set by JS */
 }
 
@@ -136,6 +137,7 @@
   width: 100%;
   height: 100%;
   stroke: var(--color-text-light);
+
   /* Rotate arrow to point right (toward detail page) */
   transform: rotate(180deg);
 }

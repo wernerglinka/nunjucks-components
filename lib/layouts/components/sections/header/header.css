@@ -151,6 +151,7 @@ header {
     /* Cluster pattern for misc items */
     display: flex;
     align-items: center;
+
     /* Fluid gap: shrinks on small screens, grows on larger */
     gap: clamp(var(--space-3xs), 2vw, var(--space-s));
 
@@ -228,6 +229,7 @@ header {
 /* Header search overlay - positioned below header */
 .header-search-overlay {
   position: fixed;
+
   /* Matches fluid header height */
   top: clamp(3.25rem, 3.25rem + 1.75vw, 5rem);
   left: 0;

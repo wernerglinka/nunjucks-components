@@ -202,7 +202,7 @@
 }
 
 /* Responsive: Stack alternating on small screens */
-@media (max-width: 48rem) {
+@media (width <= 48rem) {
   .timeline .timeline-list.is-vertical.is-alternating {
     padding-inline-start: var(--space-xl);
 

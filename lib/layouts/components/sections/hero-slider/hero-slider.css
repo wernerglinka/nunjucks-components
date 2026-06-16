@@ -282,6 +282,7 @@
 }
 
 /* Override dark theme to maintain slide-specific styling */
+
 /* Hero slider slides are self-contained and don't adapt to global theme */
 .dark-theme .hero-slide {
   &.is-dark {

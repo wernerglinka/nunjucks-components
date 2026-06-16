@@ -45,10 +45,7 @@
 
     .audio-wrapper {
       position: absolute;
-      top: 0;
-      left: var(--space-s-m);
-      right: var(--space-s-m);
-      bottom: 0;
+      inset: 0 var(--space-s-m) 0 var(--space-s-m);
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -183,8 +180,8 @@
       display: flex;
 
       .volume-input {
-        -webkit-appearance: none;
-        -moz-appearance: none;
+        appearance: none;
+        appearance: none;
         appearance: none;
         width: 100%;
         height: var(--audio-progress-bar-height);
@@ -220,7 +217,7 @@
 
         /* Thumb styling for WebKit browsers */
         &::-webkit-slider-thumb {
-          -webkit-appearance: none;
+          appearance: none;
           appearance: none;
           width: var(--audio-progress-handle-size);
           height: var(--audio-progress-handle-size);

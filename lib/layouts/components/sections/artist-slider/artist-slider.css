@@ -54,6 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   /* Fluid padding: 10% on small containers, 20% on large containers */
   padding-inline: clamp(10cqi, 5cqi + 10cqi, 20cqi);
 
@@ -87,8 +88,8 @@
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgb(0 0 0 / 30%) 50%,
+    rgb(0 0 0 / 60%) 100%
   );
 
   &.is-visible {
@@ -234,14 +235,14 @@
   width: 0.75rem;
   height: 0.75rem;
   padding: 0;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgb(255 255 255 / 80%);
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgb(255 255 255 / 50%);
     transform: scale(1.2);
   }
 

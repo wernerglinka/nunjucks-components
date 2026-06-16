@@ -15,6 +15,7 @@ body {
   line-height: var(--default-line-height);
   letter-spacing: var(--tracking);
   color: var(--color-text);
+
   /* padding-top: var(--space-2xl-3xl); */
   background-color: var(--color-background);
 }
@@ -83,6 +84,7 @@ p {
   font-size: var(--font-p);
   margin: 0;
 }
+
 strong {
   font-size: 0.8em;
 }
@@ -178,7 +180,7 @@ td {
   padding: var(--space-2xs-xs) var(--space-xs-s);
   border: 1px solid var(--color-border-light);
   text-align: left;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 th {
@@ -243,7 +245,6 @@ svg {
   transition: opacity var(--transition-fade);
   background: var(--glass-background-light);
   border: var(--glass-border-dark);
-  border-radius: 50%;
   box-shadow: var(--glass-box-shadow);
   backdrop-filter: blur(10px);
   text-decoration: none;
@@ -415,6 +416,7 @@ body.with-sidebar {
         font-size: var(--font-h4);
         margin: 0;
       }
+
       h4 {
         padding: 0.25rem 1rem;
         border-radius: 0.5rem;
@@ -423,12 +425,12 @@ body.with-sidebar {
         background-color: var(--color-background-light);
         cursor: pointer;
 
-        &:after {
+        &::after {
           content: '+';
           float: right;
         }
 
-        &[aria-expanded='true']:after {
+        &[aria-expanded='true']::after {
           content: '−';
         }
       }
@@ -447,6 +449,7 @@ body.with-sidebar {
           &.active {
             background-color: var(--color-background-light);
             border-radius: 0.5rem;
+
             a {
               color: #999;
               cursor: default;

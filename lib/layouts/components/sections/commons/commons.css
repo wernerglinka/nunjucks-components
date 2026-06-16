@@ -208,6 +208,7 @@
 }
 
 /* Dark theme: invert screens ONLY if not explicitly marked as is-dark */
+
 /* Sections with is-dark are design choices that should stay dark in both themes */
 .dark-theme {
   .section-wrapper {
@@ -222,6 +223,7 @@
     }
 
     /* Sections with is-dark stay dark (don't invert) */
+
     /* They already have the right screen and text color from light theme rules */
   }
 }
