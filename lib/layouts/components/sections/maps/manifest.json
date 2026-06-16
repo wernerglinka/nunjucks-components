@@ -86,7 +86,7 @@
     "mapProvider": {
       "widget": "select",
       "label": "Map provider",
-      "enum": ["leaflet", "google"],
+      "enum": ["leaflet", "openlayers"],
       "default": "leaflet"
     },
     "mapData": {

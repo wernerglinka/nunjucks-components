@@ -18,6 +18,9 @@
       "isDisabled": {
         "type": "boolean"
       },
+      "logoWidth": {
+        "type": "number"
+      },
       "containerFields.inContainer": {
         "type": "boolean"
       },
@@ -51,6 +54,11 @@
       "widget": "checkbox",
       "label": "Reverse layout",
       "default": false
+    },
+    "logoWidth": {
+      "widget": "number",
+      "label": "Social logo width (px)",
+      "default": 30
     },
     "$extends": ["commons"]
   }

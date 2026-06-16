@@ -29,7 +29,6 @@
       - "How do I get started with Nunjucks Components?"
       - "What is the structure of a component?"
       - "Can I create custom components?"
-  expandFirst: false  # whether to expand the first item by default
   allowMultiple: false  # whether multiple items can be expanded at once
   hasCenteredContent: false
   ctas: []

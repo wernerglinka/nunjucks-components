@@ -108,8 +108,8 @@
       "theme": {
         "widget": "select",
         "label": "Theme",
-        "enum": ["light", "dark"],
-        "default": "light"
+        "enum": ["light", "dark", "auto"],
+        "default": "auto"
       },
       "themeColor": {
         "widget": "text",

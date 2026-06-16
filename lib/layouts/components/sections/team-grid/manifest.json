@@ -58,7 +58,7 @@
       "layout": {
         "widget": "select",
         "label": "Layout",
-        "enum": ["grid", "list"],
+        "enum": ["grid", "compact"],
         "default": "grid"
       }
     },

@@ -3,8 +3,6 @@
   classes: ""
   id: ""
   isDisabled: false
-  isAnimated: true
-  inContainer: true
   containerFields:
     inContainer: false
     noMargin:

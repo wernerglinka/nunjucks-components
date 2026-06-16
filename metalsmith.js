@@ -278,6 +278,10 @@ metalsmith
       cssDest: 'assets/main.css',
       jsDest: 'assets/main.js',
       minifyOutput: isProduction,
+      schema: {
+        // Emit the composed editor schema for the admin to consume
+        enabled: true
+      },
       postcss: {
         enabled: true,
         plugins: [

@@ -2,7 +2,6 @@
   containerTag: section
   classes: 'media-image hero-cta'
   id: ''
-  description: 'This is a columns section]'
   isDisabled: false
   containerFields:
     inContainer: true

@@ -2,7 +2,6 @@
   containerTag: section
   classes: ''
   id: ''
-  description: 'Compound section example'
   isDisabled: false
   containerFields:
     inContainer: true
