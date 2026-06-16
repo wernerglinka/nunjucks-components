@@ -304,3 +304,120 @@ export function collectFieldPaths(tree, prefix = '') {
   }
   return paths;
 }
+
+const DATA_DIR = join(projectRoot, 'lib/data');
+const METALSMITH_CONFIG = join(projectRoot, 'metalsmith.js');
+
+/**
+ * Whether a leaf carries the dynamic-options `source` convention: a `select`
+ * or `multiselect` whose valid values come from the site's build-time data
+ * rather than a static `enum`. The value is `{ data, valueKey?, labelKey? }`
+ * or `{ collections: true }`.
+ *
+ * Distinct from a field literally NAMED "source" (e.g. accordion's
+ * `faqs.source` text input) - that is a widget leaf, not a `source` property.
+ * @param {*} node
+ * @returns {boolean}
+ */
+export function isSourceLeaf(node) {
+  return isLeaf(node) && isPlainObject(node.source) && ('data' in node.source || 'collections' in node.source);
+}
+
+/**
+ * Visit every leaf in a resolved field tree, depth-first. `insideArray` is true
+ * for leaves under an array widget's `items`.
+ * @param {object} tree
+ * @param {(path: string, leaf: object, insideArray: boolean) => void} visit
+ * @param {string} [prefix]
+ * @param {boolean} [insideArray]
+ */
+export function walkLeaves(tree, visit, prefix = '', insideArray = false) {
+  for (const [key, value] of Object.entries(tree)) {
+    const path = prefix ? `${prefix}.${key}` : key;
+    if (isLeaf(value)) {
+      visit(path, value, insideArray);
+      if (isPlainObject(value.items)) {
+        walkLeaves(value.items, visit, `${path}[]`, true);
+      }
+    } else if (isPlainObject(value)) {
+      walkLeaves(value, visit, path, insideArray);
+    }
+  }
+}
+
+/**
+ * Load the parsed contents of a `lib/data/<name>.json` namespace - the same
+ * file the build loads into `metadata.data.<name>`. Returns undefined when the
+ * namespace does not exist.
+ * @param {string} name
+ * @returns {*} Parsed JSON, or undefined.
+ */
+export function loadDataNamespace(name) {
+  const file = join(DATA_DIR, `${name}.json`);
+  return existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : undefined;
+}
+
+/**
+ * Extract the collection names configured in the build by reading the
+ * `collections({ ... })` call in metalsmith.js. This is the source of truth a
+ * `source: { collections: true }` picker resolves against. Parsed by walking
+ * brace depth so nested option objects (pattern/sort) are not mistaken for
+ * collection names.
+ * @returns {string[]}
+ */
+export function collectionNames() {
+  const src = readFileSync(METALSMITH_CONFIG, 'utf8');
+  const callIdx = src.indexOf('collections(');
+  if (callIdx === -1) {
+    return [];
+  }
+  const open = src.indexOf('{', callIdx);
+  if (open === -1) {
+    return [];
+  }
+  let depth = 0;
+  let end = -1;
+  for (let j = open; j < src.length; j++) {
+    if (src[j] === '{') {
+      depth++;
+    } else if (src[j] === '}') {
+      depth--;
+      if (depth === 0) {
+        end = j;
+        break;
+      }
+    }
+  }
+  if (end === -1) {
+    return [];
+  }
+  const body = src.slice(open + 1, end);
+  const names = [];
+  let d = 0;
+  let j = 0;
+  while (j < body.length) {
+    const c = body[j];
+    if (c === '{' || c === '[' || c === '(') {
+      d++;
+    } else if (c === '}' || c === ']' || c === ')') {
+      d--;
+    } else if (d === 0 && /[A-Za-z_$]/.test(c)) {
+      let k = j;
+      while (k < body.length && /[\w$]/.test(body[k])) {
+        k++;
+      }
+      const ident = body.slice(j, k);
+      let m = k;
+      while (m < body.length && /\s/.test(body[m])) {
+        m++;
+      }
+      if (body[m] === ':') {
+        names.push(ident);
+      }
+      j = k;
+      continue;
+    }
+    j++;
+  }
+  return [...new Set(names)];
+}

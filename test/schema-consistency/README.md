@@ -55,6 +55,16 @@ runs `test/**/*.test.js`; `test:schema` narrows to this directory.
     `build/assets/components-schema.json` matches the in-process resolution,
     section-for-section. This catches a broken emit or a stale build. Skipped
     when there is no build, so `npm run test:schema` runs standalone.
+- **`source-fields.test.js` (F)** — the dynamic-options `source` convention: a
+  `select`/`multiselect` whose options come from the site's build-time data
+  rather than a static `enum` (`source: { data: "author", valueKey: "name" }`
+  or `source: { collections: true }`). Asserts every select has exactly one of
+  `enum`/`source` (never both, never neither), the `source` shape is valid, it
+  resolves against the real oracle (a `lib/data/<name>.json` array whose entries
+  carry the key, or the build's `collections()` config), the default is a real
+  option, and `validation` stays open (`type: string`, no re-introduced enum).
+  Not to be confused with a field literally named `source` (e.g. accordion's
+  `faqs.source` text input), which is a widget leaf, not a `source` property.
 
 ## Why static checks AND a render test
 
