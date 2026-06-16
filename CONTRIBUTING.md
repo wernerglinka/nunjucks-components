@@ -12,41 +12,42 @@ Thank you for your interest in contributing to the Nunjucks Components library! 
 6. Format code: `npm run format`
 7. Commit and push your changes
 
-## Code Formatting
+## Code Formatting & Linting
 
-We use Prettier for code formatting. Run `npm run format` before committing changes.
+JavaScript and JSON are formatted and linted with [Biome](https://biomejs.dev/);
+CSS with Stylelint. Run `npm run format` (Biome) and `npm run lint:css`
+(Stylelint) before committing, or `npm run fix` to do both, and `npm run check`
+for a no-write gate (Biome + Stylelint).
 
 ### Nunjucks Template Files
 
-**All Nunjucks template files (`.njk`) are excluded from Prettier formatting** due to widespread compatibility issues between Prettier and Nunjucks syntax.
+**Nunjucks template files (`.njk`) are not auto-formatted** — Biome (like
+Prettier before it) cannot parse Nunjucks. Dynamic HTML tags like
+`<{{ titleTag }}>...</{{ titleTag }}>`, conditionals inside attributes, and
+nested template expressions all defeat HTML/JS formatters.
 
-**Why this happens:** Prettier's Nunjucks parser has multiple limitations:
-- Cannot parse dynamic HTML tag expressions like `<{{ variable }}>`
-- Mangles complex Nunjucks conditionals by breaking them across lines incorrectly  
-- Creates invalid syntax when reformatting template blocks and expressions
-- Breaks multi-line template logic within HTML attributes
-- Cannot handle nested template expressions properly
-
-**Common problematic patterns:**
-- Dynamic HTML tags: `<{{ titleTag }}>content</{{ titleTag }}>`
-- Multi-line conditionals in attributes: `{% if condition %}attribute="value"{% endif %}`
-- Complex nested template logic and macros
-- Template expressions within HTML attribute values
-
-**What to do:** When editing `.njk` files, format them manually using consistent indentation and spacing to match the project's style. The `npm run format` command will automatically skip all `.njk` files to prevent syntax corruption.
+**What to do:** when editing `.njk` files, format them manually with consistent
+indentation and spacing to match the project's style. `npm run format` skips
+them automatically.
 
 ## Testing
 
-The project includes comprehensive tests:
+Tests run on Node's native test runner (`node --test`). Run `npm test`; all
+tests must pass before submitting a pull request. See the
+[Testing Guide](docs/TESTING.md) for the full picture. The suites:
 
-- **Build Integration Tests**: Validate the Metalsmith build pipeline
-- **Component Manifest Tests**: Ensure all components have valid manifests
-- **Content Structure Tests**: Verify frontmatter and data file structure
-- **Component Dependency Tests**: Test the bundling system
-- **Component Rendering Tests**: Verify components render correctly
-- **Documentation Tests**: Ensure all components have proper documentation
+- **Build integration** — the Metalsmith build pipeline (HTML, collections,
+  pagination, permalinks, assets).
+- **Component manifests / content structure / dependency bundler** — manifest
+  validity, frontmatter and data files, component layout and bundling.
+- **Schema consistency** ([`test/schema-consistency/`](test/schema-consistency/))
+  — holds each component's template, `validation` block, `fields` (form) schema,
+  and example `.yml` in agreement so they cannot silently drift apart. This is
+  the check most likely to flag a problem with a change to a manifest or
+  example; read its [README](test/schema-consistency/README.md) before editing
+  field declarations.
 
-Run tests with `npm test`. All tests must pass before submitting a pull request.
+Run only the schema suite with `npm run test:schema` (no build required).
 
 ### Testing New Components
 

@@ -161,10 +161,15 @@ sections:
 After creating a component:
 
 1. **Manifest validation**: `npm test` ensures valid JSON and structure
-2. **Build verification**: `npm run build` tests bundling
-3. **Development testing**: `npm start` verifies runtime behavior
-4. **Visual testing**: Check responsive behavior and accessibility
-5. **Integration testing**: Use component in multiple contexts
+2. **Schema consistency**: `npm run test:schema` checks that the component's
+   template, `validation` block, `fields` schema, and example `.yml` agree — see
+   the [Testing Guide](TESTING.md). This catches the silent drift (a field
+   offered as the wrong widget, a stale example key, a mismatched enum) that a
+   plain build will not.
+3. **Build verification**: `npm run build` tests bundling
+4. **Development testing**: `npm start` verifies runtime behavior
+5. **Visual testing**: Check responsive behavior and accessibility
+6. **Integration testing**: Use component in multiple contexts
 
 Common issues to check:
 - Missing `type` field in manifest.json
