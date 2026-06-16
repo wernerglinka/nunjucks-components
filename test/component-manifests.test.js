@@ -213,10 +213,7 @@ describe('Component Manifests', () => {
      * - Validates naming consistency across the component system
      */
     it('should have manifest name matching directory name', () => {
-      const allDirs = [
-        ...getComponentDirs(partialsDir),
-        ...getComponentDirs(sectionsDir)
-      ];
+      const allDirs = [...getComponentDirs(partialsDir), ...getComponentDirs(sectionsDir)];
 
       for (const dir of allDirs) {
         const dirName = dir.split('/').pop();
@@ -288,10 +285,7 @@ describe('Component Manifests', () => {
       const allComponentNames = new Set([...partialNames, ...sectionNames]);
 
       // Check all components' requires fields
-      const allDirs = [
-        ...getComponentDirs(partialsDir),
-        ...getComponentDirs(sectionsDir)
-      ];
+      const allDirs = [...getComponentDirs(partialsDir), ...getComponentDirs(sectionsDir)];
 
       for (const dir of allDirs) {
         const dirName = dir.split('/').pop();
@@ -300,10 +294,7 @@ describe('Component Manifests', () => {
 
         if (manifest.requires && Array.isArray(manifest.requires)) {
           for (const dep of manifest.requires) {
-            assert.ok(
-              allComponentNames.has(dep),
-              `Component "${dirName}" requires non-existent component "${dep}"`
-            );
+            assert.ok(allComponentNames.has(dep), `Component "${dirName}" requires non-existent component "${dep}"`);
           }
         }
       }

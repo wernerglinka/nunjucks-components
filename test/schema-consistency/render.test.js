@@ -36,16 +36,18 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  listSections, loadExample, resolveManifestFields, materializeDefaults, DATA_DRIVEN_SECTIONS
+  listSections,
+  loadExample,
+  resolveManifestFields,
+  materializeDefaults,
+  DATA_DRIVEN_SECTIONS
 } from './lib/manifest-schema.js';
-import {
-  createRenderEnvironment, renderContext, findBadTokens, sectionTemplate
-} from './lib/render-env.js';
+import { createRenderEnvironment, renderContext, findBadTokens, sectionTemplate } from './lib/render-env.js';
 
 const { env, data } = createRenderEnvironment();
 
 /** Sections that have a template and at least defaults or an example to render. */
-const sections = listSections().filter( ( s ) => s.manifest.fields || loadExample( s.dir, s.name ) );
+const sections = listSections().filter((s) => s.manifest.fields || loadExample(s.dir, s.name));
 
 /**
  * Render one section instance, returning `{ html }` or throwing through.
@@ -53,40 +55,44 @@ const sections = listSections().filter( ( s ) => s.manifest.fields || loadExampl
  * @param {object} instance
  * @returns {string}
  */
-function render( name, instance ) {
-  return env.render( sectionTemplate( name ), renderContext( instance, data ) );
+function render(name, instance) {
+  return env.render(sectionTemplate(name), renderContext(instance, data));
 }
 
-test( 'D: section templates render from materialised defaults', async ( t ) => {
-  for ( const section of sections ) {
-    if ( !section.manifest.fields ) {
+test('D: section templates render from materialised defaults', async (t) => {
+  for (const section of sections) {
+    if (!section.manifest.fields) {
       continue;
     }
-    await t.test( section.name, () => {
-      const instance = { sectionType: section.name, ...materializeDefaults( resolveManifestFields( section.manifest ) ) };
+    await t.test(section.name, () => {
+      const instance = { sectionType: section.name, ...materializeDefaults(resolveManifestFields(section.manifest)) };
       let html;
-      assert.doesNotThrow( () => { html = render( section.name, instance ); }, 'template threw while rendering defaults' );
-      if ( !DATA_DRIVEN_SECTIONS.has( section.name ) ) {
-        const bad = findBadTokens( html );
-        assert.deepEqual( bad, [], `defaults render leaked ${bad.join( ', ' )}` );
+      assert.doesNotThrow(() => {
+        html = render(section.name, instance);
+      }, 'template threw while rendering defaults');
+      if (!DATA_DRIVEN_SECTIONS.has(section.name)) {
+        const bad = findBadTokens(html);
+        assert.deepEqual(bad, [], `defaults render leaked ${bad.join(', ')}`);
       }
-    } );
+    });
   }
-} );
+});
 
-test( 'D: section templates render from their example instance', async ( t ) => {
-  for ( const section of sections ) {
-    const example = loadExample( section.dir, section.name );
-    if ( !example ) {
+test('D: section templates render from their example instance', async (t) => {
+  for (const section of sections) {
+    const example = loadExample(section.dir, section.name);
+    if (!example) {
       continue;
     }
-    await t.test( section.name, () => {
+    await t.test(section.name, () => {
       let html;
-      assert.doesNotThrow( () => { html = render( section.name, example ); }, 'template threw while rendering example' );
-      if ( !DATA_DRIVEN_SECTIONS.has( section.name ) ) {
-        const bad = findBadTokens( html );
-        assert.deepEqual( bad, [], `example render leaked ${bad.join( ', ' )}` );
+      assert.doesNotThrow(() => {
+        html = render(section.name, example);
+      }, 'template threw while rendering example');
+      if (!DATA_DRIVEN_SECTIONS.has(section.name)) {
+        const bad = findBadTokens(html);
+        assert.deepEqual(bad, [], `example render leaked ${bad.join(', ')}`);
       }
-    } );
+    });
   }
-} );
+});

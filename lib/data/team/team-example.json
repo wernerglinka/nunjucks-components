@@ -8,10 +8,7 @@
       "src": "/assets/images/authors/einstein.jpg",
       "alt": "Albert Einstein"
     },
-    "social": [
-      { "platform": "linkedin", "url": "#" },
-      { "platform": "twitter", "url": "#" }
-    ]
+    "social": [{ "platform": "linkedin", "url": "#" }, { "platform": "twitter", "url": "#" }]
   },
   {
     "name": "Marie Curie",
@@ -22,10 +19,7 @@
       "src": "/assets/images/authors/curie.jpg",
       "alt": "Marie Curie"
     },
-    "social": [
-      { "platform": "linkedin", "url": "#" },
-      { "platform": "github", "url": "#" }
-    ]
+    "social": [{ "platform": "linkedin", "url": "#" }, { "platform": "github", "url": "#" }]
   },
   {
     "name": "Isaac Newton",
@@ -36,10 +30,7 @@
       "src": "/assets/images/authors/newton.jpg",
       "alt": "Isaac Newton"
     },
-    "social": [
-      { "platform": "linkedin", "url": "#" },
-      { "platform": "website", "url": "#" }
-    ]
+    "social": [{ "platform": "linkedin", "url": "#" }, { "platform": "website", "url": "#" }]
   },
   {
     "name": "Niels Bohr",
@@ -65,10 +56,7 @@
       "src": "/assets/images/authors/heisenberg.jpg",
       "alt": "Werner Heisenberg"
     },
-    "social": [
-      { "platform": "linkedin", "url": "#" },
-      { "platform": "twitter", "url": "#" }
-    ]
+    "social": [{ "platform": "linkedin", "url": "#" }, { "platform": "twitter", "url": "#" }]
   },
   {
     "name": "Stephen Hawking",
@@ -79,9 +67,6 @@
       "src": "/assets/images/authors/hawking.jpg",
       "alt": "Stephen Hawking"
     },
-    "social": [
-      { "platform": "github", "url": "#" },
-      { "platform": "email", "url": "#" }
-    ]
+    "social": [{ "platform": "github", "url": "#" }, { "platform": "email", "url": "#" }]
   }
 ]

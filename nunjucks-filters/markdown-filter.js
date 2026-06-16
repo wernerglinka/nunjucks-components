@@ -24,15 +24,15 @@ import 'prismjs/components/prism-markdown.js';
  * asides, and collapsible details.
  */
 const markedInstance = new Marked(
-  markedHighlight( {
+  markedHighlight({
     langPrefix: 'language-',
-    highlight( code, lang ) {
-      if ( lang && Prism.languages[ lang ] ) {
-        return Prism.highlight( code, Prism.languages[ lang ], lang );
+    highlight(code, lang) {
+      if (lang && Prism.languages[lang]) {
+        return Prism.highlight(code, Prism.languages[lang], lang);
       }
       return code;
     }
-  } )
+  })
 );
 
 /**
@@ -40,36 +40,31 @@ const markedInstance = new Marked(
  * The text parameter contains the already-highlighted code from markedHighlight
  */
 const renderer = {
-  code( { text, lang } ) {
+  code({ text, lang }) {
     const langClass = lang ? `language-${lang}` : '';
     return `<pre class="${langClass}"><code class="${langClass}">${text}</code></pre>`;
   }
 };
 
-markedInstance.use( { renderer } );
+markedInstance.use({ renderer });
 
-markedInstance.use( {
-  extensions: [
-    paragraphWithClass(),
-    imageWithClass(),
-    linkWithClass(),
-    directiveBlock()
-  ]
-} );
+markedInstance.use({
+  extensions: [paragraphWithClass(), imageWithClass(), linkWithClass(), directiveBlock()]
+});
 
 /**
  * Converts markdown string to HTML with syntax highlighting
  * @param {string} mdString - The markdown string to convert
  * @returns {string} The HTML output
  */
-export const mdToHTML = ( mdString ) => {
+export const mdToHTML = (mdString) => {
   try {
-    return markedInstance.parse( mdString, {
+    return markedInstance.parse(mdString, {
       mangle: false,
       headerIds: false
-    } );
-  } catch ( e ) {
-    console.error( 'Error parsing markdown:', e );
+    });
+  } catch (e) {
+    console.error('Error parsing markdown:', e);
     return mdString;
   }
 };

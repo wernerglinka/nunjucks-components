@@ -156,8 +156,8 @@ describe('Build Integration', () => {
           assert.ok(existsSync(indexPath), 'index.html should be generated');
 
           // After permalinks, blog posts become blog/post-name/index.html
-          const hasBlogPosts = Object.keys(files).some(file =>
-            file.startsWith('blog/') && file.endsWith('/index.html')
+          const hasBlogPosts = Object.keys(files).some(
+            (file) => file.startsWith('blog/') && file.endsWith('/index.html')
           );
           assert.ok(hasBlogPosts, 'At least one blog post should be processed with permalinks');
 
@@ -265,7 +265,10 @@ describe('Build Integration', () => {
 
         // Check that clean URLs are generated (directories with index.html)
         assert.ok(existsSync(join(testBuildDir, 'index.html')), 'Root index.html should exist');
-        assert.ok(existsSync(join(testBuildDir, 'references/sections/index.html')), 'Sections reference page should have clean URL');
+        assert.ok(
+          existsSync(join(testBuildDir, 'references/sections/index.html')),
+          'Sections reference page should have clean URL'
+        );
         assert.ok(existsSync(join(testBuildDir, 'blog/index.html')), 'Blog index should have clean URL');
 
         done();
@@ -304,11 +307,13 @@ describe('Build Integration', () => {
         .clean(false)
         .source('./src')
         .destination(testBuildDir)
-        .use(assets({
-          source: 'lib/assets/',
-          destination: 'assets/',
-          ignore: ['main.css', 'main.js', 'styles/']
-        }))
+        .use(
+          assets({
+            source: 'lib/assets/',
+            destination: 'assets/',
+            ignore: ['main.css', 'main.js', 'styles/']
+          })
+        )
         .use(drafts(false));
 
       metalsmith.build((err) => {

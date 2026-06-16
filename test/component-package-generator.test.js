@@ -17,7 +17,6 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 
 describe('Component Package Generator', () => {
-
   let buildExists = false;
   let downloadsPath;
   let bundlePath;
@@ -53,10 +52,7 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      await assert.doesNotReject(
-        async () => await fs.access(manifestPath),
-        'Manifest file should exist'
-      );
+      await assert.doesNotReject(async () => await fs.access(manifestPath), 'Manifest file should exist');
 
       const manifestContent = await fs.readFile(manifestPath, 'utf-8');
       const manifest = JSON.parse(manifestContent);
@@ -73,10 +69,7 @@ describe('Component Package Generator', () => {
       }
 
       const bundleZipPath = path.join(downloadsPath, 'nunjucks-components.zip');
-      await assert.doesNotReject(
-        async () => await fs.access(bundleZipPath),
-        'Bundle ZIP should exist'
-      );
+      await assert.doesNotReject(async () => await fs.access(bundleZipPath), 'Bundle ZIP should exist');
 
       const stats = await fs.stat(bundleZipPath);
       assert.ok(stats.size > 0, 'Bundle ZIP should not be empty');
@@ -88,13 +81,10 @@ describe('Component Package Generator', () => {
       }
 
       const sectionsPath = path.join(downloadsPath, 'sections');
-      await assert.doesNotReject(
-        async () => await fs.access(sectionsPath),
-        'Sections directory should exist'
-      );
+      await assert.doesNotReject(async () => await fs.access(sectionsPath), 'Sections directory should exist');
 
       const sectionFiles = await fs.readdir(sectionsPath);
-      const zipFiles = sectionFiles.filter(file => file.endsWith('.zip'));
+      const zipFiles = sectionFiles.filter((file) => file.endsWith('.zip'));
       assert.ok(zipFiles.length > 0, 'Should have at least one section package');
     });
 
@@ -104,13 +94,10 @@ describe('Component Package Generator', () => {
       }
 
       const partialsPath = path.join(downloadsPath, 'partials');
-      await assert.doesNotReject(
-        async () => await fs.access(partialsPath),
-        'Partials directory should exist'
-      );
+      await assert.doesNotReject(async () => await fs.access(partialsPath), 'Partials directory should exist');
 
       const partialFiles = await fs.readdir(partialsPath);
-      const zipFiles = partialFiles.filter(file => file.endsWith('.zip'));
+      const zipFiles = partialFiles.filter((file) => file.endsWith('.zip'));
       assert.ok(zipFiles.length > 0, 'Should have at least one partial package');
     });
   });
@@ -154,12 +141,9 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      assert.doesNotThrow(
-        () => {
-          execSync(`bash -n "${installScriptPath}"`, { stdio: 'pipe' });
-        },
-        'install-all.sh should have valid bash syntax'
-      );
+      assert.doesNotThrow(() => {
+        execSync(`bash -n "${installScriptPath}"`, { stdio: 'pipe' });
+      }, 'install-all.sh should have valid bash syntax');
     });
 
     it('should include shebang and set -e', function () {
@@ -176,15 +160,9 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      assert.ok(
-        installScriptContent.includes('--update-only'),
-        'Should support --update-only flag'
-      );
+      assert.ok(installScriptContent.includes('--update-only'), 'Should support --update-only flag');
       assert.ok(installScriptContent.includes('-u'), 'Should support -u short flag');
-      assert.ok(
-        installScriptContent.includes('MODE="update"'),
-        'Should set update mode variable'
-      );
+      assert.ok(installScriptContent.includes('MODE="update"'), 'Should set update mode variable');
     });
 
     it('should require nunjucks-components.config.json', function () {
@@ -207,14 +185,8 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      assert.ok(
-        installScriptContent.includes('nunjucks-components.config.json'),
-        'Should check for config file'
-      );
-      assert.ok(
-        installScriptContent.includes('componentsBasePath'),
-        'Should read componentsBasePath'
-      );
+      assert.ok(installScriptContent.includes('nunjucks-components.config.json'), 'Should check for config file');
+      assert.ok(installScriptContent.includes('componentsBasePath'), 'Should read componentsBasePath');
       assert.ok(installScriptContent.includes('sectionsDir'), 'Should read sectionsDir');
       assert.ok(installScriptContent.includes('partialsDir'), 'Should read partialsDir');
     });
@@ -229,10 +201,7 @@ describe('Component Package Generator', () => {
 
       assert.ok(partialsIndex > 0, 'Should have partials installation section');
       assert.ok(sectionsIndex > 0, 'Should have sections installation section');
-      assert.ok(
-        partialsIndex < sectionsIndex,
-        'Partials should be installed before sections'
-      );
+      assert.ok(partialsIndex < sectionsIndex, 'Partials should be installed before sections');
     });
 
     it('should handle section dependencies', function () {
@@ -263,11 +232,7 @@ describe('Component Package Generator', () => {
       const emptyElsePattern = /else\s*\n\s*fi/g;
       const matches = installScriptContent.match(emptyElsePattern);
 
-      assert.strictEqual(
-        matches,
-        null,
-        'Should not have empty else blocks (bash syntax error)'
-      );
+      assert.strictEqual(matches, null, 'Should not have empty else blocks (bash syntax error)');
     });
 
     it('should track installation counts', function () {
@@ -275,22 +240,13 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      assert.ok(
-        installScriptContent.includes('INSTALLED_COUNT=0'),
-        'Should initialize installed count'
-      );
+      assert.ok(installScriptContent.includes('INSTALLED_COUNT=0'), 'Should initialize installed count');
       assert.ok(
         installScriptContent.includes('INSTALLED_COUNT=$((INSTALLED_COUNT + 1))'),
         'Should increment installed count'
       );
-      assert.ok(
-        installScriptContent.includes('SKIPPED_COUNT=0'),
-        'Should initialize skipped count'
-      );
-      assert.ok(
-        installScriptContent.includes('Installed/Updated:'),
-        'Should display installed count'
-      );
+      assert.ok(installScriptContent.includes('SKIPPED_COUNT=0'), 'Should initialize skipped count');
+      assert.ok(installScriptContent.includes('Installed/Updated:'), 'Should display installed count');
     });
 
     it('should export environment variables for component installers', function () {
@@ -298,14 +254,8 @@ describe('Component Package Generator', () => {
         this.skip();
       }
 
-      assert.ok(
-        installScriptContent.includes('export PROJECT_ROOT'),
-        'Should export PROJECT_ROOT'
-      );
-      assert.ok(
-        installScriptContent.includes('export BUNDLE_INSTALL'),
-        'Should export BUNDLE_INSTALL flag'
-      );
+      assert.ok(installScriptContent.includes('export PROJECT_ROOT'), 'Should export PROJECT_ROOT');
+      assert.ok(installScriptContent.includes('export BUNDLE_INSTALL'), 'Should export BUNDLE_INSTALL flag');
     });
   });
 
@@ -318,20 +268,12 @@ describe('Component Package Generator', () => {
       // Check a few sections
       const sectionsToCheck = ['hero', 'rich-text', 'footer'];
       await Promise.all(
-        sectionsToCheck.map(async section => {
-          const sectionInstallPath = path.join(
-            bundlePath,
-            'sections',
-            section,
-            'install.sh'
-          );
+        sectionsToCheck.map(async (section) => {
+          const sectionInstallPath = path.join(bundlePath, 'sections', section, 'install.sh');
           try {
             await fs.access(sectionInstallPath);
             const scriptContent = await fs.readFile(sectionInstallPath, 'utf-8');
-            assert.ok(
-              scriptContent.includes('#!/bin/bash'),
-              `${section} install.sh should have shebang`
-            );
+            assert.ok(scriptContent.includes('#!/bin/bash'), `${section} install.sh should have shebang`);
           } catch {
             // Section might not exist, skip
           }
@@ -341,20 +283,12 @@ describe('Component Package Generator', () => {
       // Check a few partials
       const partialsToCheck = ['text', 'ctas', 'image'];
       await Promise.all(
-        partialsToCheck.map(async partial => {
-          const partialInstallPath = path.join(
-            bundlePath,
-            'partials',
-            partial,
-            'install.sh'
-          );
+        partialsToCheck.map(async (partial) => {
+          const partialInstallPath = path.join(bundlePath, 'partials', partial, 'install.sh');
           try {
             await fs.access(partialInstallPath);
             const scriptContent = await fs.readFile(partialInstallPath, 'utf-8');
-            assert.ok(
-              scriptContent.includes('#!/bin/bash'),
-              `${partial} install.sh should have shebang`
-            );
+            assert.ok(scriptContent.includes('#!/bin/bash'), `${partial} install.sh should have shebang`);
           } catch {
             // Partial might not exist, skip
           }
@@ -374,8 +308,7 @@ describe('Component Package Generator', () => {
         const scriptContent = await fs.readFile(heroInstallPath, 'utf-8');
 
         assert.ok(
-          scriptContent.includes('Check dependencies') ||
-            scriptContent.includes('Checking dependencies'),
+          scriptContent.includes('Check dependencies') || scriptContent.includes('Checking dependencies'),
           'Hero install script should check dependencies'
         );
       } catch {
@@ -397,10 +330,7 @@ describe('Component Package Generator', () => {
           scriptContent.includes('contentHash') || scriptContent.includes('Content Hash'),
           'Install script should reference content hash'
         );
-        assert.ok(
-          scriptContent.includes('EXISTING_HASH'),
-          'Should check existing installation hash'
-        );
+        assert.ok(scriptContent.includes('EXISTING_HASH'), 'Should check existing installation hash');
       } catch {
         // Text partial might not exist, skip
       }
@@ -436,10 +366,7 @@ describe('Component Package Generator', () => {
         const packageContent = await fs.readFile(textPackagePath, 'utf-8');
         const packageJson = JSON.parse(packageContent);
 
-        assert.ok(
-          packageJson['x-nunjucks-component'],
-          'package.json should have x-nunjucks-component marker'
-        );
+        assert.ok(packageJson['x-nunjucks-component'], 'package.json should have x-nunjucks-component marker');
         assert.ok(packageJson.contentHash, 'package.json should have contentHash');
         assert.ok(packageJson.version, 'package.json should have version');
       } catch {
@@ -455,24 +382,15 @@ describe('Component Package Generator', () => {
       }
 
       const bundleReadmePath = path.join(bundlePath, 'README.md');
-      await assert.doesNotReject(
-        async () => await fs.access(bundleReadmePath),
-        'Bundle should have README.md'
-      );
+      await assert.doesNotReject(async () => await fs.access(bundleReadmePath), 'Bundle should have README.md');
 
       const readmeContent = await fs.readFile(bundleReadmePath, 'utf-8');
 
       assert.ok(readmeContent.includes('Nunjucks Components Bundle'), 'Should have title');
       assert.ok(readmeContent.includes('Prerequisites'), 'Should document prerequisites');
-      assert.ok(
-        readmeContent.includes('nunjucks-components.config.json'),
-        'Should document config file'
-      );
+      assert.ok(readmeContent.includes('nunjucks-components.config.json'), 'Should document config file');
       assert.ok(readmeContent.includes('Update Mode'), 'Should document update mode');
-      assert.ok(
-        readmeContent.includes('--update-only'),
-        'Should document update-only flag'
-      );
+      assert.ok(readmeContent.includes('--update-only'), 'Should document update-only flag');
     });
   });
 });

@@ -30,69 +30,69 @@ import { listSections, resolveManifestFields, isLeaf } from './lib/manifest-sche
  * @param {string} [prefix]
  * @param {boolean} [insideArray]
  */
-function walkLeaves( tree, visit, prefix = '', insideArray = false ) {
-  for ( const [ key, value ] of Object.entries( tree ) ) {
+function walkLeaves(tree, visit, prefix = '', insideArray = false) {
+  for (const [key, value] of Object.entries(tree)) {
     const path = prefix ? `${prefix}.${key}` : key;
-    if ( isLeaf( value ) ) {
-      visit( path, value, insideArray );
-      if ( value.items && typeof value.items === 'object' ) {
-        walkLeaves( value.items, visit, `${path}[]`, true );
+    if (isLeaf(value)) {
+      visit(path, value, insideArray);
+      if (value.items && typeof value.items === 'object') {
+        walkLeaves(value.items, visit, `${path}[]`, true);
       }
-    } else if ( value && typeof value === 'object' ) {
-      walkLeaves( value, visit, path, insideArray );
+    } else if (value && typeof value === 'object') {
+      walkLeaves(value, visit, path, insideArray);
     }
   }
 }
 
-const asSet = ( arr ) => JSON.stringify( [ ...arr ].sort() );
+const asSet = (arr) => JSON.stringify([...arr].sort());
 
-const sections = listSections().filter( ( s ) => s.manifest.fields );
+const sections = listSections().filter((s) => s.manifest.fields);
 
-test( 'C1: select/multiselect defaults are members of their enum', async ( t ) => {
-  for ( const section of sections ) {
-    await t.test( section.name, () => {
-      const tree = resolveManifestFields( section.manifest );
+test('C1: select/multiselect defaults are members of their enum', async (t) => {
+  for (const section of sections) {
+    await t.test(section.name, () => {
+      const tree = resolveManifestFields(section.manifest);
       const problems = [];
-      walkLeaves( tree, ( path, leaf ) => {
-        if ( !Array.isArray( leaf.enum ) ) {
+      walkLeaves(tree, (path, leaf) => {
+        if (!Array.isArray(leaf.enum)) {
           return;
         }
-        if ( leaf.widget === 'select' && 'default' in leaf && leaf.default !== '' && !leaf.enum.includes( leaf.default ) ) {
-          problems.push( `${path}: default "${leaf.default}" not in enum [${leaf.enum.join( ', ' )}]` );
+        if (leaf.widget === 'select' && 'default' in leaf && leaf.default !== '' && !leaf.enum.includes(leaf.default)) {
+          problems.push(`${path}: default "${leaf.default}" not in enum [${leaf.enum.join(', ')}]`);
         }
-        if ( leaf.widget === 'multiselect' && Array.isArray( leaf.default ) ) {
-          for ( const member of leaf.default ) {
-            if ( !leaf.enum.includes( member ) ) {
-              problems.push( `${path}: default member "${member}" not in enum [${leaf.enum.join( ', ' )}]` );
+        if (leaf.widget === 'multiselect' && Array.isArray(leaf.default)) {
+          for (const member of leaf.default) {
+            if (!leaf.enum.includes(member)) {
+              problems.push(`${path}: default member "${member}" not in enum [${leaf.enum.join(', ')}]`);
             }
           }
         }
-      } );
-      assert.deepEqual( problems, [], `${section.name} enum default problems:\n  ${problems.join( '\n  ' )}` );
-    } );
+      });
+      assert.deepEqual(problems, [], `${section.name} enum default problems:\n  ${problems.join('\n  ')}`);
+    });
   }
-} );
+});
 
-test( 'C2: fields enum equals validation enum for the same path', async ( t ) => {
-  for ( const section of sections ) {
-    if ( !section.manifest.validation?.properties ) {
+test('C2: fields enum equals validation enum for the same path', async (t) => {
+  for (const section of sections) {
+    if (!section.manifest.validation?.properties) {
       continue;
     }
-    await t.test( section.name, () => {
-      const tree = resolveManifestFields( section.manifest );
+    await t.test(section.name, () => {
+      const tree = resolveManifestFields(section.manifest);
       const props = section.manifest.validation.properties;
       const mismatches = [];
-      walkLeaves( tree, ( path, leaf, insideArray ) => {
-        if ( insideArray || !Array.isArray( leaf.enum ) ) {
+      walkLeaves(tree, (path, leaf, insideArray) => {
+        if (insideArray || !Array.isArray(leaf.enum)) {
           return;
         }
-        const rule = props[ path ];
+        const rule = props[path];
         const validationEnum = rule?.enum || rule?.items?.enum;
-        if ( validationEnum && asSet( validationEnum ) !== asSet( leaf.enum ) ) {
-          mismatches.push( `${path}: fields [${leaf.enum.join( ', ' )}] != validation [${validationEnum.join( ', ' )}]` );
+        if (validationEnum && asSet(validationEnum) !== asSet(leaf.enum)) {
+          mismatches.push(`${path}: fields [${leaf.enum.join(', ')}] != validation [${validationEnum.join(', ')}]`);
         }
-      } );
-      assert.deepEqual( mismatches, [], `${section.name} enum mismatches:\n  ${mismatches.join( '\n  ' )}` );
-    } );
+      });
+      assert.deepEqual(mismatches, [], `${section.name} enum mismatches:\n  ${mismatches.join('\n  ')}`);
+    });
   }
-} );
+});

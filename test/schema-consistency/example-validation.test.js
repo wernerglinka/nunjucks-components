@@ -42,8 +42,8 @@ import {
 
 /** Sections that ship an example instance. */
 const withExamples = listSections()
-  .map( ( s ) => ( { ...s, example: loadExample( s.dir, s.name ) } ) )
-  .filter( ( s ) => s.example );
+  .map((s) => ({ ...s, example: loadExample(s.dir, s.name) }))
+  .filter((s) => s.example);
 
 /**
  * True when `key` (or an ancestor of it) is present in `paths`. A field/group
@@ -52,53 +52,53 @@ const withExamples = listSections()
  * @param {Set<string>} paths
  * @returns {boolean}
  */
-function pathOrAncestorIn( key, paths ) {
-  const segments = key.split( '.' );
-  for ( let i = 1; i <= segments.length; i++ ) {
-    if ( paths.has( segments.slice( 0, i ).join( '.' ) ) ) {
+function pathOrAncestorIn(key, paths) {
+  const segments = key.split('.');
+  for (let i = 1; i <= segments.length; i++) {
+    if (paths.has(segments.slice(0, i).join('.'))) {
       return true;
     }
   }
   return false;
 }
 
-test( 'A: every example .yml validates against its own validation block', async ( t ) => {
-  for ( const section of withExamples ) {
-    if ( !section.manifest.validation ) {
+test('A: every example .yml validates against its own validation block', async (t) => {
+  for (const section of withExamples) {
+    if (!section.manifest.validation) {
       continue;
     }
-    await t.test( section.name, () => {
-      const result = validateSection( section.example, section.manifest.validation, section.name );
-      assert.ok( result.valid, result.error );
-    } );
+    await t.test(section.name, () => {
+      const result = validateSection(section.example, section.manifest.validation, section.name);
+      assert.ok(result.valid, result.error);
+    });
   }
-} );
+});
 
-test( 'A2: every example key is authorable via fields, declared in validation, or an allowed runtime key', async ( t ) => {
-  for ( const section of withExamples ) {
-    await t.test( section.name, () => {
-      const fieldPaths = collectFieldPaths( resolveManifestFields( section.manifest ) );
-      const validationPaths = new Set( Object.keys( section.manifest.validation?.properties || {} ) );
+test('A2: every example key is authorable via fields, declared in validation, or an allowed runtime key', async (t) => {
+  for (const section of withExamples) {
+    await t.test(section.name, () => {
+      const fieldPaths = collectFieldPaths(resolveManifestFields(section.manifest));
+      const validationPaths = new Set(Object.keys(section.manifest.validation?.properties || {}));
 
       const offContract = [];
-      for ( const key of flattenInstanceKeys( section.example ) ) {
-        if ( STRUCTURAL_KEYS.has( key.split( '.' )[ 0 ] ) ) {
+      for (const key of flattenInstanceKeys(section.example)) {
+        if (STRUCTURAL_KEYS.has(key.split('.')[0])) {
           continue;
         }
-        if ( isRuntimeKey( section.name, key ) ) {
+        if (isRuntimeKey(section.name, key)) {
           continue;
         }
-        if ( pathOrAncestorIn( key, fieldPaths ) || pathOrAncestorIn( key, validationPaths ) ) {
+        if (pathOrAncestorIn(key, fieldPaths) || pathOrAncestorIn(key, validationPaths)) {
           continue;
         }
-        offContract.push( key );
+        offContract.push(key);
       }
 
       assert.deepEqual(
         offContract,
         [],
-        `${section.name}.yml sets keys that no fields/validation entry covers (stale example or missing field): ${offContract.join( ', ' )}`
+        `${section.name}.yml sets keys that no fields/validation entry covers (stale example or missing field): ${offContract.join(', ')}`
       );
-    } );
+    });
   }
-} );
+});

@@ -23,14 +23,14 @@ import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 import { resolveFields as canonicalResolveFields } from '../../../node_modules/metalsmith-bundled-components/src/utils/schema-emitter.js';
 
-const __dirname = dirname( fileURLToPath( import.meta.url ) );
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** Project root (three levels up from test/schema-consistency/lib). */
-export const projectRoot = join( __dirname, '..', '..', '..' );
+export const projectRoot = join(__dirname, '..', '..', '..');
 
-const COMPONENTS_DIR = join( projectRoot, 'lib/layouts/components' );
-const SECTIONS_DIR = join( COMPONENTS_DIR, 'sections' );
-const PARTIALS_DIR = join( COMPONENTS_DIR, '_partials' );
+const COMPONENTS_DIR = join(projectRoot, 'lib/layouts/components');
+const SECTIONS_DIR = join(COMPONENTS_DIR, 'sections');
+const PARTIALS_DIR = join(COMPONENTS_DIR, '_partials');
 
 /**
  * Top-level keys that every section instance carries for structural/build
@@ -39,7 +39,7 @@ const PARTIALS_DIR = join( COMPONENTS_DIR, '_partials' );
  * not expected to declare them.
  * @type {Set<string>}
  */
-export const STRUCTURAL_KEYS = new Set( [ 'sectionType', 'containerTag', 'classes', 'id' ] );
+export const STRUCTURAL_KEYS = new Set(['sectionType', 'containerTag', 'classes', 'id']);
 
 /**
  * Keys an example instance may carry that are injected by the build pipeline or
@@ -53,7 +53,7 @@ export const STRUCTURAL_KEYS = new Set( [ 'sectionType', 'containerTag', 'classe
 export const RUNTIME_KEY_ALLOWLIST = {
   // metalsmith-sectioned-blog-pagination fills pagingParams at build time; the
   // example declares the empty shape with a "filled by the plugin" comment.
-  'collection-list': [ 'pagingParams', 'hasPagingParams' ]
+  'collection-list': ['pagingParams', 'hasPagingParams']
 };
 
 /**
@@ -64,9 +64,14 @@ export const RUNTIME_KEY_ALLOWLIST = {
  * false-positive on their intentionally-empty output.
  * @type {Set<string>}
  */
-export const DATA_DRIVEN_SECTIONS = new Set( [
-  'blog-author', 'collection-list', 'collection-links', 'related-posts', 'logos-list', 'maps'
-] );
+export const DATA_DRIVEN_SECTIONS = new Set([
+  'blog-author',
+  'collection-list',
+  'collection-links',
+  'related-posts',
+  'logos-list',
+  'maps'
+]);
 
 /**
  * A field "leaf" is any fields node that carries a `widget` property. Anything
@@ -74,16 +79,16 @@ export const DATA_DRIVEN_SECTIONS = new Set( [
  * @param {*} node
  * @returns {boolean}
  */
-export function isLeaf( node ) {
-  return Boolean( node ) && typeof node === 'object' && !Array.isArray( node ) && typeof node.widget === 'string';
+export function isLeaf(node) {
+  return Boolean(node) && typeof node === 'object' && !Array.isArray(node) && typeof node.widget === 'string';
 }
 
 /**
  * @param {*} node
  * @returns {boolean} Whether node is a plain (non-array) object.
  */
-function isPlainObject( node ) {
-  return Boolean( node ) && typeof node === 'object' && !Array.isArray( node );
+function isPlainObject(node) {
+  return Boolean(node) && typeof node === 'object' && !Array.isArray(node);
 }
 
 /**
@@ -91,8 +96,8 @@ function isPlainObject( node ) {
  * @param {string} dir - Absolute path to the component directory.
  * @returns {object} Parsed manifest.json.
  */
-export function readManifest( dir ) {
-  return JSON.parse( readFileSync( join( dir, 'manifest.json' ), 'utf8' ) );
+export function readManifest(dir) {
+  return JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8'));
 }
 
 /**
@@ -102,9 +107,9 @@ export function readManifest( dir ) {
  * @returns {Array<{name: string, dir: string, manifest: object}>}
  */
 export function listSections() {
-  return readdirSync( SECTIONS_DIR )
-    .filter( ( name ) => existsSync( join( SECTIONS_DIR, name, 'manifest.json' ) ) )
-    .map( ( name ) => ( { name, dir: join( SECTIONS_DIR, name ), manifest: readManifest( join( SECTIONS_DIR, name ) ) } ) );
+  return readdirSync(SECTIONS_DIR)
+    .filter((name) => existsSync(join(SECTIONS_DIR, name, 'manifest.json')))
+    .map((name) => ({ name, dir: join(SECTIONS_DIR, name), manifest: readManifest(join(SECTIONS_DIR, name)) }));
 }
 
 /**
@@ -115,11 +120,11 @@ export function listSections() {
  */
 function buildComponentMap() {
   const map = new Map();
-  for ( const base of [ PARTIALS_DIR, SECTIONS_DIR ] ) {
-    for ( const name of readdirSync( base ) ) {
-      const manifestPath = join( base, name, 'manifest.json' );
-      if ( existsSync( manifestPath ) ) {
-        map.set( name, JSON.parse( readFileSync( manifestPath, 'utf8' ) ) );
+  for (const base of [PARTIALS_DIR, SECTIONS_DIR]) {
+    for (const name of readdirSync(base)) {
+      const manifestPath = join(base, name, 'manifest.json');
+      if (existsSync(manifestPath)) {
+        map.set(name, JSON.parse(readFileSync(manifestPath, 'utf8')));
       }
     }
   }
@@ -129,7 +134,7 @@ function buildComponentMap() {
 /** Lazily-built, reused across resolutions within a test run. */
 let componentMapCache = null;
 function componentMap() {
-  if ( !componentMapCache ) {
+  if (!componentMapCache) {
     componentMapCache = buildComponentMap();
   }
   return componentMapCache;
@@ -143,11 +148,11 @@ function componentMap() {
  * @param {object} manifest
  * @returns {object} Resolved field tree (empty object if no fields).
  */
-export function resolveManifestFields( manifest ) {
-  if ( !isPlainObject( manifest.fields ) ) {
+export function resolveManifestFields(manifest) {
+  if (!isPlainObject(manifest.fields)) {
     return {};
   }
-  return canonicalResolveFields( manifest.fields, componentMap() );
+  return canonicalResolveFields(manifest.fields, componentMap());
 }
 
 /**
@@ -157,13 +162,13 @@ export function resolveManifestFields( manifest ) {
  * @param {string} name - Component name.
  * @returns {object|null} The section object, or null if there is no example.
  */
-export function loadExample( dir, name ) {
-  const ymlPath = join( dir, `${name}.yml` );
-  if ( !existsSync( ymlPath ) ) {
+export function loadExample(dir, name) {
+  const ymlPath = join(dir, `${name}.yml`);
+  if (!existsSync(ymlPath)) {
     return null;
   }
-  const doc = yaml.load( readFileSync( ymlPath, 'utf8' ) );
-  return Array.isArray( doc ) ? doc[ 0 ] : doc;
+  const doc = yaml.load(readFileSync(ymlPath, 'utf8'));
+  return Array.isArray(doc) ? doc[0] : doc;
 }
 
 /**
@@ -175,15 +180,15 @@ export function loadExample( dir, name ) {
  * @param {Set<string>} [out]
  * @returns {Set<string>} Dotted paths present in the instance.
  */
-export function flattenInstanceKeys( obj, prefix = '', out = new Set() ) {
-  if ( !isPlainObject( obj ) ) {
+export function flattenInstanceKeys(obj, prefix = '', out = new Set()) {
+  if (!isPlainObject(obj)) {
     return out;
   }
-  for ( const [ key, value ] of Object.entries( obj ) ) {
+  for (const [key, value] of Object.entries(obj)) {
     const path = prefix ? `${prefix}.${key}` : key;
-    out.add( path );
-    if ( isPlainObject( value ) ) {
-      flattenInstanceKeys( value, path, out );
+    out.add(path);
+    if (isPlainObject(value)) {
+      flattenInstanceKeys(value, path, out);
     }
   }
   return out;
@@ -195,9 +200,9 @@ export function flattenInstanceKeys( obj, prefix = '', out = new Set() ) {
  * @param {string} dottedKey
  * @returns {boolean}
  */
-export function isRuntimeKey( sectionName, dottedKey ) {
-  const prefixes = RUNTIME_KEY_ALLOWLIST[ sectionName ] || [];
-  return prefixes.some( ( p ) => dottedKey === p || dottedKey.startsWith( `${p}.` ) );
+export function isRuntimeKey(sectionName, dottedKey) {
+  const prefixes = RUNTIME_KEY_ALLOWLIST[sectionName] || [];
+  return prefixes.some((p) => dottedKey === p || dottedKey.startsWith(`${p}.`));
 }
 
 /**
@@ -214,22 +219,22 @@ export function isRuntimeKey( sectionName, dottedKey ) {
  *     into (the artwork-dimensions class of drift).
  *   - `absent`: nothing at that path.
  */
-export function lookupPath( tree, dottedPath ) {
-  const segments = dottedPath.split( '.' );
+export function lookupPath(tree, dottedPath) {
+  const segments = dottedPath.split('.');
   let node = tree;
-  for ( let i = 0; i < segments.length; i++ ) {
-    if ( isLeaf( node ) ) {
+  for (let i = 0; i < segments.length; i++) {
+    if (isLeaf(node)) {
       return { kind: 'leaf-too-shallow', node };
     }
-    if ( !isPlainObject( node ) || !( segments[ i ] in node ) ) {
+    if (!isPlainObject(node) || !(segments[i] in node)) {
       return { kind: 'absent', node: undefined };
     }
-    node = node[ segments[ i ] ];
+    node = node[segments[i]];
   }
-  if ( isLeaf( node ) ) {
+  if (isLeaf(node)) {
     return { kind: 'leaf', node };
   }
-  if ( isPlainObject( node ) ) {
+  if (isPlainObject(node)) {
     return { kind: 'group', node };
   }
   return { kind: 'absent', node };
@@ -243,13 +248,13 @@ export function lookupPath( tree, dottedPath ) {
  * @param {object} tree - Resolved field tree.
  * @returns {object} Nested defaults object.
  */
-export function materializeDefaults( tree ) {
+export function materializeDefaults(tree) {
   const out = {};
-  for ( const [ key, value ] of Object.entries( tree ) ) {
-    if ( isLeaf( value ) ) {
-      out[ key ] = leafDefault( value );
-    } else if ( isPlainObject( value ) ) {
-      out[ key ] = materializeDefaults( value );
+  for (const [key, value] of Object.entries(tree)) {
+    if (isLeaf(value)) {
+      out[key] = leafDefault(value);
+    } else if (isPlainObject(value)) {
+      out[key] = materializeDefaults(value);
     }
   }
   return out;
@@ -260,17 +265,17 @@ export function materializeDefaults( tree ) {
  * @param {object} leaf
  * @returns {*}
  */
-function leafDefault( leaf ) {
-  if ( leaf.widget === 'array' ) {
-    return Array.isArray( leaf.default ) ? leaf.default : [];
+function leafDefault(leaf) {
+  if (leaf.widget === 'array') {
+    return Array.isArray(leaf.default) ? leaf.default : [];
   }
-  if ( leaf.widget === 'multiselect' ) {
-    return Array.isArray( leaf.default ) ? leaf.default : [];
+  if (leaf.widget === 'multiselect') {
+    return Array.isArray(leaf.default) ? leaf.default : [];
   }
-  if ( 'default' in leaf ) {
+  if ('default' in leaf) {
     return leaf.default;
   }
-  if ( leaf.widget === 'checkbox' ) {
+  if (leaf.widget === 'checkbox') {
     return false;
   }
   return '';
@@ -286,14 +291,14 @@ function leafDefault( leaf ) {
  * @param {string} [prefix]
  * @returns {Set<string>} Dotted paths.
  */
-export function collectFieldPaths( tree, prefix = '' ) {
+export function collectFieldPaths(tree, prefix = '') {
   const paths = new Set();
-  for ( const [ key, value ] of Object.entries( tree ) ) {
+  for (const [key, value] of Object.entries(tree)) {
     const path = prefix ? `${prefix}.${key}` : key;
-    paths.add( path );
-    if ( !isLeaf( value ) && isPlainObject( value ) ) {
-      for ( const child of collectFieldPaths( value, path ) ) {
-        paths.add( child );
+    paths.add(path);
+    if (!isLeaf(value) && isPlainObject(value)) {
+      for (const child of collectFieldPaths(value, path)) {
+        paths.add(child);
       }
     }
   }

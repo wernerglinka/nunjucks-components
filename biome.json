@@ -12,6 +12,8 @@
       "**/*.json",
       "!**/*.min.js",
       "!test/fixtures",
+      "!.claude",
+      "!lib/assets/lotties",
       "!package.json",
       "!package-lock.json"
     ]

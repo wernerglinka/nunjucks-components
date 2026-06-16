@@ -1,6 +1,6 @@
 {
   "latitude": 40.7128,
-  "longitude": -74.0060,
+  "longitude": -74.006,
   "zoom": 8,
   "clustering": {
     "enabled": true,
@@ -17,7 +17,7 @@
   "markers": [
     {
       "latitude": 40.7128,
-      "longitude": -74.0060,
+      "longitude": -74.006,
       "title": "Manhattan",
       "icon": "star",
       "content": {

@@ -79,7 +79,7 @@ This archive includes all Feather icons. Some commonly used ones:
 - menu.njk, x.njk (for navigation)
 - arrow-left.njk, arrow-right.njk (for pagination)
 - check.njk, x-circle.njk (for status indicators)
-- and ${await countIcons() - 4} more...
+- and ${(await countIcons()) - 4} more...
 
 ## About Feather Icons
 
@@ -110,7 +110,6 @@ https://nunjucks-components.netlify.app/references/partials/icon
 
     // Finalize the archive
     await archive.finalize();
-
   } catch (error) {
     console.error('❌ Error packaging icons:', error);
     process.exit(1);
@@ -119,7 +118,7 @@ https://nunjucks-components.netlify.app/references/partials/icon
 
 async function countIcons() {
   const iconFiles = await fs.readdir(iconsSourcePath);
-  return iconFiles.filter(file => file.endsWith('.njk')).length;
+  return iconFiles.filter((file) => file.endsWith('.njk')).length;
 }
 
 // Run the script

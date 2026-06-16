@@ -20,14 +20,14 @@ import { projectRoot } from './manifest-schema.js';
  * @param {string} dir
  * @returns {object}
  */
-function loadData( dir ) {
+function loadData(dir) {
   const out = {};
-  for ( const entry of readdirSync( dir ) ) {
-    const full = join( dir, entry );
-    if ( statSync( full ).isDirectory() ) {
-      out[ entry ] = loadData( full );
-    } else if ( entry.endsWith( '.json' ) ) {
-      out[ entry.replace( '.json', '' ) ] = JSON.parse( readFileSync( full, 'utf8' ) );
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      out[entry] = loadData(full);
+    } else if (entry.endsWith('.json')) {
+      out[entry.replace('.json', '')] = JSON.parse(readFileSync(full, 'utf8'));
     }
   }
   return out;
@@ -38,14 +38,14 @@ function loadData( dir ) {
  * @returns {{env: import('nunjucks').Environment, data: object}}
  */
 export function createRenderEnvironment() {
-  const data = loadData( join( projectRoot, 'lib/data' ) );
+  const data = loadData(join(projectRoot, 'lib/data'));
   const env = new nunjucks.Environment(
-    new nunjucks.FileSystemLoader( join( projectRoot, 'lib/layouts' ), { noCache: true } ),
+    new nunjucks.FileSystemLoader(join(projectRoot, 'lib/layouts'), { noCache: true }),
     { autoescape: true, throwOnUndefined: false }
   );
-  for ( const [ name, fn ] of Object.entries( filters ) ) {
-    if ( typeof fn === 'function' ) {
-      env.addFilter( name, fn );
+  for (const [name, fn] of Object.entries(filters)) {
+    if (typeof fn === 'function') {
+      env.addFilter(name, fn);
     }
   }
   return { env, data };
@@ -59,7 +59,7 @@ export function createRenderEnvironment() {
  * @param {object} data - Global data tree.
  * @returns {object}
  */
-export function renderContext( section, data ) {
+export function renderContext(section, data) {
   return {
     section,
     data,
@@ -80,17 +80,17 @@ export function renderContext( section, data ) {
  * (undefined).
  * @type {string[]}
  */
-export const BAD_TOKENS = [ 'NaN', '[object Object]', 'undefined' ];
+export const BAD_TOKENS = ['NaN', '[object Object]', 'undefined'];
 
 /**
  * @param {string} html
  * @returns {string[]} Which bad tokens appear in the rendered output.
  */
-export function findBadTokens( html ) {
-  return BAD_TOKENS.filter( ( token ) => html.includes( token ) );
+export function findBadTokens(html) {
+  return BAD_TOKENS.filter((token) => html.includes(token));
 }
 
 /** Path (relative to the loader root) of a section's template. */
-export function sectionTemplate( name ) {
+export function sectionTemplate(name) {
   return `components/sections/${name}/${name}.njk`;
 }
