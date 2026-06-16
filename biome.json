@@ -65,9 +65,11 @@
       },
       "complexity": {
         "useArrowFunction": "error",
-        "useLiteralKeys": "error"
+        "useLiteralKeys": "error",
+        "useOptionalChain": "warn"
       },
       "correctness": {
+        "useParseIntRadix": "warn",
         "noUnusedVariables": "error"
       }
     }

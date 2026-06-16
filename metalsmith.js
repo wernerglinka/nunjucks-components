@@ -35,7 +35,7 @@ import postcssImport from 'postcss-import'; // Processes @import statements
 import autoprefixer from 'autoprefixer'; // Adds browser prefixes to CSS
 import cssnano from 'cssnano'; // Minifies CSS
 import stylelint from 'stylelint'; // CSS linting
-import { performance } from 'perf_hooks'; // Measures build performance
+import { performance } from 'node:perf_hooks'; // Measures build performance
 import browserSync from 'browser-sync'; // Live-reload development server
 
 // These variables help determine the current directory and file paths

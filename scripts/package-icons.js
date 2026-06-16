@@ -9,11 +9,11 @@
  * Output: build/downloads/feather-icons.zip
  */
 
-import fs from 'fs/promises';
-import { createWriteStream } from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import { createWriteStream } from 'node:fs';
+import path from 'node:path';
 import { ZipArchive } from 'archiver';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
