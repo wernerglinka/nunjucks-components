@@ -1,6 +1,18 @@
 @import url('./styles/_css-base.css');
 @import url('./styles/_design-tokens.css');
 
+/* Shell chrome styles (header/footer/navigation/branding live in layouts/pages/parts, not the component catalog) */
+@import url('./styles/_header.css');
+@import url('./styles/_footer.css');
+@import url('./styles/_navigation.css');
+@import url('./styles/_branding.css');
+@import url('./styles/_breadcrumbs.css');
+
+/* Optional shell features, toggled by scripts/toggle-feature.mjs. Do not edit tagged lines by hand. */
+/* feature-styles */
+@import url('./styles/_language-switcher.css'); /* feature:language-switcher */
+@import url('./styles/_dark-light-theme-switcher.css'); /* feature:dark-light-theme-switcher */
+
 /**
  * Global Styles
  */

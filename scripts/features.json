@@ -1,0 +1,18 @@
+{
+  "language-switcher": {
+    "label": "Language switcher",
+    "macro": "languageSwitcher",
+    "template": "pages/parts/language-switcher.njk",
+    "call": "{{ languageSwitcher(data.languages.available, data.languages.defaultLang, data.languages.fallbackUrl) }}",
+    "css": "./styles/_language-switcher.css",
+    "js": "../layouts/pages/parts/language-switcher.js"
+  },
+  "dark-light-theme-switcher": {
+    "label": "Dark/light theme switcher",
+    "macro": "darkLightThemeSwitcher",
+    "template": "pages/parts/dark-light-theme-switcher.njk",
+    "call": "{{ darkLightThemeSwitcher() }}",
+    "css": "./styles/_dark-light-theme-switcher.css",
+    "js": "../layouts/pages/parts/dark-light-theme-switcher.js"
+  }
+}

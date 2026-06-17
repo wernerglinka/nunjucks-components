@@ -1,7 +1,8 @@
-{% from "components/_partials/branding/branding.njk" import branding %}
-{% from "components/_partials/navigation/navigation.njk" import navigation %}
-{% from "components/_partials/dark-light-theme-switcher/dark-light-theme-switcher.njk" import darkLightThemeSwitcher %}
-{% from "components/_partials/language-switcher/language-switcher.njk" import languageSwitcher %}
+{% from "pages/parts/branding.njk" import branding %}
+{% from "pages/parts/navigation.njk" import navigation %}
+{# feature-imports #}
+{% from "pages/parts/language-switcher.njk" import languageSwitcher %} {# feature:language-switcher #}
+{% from "pages/parts/dark-light-theme-switcher.njk" import darkLightThemeSwitcher %} {# feature:dark-light-theme-switcher #}
 {% from "components/_partials/icon/icon.njk" import icon %}
 
 <div class="header-wrapper{% if topMessage %} has-top-message{% endif %}">
@@ -37,8 +38,9 @@
             <path d="m21 21-4.35-4.35"></path>
           </svg>
         </button>
-        {{ languageSwitcher(data.languages.available, data.languages.defaultLang, data.languages.fallbackUrl) }}
-        {{ darkLightThemeSwitcher() }}
+        {# feature-slot:misc #}
+        {{ languageSwitcher(data.languages.available, data.languages.defaultLang, data.languages.fallbackUrl) }} {# feature:language-switcher #}
+        {{ darkLightThemeSwitcher() }} {# feature:dark-light-theme-switcher #}
         {{ icon( {
           url: "https://github.com/wernerglinka/nunjucks-components",
           icon: "github",

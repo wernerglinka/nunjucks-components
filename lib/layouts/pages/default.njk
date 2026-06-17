@@ -1,19 +1,19 @@
-{% from "components/_partials/breadcrumbs/breadcrumbs.njk" import breadcrumbs %}
+{% from "pages/parts/breadcrumbs.njk" import breadcrumbs %}
 
 <!doctype html>
 <html class="no-js" lang="">
-  {% include "components/_helpers/head.njk" %}
+  {% include "pages/parts/head.njk" %}
 
   <body class="{{ bodyClasses }}">
     <span id="top"></span>
-    {% include "components/sections/header/header.njk" %}
+    {% include "pages/parts/header.njk" %}
 
     <main class="transition-fade" id="swup">
       {{ breadcrumbs(navigation.breadcrumbs) }}
       {% block body %} {# will be replaced by page content #} {% endblock %}
     </main>
 
-    {% include "components/sections/footer/footer.njk" %}
+    {% include "pages/parts/footer.njk" %}
 
     {% include "components/_partials/page-transitions/page-transitions.njk" %}
 

@@ -1,12 +1,12 @@
-{% from "components/_partials/breadcrumbs/breadcrumbs.njk" import breadcrumbs %}
+{% from "pages/parts/breadcrumbs.njk" import breadcrumbs %}
 
 <!doctype html>
 <html class="no-js" lang="">
-  {% include "components/_helpers/head.njk" %}
+  {% include "pages/parts/head.njk" %}
 
   <body class="with-sidebar {{ bodyClasses }}">
     <span id="top"></span>
-    {% include "components/sections/header/header.njk" %}
+    {% include "pages/parts/header.njk" %}
 
     <aside class="references sidebar">
       {% include "components/_helpers/references.njk" %}
@@ -19,7 +19,7 @@
         {# will be replaced by page content #}
       {% endblock %}
 
-      {% include "components/sections/footer/footer.njk" %}
+      {% include "pages/parts/footer.njk" %}
     </main>
 
     {% include "components/_partials/page-transitions/page-transitions.njk" %}
