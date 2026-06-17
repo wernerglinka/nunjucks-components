@@ -4,7 +4,7 @@
 
 > **New Release** — This component library is freshly published. If you encounter issues or have suggestions, please [open an issue](https://github.com/wernerglinka/nunjucks-components/issues). This library provides components for both the [Metalsmith](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and [Eleventy](https://github.com/wernerglinka/eleventy-structured-content-starter) structured content starters.
 
-A reference implementation and documentation site for building component-based static sites with Metalsmith and Eleventy. The library contains 65 production-ready components (23 partials, 42 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages.
+A reference implementation and documentation site for building component-based static sites with Metalsmith and Eleventy. The library contains 58 production-ready components (18 partials, 40 sections) that use structured content in frontmatter rather than Markdown body content. Each component manages its own template, styles, and scripts, which are automatically bundled only when used on pages. Page chrome (header, footer, navigation and the like) is part of the page shell rather than the catalog; see [Page Shell](#page-shell).
 
 This library provides the component catalog for both the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter) and the [Eleventy Structured Content Starter](https://github.com/wernerglinka/eleventy-structured-content-starter). All components are compatible with both starters' architecture and can be integrated into projects using the automated packaging system.
 
@@ -14,15 +14,15 @@ This library provides the component catalog for both the [Metalsmith2025 Structu
 
 ### Component Library
 
-The library contains 65 production-ready components organized in two categories:
+The library contains 58 production-ready components organized in two categories. Page chrome (header, footer, navigation, branding, breadcrumbs and the theme/language switchers) is not counted here; it lives in the page shell described in [Page Shell](#page-shell).
 
-**23 Partials** - Small, reusable UI elements used within larger sections:
+**18 Partials** - Small, reusable UI elements used within larger sections:
 
-- audio, author-date, branding, breadcrumbs, button, collection-card, collection-pagination, ctas, dark-light-theme-switcher, flip-card, icon, image, language-switcher, lottie, manual-card, navigation, overlay, page-transitions, search, slider-pagination, text, text-link, video
+- audio, author-date, button, collection-card, collection-pagination, ctas, flip-card, icon, image, lottie, manual-card, overlay, page-transitions, search, slider-pagination, text, text-link, video
 
-**42 Sections** - Large page sections and main building blocks:
+**40 Sections** - Large page sections and main building blocks:
 
-- accordion, artist-slider, artwork, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, multi-tab, podcast, pricing-table, related-posts, rich-text, search-only, slider, social-shares, stats, steps, team-grid, testimonial, timeline, video-only
+- accordion, artist-slider, artwork, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, multi-tab, podcast, pricing-table, related-posts, rich-text, search-only, slider, social-shares, stats, steps, team-grid, testimonial, timeline, video-only
 
 **Advanced Components**:
 
@@ -188,8 +188,8 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   ├── blog/                              # 19 blog posts covering technical guides
 │   ├── library/                           # Component documentation and examples
 │   ├── references/
-│   │   ├── sections/                      # Reference pages for 42 section components
-│   │   └── partials/                      # Reference pages for 22 partial components
+│   │   ├── sections/                      # Reference pages for 37 section components
+│   │   └── partials/                      # Reference pages for 17 partial components
 │   ├── partials.md                        # Partials index page
 │   └── assets/                            # Static assets (copied via Metalsmith statik)
 │       ├── images/                        # Static images
@@ -200,7 +200,7 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   ├── assets/                            # Bundler inputs only (not static files)
 │   │   ├── main.css                       # Main CSS entry point (processed by bundler)
 │   │   ├── main.js                        # Main JS entry point (bundled with esbuild)
-│   │   └── styles/                        # Design tokens and base styles
+│   │   └── styles/                        # Design tokens, base styles, and page-shell chrome CSS
 │   ├── data/                              # Global JSON data files
 │   │   ├── site.json                      # Site configuration
 │   │   ├── author.json                    # Author information
@@ -211,8 +211,8 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   │   └── blurbs/                        # Blurbs content (2 JSON files)
 │   ├── layouts/
 │   │   ├── components/
-│   │   │   ├── _partials/                 # 23 partial components
-│   │   │   └── sections/                  # 42 section components
+│   │   │   ├── _partials/                 # 18 partial components
+│   │   │   └── sections/                  # 40 section components
 │   │   │       └── maps/                  # Example: maps component structure
 │   │   │           ├── maps.njk           # Template
 │   │   │           ├── maps.css           # Styles
@@ -222,7 +222,7 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   │   │               ├── providers/     # Leaflet & OpenLayers
 │   │   │               └── helpers/       # Utilities & icon loader
 │   │   ├── icons/                         # 299 Feather icon SVG templates
-│   │   └── pages/                         # Page layout templates
+│   │   └── pages/                         # Page layouts; parts/ holds the page shell
 │   └── plugins/                           # Build-time Metalsmith plugins
 │       ├── component-package-generator/   # Production-only ZIP packaging (modular)
 │       │   ├── index.js                   # Main plugin orchestration
@@ -237,7 +237,7 @@ Production build outputs to `build/` directory with HTML minification, optimized
 │   ├── debug-filters.js, validation-filters.js
 │   └── object-filters.js
 ├── test/                                  # 4 comprehensive Mocha test suites
-│   ├── component-manifests.test.js        # Validates all 65 component manifests
+│   ├── component-manifests.test.js        # Validates all 58 component manifests
 │   ├── build-integration.test.js          # Tests build pipeline and HTML output
 │   ├── content-structure.test.js          # Verifies frontmatter and data files
 │   └── component-dependency-bundler.test.js
@@ -368,7 +368,7 @@ items:
 
 ## Component Catalog
 
-### Section Components (42)
+### Section Components (40)
 
 **Content Display**:
 
@@ -422,12 +422,7 @@ items:
 - **collection-links** - Previous/next post navigation
 - **related-posts** - Curated list of items from any collection, rendered as a simple text list or a card grid. Cross-collection slug resolution without requiring a `collectionName` prop
 
-**Site Structure**:
-
-- **header** - Site header/navigation with optional top message bar (dismissible announcements with cookie persistence)
-- **footer** - Site footer
-
-### Partial Components (23)
+### Partial Components (18)
 
 **Content Elements**:
 
@@ -444,7 +439,6 @@ items:
 - **ctas** - Call-to-action links/buttons array
 - **text-link** - Styled text link element
 - **search** - Search interface element
-- **dark-light-theme-switcher** - Theme toggle control
 
 **Cards & Lists**:
 
@@ -454,13 +448,9 @@ items:
 - **slider-pagination** - Pagination controls for sliders
 - **collection-pagination** - Pagination controls for collections
 
-**Navigation & Metadata**:
+**Metadata**:
 
-- **navigation** - Main navigation menu
-- **breadcrumbs** - Navigation breadcrumbs
-- **branding** - Logo and branding element
 - **author-date** - Author and publication date display
-- **language-switcher** - Multi-language site navigation
 
 **UI Elements**:
 
@@ -469,13 +459,30 @@ items:
 
 All components include live examples and documentation at the [Component Library](https://nunjucks-components.com/library).
 
+## Page Shell
+
+Page chrome lives outside the component catalog, in `lib/layouts/pages/parts/` (templates) and `lib/assets/styles/` (styles). It is part of the site scaffold a project owns and edits directly, rather than catalog components you install:
+
+- **head**, **header**, **footer**, **navigation**, **branding**, **breadcrumbs** — the always-on frame. Their CSS is pulled into the base bundle via `main.css`, and the header and navigation scripts are imported by `main.js`.
+- **language-switcher**, **dark-light-theme-switcher** — optional features. They sit inert in `pages/parts/` until wired in, so a site that does not use them ships none of their CSS or JS.
+
+Optional features are toggled with `scripts/toggle-feature.mjs`, which adds or removes the import, the markup, the CSS `@import` and the JS import in one step:
+
+```shell
+node scripts/toggle-feature.mjs status
+node scripts/toggle-feature.mjs enable language-switcher
+node scripts/toggle-feature.mjs disable dark-light-theme-switcher
+```
+
+The feature registry lives in `scripts/features.json`; adding an entry there makes a new shell feature toggleable without changing the script.
+
 ## Testing
 
 The repository includes 4 comprehensive Mocha test suites validating the component system:
 
 **Test Coverage**:
 
-- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 65 components
+- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 58 components
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination, and static assets
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata, and content consistency
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, manifest dependencies, and bundler integration
