@@ -166,11 +166,108 @@ sections:
         | `text` | object | Yes | Standard text block with leadIn, title, subtitle, and prose |
         | `ctas` | array | No | Array of call-to-action buttons or links |
 
+        ### Accordion Mode
+
+        A banner can act as an accordion header that toggles the section directly
+        below it. Add `banner-accordion-header` to the banner's `classes`, and add
+        `banner-accordion-content is-closed` to the `classes` of the following
+        section (any section type works, `rich-text` is typical). The `is-closed`
+        class sets the panel's initial collapsed state.
+
+        ```yaml
+        # Accordion header
+        - sectionType: banner
+          containerTag: aside
+          classes: 'banner-accordion-header'
+          containerFields:
+            inContainer: false
+            background:
+              image: '/assets/images/sample9.jpg'
+              imageScreen: 'dark'
+          text:
+            title: Accordion Header Banner
+            titleTag: 'h3'
+            prose: ''
+          ctas: []
+
+        # Accordion content (must immediately follow the header)
+        - sectionType: rich-text
+          containerTag: article
+          classes: 'banner-accordion-content is-closed'
+          text:
+            prose: |-
+              Etiam porta sem malesuada magna mollis euismod.
+        ```
+
+        The toggle is keyboard accessible (Enter/Space), announces state changes to
+        screen readers, and is SWUP-compatible. It works on non-SWUP sites as well.
+
     ctas:
       - url: ''
         label: ''
         isButton: true
         buttonStyle: 'primary'
+
+  # Accordion mode: a banner header paired with the content section below it.
+  # The banner carries `banner-accordion-header`; the next section carries
+  # `banner-accordion-content is-closed`. banner.js wires them together.
+  - sectionType: banner
+    containerTag: aside
+    classes: 'banner-accordion-header'
+    id: ''
+    isDisabled: false
+    isAnimated: true
+    containerFields:
+      inContainer: false
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: '/assets/images/sample9.jpg'
+        imageScreen: 'dark' # light, dark, none
+    text:
+      leadIn: ''
+      title: 'Accordion Header Banner (click to expand)'
+      titleTag: 'h3'
+      subTitle: ''
+      prose: ''
+    ctas: []
+
+  - sectionType: rich-text
+    containerTag: article
+    classes: 'banner-accordion-content is-closed'
+    id: ''
+    isDisabled: false
+    isAnimated: true
+    containerFields:
+      inContainer: true
+      noMargin:
+        top: true
+        bottom: false
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none' # light, dark, none
+    text:
+      leadIn: ''
+      title: ''
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |-
+        This panel is the accordion content. Any section type can serve as the
+        panel; it only needs the `banner-accordion-content is-closed` classes and
+        must immediately follow the header banner.
+
+        Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta
+        felis euismod semper. Cras mattis consectetur purus sit amet fermentum.
+
 
   - sectionType: banner
     containerTag: aside
@@ -181,7 +278,7 @@ sections:
     isAnimated: false
     componentDownload: 'banner'
     containerFields:
-      inContainer: true
+      inContainer: false
       noMargin:
         top: true
         bottom: true
