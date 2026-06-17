@@ -68,7 +68,6 @@
     "js-yaml": "^4.2.0",
     "jstransformer-nunjucks": "^1.2.0",
     "marked": "^18.0.5",
-    "marked-highlight": "^2.2.4",
     "metalsmith": "2.6.3",
     "metalsmith-blog-lists": "^2.1.1",
     "metalsmith-bundled-components": "^1.2.0",
@@ -84,8 +83,7 @@
     "metalsmith-unified-markdown": "^0.0.4",
     "npm-check-updates": "^22.2.3",
     "postcss": "^8.5.15",
-    "prismjs": "^1.30.0",
-    "rehype-highlight": "^7.0.2",
+    "shiki": "^4.2.0",
     "swup": "^4.9.2"
   },
   "engines": {

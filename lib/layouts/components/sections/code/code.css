@@ -1,88 +1,72 @@
 /**
  * Code Section Styles
  *
+ * Chrome only. Shiki (via mdToHTML) highlights the code at build time and
+ * inlines every token color as a style attribute on the `.code-block` /
+ * `pre.shiki` it emits, so there is NO theme stylesheet and no token CSS here.
+ * This file styles the section wrapper, the filename/copy header, the language
+ * label position, and code scrolling.
+ *
  * Design Tokens:
- * - --space-s-m
- * - --space-2xs-xs
- * - --color-text
- * - --space-lg
- * - --space-xs
- * - --space-s
- * - --font-sm
- * - --code-background
- * - --code-text-color
- * - --color-text-light
- * - --color-primary
- * - --color-success
+ * - --space-lg, --space-s-m, --space-s, --space-xs, --space-2xs, --space-3xs
+ * - --color-text, --color-text-light, --color-primary, --color-success
+ * - --font-xs
+ * - --contrast-text-on-dark
  */
 
 .code {
-  .code-block {
+  .code-section {
     margin: var(--space-lg) 0;
-    border-radius: var(--space-xs);
-    overflow: hidden;
-
-    pre[class*='language-'] {
-      padding: var(--space-s-m);
-      border-radius: var(--space-2xs-xs);
-      overflow: hidden;
-      font-size: 0.8em;
-    }
-
-    /* Override Prism theme font sizes for all theme variants */
-    &[class*='theme-'] pre[class*='language-'],
-    &[class*='theme-'] code[class*='language-'] {
-      font-size: 0.8em;
-    }
   }
 
   .code-header {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    gap: var(--space-s);
     padding: var(--space-xs) var(--space-s);
-
-    .code-info {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--space-s);
-    }
-
-    .filename {
-      font-weight: 600;
-      color: var(--color-text);
-    }
-
-    .theme {
-      font-style: italic;
-    }
   }
 
-  .filename {
+  .code-filename {
+    font-weight: 600;
     color: var(--color-text);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
-  .code-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-xs);
-    margin-left: auto;
+  /* The highlighted block emitted by mdToHTML. Shiki sets its background and
+     token colors inline; we only handle layout, the language label, and
+     horizontal scrolling of long lines. */
+  .code-block {
+    position: relative;
+    margin: 0;
   }
 
-  .language-label {
-    background: var(--code-background);
-    color: var(--code-text-color);
-    padding: var(--space-3xs) var(--space-2xs);
-    border-radius: var(--space-3xs);
+  .code-lang {
+    position: absolute;
+    top: var(--space-2xs);
+    right: var(--space-s);
     font-size: var(--font-xs);
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-transform: uppercase;
-    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* Label text color follows the page chrome, not the code background. */
+  .code-lang.light {
+    color: var(--contrast-text-on-dark);
+  }
+
+  .code-block pre.shiki {
+    margin: 0;
+    padding: var(--space-s-m);
+    overflow-x: auto;
+    border-radius: var(--space-xs);
+    font-size: 0.9rem;
   }
 
   .copy-button {
+    margin-left: auto;
     background: none;
     border: none;
     padding: 0;
@@ -100,16 +84,12 @@
     }
   }
 
-  .copy-button:hover {
-    svg {
-      stroke: var(--color-primary);
-    }
+  .copy-button:hover svg {
+    stroke: var(--color-primary);
   }
 
   .copy-button.copied {
-    background: var(--color-success);
-    border-color: var(--color-success);
-    color: var(--contrast-text-on-dark);
+    color: var(--color-success);
   }
 
   .copy-button.copied svg {
@@ -119,17 +99,6 @@
   .copy-button.copied::after {
     content: '✓';
     font-size: 14px;
+    color: var(--color-success);
   }
-}
-
-/* Override the rich-text pre margins for this component */
-
-/* Default theme (from rich-text.css) should only apply to theme-default */
-.code-block.theme-default pre {
-  background: transparent;
-}
-
-/* For themed code blocks, let the theme determine the background */
-.code-block:not(.theme-default) pre[class*='language-'] {
-  /* Background will be set by the dynamically loaded theme CSS */
 }

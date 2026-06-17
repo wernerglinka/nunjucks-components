@@ -1,27 +1,39 @@
 {% from "components/_partials/icon/icon.njk" import icon %}
 
+{#
+  The code section is a thin wrapper around the highlighted output of mdToHTML.
+  mdToHTML (Shiki) returns its own `.code-block` with a `.code-lang` label and
+  inline token colors, so this template must NOT re-wrap or re-label it. It
+  only adds the chrome Shiki does not provide: an optional filename and a copy
+  button.
+
+  Content contract: `content` is a fenced markdown code block, e.g.
+
+      ```js
+      const x = 1;
+      ```
+
+  The fence info string carries the language (njk -> jinja-html is aliased
+  inside mdToHTML), so there is no separate `language` field. `content` is piped
+  straight through mdToHTML.
+#}
+
 <div class="content container">
-  {% if section.code %}
-    <div class="code-block theme-{{ section.code.theme or 'default' }}" data-theme="{{ section.code.theme or 'default' }}">
-      <div class="code-header">
-        {% if section.code.filename %}
-          <div class="code-info">
-            <span class="filename">{{ section.code.filename }}</span>
-            <span class="theme">Theme: {{ section.code.theme }}</span>
-          </div>
-        {% endif %}
-        <div class="code-actions">
-          <span class="language-label">{{ section.code.language or 'text' }}</span>
+  {% if section.code and section.code.content %}
+    <div class="code-section">
+      {% if section.code.filename or section.code.showCopy !== false %}
+        <div class="code-header">
+          {% if section.code.filename %}
+            <span class="code-filename">{{ section.code.filename }}</span>
+          {% endif %}
           {% if section.code.showCopy !== false %}
             <button class="copy-button" type="button" aria-label="Copy code to clipboard">
               {{ icon({ icon: "copy", url: '' }, 16) }}
             </button>
           {% endif %}
         </div>
-      </div>
-      <div class="code-content">
-        {{ section.code.content | mdToHTML | safe }}
-      </div>
+      {% endif %}
+      {{ section.code.content | mdToHTML | safe }}
     </div>
   {% endif %}
 </div>

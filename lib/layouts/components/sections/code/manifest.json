@@ -17,19 +17,9 @@
       "containerFields.isAnimated": {
         "type": "boolean"
       },
-      "code.language": {
-        "type": "string",
-        "description": "Programming language for syntax highlighting"
-      },
       "code.content": {
         "type": "string",
-        "description": "The code content to display"
-      },
-      "code.theme": {
-        "type": "string",
-        "enum": ["default", "tomorrow", "okaidia", "twilight", "prism", "dark", "solarizedlight", "coy"],
-        "default": "default",
-        "description": "Prism theme to load dynamically"
+        "description": "A fenced markdown code block (```lang ... ```); highlighted by Shiki via mdToHTML"
       },
       "code.filename": {
         "type": "string",
@@ -44,21 +34,10 @@
   },
   "fields": {
     "code": {
-      "language": {
-        "widget": "text",
-        "label": "Language",
-        "default": "javascript"
-      },
       "content": {
         "widget": "textarea",
-        "label": "Code",
+        "label": "Code (fenced markdown block, e.g. ```js … ```)",
         "default": ""
-      },
-      "theme": {
-        "widget": "select",
-        "label": "Theme",
-        "enum": ["default", "tomorrow", "okaidia", "twilight", "prism", "dark", "solarizedlight", "coy"],
-        "default": "default"
       },
       "filename": {
         "widget": "text",

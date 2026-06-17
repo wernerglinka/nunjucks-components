@@ -11,16 +11,16 @@ navigation:
 
 card:
   title: 'Code'
-  description: 'Syntax-highlighted code blocks with language tabs, copy-to-clipboard functionality, and dynamic Prism theme loading.'
+  description: 'Syntax-highlighted code blocks with a language label, filename, and copy-to-clipboard, highlighted at build time by Shiki.'
   image: '/assets/images/sample17.jpg'
-  tags: ['code', 'syntax-highlighting', 'prism', 'code-block', 'copy-paste', 'programming', 'snippets']
+  tags: ['code', 'syntax-highlighting', 'shiki', 'code-block', 'copy-paste', 'programming', 'snippets']
 
 seo:
   title: Code Component - Syntax Highlighted Code Blocks for Metalsmith
-  description: 'Display syntax-highlighted code snippets with language labels, copy functionality, and dynamic theme loading. Perfect for documentation, tutorials, and technical content.'
+  description: 'Display syntax-highlighted code snippets with a language label, filename, and copy-to-clipboard. Highlighted at build time by Shiki. Perfect for documentation, tutorials, and technical content.'
   socialImage: '/assets/images/sample.jpg'
   canonicalURL: ''
-  keywords: 'nunjucks code component, metalsmith, eleventy, syntax highlighting, prism themes, code snippets, copy to clipboard, programming documentation, code display'
+  keywords: 'nunjucks code component, metalsmith, eleventy, syntax highlighting, shiki, code snippets, copy to clipboard, programming documentation, code display'
 
 sections:
   - sectionType: rich-text
@@ -46,7 +46,7 @@ sections:
       titleTag: 'h1'
       subTitle: ''
       prose: |-
-        A specialized component for displaying syntax-highlighted code blocks with enhanced features. Extends the existing [Prism.js](https://prismjs.com/) implementation used in rich-text sections with additional functionality.
+        A specialized component for displaying syntax-highlighted code blocks with a language label, optional filename, and copy-to-clipboard. Code is highlighted at build time by [Shiki](https://shiki.style/) inside the `mdToHTML` markdown filter, which inlines token colors so no theme stylesheet is needed.
 
   - sectionType: code
     containerTag: section
@@ -67,8 +67,6 @@ sections:
         image: ''
         imageScreen: 'none'
     code:
-      language: 'javascript'
-      theme: 'prism'
       filename: 'example.js'
       showCopy: true
       content: |-
@@ -109,8 +107,6 @@ sections:
         image: ''
         imageScreen: 'none'
     code:
-      language: 'css'
-      theme: 'tomorrow'
       filename: 'styles.css'
       showCopy: true
       content: |
@@ -163,12 +159,10 @@ sections:
         image: ''
         imageScreen: 'none'
     code:
-      language: 'yaml'
-      theme: 'coy'
       filename: 'example.md'
       showCopy: true
       content: |
-        ```yaml
+        ````yaml
         ---
         layout: pages/sections-with-sidebar.njk
         title: 'My Page Title'
@@ -179,13 +173,13 @@ sections:
               prose: 'This is a hero section'
           - sectionType: code
             code:
-              language: 'javascript'
-              theme: 'tomorrow'
               filename: 'main.js'
               content: |
+                ```js
                 console.log('Hello from Metalsmith!');
+                ```
         ---
-        ```
+        ````
 
   - sectionType: rich-text
     containerTag: article
@@ -211,22 +205,22 @@ sections:
       titleTag: 'h2'
       subTitle: ''
       prose: |-
-        ```yaml
+        ````yaml
         - sectionType: code
           containerTag: section
           containerFields:
             inContainer: true
             isAnimated: true
           code:
-            language: "javascript"      # Programming language for highlighting
-            theme: "default"           # Prism theme (default, tomorrow, okaidia, etc.)
-            filename: "app.js"         # Optional filename display
-            showCopy: true             # Enable/disable copy button
-            content: |                 # The code content
+            filename: "app.js"   # Optional filename shown in the header
+            showCopy: true       # Show the copy button (default: true)
+            content: |           # A fenced markdown code block
+              ```js
               function example() {
                 console.log('Hello, World!');
               }
-        ```
+              ```
+        ````
 
         ### Configuration Options
 
@@ -234,36 +228,23 @@ sections:
 
         | Property | Type | Required | Description |
         |----------|------|----------|-------------|
-        | `language` | string | Yes | Programming language for syntax highlighting (javascript, css, html, python, etc.) |
-        | `content` | string | Yes | The actual code content using YAML literal block syntax |
-        | `theme` | string | No | Prism theme to load dynamically from CDN (default: 'default') |
-        | `filename` | string | No | Optional filename to display in the header |
+        | `content` | string | Yes | A fenced markdown code block; the fence info string sets the language (e.g. js, css, yaml) |
+        | `filename` | string | No | Optional filename shown in the header |
         | `showCopy` | boolean | No | Show/hide the copy button (default: true) |
 
         ### Notes
 
+        Highlighting is done at build time by Shiki inside the `mdToHTML` filter.
+        Shiki inlines every token color as a style attribute, so no theme
+        stylesheet is loaded and there is no per-section theme — the theme is
+        configured once in the markdown filter.
+
         #### Supported Languages
 
-        The component supports all languages available in [Prism.js](https://prismjs.com/) including:
-        - JavaScript, TypeScript, JSX
-        - HTML, CSS, SCSS, Less
-        - Python, PHP, Ruby, Java
-        - Go, Rust, C++, C#
-        - YAML, JSON, Markdown
-        - Bash, PowerShell, SQL
-        - And many more...
-
-        #### Available Themes
-
-        The component supports multiple Prism themes that are loaded dynamically:
-        - `default` - Uses the existing theme from rich-text component
-        - `tomorrow` - GitHub-style dark theme
-        - `okaidia` - Monokai-inspired theme
-        - `twilight` - TextMate twilight theme
-        - `prism` - Clean light theme
-        - `dark` - High contrast dark theme
-        - `solarizedlight` - Solarized light theme
-        - `coy` - Minimal light theme
+        The bundled Shiki grammars include JavaScript, TypeScript, CSS, HTML,
+        Bash, JSON, YAML and Markdown. For Nunjucks templates use `njk` or
+        `nunjucks` as the fence language — it is aliased to the `jinja-html`
+        grammar.
 
   - sectionType: banner
     containerTag: aside
