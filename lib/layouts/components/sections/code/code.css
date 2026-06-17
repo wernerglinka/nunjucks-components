@@ -44,7 +44,7 @@
     position: absolute;
     top: var(--space-2xs);
     right: var(--space-s);
-    font-size: var(--font-xs);
+    font-size: var(--font-s);
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.05em;
