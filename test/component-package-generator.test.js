@@ -5,9 +5,10 @@
  * component packages and bundle installation scripts.
  */
 
-import { describe, it, before } from 'node:test';
+import { describe, it, before, after } from 'node:test';
 import { strict as assert } from 'node:assert';
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -21,6 +22,7 @@ describe('Component Package Generator', () => {
   let downloadsPath;
   let bundlePath;
   let manifestPath;
+  let tempDir;
 
   before(async () => {
     // Check for build/downloads specifically: dev builds create build/ but only
@@ -29,10 +31,23 @@ describe('Component Package Generator', () => {
       downloadsPath = path.join(projectRoot, 'build', 'downloads');
       await fs.access(downloadsPath);
       buildExists = true;
-      bundlePath = path.join(downloadsPath, 'nunjucks-components');
       manifestPath = path.join(downloadsPath, 'manifest.json');
+
+      // Extract the bundle into a temp directory so the build output stays
+      // exactly as the generator produced it (no stray extracted files)
+      tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'nunjucks-components-test-'));
+      execSync(`unzip -q "${path.join(downloadsPath, 'nunjucks-components.zip')}" -d "${tempDir}"`, {
+        stdio: 'pipe'
+      });
+      bundlePath = path.join(tempDir, 'nunjucks-components');
     } catch {
       buildExists = false;
+    }
+  });
+
+  after(async () => {
+    if (tempDir) {
+      await fs.rm(tempDir, { recursive: true, force: true });
     }
   });
 
@@ -107,20 +122,10 @@ describe('Component Package Generator', () => {
     let installScriptPath;
     let installScriptContent;
 
-    before(async function () {
+    before(async () => {
       // Hooks cannot skip; return early and let each test's guard skip
       if (!buildExists) {
         return;
-      }
-
-      // Extract bundle if not already extracted
-      try {
-        await fs.access(bundlePath);
-      } catch {
-        // Extract the bundle
-        execSync(`cd "${downloadsPath}" && unzip -q nunjucks-components.zip`, {
-          stdio: 'pipe'
-        });
       }
 
       installScriptPath = path.join(bundlePath, 'install-all.sh');
