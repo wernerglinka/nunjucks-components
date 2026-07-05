@@ -12,7 +12,7 @@ card:
   title: 'Multi Media'
   description: 'Flexible media section combining text, optional CTAs, and various multi media with reversible layouts.'
   image: '/assets/images/sample13.jpg'
-  tags: ['media', 'video', 'image', 'audio', 'multimedia', 'flexible', 'content']
+  tags: ['media', 'video', 'image', 'audio', 'multimedia', 'flexible', 'content', 'text', 'iframe']
 
 seo:
   title: Multi Media Component - Text & Image, Video, Icon, Audio and Lottie Animation  Layouts for Metalsmith
@@ -44,7 +44,7 @@ sections:
       title: 'Multi Media'
       titleTag: 'h1'
       subTitle: ''
-      prose: 'A section component that renders text content alongside media. Supports five media types: image, video, audio, icon, and Lottie animations with flexible layout options.'
+      prose: 'A section component that renders text content alongside media. Supports seven media types: image, video, audio, icon, Lottie animations, a second text block, and embedded frames with flexible layout options.'
 
   - sectionType: multi-media
     containerTag: aside
@@ -421,6 +421,133 @@ sections:
         | `lottie.control.autoplay` | boolean | No | Start animation automatically (default: true) |
         | `lottie.control.loop` | boolean | No | Loop the animation (default: true) |
 
+  - sectionType: multi-media
+    containerTag: aside
+    classes: ''
+    id: ''
+    isDisabled: false
+    isReverse: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: false
+        bottom: false
+      noPadding:
+        top: true
+        bottom: true
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none' # light, dark, none
+    mediaType: text
+    mediaText:
+      leadIn: 'Text Example'
+      title: 'Two Text Columns, One Section'
+      titleTag: 'h2'
+      subTitle: 'The media slot can hold a second text block'
+      prose: With the `text` media type, the media slot renders a second text block from the `mediaText` field instead of an image or video. The result is a two-column text layout that pairs related content side by side, such as a description beside detailed specifications, or two policies that belong together. Below the switch threshold the columns stack, exactly like every other media type.
+    text:
+      leadIn: ''
+      title: 'The Main Text Column'
+      titleTag: 'h2'
+      subTitle: 'Glass card styling, CTAs included'
+      prose: The main text column keeps its glass card treatment and may carry CTAs, while the `mediaText` column reads as plain prose. Use the main column for the content you want to emphasize and the media slot for its quieter companion. **Markdown formatting** works in both columns.
+    ctas:
+      - url: '/references/sections/'
+        label: 'Browse All Sections'
+        isButton: true
+        buttonStyle: 'primary'
+
+  - sectionType: rich-text
+    containerTag: section
+    classes: ''
+    id: ''
+    isDisabled: false
+    isAnimated: false
+    containerFields:
+      inContainer: false
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: 'Text Media Properties'
+      titleTag: 'h3'
+      subTitle: ''
+      prose: |-
+        | Property | Type | Required | Description |
+        |----------|------|----------|-------------|
+        | `mediaText` | object | Yes | Standard text block (leadIn, title, titleTag, subTitle, prose) rendered in the media slot |
+
+  - sectionType: multi-media
+    containerTag: aside
+    classes: ''
+    id: ''
+    isDisabled: false
+    isReverse: true
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: false
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none' # light, dark, none
+    text:
+      leadIn: 'Iframe Example'
+      title: 'Embedded Third-Party Content'
+      titleTag: 'h2'
+      subTitle: 'Forms, maps, and other embeds in the media slot'
+      prose: With the `iframe` media type, the media slot renders an embedded frame. This suits registration and donation forms, maps, and any page designed for embedding. The frame loads lazily and fills its column; its height defaults to 50rem and can be tuned per context with the `--iframe-height` custom property. Set the optional `allow` property when an embed needs a permissions policy, such as `payment` for checkout forms.
+    mediaType: iframe
+    iframe:
+      src: 'https://www.openstreetmap.org/export/embed.html?bbox=-93.290%2C44.960%2C-93.240%2C44.990&layer=mapnik'
+      title: 'Map of Minneapolis'
+      allow: ''
+
+  - sectionType: rich-text
+    containerTag: section
+    classes: ''
+    id: ''
+    isDisabled: false
+    isAnimated: false
+    containerFields:
+      inContainer: false
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: 'Iframe Properties'
+      titleTag: 'h3'
+      subTitle: ''
+      prose: |-
+        | Property | Type | Required | Description |
+        |----------|------|----------|-------------|
+        | `iframe.src` | string | Yes | The embed URL |
+        | `iframe.title` | string | Yes | Accessible title for the frame |
+        | `iframe.allow` | string | No | Permissions policy, e.g. 'payment' for donation/checkout embeds |
+
   - sectionType: rich-text
     containerTag: article
     classes: ''
@@ -462,7 +589,7 @@ sections:
               label: 'Learn More'
               isButton: true
               buttonStyle: 'primary'
-          mediaType: image # may be 'audio', 'icon', lottie','image', or 'video',
+          mediaType: image # may be 'audio', 'icon', 'lottie', 'image', 'video', 'text', or 'iframe',
           image:
             # image properties
           audio:
@@ -473,6 +600,10 @@ sections:
             # lottie properties
           video:
             # video properties
+          mediaText:
+            # second text block, when mediaType is 'text'
+          iframe:
+            # embedded frame properties, when mediaType is 'iframe'
         ```
 
         ### Configuration Options
@@ -482,7 +613,7 @@ sections:
         | Property | Type | Required | Description |
         |----------|------|----------|-------------|
         | `isReverse` | boolean | No | Reverse the media/text layout (default: false) |
-        | `mediaType` | string | Yes | Type of media ('image', 'video', 'audio', 'icon', 'lottie') |
+        | `mediaType` | string | Yes | Type of media ('image', 'video', 'audio', 'icon', 'lottie', 'text', 'iframe') |
 
         #### Content
 
@@ -495,6 +626,8 @@ sections:
         ### Notes
 
         - Image, video, audio, icon, and Lottie animation support
+        - Two-column text layouts via a second text block ('text')
+        - Embedded frames for forms, maps, and other embeds ('iframe')
         - YouTube, Vimeo, and Cloudinary integration
         - Viedeo modal overlays or inSitu embedding
         - Audio players with background images
