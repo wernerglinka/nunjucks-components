@@ -23,11 +23,12 @@ describe('Component Package Generator', () => {
   let manifestPath;
 
   before(async () => {
-    // Check if build directory exists
+    // Check for build/downloads specifically: dev builds create build/ but only
+    // production builds run the package generator that creates downloads/
     try {
-      await fs.access(path.join(projectRoot, 'build'));
-      buildExists = true;
       downloadsPath = path.join(projectRoot, 'build', 'downloads');
+      await fs.access(downloadsPath);
+      buildExists = true;
       bundlePath = path.join(downloadsPath, 'nunjucks-components');
       manifestPath = path.join(downloadsPath, 'manifest.json');
     } catch {
@@ -107,8 +108,9 @@ describe('Component Package Generator', () => {
     let installScriptContent;
 
     before(async function () {
+      // Hooks cannot skip; return early and let each test's guard skip
       if (!buildExists) {
-        this.skip();
+        return;
       }
 
       // Extract bundle if not already extracted
