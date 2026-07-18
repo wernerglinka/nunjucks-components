@@ -2,8 +2,8 @@
   "name": "artwork",
   "type": "section",
   "styles": ["artwork.css"],
-  "scripts": [],
-  "requires": ["text", "image", "commons"],
+  "scripts": ["artwork.js"],
+  "requires": ["text", "image", "overlay", "commons"],
   "validation": {
     "required": ["sectionType", "image"],
     "properties": {

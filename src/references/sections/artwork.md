@@ -9,13 +9,13 @@ navigation:
 
 card:
   title: 'Artwork'
-  description: 'Displays a single artwork with its image, optional title/subtitle header, and a structured property list.'
+  description: 'Displays a single artwork with its image, optional title/subtitle header, and a structured property list. Clicking the image opens a larger version in a modal overlay.'
   image: '/assets/images/sample6.jpg'
-  tags: ['artwork', 'image', 'gallery', 'properties', 'bilingual', 'catalog']
+  tags: ['artwork', 'image', 'gallery', 'properties', 'bilingual', 'catalog', 'modal', 'lightbox']
 
 seo:
   title: Artwork Section Component - Artwork Display for Metalsmith
-  description: 'Display a single artwork with its image, optional title/subtitle header, and a structured property list including type, year, materials, dimensions, and availability status.'
+  description: 'Display a single artwork with its image, optional title/subtitle header, and a structured property list including type, year, materials, dimensions, and availability status. The image opens a larger version in a modal overlay.'
   socialImage: '/assets/images/sample.jpg'
   canonicalURL: ''
   keywords: 'nunjucks artwork section, metalsmith, eleventy, artwork display, art catalog, artwork properties, bilingual component'
@@ -44,7 +44,7 @@ sections:
       titleTag: 'h1'
       subTitle: ''
       prose: |-
-        Displays a single artwork with its image, an optional title/subtitle header, and a structured property list (type, year, materials, dimensions, status). Designed for art catalog pages. The component supports bilingual output — when the page-level `lang` variable is `de`, labels switch to German and inch dimensions are automatically converted to centimetres.
+        Displays a single artwork with its image, an optional title/subtitle header, and a structured property list (type, year, materials, dimensions, status). Designed for art catalog pages. Clicking the image opens a larger version in a modal overlay. The component supports bilingual output — when the page-level `lang` variable is `de`, labels switch to German and inch dimensions are automatically converted to centimetres.
 
   - sectionType: artwork
     containerTag: section
@@ -72,7 +72,7 @@ sections:
     image:
       src: '/assets/images/sample6.jpg'
       alt: 'Example artwork image'
-      caption: 'Wire mesh, wood panel, ash, urethane, shredded paper'
+      caption: ''
     artworkProperties:
       type: 'Assemblage'
       year: 2026
@@ -143,6 +143,10 @@ sections:
         | `image.src` | string | Yes | Path to the artwork image |
         | `image.alt` | string | Yes | Alternative text for accessibility |
         | `image.caption` | string | No | Optional caption displayed below the image |
+
+        #### Image Modal
+
+        The artwork image is rendered as a button. Clicking it opens the image at full size in a modal overlay, adopted from the video component's modal implementation. The modal closes via the close control, a click on the backdrop, or the Escape key, and works with SWUP page transitions. No configuration is required — the modal always uses the image defined in `image.src`, so provide a source large enough to look good at up to 80% of the viewport.
 
         #### Text Header (optional)
 
