@@ -45,13 +45,26 @@
   }
 
   .media {
+    /* Neutralize the global button glass styling from button.css */
     .artwork-zoom {
       display: block;
       margin-inline: auto;
       padding: 0;
       border: none;
       background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      border-radius: 0;
+      transition: none;
       cursor: zoom-in;
+
+      &:hover {
+        transform: none;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
     }
 
     img {
