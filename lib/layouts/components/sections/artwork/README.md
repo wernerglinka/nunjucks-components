@@ -56,7 +56,7 @@ Displays a single artwork with its image, optional title/subtitle header, and a 
 
 ## Image Modal
 
-The artwork image is rendered as a button (`.js-artwork-zoom`). Clicking it opens the image at full size in a `#artwork-overlay` modal, adapted from the video component's modal implementation. `artwork.js` builds the overlay on demand, reuses the overlay partial's fade animations and the global `body.modal-active` scroll lock, and closes on the close control, a backdrop click, or the Escape key. The script follows the SWUP conventions (`dataset.initialized` guard, `PageTransitions.registerComponent`). The modal always shows the image from `image.src`, so provide a source large enough for up to 80% of the viewport.
+The artwork image is rendered as a link with `role="button"` (`.js-artwork-zoom`). Clicking it (or pressing Enter or Space while focused) opens the image at full size in a `#artwork-overlay` modal, adapted from the video component's modal implementation. `artwork.js` builds the overlay on demand, reuses the overlay partial's fade animations and the global `body.modal-active` scroll lock, and closes on the close control, a backdrop click, or the Escape key. The script follows the SWUP conventions (`dataset.initialized` guard, `PageTransitions.registerComponent`). The modal always shows the image from `image.src`, so provide a source large enough for up to 80% of the viewport.
 
 ## Status Display
 
@@ -78,7 +78,7 @@ In a Metalsmith build where `lang` is not set, English labels are always used.
 - The `.content` container overrides the default flex layout with `display: block` so image, header, and property list stack vertically.
 - All three blocks share the same fluid max-width (`clamp(45ch, 65ch, 80ch)`), centred with `margin-inline: auto`.
 - The image is constrained to `max-width: 500px` / `max-height: 600px` and centred within `.media` via `justify-self: center`.
-- The zoom trigger (`.artwork-zoom`) is an unstyled button with a `zoom-in` cursor.
+- The zoom trigger (`.artwork-zoom`) is a link with `role="button"` and a `zoom-in` cursor, kept free of the global anchor hover styling.
 - The property list uses a two-column definition list grid (`8rem` label column, fluid value column) with hairline borders between rows.
 - `#artwork-overlay` mirrors the video overlay: fixed full-viewport backdrop, a flex-centred `.artwork-wrapper` inset by `10vh 10vw`, and the image constrained to that stage with `max-width`/`max-height: 100%`.
 
