@@ -260,7 +260,7 @@ When Shikwasa fails to load:
 - **CORS Proxy**: Only used when direct RSS access fails
 - **Efficient Parsing**: Optimized XML parsing with namespace support
 - **Event Delegation**: Minimal event listeners with proper cleanup
-- **CDN Assets**: Shikwasa loaded from jsDelivr CDN
+- **Self-Hosted Assets**: Shikwasa loaded from the site's own `/assets/vendor/shikwasa/`
 
 ## Accessibility Features
 
@@ -292,7 +292,7 @@ podcast/
 
 ## Dependencies
 
-- **Shikwasa Player**: Professional podcast player (loaded from CDN)
+- **Shikwasa Player**: Professional podcast player (self-hosted under `/assets/vendor/`)
 - **ctas partial**: Call-to-action button rendering
 - **commons**: Shared styling utilities
 
@@ -328,7 +328,7 @@ For optimal compatibility, RSS feeds should include:
 1. **CORS Errors**: Component automatically uses proxy fallback
 2. **Invalid RSS**: Check console for specific parsing errors
 3. **Missing Audio**: Verify enclosure URLs are accessible
-4. **Player Not Loading**: Check network connectivity and CDN access
+4. **Player Not Loading**: Verify `/assets/vendor/shikwasa/` files exist in the build
 
 ### Debug Mode
 

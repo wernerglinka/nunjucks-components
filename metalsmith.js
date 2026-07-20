@@ -332,7 +332,9 @@ metalsmith
       'assets/vendor/leaflet/MarkerCluster.css': 'leaflet.markercluster/dist/MarkerCluster.css',
       'assets/vendor/leaflet/MarkerCluster.Default.css': 'leaflet.markercluster/dist/MarkerCluster.Default.css',
       'assets/vendor/ol/ol.js': 'ol/dist/ol.js',
-      'assets/vendor/ol/ol.css': 'ol/ol.css'
+      'assets/vendor/ol/ol.css': 'ol/ol.css',
+      'assets/vendor/shikwasa/shikwasa.min.js': 'shikwasa/dist/shikwasa.min.js',
+      'assets/vendor/shikwasa/style.css': 'shikwasa/dist/style.css'
     };
 
     // leaflet.css references its images/ directory with relative paths, so it

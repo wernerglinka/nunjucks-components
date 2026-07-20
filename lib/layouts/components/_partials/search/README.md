@@ -19,7 +19,7 @@ A comprehensive search partial that provides fuzzy search functionality across y
 ## Prerequisites
 
 1. **metalsmith-search plugin** must be installed and configured in your Metalsmith build
-2. **Fuse.js** is loaded from CDN automatically when the search component is used
+2. **Fuse.js** is bundled into the component JavaScript from the fuse.js npm package
 3. The plugin must generate a `/search-index.json` file during build
 
 ## Basic Usage
@@ -182,7 +182,7 @@ When `showCategories: true`:
 
 ### Dependencies
 
-- **Fuse.js 7.0.0+**: Loaded from jsdelivr CDN
+- **Fuse.js**: Bundled from the fuse.js npm package (version managed in package.json)
 - **metalsmith-search plugin**: Must be configured in your Metalsmith build
 - **Modern browser**: ES6+ support required for full functionality
 
@@ -281,7 +281,7 @@ The Universal Search Tester validates that content **can be found**, while this 
 1. **Check search index**: Verify `/search-index.json` exists and contains data
 2. **Check console**: Look for JavaScript errors in browser dev tools
 3. **Verify plugin**: Ensure metalsmith-search plugin is configured correctly
-4. **Check CDN**: Ensure Fuse.js can load from jsdelivr CDN
+4. **Check bundle**: Ensure fuse.js is installed so the component bundler can resolve it
 
 ### No Results Found
 

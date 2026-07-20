@@ -358,7 +358,7 @@ sections:
         - Client also requires an **exact case-insensitive substring match** in title, content, excerpt, or a heading — this removes typical fuzzy-search false positives
 
         **Dynamic Library Loading:**
-        - Fuse.js is loaded from jsDelivr CDN only when the search component renders
+        - Fuse.js is bundled into the page JavaScript only when the search component is used
         - The loader caches its promise so multiple search instances on a page share one network request
 
   - sectionType: rich-text
@@ -467,7 +467,7 @@ sections:
         ### Prerequisites
 
         1. **metalsmith-search plugin** must be installed and configured in your Metalsmith build (after `@metalsmith/layouts`)
-        2. **Fuse.js** is loaded from CDN automatically when the search component renders
+        2. **Fuse.js** is bundled automatically from the fuse.js npm package
         3. The plugin generates a `/search-index.json` file during build
 
         ### Search Properties
