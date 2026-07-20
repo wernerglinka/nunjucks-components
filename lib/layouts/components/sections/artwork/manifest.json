@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["artwork.css"],
   "scripts": ["artwork.js"],
-  "requires": ["text", "image", "overlay", "commons"],
+  "requires": ["text", "image", "commons"],
   "validation": {
     "required": ["sectionType", "image"],
     "properties": {

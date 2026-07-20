@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["collection-list.css"],
   "scripts": [],
-  "requires": ["commons"],
+  "requires": ["commons", "author-date", "collection-card", "collection-pagination"],
   "context": ["collections"],
   "requiredPlugins": ["metalsmith-sectioned-blog-pagination"],
   "validation": {
@@ -41,7 +41,9 @@
     "collectionName": {
       "widget": "select",
       "label": "Collection",
-      "source": { "collections": true },
+      "source": {
+        "collections": true
+      },
       "default": ""
     },
     "$extends": ["commons"]

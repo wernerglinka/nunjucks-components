@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["flip-cards.css"],
   "scripts": [],
-  "requires": ["ctas", "text", "image", "commons"],
+  "requires": ["flip-card", "commons"],
   "validation": {
     "required": ["sectionType"],
     "properties": {

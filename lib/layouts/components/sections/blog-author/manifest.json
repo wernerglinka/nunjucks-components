@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["blog-author.css"],
   "scripts": [],
-  "requires": ["text", "image", "commons"],
+  "requires": ["text", "image", "commons", "icon"],
   "context": ["data.author"],
   "validation": {
     "required": ["sectionType"],
@@ -48,7 +48,10 @@
     "name": {
       "widget": "select",
       "label": "Author",
-      "source": { "data": "author", "valueKey": "name" },
+      "source": {
+        "data": "author",
+        "valueKey": "name"
+      },
       "default": ""
     },
     "isReverse": {

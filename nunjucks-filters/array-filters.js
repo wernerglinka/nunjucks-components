@@ -9,11 +9,14 @@
  * @returns {Array} The filtered list containing only selected items
  */
 export const getSelections = (list, selections) => {
+  if (!Array.isArray(list) || !Array.isArray(selections)) {
+    return [];
+  }
   const filterredList = [];
   for (let i = 0; i < list.length; i++) {
     for (let j = 0; j < selections.length; j++) {
       // covert all to lower case to be insensitive to case
-      if (list[i].title.toLowerCase() === selections[j].toLowerCase()) {
+      if (list[i]?.title?.toLowerCase() === String(selections[j]).toLowerCase()) {
         filterredList.push(list[i]);
       }
     }
@@ -30,6 +33,9 @@ export const getSelections = (list, selections) => {
  * toArray('category1 category2 category1')
  */
 export const toArray = (string) => {
+  if (typeof string !== 'string' || !string.trim()) {
+    return [];
+  }
   return [...new Set(string.trim().split(' '))].sort();
 };
 

@@ -109,6 +109,8 @@
       z-index: 10;
       width: 3rem;
       height: 3rem;
+      padding: 0;
+      border: none;
       background-color: var(--glass-background-light);
       border-radius: 50%;
       display: flex;
@@ -116,7 +118,8 @@
       justify-content: center;
       cursor: pointer;
       opacity: 0;
-      transition: opacity 0.3s ease-in-out;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
       .icon-wrapper {
         width: 2rem !important;
@@ -151,6 +154,7 @@
 
       > .close {
         opacity: 1;
+        visibility: visible;
       }
     }
   }

@@ -16,6 +16,13 @@
       <span class="image-status after">After</span>
     </div>
 
-    <span class="comparison-handle">{{ icon({ icon:'arrow-left-right', url:"" })}}</span>
+    <span
+      class="comparison-handle"
+      role="slider"
+      tabindex="0"
+      aria-label="Image comparison slider"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="50">{{ icon({ icon:'arrow-left-right', url:"" })}}</span>
   </div>
 </div>

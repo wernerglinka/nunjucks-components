@@ -2,7 +2,7 @@
   "name": "podcast",
   "type": "section",
   "styles": ["podcast.css"],
-  "scripts": ["podcast.js", "rss-parser.js"],
+  "scripts": ["podcast.js"],
   "requires": ["ctas", "commons"],
   "context": ["data.podcasts"],
   "validation": {

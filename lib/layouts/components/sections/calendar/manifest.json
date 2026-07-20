@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["calendar.css"],
   "scripts": ["calendar.js"],
-  "requires": ["text", "commons"],
+  "requires": ["text", "commons", "button"],
   "context": ["data.calendars"],
   "modules": {
     "providers": ["google-calendar.js"],

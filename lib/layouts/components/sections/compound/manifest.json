@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["compound.css"],
   "scripts": ["compound.js"],
-  "requires": ["commons", "text", "ctas"],
+  "requires": ["commons"],
   "context": ["data", "collections", "urlPath"],
   "validation": {
     "required": ["sectionType"],

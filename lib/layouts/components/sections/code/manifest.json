@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["code.css"],
   "scripts": ["code.js"],
-  "requires": ["commons"],
+  "requires": ["commons", "icon"],
   "validation": {
     "required": ["sectionType", "code"],
     "properties": {

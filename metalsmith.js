@@ -48,7 +48,7 @@ const mainFile = process.argv[1]; // Gets the file that was executed by Node.js
  * So we read the package.json file manually to get dependency information
  * @type {Object}
  */
-const dependencies = JSON.parse(fs.readFileSync('./package.json')).dependencies;
+const dependencies = JSON.parse(fs.readFileSync(path.join(thisDirectory, 'package.json'))).dependencies;
 
 /**
  * TEMPLATE ENGINE SETUP
@@ -149,7 +149,13 @@ metalsmith
         } else if (file.endsWith('.json')) {
           const fileName = file.replace('.json', '');
           const fileContents = fs.readFileSync(filePath, 'utf8');
-          result[fileName] = JSON.parse(fileContents);
+          try {
+            result[fileName] = JSON.parse(fileContents);
+          } catch (error) {
+            // A malformed data file (e.g. a half-saved edit in watch mode)
+            // should fail this build, not crash the process
+            throw new Error(`Invalid JSON in ${filePath}: ${error.message}`);
+          }
         }
       });
 
@@ -243,7 +249,10 @@ metalsmith
    */
   .use(
     search({
-      ignore: ['**/search.md', '**/search-index.json']
+      // Only the site-level search page itself is excluded; the search
+      // component reference pages under references/ should be indexed.
+      // This plugin runs after permalinks, so file keys are directory-style.
+      ignore: ['search/index.html', '**/search-index.json']
     })
   )
 
@@ -258,7 +267,7 @@ metalsmith
    */
   .use(
     safeLinks({
-      hostnames: ['http://localhost:3000/', 'wernerglinka.github.io'],
+      hostnames: ['localhost', 'nunjucks-components.com', 'wernerglinka.github.io'],
       basePath: basePath
     })
   )
@@ -364,9 +373,15 @@ if (mainFile === thisFile) {
 
   // Execute the Metalsmith build
   metalsmith.build((err) => {
-    // Handle any build errors
+    // Handle any build errors. In watch mode a rebuild error (template typo,
+    // malformed data file) is logged and the watcher keeps running; outside
+    // watch mode it exits with a failure code.
     if (err) {
-      throw err;
+      console.error(err);
+      if (metalsmith.watch()) {
+        return;
+      }
+      process.exit(1);
     }
 
     // Log build success and time taken

@@ -8,6 +8,7 @@
  * - --glass-box-shadow
  * - --glass-background
  * - --contrast-text-on-dark
+ * - --color-primary
  * - --space-l
  * - --space-m
  */
@@ -99,11 +100,17 @@
     backdrop-filter: var(--glass-backdrop-filter);
     box-shadow: var(--glass-box-shadow);
     cursor: move;
+    touch-action: none;
     opacity: 0;
     transform: translate3d(0, 0, 0) scale(0);
 
     &.is-dragged {
       background-color: var(--glass-background);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
 
     .icon-wrapper {

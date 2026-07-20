@@ -2,7 +2,7 @@
   "name": "lottie",
   "type": "partial",
   "styles": ["lottie.css"],
-  "scripts": [],
+  "scripts": ["lottie.js"],
   "requires": [],
   "validation": {
     "required": ["src"],

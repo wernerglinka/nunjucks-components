@@ -91,7 +91,7 @@ License: MIT
 ## Integration with Nunjucks Components
 
 These icons are designed to work with the Nunjucks Components library icon partial. The icon partial component must be installed separately from:
-https://nunjucks-components.netlify.app/references/partials/icon
+https://nunjucks-components.com/references/partials/icon
 `;
 
     archive.append(readme, { name: 'README.md' });

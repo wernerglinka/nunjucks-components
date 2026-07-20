@@ -7,7 +7,10 @@
 
   <div class="search-container"
        data-search-source="{{ searchSource }}"
-       data-search-type="{{ searchType }}">
+       data-search-type="{{ searchType }}"
+       {% if info.settings.minCharacters %}data-min-characters="{{ info.settings.minCharacters }}"{% endif %}
+       {% if info.settings.maxResults %}data-max-results="{{ info.settings.maxResults }}"{% endif %}
+       {% if info.settings.enableHighlighting === false %}data-highlight-matches="false"{% endif %}>
 
     {% if info.title %}
       <h2 class="search-title">{{ info.title }}</h2>
@@ -23,6 +26,7 @@
         id="search-input-{{ searchId }}"
         placeholder="{{ searchPlaceholder }}"
         class="search-input"
+        aria-label="Search"
         autocomplete="off"
         spellcheck="false"
         aria-describedby="search-status-{{ searchId }}"
