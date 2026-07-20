@@ -68,7 +68,13 @@
     }
   }
 
-  &.first-text-section .text {
+  /*
+    Pull the first text section flush under the header on sidebar pages.
+    Heroes are excluded: their glass text panel needs its own padding
+    (.hero.first-section .text), and on sidebar pages the first hero
+    carries both first-text-section (layout) and first-section (authored).
+  */
+  &.first-text-section:not(.hero, .hero-slider) .text {
     padding-block: 0 !important;
   }
 
