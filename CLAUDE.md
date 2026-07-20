@@ -91,15 +91,15 @@ Components are organized in two main categories:
 
 #### Partials (`lib/layouts/components/_partials/`)
 
-Small, reusable UI elements (23 components):
+Small, reusable UI elements (19 components):
 
-- audio, author-date, branding, breadcrumbs, button, collection-card, collection-pagination, ctas, dark-light-theme-switcher, flip-card, icon, image, language-switcher, lottie, manual-card, navigation, overlay, page-transitions, search, slider-pagination, text, text-link, video
+- audio, author-date, button, collection-card, collection-pagination, ctas, flip-card, icon, iframe, image, lottie, manual-card, overlay, page-transitions, search, slider-pagination, text, text-link, video
 
 #### Sections (`lib/layouts/components/sections/`)
 
-Large page sections and main building blocks (38 components):
+Large page sections and main building blocks (40 components):
 
-- accordion, artist-slider, audio-only, banner, blog-author, collection-links, blurbs, calendar, cards-list, code, collection-list, columns, commons, compound, flip-cards, footer, header, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, podcast, pricing-table, search-only, slider, stats, steps, team-grid, testimonial, rich-text, timeline, video-only
+- accordion, artist-slider, artwork, audio-only, banner, blog-author, blurbs, calendar, cards-list, code, collection-links, collection-list, columns, commons, compound, flip-cards, hero, hero-slider, icon-only, image-compare, image-grid, image-only, logos-list, lottie-only, maps, multi-media, multi-tab, podcast, pricing-table, related-posts, rich-text, search-only, slider, social-shares, stats, steps, team-grid, testimonial, timeline, video-only
 
 ### Component Structure
 
@@ -152,20 +152,19 @@ Quick reference for creating a new component:
 - `src/` - Source content pages (Markdown files with frontmatter)
   - `src/index.md` - Homepage
   - `src/blog.md` - Blog index with pagination
-  - `src/blog/` - Blog posts (18 articles)
-  - `src/references/sections/` - Section component reference pages (38 files)
-  - `src/references/partials/` - Partial component reference pages (22 files)
-  - `src/assets/` - Static images, audio, icons, and lotties (copied to build via Metalsmith's `statik` method)
+  - `src/blog/` - Blog posts (17 articles)
+  - `src/references/sections/` - Section component reference pages (one per section component)
+  - `src/references/partials/` - Partial component reference pages (one per partial component)
 - `lib/data/` - Global JSON data files (site.json, author.json, socialLinks.json, languages.json, etc.)
   - `lib/data/maps/` - Map data JSON files
   - `lib/data/podcasts/` - Podcast RSS feed configurations
   - `lib/data/blurbs/` - Blurbs content data
 - `lib/layouts/` - Templates, components, and icons
-  - `lib/layouts/components/_partials/` - 23 partial components
-  - `lib/layouts/components/sections/` - 38 section components
+  - `lib/layouts/components/_partials/` - 19 partial components
+  - `lib/layouts/components/sections/` - 40 section components
   - `lib/layouts/pages/` - Page templates (sections.njk, etc.)
-  - `lib/layouts/icons/` - 299 Feather icon SVG templates
-- `lib/assets/` - CSS/JS entry points and styles (bundler inputs, not static files)
+  - `lib/layouts/icons/` - 298 Feather icon SVG templates
+- `lib/assets/` - CSS/JS entry points, styles, and static assets (images, audio, icons, lotties; copied to `build/assets/` via metalsmith-static-files)
   - `main.css` - Main CSS entry point (processed through component bundler)
   - `main.js` - Main JavaScript entry point (bundled with esbuild)
   - `styles/` - Design tokens and base styles (imported by bundler)
@@ -326,7 +325,7 @@ To add search functionality to any page, include the search section in your fron
 
 ```yaml
 sections:
-  - sectionType: search
+  - sectionType: search-only
     placeholder: 'Search components...'
     settings:
       maxResults: 20
