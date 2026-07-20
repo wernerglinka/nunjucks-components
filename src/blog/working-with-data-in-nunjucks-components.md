@@ -6,7 +6,8 @@ card:
   title: 'Working with Data in Nunjucks Components'
   description: 'Learn how to structure, load, and use JSON data files in Metalsmith components. Master data-driven components with real-world examples from maps, logos, and collections.'
   date: '2025-09-30'
-  author: 'Nunjucks Components Team'
+  author:
+    - Werner Heisenberg
   thumbnail: '/assets/images/sample24.jpg'
   tags: ['data', 'json', 'components', 'metalsmith', 'maps', 'collections']
 

@@ -6,7 +6,8 @@ card:
   title: 'Theming Architecture'
   description: 'Comprehensive guide to implementing dark mode in component-based static sites. Learn about semantic color tokens, adaptive vs. design choice sections, and component-level theme considerations.'
   date: '2025-06-27'
-  author: 'Nunjucks Components Team'
+  author:
+    - Isaac Newton
   thumbnail: '/assets/images/sample23.jpg'
   tags: ['theming', 'dark-mode', 'css', 'design-tokens', 'components']
 

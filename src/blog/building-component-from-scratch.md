@@ -6,7 +6,8 @@ card:
   title: 'Building a Component from Scratch'
   description: 'A comprehensive guide to creating your own Nunjucks component from the ground up, complete with validation, documentation, and submission to the library'
   date: '2025-11-04'
-  author: 'Nunjucks Components Team'
+  author:
+    - Werner Heisenberg
   thumbnail: '/assets/images/sample1.jpg'
   tags: ['components', 'nunjucks', 'manifest', 'validation', 'tutorial', 'contributing']
 

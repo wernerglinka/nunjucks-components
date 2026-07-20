@@ -6,7 +6,8 @@ card:
   title: 'Adding Smooth Page Transitions with SWUP'
   description: 'Learn how to implement smooth, app-like page transitions in your Metalsmith site using SWUP. Includes component re-initialization patterns, prefetching for instant navigation, and backwards-compatible implementation.'
   date: '2026-01-07'
-  author: 'Nunjucks Components Team'
+  author:
+    - Isaac Newton
   thumbnail: '/assets/images/sample1.jpg'
   tags:
     - page transitions

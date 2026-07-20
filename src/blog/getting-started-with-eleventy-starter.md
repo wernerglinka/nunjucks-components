@@ -6,7 +6,8 @@ card:
   title: 'Getting Started with the Eleventy Starter'
   description: 'Complete guide to setting up your first Eleventy project. From installation to deployment, learn how to build modern static sites with structured content and reusable components.'
   date: '2025-10-16'
-  author: 'Nunjucks Components Team'
+  author:
+    - Marie Curie
   thumbnail: '/assets/images/sample17.jpg'
   tags: ['eleventy', 'starter', 'setup', 'deployment', 'structured-content', 'tutorial']
 

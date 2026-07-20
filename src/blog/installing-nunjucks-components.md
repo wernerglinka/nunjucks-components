@@ -6,7 +6,8 @@ card:
   title: 'Installing Nunjucks Components in Your Project'
   description: 'Step-by-step guide to downloading and installing component packages. Learn how to add sections and partials to your project with automated install scripts.'
   date: '2025-10-15'
-  author: 'Nunjucks Components Team'
+  author:
+    - Stephen Hawking
   thumbnail: '/assets/images/sample8.jpg'
   tags: ['components', 'installation', 'packages', 'sections', 'partials', 'tutorial']
 

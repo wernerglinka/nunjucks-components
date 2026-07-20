@@ -6,7 +6,8 @@ card:
   title: 'Building Pages with Nunjucks Components'
   description: 'Learn how to construct pages from reusable components defined in structured frontmatter. A practical guide to the component-based approach with real examples.'
   date: '2025-06-09'
-  author: 'Nunjucks Components Team'
+  author:
+    - Albert Einstein
   thumbnail: '/assets/images/sample7.jpg'
   tags: ['components', 'frontmatter', 'structured-content', 'page-building', 'metalsmith', 'tutorial']
 

@@ -6,7 +6,8 @@ card:
   title: 'Getting Started with the Metalsmith2025 Starter'
   description: 'Complete guide to setting up your first Metalsmith project. From installation to deployment, learn how to build modern static sites with structured content and reusable components.'
   date: '2025-10-15'
-  author: 'Nunjucks Components Team'
+  author:
+    - Werner Heisenberg
   thumbnail: '/assets/images/sample17.jpg'
   tags: ['metalsmith', 'starter', 'setup', 'deployment', 'structured-content', 'tutorial']
 

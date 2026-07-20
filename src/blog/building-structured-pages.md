@@ -6,7 +6,8 @@ card:
   title: 'Building Structured Pages'
   description: 'Complete guide to understanding how Nunjucks Components transform YAML configurations into HTML pages. Learn the template hierarchy, Nunjucks macros, data flow, and debugging techniques.'
   date: '2025-06-22'
-  author: 'Nunjucks Components Team'
+  author:
+    - Isaac Newton
   thumbnail: '/assets/images/sample18.jpg'
   tags: ['structured-content', 'yaml', 'nunjucks', 'templates', 'macros', 'debugging']
 

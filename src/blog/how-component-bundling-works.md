@@ -6,7 +6,8 @@ card:
   title: 'How Component Bundling Works'
   description: 'Deep dive into automatic component discovery and bundling. Learn how CSS and JavaScript are automatically optimized for your site with component bundler plugins.'
   date: '2025-06-24'
-  author: 'Nunjucks Components Team'
+  author:
+    - Niels Bohr
   thumbnail: '/assets/images/sample22.jpg'
   tags: ['bundling', 'components', 'css', 'javascript', 'optimization', 'metalsmith']
 

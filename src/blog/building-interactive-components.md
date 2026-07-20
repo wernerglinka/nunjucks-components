@@ -6,7 +6,8 @@ card:
   title: 'Building Interactive Components with JavaScript'
   description: 'Learn JavaScript patterns for interactive Metalsmith components. Master dynamic library loading, event handling, state management, and modular architecture without frameworks.'
   date: '2025-10-05'
-  author: 'Nunjucks Components Team'
+  author:
+    - Stephen Hawking
   thumbnail: '/assets/images/sample4.jpg'
   tags: ['javascript', 'components', 'interactivity', 'events', 'state-management', 'metalsmith']
 

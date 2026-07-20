@@ -13,7 +13,8 @@ card:
   title: 'Adding a Top Message Bar to Your Header'
   description: 'A step-by-step guide to adding a dismissible announcement bar above your header with cookie persistence and smooth animations'
   date: '2025-12-22'
-  author: 'Nunjucks Components Team'
+  author:
+    - Marie Curie
   thumbnail: '/assets/images/sample16.jpg'
   tags: ['header', 'announcement', 'banner', 'cookies', 'javascript', 'tutorial']
 

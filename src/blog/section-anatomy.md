@@ -6,7 +6,8 @@ card:
   title: 'Section Anatomy'
   description: 'Deep dive into Nunjucks component architecture. Learn how hero sections, content blocks, and page sections are structured with YAML configuration and Nunjucks templates.'
   date: '2025-06-16'
-  author: 'Nunjucks Components Team'
+  author:
+    - Albert Einstein
   thumbnail: '/assets/images/sample12.jpg'
   tags: ['components', 'sections', 'yaml', 'nunjucks', 'architecture', 'structured-content']
 

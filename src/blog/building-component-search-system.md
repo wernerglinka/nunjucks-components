@@ -6,7 +6,8 @@ card:
   title: 'Building a Site-Wide Search System'
   description: 'Learn how to implement a robust search system for your static site using build-time indexing and client-side filtering with Fuse.js.'
   date: '2025-08-01'
-  author: 'Nunjucks Components Team'
+  author:
+    - Niels Bohr
   thumbnail: '/assets/images/sample10.jpg'
   tags: ['search', 'indexing', 'javascript', 'metalsmith', 'static-site']
 

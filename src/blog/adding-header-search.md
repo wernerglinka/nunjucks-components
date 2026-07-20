@@ -6,7 +6,8 @@ card:
   title: 'Adding Header Search to Your Site'
   description: 'A step-by-step guide to adding a header search form from the Nunjucks Components library to your starter project'
   date: '2025-11-04'
-  author: 'Nunjucks Components Team'
+  author:
+    - Albert Einstein
   thumbnail: '/assets/images/sample15.jpg'
   tags: ['search', 'header', 'components', 'metalsmith', 'tutorial']
 

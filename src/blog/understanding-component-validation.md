@@ -6,7 +6,8 @@ card:
   title: 'Understanding Component Validation with Manifest Schemas'
   description: 'Learn how to use JSON Schema validation in manifest.json files to catch errors early, provide better developer experience, and ensure component configurations are correct.'
   date: '2025-10-14'
-  author: 'Nunjucks Components Team'
+  author:
+    - Marie Curie
   thumbnail: '/assets/images/sample6.jpg'
   tags: ['validation', 'manifest', 'json-schema', 'components', 'developer-experience']
 
