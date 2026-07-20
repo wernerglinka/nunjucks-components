@@ -322,7 +322,7 @@ The component library includes an automated packaging system for distribution.
 
 ### Build-Time Package Generation
 
-During production builds, the `lib/plugins/component-package-generator.js` plugin automatically:
+During production builds, the `lib/plugins/component-package-generator/` plugin automatically:
 
 - **Creates Individual Packages**: Generates ZIP files for each section and partial component
 - **Bundles Complete Sets**: Creates complete section and partial bundle packages
