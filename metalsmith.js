@@ -319,13 +319,31 @@ metalsmith
   )
 
   /**
-   * Self-host the lottie-player web component. The lottie partial lazy-loads
-   * this file from /assets/lottie-player.js; serving it locally keeps the
-   * player version managed through npm instead of a runtime CDN dependency.
+   * Self-host third-party runtime libraries under /assets/vendor/. Components
+   * lazy-load these files (lottie partial, maps providers) instead of pulling
+   * them from a CDN, so the versions are managed through npm.
    */
   .use((files, metalsmithInstance, done) => {
-    const playerPath = metalsmithInstance.path('node_modules/@lottiefiles/lottie-player/dist/lottie-player.js');
-    files['assets/lottie-player.js'] = { contents: fs.readFileSync(playerPath) };
+    const vendorFiles = {
+      'assets/vendor/lottie-player.js': '@lottiefiles/lottie-player/dist/lottie-player.js',
+      'assets/vendor/leaflet/leaflet.js': 'leaflet/dist/leaflet.js',
+      'assets/vendor/leaflet/leaflet.css': 'leaflet/dist/leaflet.css',
+      'assets/vendor/leaflet/leaflet.markercluster.js': 'leaflet.markercluster/dist/leaflet.markercluster.js',
+      'assets/vendor/leaflet/MarkerCluster.css': 'leaflet.markercluster/dist/MarkerCluster.css',
+      'assets/vendor/leaflet/MarkerCluster.Default.css': 'leaflet.markercluster/dist/MarkerCluster.Default.css',
+      'assets/vendor/ol/ol.js': 'ol/dist/ol.js',
+      'assets/vendor/ol/ol.css': 'ol/ol.css'
+    };
+
+    // leaflet.css references its images/ directory with relative paths, so it
+    // must travel alongside the stylesheet
+    for (const image of fs.readdirSync(metalsmithInstance.path('node_modules/leaflet/dist/images'))) {
+      vendorFiles[`assets/vendor/leaflet/images/${image}`] = `leaflet/dist/images/${image}`;
+    }
+
+    for (const [destination, source] of Object.entries(vendorFiles)) {
+      files[destination] = { contents: fs.readFileSync(metalsmithInstance.path(`node_modules/${source}`)) };
+    }
     done();
   });
 

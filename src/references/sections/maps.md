@@ -273,7 +273,7 @@ sections:
       prose: |-
         **JSON Data Architecture**: Map content is stored in external JSON files in `/lib/data/maps/`, keeping page frontmatter clean while supporting complex datasets with many markers.
 
-        **Dynamic Loading**: The component loads the appropriate mapping library (Leaflet v1.9.4 or OpenLayers v10.3.0) from CDN only when needed. This keeps your initial bundle size small.
+        **Dynamic Loading**: The component loads the appropriate mapping library (Leaflet or OpenLayers) from self-hosted copies under `/assets/vendor/` only when needed. This keeps your initial bundle size small.
 
         **Provider Switching**: You can easily switch between Leaflet and OpenLayers by changing just the `mapProvider` field. The same JSON data file works with both providers.
 

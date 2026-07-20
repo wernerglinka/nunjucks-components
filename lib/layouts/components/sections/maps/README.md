@@ -163,9 +163,9 @@ Both providers use the same SVG marker for consistency:
 ## JavaScript Architecture
 
 ### Dynamic Library Loading
-- **Leaflet**: Loads from `unpkg.com/leaflet@1.9.4`
-- **OpenLayers**: Loads from `cdn.jsdelivr.net/npm/ol@v10.3.0`
-- **Integrity Checking**: Disabled for CORS compatibility
+- **Leaflet**: Loads from the self-hosted copy at `/assets/vendor/leaflet/`
+- **OpenLayers**: Loads from the self-hosted copy at `/assets/vendor/ol/`
+- **Version Management**: Library versions are managed through package.json
 - **Global Detection**: Checks for existing library instances
 
 ### Provider-Specific Initialization
@@ -309,7 +309,7 @@ const svgMarker = `
 ## Performance Considerations
 
 1. **Library Loading**: Only loads required mapping library
-2. **CDN Usage**: Libraries served from reliable CDNs
+2. **Self-Hosted Libraries**: Served from the site's own `/assets/vendor/` directory
 3. **SVG Markers**: Lightweight vector graphics
 4. **Lazy Initialization**: Maps initialize on DOM ready
 5. **Memory Management**: Proper cleanup and error handling

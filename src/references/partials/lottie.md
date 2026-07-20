@@ -122,7 +122,7 @@ sections:
       title: 'Notes'
       titleTag: 'h3'
       prose: |
-        - Loads Lottie player from CDN
+        - Loads the self-hosted Lottie player on demand
         - Speed, loop, and autoplay configuration
         - Uses the modern lottie-player web component
 
