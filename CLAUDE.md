@@ -91,9 +91,9 @@ Components are organized in two main categories:
 
 #### Partials (`lib/layouts/components/_partials/`)
 
-Small, reusable UI elements (19 components):
+Small, reusable UI elements (20 components):
 
-- audio, author-date, button, collection-card, collection-pagination, ctas, flip-card, icon, iframe, image, lottie, manual-card, overlay, page-transitions, search, slider-pagination, text, text-link, video
+- audio, author-date, button, collection-card, collection-pagination, ctas, disclosure, flip-card, icon, iframe, image, lottie, manual-card, overlay, page-transitions, search, slider-pagination, text, text-link, video
 
 #### Sections (`lib/layouts/components/sections/`)
 
@@ -160,7 +160,7 @@ Quick reference for creating a new component:
   - `lib/data/podcasts/` - Podcast RSS feed configurations
   - `lib/data/blurbs/` - Blurbs content data
 - `lib/layouts/` - Templates, components, and icons
-  - `lib/layouts/components/_partials/` - 19 partial components
+  - `lib/layouts/components/_partials/` - 20 partial components
   - `lib/layouts/components/sections/` - 40 section components
   - `lib/layouts/pages/` - Page templates (sections.njk, etc.)
   - `lib/layouts/icons/` - 298 Feather icon SVG templates
@@ -182,7 +182,7 @@ Comprehensive test suite using Node's native test runner (`node --test`, with `n
 
 ### Test Files
 
-- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 59 components
+- `test/component-manifests.test.js` - Validates manifest.json existence and structure for all 60 components
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, bundler integration

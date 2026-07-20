@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["multi-media.css"],
   "scripts": [],
-  "requires": ["ctas", "text", "image", "video", "audio", "icon", "lottie", "iframe", "commons"],
+  "requires": ["ctas", "text", "image", "video", "audio", "icon", "lottie", "iframe", "disclosure", "commons"],
   "validation": {
     "required": ["sectionType", "mediaType"],
     "properties": {
@@ -71,6 +71,19 @@
             }
           }
         }
+      },
+      "disclosures": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "prose": {
+              "type": "string"
+            }
+          }
+        }
       }
     }
   },
@@ -112,6 +125,9 @@
     },
     "ctas": {
       "$use": "ctas"
+    },
+    "disclosures": {
+      "$use": "disclosure"
     },
     "$extends": ["commons"]
   }
