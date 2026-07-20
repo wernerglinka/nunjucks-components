@@ -2,7 +2,7 @@
   "name": "compound",
   "type": "section",
   "styles": ["compound.css"],
-  "scripts": ["compound.js"],
+  "scripts": [],
   "requires": ["commons"],
   "context": ["data", "collections", "urlPath"],
   "validation": {

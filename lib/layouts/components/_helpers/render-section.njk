@@ -9,8 +9,10 @@
   Compatible with @metalsmith/collections v2.0
 #}
 
-{% macro renderSection(section, context) %}
-{# Extract context properties for use in relevant included templates #}
+{% macro renderSection(section, context, sectionIndex) %}
+{# Extract context properties for use in relevant included templates.
+   sectionIndex is the 1-based position of the section on the page; components
+   use it to generate page-unique element ids when none is set in frontmatter. #}
   {% set data = context. data %}
   {% set collections = context.collections %}
   {% set urlPath = context.urlPath %}

@@ -36,7 +36,7 @@
       {% endif %}
 
       {# section content #}
-      {{ renderSection(section, context) }}
+      {{ renderSection(section, context, loop.index) }}
 
       {% set containerTag = section.containerTag %}
     </{{ containerTag }}>

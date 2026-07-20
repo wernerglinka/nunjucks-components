@@ -1,8 +1,10 @@
-{% macro search(info) %}
+{% macro search(info, uid) %}
   <!-- Extract settings from different possible structures for backward compatibility -->
+  {# uid is an optional page-unique suffix (e.g. the section index) so two
+     search instances on one page do not collide on the same input id #}
   {% set searchSource = info.source or info.settings.source or '/search-index.json' %}
   {% set searchType = info.searchType or info.settings.searchType or 'default' %}
-  {% set searchId = info.id or info.settings.id or 'default' %}
+  {% set searchId = info.id or info.settings.id or uid or 'default' %}
   {% set searchPlaceholder = info.placeholder or info.settings.placeholder or 'Search...' %}
 
   <div class="search-container"

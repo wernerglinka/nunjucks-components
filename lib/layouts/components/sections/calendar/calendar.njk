@@ -19,7 +19,7 @@
 <div class="container"
      data-component="calendar"
      {% if calendarConfig %}
-     data-calendar-config='{{ calendarConfig | dump | safe }}'
+     data-calendar-config="{{ calendarConfig | dump | e }}"
      {% endif %}>
 
   {# Header with optional title and prose #}

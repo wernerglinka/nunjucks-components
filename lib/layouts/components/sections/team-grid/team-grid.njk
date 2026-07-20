@@ -98,7 +98,7 @@
               </div>
 
               <div class="dialog-body">
-                {{ member.extendedBio | safe }}
+                {{ member.extendedBio | mdToHTML | safe }}
               </div>
 
               {% if member.social %}

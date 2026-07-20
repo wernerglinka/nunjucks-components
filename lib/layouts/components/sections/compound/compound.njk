@@ -1,6 +1,19 @@
 {% from "components/_helpers/render-section.njk" import renderSection %}
 {% from "components/_helpers/build-container-attributes.njk" import buildContainerAttributes %}
 
+{#
+  Reconstruct context so nested renderSection calls have access to all
+  page-level data. Must stay in sync with the variable list extracted in
+  components/_helpers/render-section.njk (same pattern as multi-tab).
+#}
+{% set compoundContext = {
+  data: data,
+  collections: collections,
+  urlPath: urlPath,
+  collection: collection,
+  crumbs: crumbs
+} %}
+
 {# loop through all compound sections and render them #}
 {% for section in section.compoundSections %}
   {# don't render section is disabled in frontmatter #}
@@ -10,7 +23,7 @@
     <{{ section.containerTag }} class="content">
 
       {# section content #}
-      {{ renderSection(section, navigation.breadcrumbs, data, collections, previous, next, urlPath) }}
+      {{ renderSection(section, compoundContext) }}
 
       {% set containerTag = section.containerTag %}
     </{{ containerTag }}>

@@ -34,15 +34,12 @@ async function packageIcons() {
     const output = createWriteStream(outputFile);
     const archive = new ZipArchive({ zlib: { level: 9 } });
 
-    // Handle stream events
-    output.on('close', () => {
-      // Icon package created successfully
-      // console.log(`✓ Created feather-icons.zip`);
-      // console.log(`  Location: build/downloads/feather-icons.zip`);
-    });
-
-    archive.on('error', (err) => {
-      throw err;
+    // Surface stream errors through the promise awaited at the end of this
+    // function; throwing from inside an event listener would escape try/catch
+    const completed = new Promise((resolve, reject) => {
+      output.on('close', resolve);
+      output.on('error', reject);
+      archive.on('error', reject);
     });
 
     // Pipe archive to output file
@@ -108,8 +105,9 @@ https://nunjucks-components.com/references/partials/icon
 
     // Icon files added to archive
 
-    // Finalize the archive
-    await archive.finalize();
+    // Finalize the archive and wait for the output file to be fully written.
+    // Promise.all keeps both rejections observed if the archive errors out.
+    await Promise.all([archive.finalize(), completed]);
   } catch (error) {
     console.error('❌ Error packaging icons:', error);
     process.exit(1);

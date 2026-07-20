@@ -2,7 +2,7 @@
   "name": "blurbs",
   "type": "section",
   "styles": ["blurbs.css"],
-  "scripts": ["blurbs.js"],
+  "scripts": [],
   "requires": ["ctas", "text", "image", "icon", "commons"],
   "context": ["data.blurbs"],
   "validation": {
