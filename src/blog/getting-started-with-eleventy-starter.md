@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 card:
   title: 'Getting Started with the Eleventy Starter'

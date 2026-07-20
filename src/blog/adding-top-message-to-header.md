@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 topMessage:
   text: 'This is an example top message bar. Try dismissing it!'
@@ -462,7 +461,6 @@ sections:
         ---
         layout: pages/sections.njk
         bodyClasses: 'home'
-        hasHero: true
 
         topMessage:
           text: "New components available: pricing-table, team-grid, timeline, stats, and steps!"

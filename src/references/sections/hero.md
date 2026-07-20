@@ -1,7 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: 'sections-page'
-hasHero: true
 title: Hero Banner
 
 navigation:
@@ -87,12 +86,11 @@ sections:
       titleTag: 'h2'
       subTitle: ''
       prose: |-
-        Note the page property `hasHero: true` and the section property `isFullScreen: true`. The section property `targetId: 'first-section'` point to the following section,
+        Note the section property `isFullScreen: true`. The section property `targetId: 'first-section'` point to the following section,
 
         ```yaml
         ---
-        hasHero: true
-        # other settings
+        # page settings
 
         sections:
           - sectionType: hero
@@ -267,12 +265,6 @@ sections:
         ```
 
         ### Configuration Options
-
-        #### Page Settings
-
-        | Property | Type | Required | Description |
-        |----------|------|----------|-------------|
-        | `hasHero` | boolean | No | Must be `true` for breadcrumbs to be placed inside hero |
 
         #### Hero Layout
 

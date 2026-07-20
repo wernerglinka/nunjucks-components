@@ -1,7 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: 'sections-page'
-hasHero: false
 title: Calendar
 
 navigation:

@@ -1,7 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: ''
-hasHero: false
 
 seo:
   title: Flip Card Partial - Nunjucks Components

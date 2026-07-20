@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'search-page'
-hasHero: true
 
 seo:
   title: Search - Nunjucks Components

@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: ''
-hasHero: true
 
 navigation:
   navLabel: 'Blog'

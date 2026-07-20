@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 card:
   title: 'Building a Component from Scratch'
@@ -739,7 +738,6 @@ sections:
         ---
         layout: pages/sections.njk
         bodyClasses: 'sections-page'
-        hasHero: false
 
         card:
           title: 'Quote Block'

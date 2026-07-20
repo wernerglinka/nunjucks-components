@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 card:
   title: 'Working with Data in Nunjucks Components'

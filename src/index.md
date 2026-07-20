@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'home'
-hasHero: true
 
 topMessage:
   text: 'New Image Grid component available.'

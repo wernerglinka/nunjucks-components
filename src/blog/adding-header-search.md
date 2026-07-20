@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 card:
   title: 'Adding Header Search to Your Site'
@@ -600,7 +599,6 @@ sections:
         ---
         layout: pages/sections.njk
         bodyClasses: 'search-page'
-        hasHero: false
 
         seo:
           title: Search - Your Site Name

@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'documentation-page'
-hasHero: true
 
 card:
   title: 'Theming Architecture'

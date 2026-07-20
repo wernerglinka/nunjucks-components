@@ -1,7 +1,6 @@
 ---
 layout: pages/sections.njk
 bodyClasses: 'sections-page'
-hasHero: true
 
 card:
   title: 'Building Pages with Nunjucks Components'
@@ -89,7 +88,6 @@ sections:
         ```yaml
         layout: pages/sections.njk
         bodyClasses: 'sections-page'
-        hasHero: true
 
         navigation:
           navLabel: 'Home'

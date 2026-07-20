@@ -1,7 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: ''
-hasHero: false
 
 seo:
   title: Slider Pagination Partial - Nunjucks Components
