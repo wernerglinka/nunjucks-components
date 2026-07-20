@@ -1,7 +1,7 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: 'sections-page'
-hasHero: true
+hasHero: false
 title: Timeline
 
 navigation:

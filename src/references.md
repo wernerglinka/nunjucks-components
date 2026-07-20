@@ -1,6 +1,7 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: ''
+hasHero: false
 
 navigation:
   navLabel: 'References'

@@ -1,6 +1,7 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: ''
+hasHero: false
 
 seo:
   title: Button Partial - Nunjucks Components

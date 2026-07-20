@@ -1,6 +1,7 @@
 ---
 layout: pages/sections-with-sidebar.njk
 bodyClasses: ''
+hasHero: true
 
 seo:
   title: Author-Date Partial - Nunjucks Components
