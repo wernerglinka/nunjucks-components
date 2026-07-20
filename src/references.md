@@ -1,6 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 navigation:
   navLabel: 'References'
@@ -9,8 +9,8 @@ navigation:
 seo:
   title: Nunjucks Component Library References
   description: 'Browse our collection of reusable partial components. These building blocks are used within sections to create consistent UI elements across your site.'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
-  canonicalOverwrite: ''
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
+  canonicalURL: ''
   keywords: 'nunjucks partials, UI components, reusable elements, component building blocks, static site components'
 
 sections:
@@ -50,9 +50,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'hero'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

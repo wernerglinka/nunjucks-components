@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Lottie Partial - Nunjucks Components
   description: 'Lottie animation player component for interactive animations'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Lottie'
@@ -132,9 +132,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'lottie'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

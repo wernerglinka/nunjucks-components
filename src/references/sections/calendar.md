@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Calendar'
   description: 'Interactive calendar displaying Google Calendar events with monthly navigation, event categorization, and detailed event views.'
-  image: '/assets/images/sample20.jpg'
+  thumbnail: '/assets/images/sample20.jpg'
   tags: ['calendar', 'events', 'google-calendar', 'scheduling', 'interactive', 'navigation']
 
 seo:
   title: Calendar Component - Google Calendar Integration for Metalsmith
   description: 'Dynamic calendar component with Google Calendar API integration, monthly navigation, event categorization, and interactive event details for Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith calendar, google calendar integration, event calendar, interactive calendar, monthly view, calendar navigation, event scheduling'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -51,8 +51,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -90,8 +90,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -122,8 +122,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -154,8 +154,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -190,8 +190,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -343,9 +343,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'calendar'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Author-Date Partial - Nunjucks Components
   description: 'Author-Date partial component for displaying blog post metadata with author and publication date'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Author-Date'
@@ -143,9 +143,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'author-date'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

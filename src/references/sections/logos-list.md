@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Logos List'
   description: 'Display collections of logos, client brands, partner organizations, or social media icons with auto-scrolling support.'
-  image: '/assets/images/sample10.jpg'
+  thumbnail: '/assets/images/sample10.jpg'
   tags: ['logos', 'brands', 'partners', 'clients', 'sponsors', 'auto-scroll', 'carousel']
 
 seo:
   title: Logos List Component - Client & Partner Logo Display for Metalsmith
   description: 'Display collections of logos, client brands, partner organizations, or social media icons with auto-scrolling support. Flexible logo grid for Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith logos list, client logos, partner logos, logo grid, social media icons, brand showcase, logo carousel, scrolling logos'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -129,8 +129,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -203,8 +203,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -296,8 +296,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -380,9 +380,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'logos-list'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

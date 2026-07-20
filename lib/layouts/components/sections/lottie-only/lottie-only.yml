@@ -16,7 +16,8 @@
       image: ""
       imageScreen: "none"
   lottie:
-    src: "/assets/animations/sample.json"
-    autoplay: true
-    loop: true
-    alt: "Lottie animation description"
+    src: "/assets/lotties/example4.json"
+    speed: 1
+    control:
+      autoplay: true
+      loop: true

@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Image Grid'
   description: 'Justified gallery layout where images in each row share the same height with varying widths. Shows details on hover with optional link indicators.'
-  image: '/assets/images/sample16.jpg'
+  thumbnail: '/assets/images/sample16.jpg'
   tags: ['images', 'gallery', 'portfolio', 'art', 'justified', 'grid', 'hover']
 
 seo:
   title: Image Grid Component - Portfolio Gallery for Metalsmith
   description: 'Justified gallery where images in each row share the same height with varying widths. Ideal for artist portfolios, photo galleries, and visual showcases. Data-driven from JSON files.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith image grid, portfolio gallery, justified gallery, artwork gallery, hover overlay, artist portfolio component, image list'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -58,8 +58,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -84,8 +84,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -110,8 +110,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -194,9 +194,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'image-grid'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

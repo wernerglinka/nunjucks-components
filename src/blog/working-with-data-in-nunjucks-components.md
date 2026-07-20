@@ -9,6 +9,7 @@ card:
   date: '2025-09-30'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample24.jpg'
+  tags: ['data', 'json', 'components', 'metalsmith', 'maps', 'collections']
 
 seo:
   title: Working with Data in Nunjucks Components

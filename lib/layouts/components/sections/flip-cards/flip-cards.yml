@@ -1,5 +1,5 @@
 - sectionType: flip-cards
-  containerTag: section
+  containerTag: aside
   classes: ""
   id: ""
   isDisabled: false
@@ -16,38 +16,44 @@
       color: ""
       image: ""
       imageScreen: "none"
-  text:
-    leadIn: ""
-    title: "Our Team"
-    titleTag: "h2"
-    subTitle: ""
-    prose: "Meet our amazing team members."
   cards:
     - front:
-        image:
-          src: "/assets/images/team-member-1.jpg"
-          alt: "Team member name"
-        title: "John Doe"
-        subtitle: "Lead Developer"
+        icon: "activity"
+        text:
+          leadIn: "Simple Text Section"
+          title: "The Card Title"
+          titleTag: "h3"
+          subTitle: ""
+          prose: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus."
       back:
-        title: "About John"
-        content: "John has 5+ years experience in web development."
+        text:
+          leadIn: ""
+          title: "This is the back"
+          titleTag: "h3"
+          subTitle: ""
+          prose: "Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod."
         ctas:
-          - url: "/team/john"
-            label: "View Profile"
-            isButton: true
+          - url: "https://apple.com"
+            label: "Go Apple"
+            isButton: false
             buttonStyle: "primary"
     - front:
-        image:
-          src: "/assets/images/team-member-2.jpg"
-          alt: "Team member name"
-        title: "Jane Smith"
-        subtitle: "Designer"
+        icon: "airplay"
+        text:
+          leadIn: "Simple Text Section"
+          title: "The Second Card Title"
+          titleTag: "h3"
+          subTitle: ""
+          prose: "Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum."
       back:
-        title: "About Jane"
-        content: "Jane creates beautiful user experiences."
+        text:
+          leadIn: ""
+          title: "The Back"
+          titleTag: "h3"
+          subTitle: ""
+          prose: "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh."
         ctas:
-          - url: "/team/jane"
-            label: "View Profile"
+          - url: "https://glinka.co"
+            label: "Learn More"
             isButton: true
-            buttonStyle: "primary"
+            buttonStyle: "primary small"

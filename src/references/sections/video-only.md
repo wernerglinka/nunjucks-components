@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Video Only'
   description: 'Dedicated video section supporting YouTube, Vimeo, and Cloudinary with modal and inSitu playback options.'
-  image: '/assets/images/sample21.jpg'
+  thumbnail: '/assets/images/sample21.jpg'
   tags: ['video', 'youtube', 'vimeo', 'cloudinary', 'media', 'player', 'modal']
 
 seo:
   title: Video Only Component - Video Sections for Metalsmith
   description: 'Dedicated video section supporting YouTube, Vimeo, and Cloudinary with modal and inSitu playback options. Perfect for video content, tutorials, and media-rich Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks video section, metalsmith, eleventy, video component, youtube embed, vimeo player, video-only layout, media section, video content'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -52,8 +52,8 @@ sections:
     classes: 'inSitu-example'
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -82,8 +82,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -113,8 +113,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -185,9 +185,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'video-only'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

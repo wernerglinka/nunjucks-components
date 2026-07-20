@@ -1,11 +1,11 @@
 - sectionType: compound
-  containerTag: section
+  containerTag: article
   classes: ''
   id: ''
   isDisabled: false
   containerFields:
-    inContainer: true
-    isAnimated: false
+    inContainer: false
+    isAnimated: true
     noMargin:
       top: false
       bottom: false
@@ -16,5 +16,32 @@
       color: ''
       image: ''
       imageScreen: 'none'
-  
-  # Configuration to be defined
+  compoundSections:
+    - sectionType: rich-text
+      isDisabled: false
+      containerTag: section
+      text:
+        leadIn: ''
+        title: 'First Compound Section'
+        titleTag: 'h2'
+        subTitle: ''
+        prose: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.'
+      ctas:
+        - url: 'https://apple.com'
+          label: 'Apples anyone?'
+          isButton: true
+          buttonStyle: 'primary'
+    - sectionType: rich-text
+      isDisabled: false
+      containerTag: aside
+      text:
+        leadIn: ''
+        title: 'Second Compound Section'
+        titleTag: 'h2'
+        subTitle: ''
+        prose: 'Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+      ctas:
+        - url: 'https://ibm.com'
+          label: 'Big Brother watching'
+          isButton: true
+          buttonStyle: 'primary'

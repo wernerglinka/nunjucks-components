@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Text Partial - Nunjucks Components
   description: 'Text partial component for structured content with headlines, subtitles, and prose'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Text'
@@ -151,9 +151,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'text'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

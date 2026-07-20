@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Icon Partial - Nunjucks Components
   description: 'Icon partial component for displaying SVG icons with optional linking'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Icon'
@@ -76,8 +76,8 @@ sections:
     classes: 'demo'
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -142,9 +142,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'icon'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

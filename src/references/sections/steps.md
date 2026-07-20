@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Steps'
   description: 'Display a process or how-it-works section with numbered steps, icons, and optional connector lines.'
-  image: '/assets/images/sample26.jpg'
+  thumbnail: '/assets/images/sample26.jpg'
   tags: ['steps', 'process', 'how-it-works', 'numbered']
 
 seo:
-  title: Steps Component for Metalsmith.
+  title: Steps Component for Metalsmith
   description: 'Display a process or how-it-works section with numbered steps, icons, and optional connector lines.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith steps, process section, how-it-works, numbered steps, workflow component'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -248,8 +248,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -319,9 +319,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'steps'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

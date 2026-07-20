@@ -9,6 +9,7 @@ card:
   date: '2025-11-04'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample15.jpg'
+  tags: ['search', 'header', 'components', 'metalsmith', 'tutorial']
 
 seo:
   title: 'Adding Header Search to Your Metalsmith Site'

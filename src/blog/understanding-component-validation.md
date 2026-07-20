@@ -9,6 +9,7 @@ card:
   date: '2025-10-14'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample6.jpg'
+  tags: ['validation', 'manifest', 'json-schema', 'components', 'developer-experience']
 
 seo:
   title: Understanding Component Validation - Nunjucks Components

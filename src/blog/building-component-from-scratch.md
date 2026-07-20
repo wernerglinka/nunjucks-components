@@ -9,6 +9,7 @@ card:
   date: '2025-11-04'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample1.jpg'
+  tags: ['components', 'nunjucks', 'manifest', 'validation', 'tutorial', 'contributing']
 
 seo:
   title: 'Building a Nunjucks Component from Scratch'

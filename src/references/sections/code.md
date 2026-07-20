@@ -3,7 +3,6 @@ layout: pages/sections-with-sidebar.njk
 bodyClasses: 'sections-page'
 hasHero: true
 title: Code
-date: 2024-09-06
 
 navigation:
   navLabel: 'Code'
@@ -12,13 +11,13 @@ navigation:
 card:
   title: 'Code'
   description: 'Syntax-highlighted code blocks with a language label, filename, and copy-to-clipboard, highlighted at build time by Shiki.'
-  image: '/assets/images/sample17.jpg'
+  thumbnail: '/assets/images/sample17.jpg'
   tags: ['code', 'syntax-highlighting', 'shiki', 'code-block', 'copy-paste', 'programming', 'snippets']
 
 seo:
   title: Code Component - Syntax Highlighted Code Blocks for Metalsmith
   description: 'Display syntax-highlighted code snippets with a language label, filename, and copy-to-clipboard. Highlighted at build time by Shiki. Perfect for documentation, tutorials, and technical content.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks code component, metalsmith, eleventy, syntax highlighting, shiki, code snippets, copy to clipboard, programming documentation, code display'
 
@@ -27,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -53,8 +52,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -93,8 +92,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -145,8 +144,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -186,8 +185,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -252,9 +251,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'code'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -9,6 +9,7 @@ card:
   date: '2025-06-16'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample12.jpg'
+  tags: ['components', 'sections', 'yaml', 'nunjucks', 'architecture', 'structured-content']
 
 seo:
   title: Section Anatomy - Understanding Component Structure

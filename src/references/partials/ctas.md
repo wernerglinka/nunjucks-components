@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: CTAs Partial - Nunjucks Components
   description: 'Call-to-action group component for managing multiple buttons and links'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'CTAs'
@@ -190,9 +190,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'ctas'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

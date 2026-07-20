@@ -1,6 +1,6 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 navigation:
   navLabel: 'Sections'
@@ -9,8 +9,8 @@ navigation:
 seo:
   title: Nunjucks Sections Library
   description: 'Browse our comprehensive library of reusable Nunjucks section components. Explore hero sections, media layouts, content patterns, and more for building modern static sites with structured content.'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
-  canonicalOverwrite: ''
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
+  canonicalURL: ''
   keywords: 'nunjucks sections, metalsmith, eleventy, page components, hero sections, content layouts, structured content components, static site sections'
 
 card:

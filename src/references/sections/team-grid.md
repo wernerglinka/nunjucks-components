@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Team Grid'
   description: 'A responsive grid section for displaying team members with photos, roles, bios, and social links. Supports full and compact layout variants.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['team', 'grid', 'people', 'staff']
 
 seo:
-  title: Team Grid Component for Metalsmith.
+  title: Team Grid Component for Metalsmith
   description: 'A responsive grid section for displaying team members with photos, roles, bios, and social links. Supports full and compact layout variants.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith team grid, staff directory, team members, people grid, company team'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -108,8 +108,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -189,9 +189,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'team-grid'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Search'
   description: 'Interactive search component with fuzzy search, filtering, and real-time results using Fuse.js and metalsmith-search plugin.'
-  image: '/assets/images/sample19.jpg'
+  thumbnail: '/assets/images/sample19.jpg'
   tags: ['search', 'find', 'filter', 'site-search', 'fuzzy-search']
 
 seo:
   title: Search Component - Interactive Search for Metalsmith
   description: 'Interactive search component with fuzzy search, filtering, and real-time results. Perfect for component libraries, documentation sites, and content-heavy Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith search, fuzzy search, search component, fuse.js, interactive search, site search, content discovery'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -51,8 +51,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -80,8 +80,8 @@ sections:
     classes: ''
     id: 'search-architecture'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -112,8 +112,8 @@ sections:
     classes: ''
     id: 'plugin-configuration'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -213,8 +213,8 @@ sections:
     classes: ''
     id: 'content-architecture'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -288,8 +288,8 @@ sections:
     classes: ''
     id: 'field-mapping'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -367,8 +367,8 @@ sections:
     classes: ''
     id: 'debugging'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -418,8 +418,8 @@ sections:
     containerTag: section
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -487,9 +487,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'search'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -509,7 +509,7 @@ sections:
       subTitle: ''
       prose: 'Get the complete search component package including template, styles, manifest, examples, and installation script.'
     ctas:
-      - url: '/downloads/sections/search.zip'
+      - url: '/downloads/sections/search-only.zip'
         label: 'Download Search Section'
         isButton: true
         buttonStyle: 'primary'

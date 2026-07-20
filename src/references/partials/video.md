@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Video Partial - Nunjucks Components
   description: 'Video player component supporting YouTube, Vimeo and Cloudinary sources'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Video'
@@ -52,7 +52,7 @@ sections:
         video:
           id: 'dQw4w9WgXcQ'
           src: 'youtube'
-          tn: '/assets/images/video-thumb.jpg'
+          tn: '/assets/images/sample10.jpg'
           alt: 'Video description'
           inSitu: false
           start: 0
@@ -142,9 +142,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'video'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

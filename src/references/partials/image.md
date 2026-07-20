@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Image Partial - Nunjucks Components
   description: 'Image partial component for responsive, optimized image rendering'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Image'
@@ -109,9 +109,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'image'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

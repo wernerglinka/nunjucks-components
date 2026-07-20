@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Audio Partial - Nunjucks Components
   description: 'Audio partial component for embedding audio players with optional background images'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Audio'
@@ -142,9 +142,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'audio'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

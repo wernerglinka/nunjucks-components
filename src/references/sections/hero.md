@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Hero'
   description: 'Hero section with background images, text overlays, and CTAs.'
-  image: '/assets/images/sample8.jpg'
+  thumbnail: '/assets/images/sample8.jpg'
   tags: ['hero', 'banner', 'header', 'landing-page', 'fullscreen', 'cta']
 
 seo:
   title: Hero Section Component - Full Screen & Standard Heroes for Metalsmith
   description: 'Create impactful hero sections with background images, text overlays, and CTAs. Includes full-screen hero options with scroll targeting for Metalsmith sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks hero section, metalsmith, eleventy, full screen hero, hero component, landing page hero, hero with background image, page header, hero overlay'
 
@@ -29,12 +29,12 @@ sections:
     description: "This is a full screen hero section with a background image and text overlay. The proporty 'isFullScreen' is set to true, which turn a standard hero section into full screen."
     isDisabled: false
     isReverse: false
-    isAnimated: true
     isFullScreen: true
     targetId: 'first-section'
     date: ''
     author: ''
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -68,8 +68,8 @@ sections:
     classes: ''
     id: 'first-section'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -151,8 +151,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -185,12 +185,12 @@ sections:
     description: 'This is a regular hero section with a background image and text overlay.'
     isDisabled: false
     isReverse: false
-    isAnimated: true
     isFullScreen: false
     targetId: ''
     date: ''
     author: ''
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -223,8 +223,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -299,9 +299,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'hero'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

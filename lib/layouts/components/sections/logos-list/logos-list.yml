@@ -3,8 +3,10 @@
   classes: ""
   id: ""
   isDisabled: false
+  isReverse: false
+  hasCenteredContent: false
   containerFields:
-    inContainer: true
+    inContainer: false
     isAnimated: true
     noMargin:
       top: false
@@ -23,12 +25,13 @@
     subTitle: ""
     prose: "Companies that trust our services."
   logos:
-    - name: "Company 1"
-      image: "/assets/images/logos/company1.svg"
-      url: "https://company1.com"
-    - name: "Company 2"
-      image: "/assets/images/logos/company2.svg"
-      url: "https://company2.com"
-    - name: "Company 3"
-      image: "/assets/images/logos/company3.svg"
-      url: "https://company3.com"
+    source: "socialLinks"
+    logoWidth: 90
+    scope: "all"
+    selections: []
+    showTitle: false
+  ctas:
+    - url: ""
+      label: ""
+      isButton: true
+      buttonStyle: "primary"

@@ -9,6 +9,7 @@ card:
   date: '2025-10-16'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample17.jpg'
+  tags: ['eleventy', 'starter', 'setup', 'deployment', 'structured-content', 'tutorial']
 
 seo:
   title: Getting Started with Eleventy Structured Content Starter

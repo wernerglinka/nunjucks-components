@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Manual Card Partial - Nunjucks Components
   description: 'Versatile card component with flexible content and layout options'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Manual Card'
@@ -169,9 +169,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'manual-card'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

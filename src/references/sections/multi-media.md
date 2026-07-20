@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Multi Media'
   description: 'Flexible media section combining text, optional CTAs, and various multi media with reversible layouts.'
-  image: '/assets/images/sample13.jpg'
+  thumbnail: '/assets/images/sample13.jpg'
   tags: ['media', 'video', 'image', 'audio', 'multimedia', 'flexible', 'content', 'text', 'iframe']
 
 seo:
-  title: Multi Media Component - Text & Image, Video, Icon, Audio and Lottie Animation  Layouts for Metalsmith
+  title: Multi Media Component - Text & Image, Video, Icon, Audio and Lottie Animation Layouts for Metalsmith
   description: 'Flexible media section combining text and multi media with reversible layouts. Create engaging content presentations with optional CTAs and captions for Metalsmith sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith media image, text and image layout, content with images, media section, image caption, reversible layout, feature showcase'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -87,8 +87,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -153,8 +153,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -261,8 +261,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -329,8 +329,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -396,8 +396,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -464,8 +464,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -523,8 +523,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -553,8 +553,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -640,9 +640,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'multi-media'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

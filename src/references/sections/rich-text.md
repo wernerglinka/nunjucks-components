@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Rich Text'
   description: 'Versatile text section for articles, documentation, code snippets, and content-heavy layouts. '
-  image: '/assets/images/sample16.jpg'
+  thumbnail: '/assets/images/sample16.jpg'
   tags: ['text', 'content', 'article', 'documentation', 'prose', 'typography']
 
 seo:
   title: Rich Text Component - Content Sections for Metalsmith
   description: 'Versatile text section for articles, documentation, and content-heavy layouts. Supports markdown, headings, CTAs, and background styling for Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks text section, metalsmith, eleventy, content component, article section, markdown content, rich-text layout, documentation component, prose section'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -56,8 +56,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -102,8 +102,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -135,8 +135,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -162,8 +162,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -220,9 +220,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'rich-text'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

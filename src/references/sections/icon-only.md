@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Icon Only'
   description: 'Dedicated icon section for showcasing complex svg visuals with optional captions and CTAs.'
-  image: '/assets/images/sample15.jpg'
+  thumbnail: '/assets/images/sample15.jpg'
   tags: ['image', 'media', 'visual', 'gallery', 'photo', 'picture']
 
 seo:
   title: Icon Only Component - Visual Sections for Metalsmith
   description: 'Dedicated icon section for showcasing complex svg visuals with optional captions and CTAs.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks icon section, metalsmith, eleventy, visual component, image gallery, featured image, photo section, image-only layout, visual content'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -52,8 +52,8 @@ sections:
     classes: 'demo'
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -75,8 +75,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -123,9 +123,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'icon-only'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

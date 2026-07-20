@@ -9,6 +9,7 @@ card:
   date: '2025-06-09'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample7.jpg'
+  tags: ['components', 'frontmatter', 'structured-content', 'page-building', 'metalsmith', 'tutorial']
 
 seo:
   title: Building Pages with Nunjucks Components

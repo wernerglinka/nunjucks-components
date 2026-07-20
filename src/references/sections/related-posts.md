@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Related Posts'
   description: 'Render a curated list of items from any collection as a simple text list or a grid of cards.'
-  image: '/assets/images/sample17.jpg'
+  thumbnail: '/assets/images/sample17.jpg'
   tags: ['related', 'posts', 'collection', 'curated', 'links', 'list', 'cards']
 
 seo:
   title: Related Posts Component - Curated Collection List for Metalsmith
   description: 'Render a curated list of items from any Metalsmith collection as a text list or card grid. Cross-collection slug resolution, no collectionName required.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith related posts, curated links, collection list, related content, blog related posts, related cards'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -58,8 +58,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -112,8 +112,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -177,8 +177,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -234,8 +234,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -277,9 +277,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'related-posts'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

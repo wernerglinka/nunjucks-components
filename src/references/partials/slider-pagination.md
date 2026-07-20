@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Slider Pagination Partial - Nunjucks Components
   description: 'Navigation controls for slider and carousel components'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Slider Pagination'
@@ -67,7 +67,7 @@ sections:
         | `isTabs` | boolean | No | Display as tabs (true) or numbers (false) |
 
         ### Example
-        For a real live example please visit the [simple slider page](/references/sections/simple-slider/#default-example).
+        For a real live example please visit the [simple slider page](/references/sections/slider/#default-example).
 
   - sectionType: rich-text
     containerTag: section
@@ -111,9 +111,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'slider-pagination'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

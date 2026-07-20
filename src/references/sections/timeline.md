@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Timeline'
   description: 'A chronological timeline section for displaying milestones, history, or process steps with visual markers and optional icons.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['timeline', 'history', 'milestones', 'chronological']
 
 seo:
-  title: Timeline Component for Metalsmith.
+  title: Timeline Component for Metalsmith
   description: 'A chronological timeline section for displaying milestones, history, or process steps with visual markers and optional icons.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith timeline, company history, milestones, chronological display, timeline component'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -145,8 +145,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -208,9 +208,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'timeline'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

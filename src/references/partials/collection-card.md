@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Collection Card Partial - Nunjucks Components
   description: 'Collection card component for displaying items in collection lists'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Collection Card'
@@ -132,9 +132,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'collection-card'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

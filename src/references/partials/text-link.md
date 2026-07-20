@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Text Link Partial - Nunjucks Components
   description: 'Simple text link component with external link handling'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Text Link'
@@ -141,9 +141,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'text-link'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

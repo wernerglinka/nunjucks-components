@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Maps'
   description: 'Map component supporting Leaflet and OpenLayers providers with dynamic library loading, custom SVG markers, and popup interactions.'
-  image: '/assets/images/sample11.jpg'
+  thumbnail: '/assets/images/sample11.jpg'
   tags: ['maps', 'location', 'leaflet', 'openlayers', 'markers', 'interactive', 'geolocation']
 
 seo:
-  title: Map Component - Interactive Maps with Leaflet and OpenLayers for Metalsmith
+  title: Maps Component - Interactive Maps with Leaflet and OpenLayers for Metalsmith
   description: 'Maps component supporting Leaflet and OpenLayers providers with dynamic library loading, custom SVG markers, and popup interactions for Metalsmith sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith maps, leaflet maps, openlayers maps, interactive maps, custom markers, maps component, map integration'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -57,8 +57,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -122,8 +122,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -186,8 +186,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -253,8 +253,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -328,8 +328,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: false
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -411,8 +411,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -521,9 +521,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'maps'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -9,6 +9,7 @@ card:
   date: '2025-06-27'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample23.jpg'
+  tags: ['theming', 'dark-mode', 'css', 'design-tokens', 'components']
 
 seo:
   title: Theming Architecture - Dark Mode Implementation for Nunjucks Components
@@ -60,8 +61,8 @@ sections:
     classes: ''
     id: 'philosophy'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -106,8 +107,8 @@ sections:
     classes: ''
     id: 'design-tokens'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -175,8 +176,8 @@ sections:
     classes: ''
     id: 'inversion-logic'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -238,8 +239,8 @@ sections:
     classes: ''
     id: 'component-patterns'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -314,8 +315,8 @@ sections:
     classes: ''
     id: 'special-cases'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -407,8 +408,8 @@ sections:
     classes: ''
     id: 'implementation-guide'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -461,8 +462,8 @@ sections:
     classes: ''
     id: 'best-practices'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -505,8 +506,8 @@ sections:
     classes: ''
     id: 'limitations'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -551,8 +552,8 @@ sections:
     classes: ''
     id: 'conclusion'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false

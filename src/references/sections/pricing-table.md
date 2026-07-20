@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Pricing Table'
   description: 'A pricing comparison section with multiple tiers, features lists, and call-to-action buttons. Supports card and comparison table layouts.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['pricing', 'comparison', 'tiers', 'commercial']
 
 seo:
-  title: Pricing Table Component for Metalsmith.
+  title: Pricing Table Component for Metalsmith
   description: 'A pricing comparison section with multiple tiers, features lists, and call-to-action buttons. Supports card and comparison table layouts.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith pricing table, tier comparison, pricing cards, feature comparison, SaaS pricing, subscription tiers'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -108,8 +108,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -191,9 +191,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'pricing-table'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

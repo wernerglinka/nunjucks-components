@@ -9,6 +9,7 @@ card:
   date: '2025-06-22'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample18.jpg'
+  tags: ['structured-content', 'yaml', 'nunjucks', 'templates', 'macros', 'debugging']
 
 seo:
   title: From YAML to HTML - Component Build Process

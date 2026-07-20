@@ -21,10 +21,7 @@
     titleTag: "h2"
     subTitle: "Find components, examples, and documentation"
     prose: ""
+  placeholder: "Search components, features, or documentation..."
   settings:
-    placeholder: "Search components, features, or documentation..."
-    showCategories: true
     maxResults: 15
-    resultTypes: []
-    enableHighlighting: true
-    showRelevanceScore: true
+    minCharacters: 3

@@ -9,6 +9,7 @@ card:
   date: '2025-10-05'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample4.jpg'
+  tags: ['javascript', 'components', 'interactivity', 'events', 'state-management', 'metalsmith']
 
 seo:
   title: Building Interactive Components with JavaScript - Metalsmith

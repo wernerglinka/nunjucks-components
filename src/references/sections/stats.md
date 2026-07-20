@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Stats'
   description: 'Display impact numbers and key metrics in a visually striking grid layout with optional icons and descriptions.'
-  image: '/assets/images/sample25.jpg'
+  thumbnail: '/assets/images/sample25.jpg'
   tags: ['stats', 'metrics', 'numbers', 'impact']
 
 seo:
-  title: Stats Component for Metalsmith.
+  title: Stats Component for Metalsmith
   description: 'Display impact numbers and key metrics in a visually striking grid layout with optional icons and descriptions.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith stats, impact numbers, metrics display, statistics component, key figures'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -206,8 +206,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: false
@@ -278,9 +278,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'stats'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

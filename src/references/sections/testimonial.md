@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Testimonial'
   description: 'Display customer testimonials with quotes, citations, portraits, and company logos.'
-  image: '/assets/images/sample23.jpg'
+  thumbnail: '/assets/images/sample23.jpg'
   tags: ['testimonial', 'review', 'quote', 'customer', 'feedback', 'social-proof']
 
 seo:
   title: Testimonial Component - Customer Quotes & Reviews for Metalsmith
   description: 'Display customer testimonials with quotes, citations, portraits, and company logos. Professional testimonial section for building trust in Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith testimonial, customer quotes, review component, blockquote section, testimonial with portrait, client feedback, social proof'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -83,8 +83,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -168,9 +168,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'testimonial'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

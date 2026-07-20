@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Collection Links'
   description: 'Sequential navigation component for collection items, providing previous and next links between articles in a collection.'
-  image: '/assets/images/sample16.jpg'
+  thumbnail: '/assets/images/sample16.jpg'
   tags: ['collection', 'navigation', 'pagination', 'links', 'posts']
 
 seo:
   title: Collection Links Component - Collection Navigation for Metalsmith
   description: 'Navigation component that provides previous and next links between sequential collection items. Automatically integrates with Metalsmith collections for chronological article navigation.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith collection navigation, post navigation, previous next links, collection pagination, collection links, article navigation'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -55,15 +55,35 @@ sections:
 
         ## Live Example
 
-        To see this component in action, visit any blog post on this site. For example, check the bottom of the [Sample Blog Post](/blog/sample-blogpost/) to see the previous and next navigation links.
+        The navigation links directly below are a live instance of this component, navigating the `sections` collection this reference page belongs to. For a blog example, check the bottom of the [Sample Blog Post](/blog/sample-blogpost/).
+
+  - sectionType: collection-links
+    collectionName: 'sections'
+    containerTag: section
+    classes: ''
+    id: ''
+    isDisabled: false
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: false
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
 
   - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -138,8 +158,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -174,9 +194,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'collection-links'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

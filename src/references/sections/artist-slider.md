@@ -11,7 +11,7 @@ navigation:
 card:
   title: 'Artist Slider'
   description: 'Full-screen image slider for artist portfolios with artwork info overlays, auto-cycling, and fade transitions.'
-  image: '/assets/images/artworks/test1.jpg'
+  thumbnail: '/assets/images/artworks/test1.jpg'
   tags: ['slider', 'gallery', 'portfolio', 'artist', 'fullscreen', 'artwork', 'fade']
 
 seo:
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -75,8 +75,8 @@ sections:
     classes: ''
     id: 'configuration'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -180,9 +180,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'artist-slider'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Compound'
   description: 'Wrap multiple sections to share common fields and styling.'
-  image: '/assets/images/sample18.jpg'
+  thumbnail: '/assets/images/sample18.jpg'
   tags: ['compound', 'wrapper', 'container', 'grouped', 'sections', 'layout']
 
 seo:
   title: Compound Section - Wrap Multiple Sections for Metalsmith
   description: 'Compound section component for wrapping multiple sections with shared configuration and styling for Metalsmith sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks compound section, metalsmith, eleventy, section wrapper, shared configuration, multi-section component'
 
@@ -29,12 +29,12 @@ sections:
     description: "This is a full screen hero section with a background image and text overlay. The proporty 'isFullScreen' is set to true, which turn a standard hero section into full screen."
     isDisabled: false
     isReverse: false
-    isAnimated: true
     isFullScreen: false
     targetId: 'first-section'
     date: ''
     author: ''
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -69,8 +69,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -121,8 +121,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -183,9 +183,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'compound'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

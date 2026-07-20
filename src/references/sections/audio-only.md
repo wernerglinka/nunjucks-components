@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Audio Only'
   description: 'Dedicated audio section for podcasts, music, and audio content with optional background images.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['audio', 'music', 'podcast', 'sound', 'media', 'player']
 
 seo:
   title: Audio Only Component - Audio Sections for Metalsmith
   description: 'Dedicated audio section for podcasts, music, and audio content with optional background images. Perfect for audio-focused content in Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks audio section, metalsmith, eleventy, audio component, podcast player, music section, audio-only layout, media section, audio content'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -52,8 +52,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -82,8 +82,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -135,9 +135,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'audio-only'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

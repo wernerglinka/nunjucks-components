@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Blurbs'
   description: 'A short description of a subject written for promotional purposes and appearing in a card with an image or icon. An optional CTA provides a link to more info.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['image', 'icon', 'overview', 'content']
 
 seo:
-  title: Blurbs Component for Metalsmith.
+  title: Blurbs Component for Metalsmith
   description: 'A short description of a subject written for promotional purposes and appearing in a card with an image or icon. An optional CTA provides a link to more info.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith text blurbs layout, excerps with thumbnail image, text, optional cta, reversible layout, feature showcase'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -114,8 +114,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -172,9 +172,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'blurbs'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

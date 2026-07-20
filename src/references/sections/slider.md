@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Simple Slider'
   description: 'Interactive slider component with standard pagination or tabbed interface.'
-  image: '/assets/images/sample14.jpg'
+  thumbnail: '/assets/images/sample14.jpg'
   tags: ['slider', 'carousel', 'tabs', 'pagination', 'slideshow', 'interactive']
 
 seo:
-  title: Simple Slider Component - Carousel & Tabbed Content for Metalsmith
+  title: Slider Component - Carousel & Tabbed Content for Metalsmith
   description: 'Interactive slider component with standard pagination or tabbed interface. Display multiple content slides with images, text, and CTAs in your Metalsmith static site.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith slider, carousel component, image slider, tabbed content, content carousel, slideshow, interactive slider, tabbed interface'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -56,8 +56,8 @@ sections:
     id: ''
     description: 'Implements a manual slider section.'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -118,8 +118,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -145,8 +145,8 @@ sections:
     id: ''
     description: 'Implements a manual slider section.'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -211,8 +211,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -286,9 +286,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'simple-slider'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -308,7 +308,7 @@ sections:
       subTitle: ''
       prose: 'Get the complete simple-slider component package including template, styles, manifest, examples, and installation script.'
     ctas:
-      - url: '/downloads/sections/simple-slider.zip'
+      - url: '/downloads/sections/slider.zip'
         label: 'Download Simple Slider Section'
         isButton: true
         buttonStyle: 'primary'

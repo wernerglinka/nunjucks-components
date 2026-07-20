@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Overlay Partial - Nunjucks Components
   description: 'CSS-based overlay component for modal backgrounds and transitions'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Overlay'
@@ -69,9 +69,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'overlay'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

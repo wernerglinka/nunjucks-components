@@ -9,6 +9,7 @@ card:
   date: '2025-08-01'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample10.jpg'
+  tags: ['search', 'indexing', 'javascript', 'metalsmith', 'static-site']
 
 seo:
   title: Building a Site-Wide Search System for Static Sites

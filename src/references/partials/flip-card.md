@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Flip Card Partial - Nunjucks Components
   description: 'Interactive flip card component with front and back content areas'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Flip Card'
@@ -181,9 +181,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'flip-card'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

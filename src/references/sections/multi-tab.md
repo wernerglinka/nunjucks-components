@@ -10,13 +10,13 @@ navigation:
 card:
   title: 'Multi-Tab'
   description: 'A tabbed interface wrapper where each pane can be any section type, declared explicitly in frontmatter.'
-  image: '/assets/images/sample8.jpg'
+  thumbnail: '/assets/images/sample8.jpg'
   tags: ['tabs', 'tabbed', 'navigation', 'interface', 'wrapper', 'panes']
 
 seo:
   title: Multi-Tab Section Component - Tabbed Interface for Metalsmith
   description: 'A dynamic tabbed interface where each pane can be any section type. Supports keyboard navigation, URL hash routing, and SWUP page transitions.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks tabs section, metalsmith, eleventy, tabbed interface, tab component, keyboard navigation, accessible tabs, ARIA tabs'
 
@@ -25,8 +25,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -53,8 +53,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -105,8 +105,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -198,9 +198,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'multi-tab'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

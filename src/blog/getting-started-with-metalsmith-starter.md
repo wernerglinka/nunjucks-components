@@ -9,6 +9,7 @@ card:
   date: '2025-10-15'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample17.jpg'
+  tags: ['metalsmith', 'starter', 'setup', 'deployment', 'structured-content', 'tutorial']
 
 seo:
   title: Getting Started with Metalsmith2025 Structured Content Starter

@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Hero Slider'
   description: 'Hero slider with various background media, smooth transitions, and autoplay.'
-  image: '/assets/images/sample7.jpg'
+  thumbnail: '/assets/images/sample7.jpg'
   tags: ['hero', 'slider', 'carousel', 'slideshow', 'autoplay', 'fullscreen', 'media']
 
 seo:
   title: Hero Slider Component - Multi-Slide Hero Sections for Metalsmith
   description: 'Create dynamic hero sections with multiple slides, background media, smooth transitions, and autoplay. Perfect for showcasing multiple messages or features on your Metalsmith site.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith hero slider, carousel hero, slideshow hero, hero carousel, multi-slide hero, hero with transitions, autoplay hero'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -262,7 +262,7 @@ sections:
             inline: true
             src: 'vimeo'
             id: '76979871'
-            tn: '/assets/images/vimeo-thumb.jpg'
+            tn: '/assets/images/sample10.jpg'
             alt: 'Vimeo background video for hero slider'
           imageScreen: 'dark'
 
@@ -271,8 +271,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -441,9 +441,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'hero-slider'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -9,6 +9,7 @@ card:
   date: '2025-10-15'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample8.jpg'
+  tags: ['components', 'installation', 'packages', 'sections', 'partials', 'tutorial']
 
 seo:
   title: Installing Nunjucks Components - Download and Setup Guide
@@ -250,7 +251,7 @@ sections:
           • ctas
           • image
 
-        Download from: https://nunjucks-components.netlify.app/downloads/
+        Download from: https://nunjucks-components.com/downloads/
 
         Continue installation anyway? (y/n)
         ```

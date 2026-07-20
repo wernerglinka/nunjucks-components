@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Social Shares'
   description: 'Render a row of share buttons that post the current page to Bluesky, LinkedIn, Facebook, X/Twitter, email, or any custom network.'
-  image: '/assets/images/sample10.jpg'
+  thumbnail: '/assets/images/sample10.jpg'
   tags: ['social', 'share', 'bluesky', 'linkedin', 'facebook', 'twitter', 'x', 'email', 'share buttons']
 
 seo:
   title: Social Shares Component - Share Buttons for Metalsmith
   description: 'Render social share buttons for the current page. Supports Bluesky, LinkedIn, Facebook, X/Twitter, email, and arbitrary custom networks.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith social shares, share buttons, bluesky share, linkedin share, facebook share, twitter share, x share, email share'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -79,8 +79,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -151,8 +151,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -231,8 +231,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -316,9 +316,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'social-shares'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

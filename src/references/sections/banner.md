@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Banner'
   description: 'Create eye-catching CTA banners with background images or colors for prominent calls-to-action.'
-  image: '/assets/images/sample9.jpg'
+  thumbnail: '/assets/images/sample9.jpg'
   tags: ['banner', 'cta', 'call-to-action', 'announcement', 'full-width']
 
 seo:
   title: Banner Component - Metalsmith Call-to-Action Section
   description: 'Create eye-catching CTA banners with background images or colors. Flexible styling options for promotional sections and announcements on Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith banner, CTA section, call-to-action component, banner with background image, promotional banner, static site components'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -52,8 +52,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -86,8 +86,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -216,8 +216,8 @@ sections:
     classes: 'banner-accordion-header'
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -242,8 +242,8 @@ sections:
     classes: 'banner-accordion-content is-closed'
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -275,9 +275,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'banner'
     containerFields:
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true

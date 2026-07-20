@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Button Partial - Nunjucks Components
   description: 'Button partial component for creating consistent call-to-action buttons across your site'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Button'
@@ -194,9 +194,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'button'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

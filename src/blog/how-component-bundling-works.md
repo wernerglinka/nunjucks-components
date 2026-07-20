@@ -9,6 +9,7 @@ card:
   date: '2025-06-24'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample22.jpg'
+  tags: ['bundling', 'components', 'css', 'javascript', 'optimization', 'metalsmith']
 
 seo:
   title: How Component Bundling Works - Nunjucks Components

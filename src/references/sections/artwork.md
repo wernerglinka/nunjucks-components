@@ -10,13 +10,13 @@ navigation:
 card:
   title: 'Artwork'
   description: 'Displays a single artwork with its image, optional title/subtitle header, and a structured property list. Clicking the image opens a larger version in a modal overlay.'
-  image: '/assets/images/sample6.jpg'
+  thumbnail: '/assets/images/sample6.jpg'
   tags: ['artwork', 'image', 'gallery', 'properties', 'bilingual', 'catalog', 'modal', 'lightbox']
 
 seo:
   title: Artwork Section Component - Artwork Display for Metalsmith
   description: 'Display a single artwork with its image, optional title/subtitle header, and a structured property list including type, year, materials, dimensions, and availability status. The image opens a larger version in a modal overlay.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks artwork section, metalsmith, eleventy, artwork display, art catalog, artwork properties, bilingual component'
 
@@ -25,8 +25,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -51,8 +51,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -89,8 +89,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -176,9 +176,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'artwork'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

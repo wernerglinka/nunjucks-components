@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Columns'
   description: 'Create custom multi-column layouts. Combine text, images, and CTAs in flexible column arrangements.'
-  image: '/assets/images/sample5.jpg'
+  thumbnail: '/assets/images/sample5.jpg'
   tags: ['columns', 'layout', 'grid', 'multi-column', 'flexible', 'responsive']
 
 seo:
   title: Columns Section - Flexible Multi-Column Layouts for Metalsmith
   description: 'Create custom multi-column layouts with the columns section component. Combine text, images, and CTAs in flexible column arrangements for Metalsmith sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks columns section, metalsmith, eleventy, multi-column layout, flexible layouts, custom sections, column blocks, image gallery component, composable layouts'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -52,8 +52,8 @@ sections:
     classes: ''
     id: 'first-section'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -129,8 +129,8 @@ sections:
     classes: ''
     id: 'first-section'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -162,8 +162,8 @@ sections:
     id: 'section-id'
     description: 'Implements a three column image gallery.'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -205,8 +205,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -281,9 +281,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'columns'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

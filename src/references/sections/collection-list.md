@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Collection List'
   description: 'Universal collection listing component with pagination and card-based layout. Works with any collection (blog, components, etc.).'
-  image: '/assets/images/sample4.jpg'
+  thumbnail: '/assets/images/sample4.jpg'
   tags: ['blog', 'collection', 'list', 'grid', 'cards', 'pagination', 'archive']
 
 seo:
   title: Collection List Component - Universal Paginated Collection Grid for Metalsmith
   description: 'Universal collection listing component with automatic pagination, card-based layout, and support for any collection type. Display collections in an organized grid with Metalsmith.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith blog list, blog pagination, post grid, blog cards, collection display, paginated blog, blog archive component, metalsmith collections'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -47,15 +47,43 @@ sections:
       prose: |-
         A universal collection listing component that displays a grid of items with pagination support. Works with any collection (blog posts, components, products, etc.) and automatically detects available fields like author and date.
 
-        For an example including pagination see the [blog](/blog/) page
+        The grid below is a live instance of this component listing the `blog` collection. For an example including pagination see the [blog](/blog/) page
+
+  - sectionType: collection-list
+    containerTag: section
+    isDisabled: false
+    id: ''
+    classes: ''
+    containerFields:
+      inContainer: false
+      isAnimated: true
+      noMargin:
+        top: false
+        bottom: false
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        isDark: false
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    collectionName: 'blog'
+    hasPagingParams: false
+    pagingParams:
+      numberOfBlogs: ''
+      numberOfPages: ''
+      pageLength: ''
+      pageStart: ''
+      pageNumber: ''
 
   - sectionType: rich-text
     containerTag: article
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -210,9 +238,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'collection-list'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

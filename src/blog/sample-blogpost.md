@@ -1,13 +1,13 @@
 ---
 layout: pages/sections.njk
-bodyClass: ''
+bodyClasses: ''
 draft: false
 
 seo:
   title: Sample Blog Post Structure - Example Template
   description: 'Example blog post demonstrating the structure with hero section, multiple authors, and blog navigation. Use this as a template for creating new blog posts.'
   socialImage: '/assets/images/sample9.jpg'
-  canonicalOverwrite: ''
+  canonicalURL: ''
   keywords: 'blog post example, template structure, author cards, blog navigation'
 
 card:
@@ -17,6 +17,7 @@ card:
     - Albert Einstein
     - Isaac Newton
   thumbnail: '/assets/images/sample9.jpg'
+  tags: ['sample', 'blog', 'structure', 'frontmatter', 'example']
   description: |-
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui nullam quis risus eget urna mollis ornare.
 

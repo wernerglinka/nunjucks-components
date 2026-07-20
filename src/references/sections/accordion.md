@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Accordion'
   description: 'Interactive accordion component for FAQs with expand/collapse functionality and flexible data loading.'
-  image: '/assets/images/sample24.jpg'
+  thumbnail: '/assets/images/sample24.jpg'
   tags: ['faq', 'accordion', 'collapse', 'questions', 'expandable']
 
 seo:
   title: Accordion Component - FAQ Section for Metalsmith
   description: 'Interactive accordion component for displaying FAQs with smooth expand/collapse animations. Supports selective data loading and multiple configuration options for Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith accordion, FAQ component, collapsible content, accordion section, FAQ accordion, expandable panels, question answer component'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -116,9 +116,9 @@ sections:
     hasCenteredContent: false
     ctas:
       - url: '/library'
-        text: 'View All Components'
-        type: 'primary'
-        isExternal: false
+        label: 'View All Components'
+        isButton: true
+        buttonStyle: 'primary'
 
   - sectionType: accordion
     containerTag: section
@@ -158,8 +158,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -245,8 +245,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -296,9 +296,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'accordion'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

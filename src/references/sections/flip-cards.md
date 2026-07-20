@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Flip Cards'
   description: 'Interactive flip card components with front and back content, icons, and CTAs.'
-  image: '/assets/images/sample6.jpg'
+  thumbnail: '/assets/images/sample6.jpg'
   tags: ['flip-cards', 'interactive', 'cards', 'animation', 'hover-effects', 'cta']
 
 seo:
   title: Flip Cards Component - Interactive Card UI for Metalsmith
   description: 'Interactive flip card components with front and back content, icons, and CTAs. Create engaging card-based interfaces for your Metalsmith static site.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith flip cards, interactive cards, card UI component, flip animation, card interface, hover cards, two-sided cards'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: 'first-section'
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -167,8 +167,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -247,9 +247,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'flip-cards'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

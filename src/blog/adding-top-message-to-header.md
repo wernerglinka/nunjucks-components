@@ -16,6 +16,7 @@ card:
   date: '2025-12-22'
   author: 'Nunjucks Components Team'
   thumbnail: '/assets/images/sample16.jpg'
+  tags: ['header', 'announcement', 'banner', 'cookies', 'javascript', 'tutorial']
 
 seo:
   title: 'Adding a Top Message Bar to Your Metalsmith Site'

@@ -1,32 +1,30 @@
-# Search Section Component Example
-# This shows how to add search functionality to a page
+# Search Partial Example
+# The search partial is rendered by the search-only section. Properties are
+# read from the section entry itself (title, subtitle, placeholder), with
+# behavior tuning under settings.
 
 # Basic search section
-sectionType: search
+sectionType: search-only
 text:
-  title: "Search Components"
-  subtitle: "Find components, features, and documentation"
-  placeholder: "Search components and documentation..."
+  title: 'Search Components'
+  subtitle: 'Find components, features, and documentation'
+placeholder: 'Search components and documentation...'
 settings:
-  showCategories: true
   maxResults: 20
-  resultTypes: ['page', 'section']
+  minCharacters: 2
 
 # Alternative minimal configuration
-# sectionType: search
-# text:
-#   placeholder: "Search..."
+# sectionType: search-only
+# placeholder: 'Search...'
 
 # Advanced configuration example
-# sectionType: search
+# sectionType: search-only
 # text:
-#   title: "Find What You Need"
-#   subtitle: "Search through all component documentation"
-#   placeholder: "Type to search components, guides, examples..."
+#   title: 'Find What You Need'
+#   subtitle: 'Search through all component documentation'
+# placeholder: 'Type to search components, guides, examples...'
 # settings:
-#   showCategories: true
 #   maxResults: 15
-#   resultTypes: ['page', 'section']
-#   showRelevanceScore: true
-#   enableHighlighting: true
-#   minCharacters: 2
+#   minCharacters: 3
+#   enableHighlighting: false
+#   source: '/search-index.json'

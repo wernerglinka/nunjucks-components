@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Podcast'
   description: 'Professional podcast player with RSS feed integration, Shikwasa player, progressive loading, and episode selection.'
-  image: '/assets/images/sample20.jpg'
+  thumbnail: '/assets/images/sample20.jpg'
   tags: ['podcast', 'audio', 'rss', 'player', 'episodes', 'shikwasa', 'streaming']
 
 seo:
   title: Podcast Component - RSS-Powered Player for Metalsmith
   description: 'Dynamic podcast component with RSS feed parsing, Shikwasa player integration, progressive episode loading, and professional audio controls for Metalsmith static sites.'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'metalsmith podcast player, RSS feed parser, shikwasa audio player, podcast component, dynamic episodes, progressive loading, podcast website'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -51,8 +51,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -87,8 +87,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -116,8 +116,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -151,8 +151,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: true
       noMargin:
         top: true
@@ -177,8 +177,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -213,8 +213,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -244,8 +244,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -362,9 +362,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'podcast'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

@@ -1,11 +1,11 @@
 ---
 layout: pages/sections-with-sidebar.njk
-bodyClass: ''
+bodyClasses: ''
 
 seo:
   title: Collection Pagination Partial - Nunjucks Components
   description: 'Pagination component for navigating through collection pages'
-  socialImage: '/assets/images/metalsmith-starter-social.png'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
 
 card:
   title: 'Collection Pagination'
@@ -111,9 +111,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'collection-pagination'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

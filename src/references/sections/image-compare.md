@@ -11,13 +11,13 @@ navigation:
 card:
   title: 'Image Compare'
   description: 'Compare a before and after image'
-  image: '/assets/images/sample19.jpg'
+  thumbnail: '/assets/images/sample19.jpg'
   tags: ['image', 'media', 'visual', 'image comparison', 'photo', 'picture']
 
 seo:
   title: Image Compare - Compare a before and after image Section for Metalsmith
   description: 'Compare a before and after image'
-  socialImage: '/assets/images/sample.jpg'
+  socialImage: '/assets/images/metalsmith2025-starter-social.png'
   canonicalURL: ''
   keywords: 'nunjucks image section, metalsmith, eleventy, visual component, image compare, featured image, photo section, visual content'
 
@@ -26,8 +26,8 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -51,8 +51,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -78,8 +78,8 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isAnimated: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -132,9 +132,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'image-compare'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true

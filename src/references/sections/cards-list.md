@@ -11,11 +11,11 @@ navigation:
 card:
   title: 'Manual Cards List'
   description: 'A list of manual configurable cards with custom content combinations including images, text, icons, and CTAs.'
-  image: '/assets/images/sample12.jpg'
+  thumbnail: '/assets/images/sample12.jpg'
   tags: ['card', 'flexible', 'image', 'icon', 'cta', 'link']
 
 seo:
-  title: Manual Cards List for Metalsmith
+  title: Cards List Component for Metalsmith
   description: 'A list of manual configurable cards with custom content combinations including images, text, icons, CTAs, and link wrappers.'
   socialImage: '/assets/images/sample12.jpg'
   canonicalURL: ''
@@ -26,9 +26,9 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: false
@@ -51,9 +51,9 @@ sections:
     classes: ''
     id: 'configuration'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -130,9 +130,9 @@ sections:
     classes: ''
     id: 'basic-cards'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -251,9 +251,9 @@ sections:
     classes: 'demo-section'
     id: 'background-image-cards'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -278,9 +278,9 @@ sections:
     classes: 'demo-section background-cards'
     id: 'background-examples'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -399,9 +399,9 @@ sections:
     classes: 'demo-section'
     id: 'linked-cards'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -424,9 +424,9 @@ sections:
     classes: 'demo-section linked-cards'
     id: 'linked-examples'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -524,9 +524,9 @@ sections:
     classes: 'demo-section'
     id: 'horizontal-cards'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -549,9 +549,9 @@ sections:
     classes: 'demo-section linked-cards'
     id: 'linked-examples'
     isDisabled: false
-    isAnimated: true
     inContainer: true
     containerFields:
+      isAnimated: true
       inContainer: false
       noMargin:
         top: true
@@ -655,9 +655,9 @@ sections:
     id: ''
     isDisabled: false
     isReverse: false
-    isAnimated: false
     componentDownload: 'manual-card'
     containerFields:
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -677,7 +677,7 @@ sections:
       subTitle: ''
       prose: 'Get the complete manual-card component package including template, styles, manifest, examples, and installation script.'
     ctas:
-      - url: '/downloads/sections/manual-card.zip'
+      - url: '/downloads/sections/cards-list.zip'
         label: 'Download Manual Card Section'
         isButton: true
         buttonStyle: 'primary'
