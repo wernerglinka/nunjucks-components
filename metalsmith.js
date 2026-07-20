@@ -343,6 +343,26 @@ metalsmith
       vendorFiles[`assets/vendor/leaflet/images/${image}`] = `leaflet/dist/images/${image}`;
     }
 
+    // Self-hosted web fonts from @fontsource packages (replaces Google Fonts).
+    // The per-weight CSS files are concatenated into one stylesheet; their
+    // url(./files/...) references resolve against the shared files/ directory,
+    // and unicode-range keeps browsers fetching only the subsets a page uses.
+    const fontCss = [];
+    for (const family of ['montserrat', 'open-sans']) {
+      for (const weight of [300, 500]) {
+        fontCss.push(
+          fs.readFileSync(metalsmithInstance.path(`node_modules/@fontsource/${family}/${weight}.css`), 'utf8')
+        );
+      }
+      const fontFilesDir = metalsmithInstance.path(`node_modules/@fontsource/${family}/files`);
+      for (const fontFile of fs.readdirSync(fontFilesDir)) {
+        if (/-(300|500)-normal\.(woff2?|ttf)$/.test(fontFile)) {
+          vendorFiles[`assets/vendor/fonts/files/${fontFile}`] = `@fontsource/${family}/files/${fontFile}`;
+        }
+      }
+    }
+    files['assets/vendor/fonts/fonts.css'] = { contents: Buffer.from(fontCss.join('\n')) };
+
     for (const [destination, source] of Object.entries(vendorFiles)) {
       files[destination] = { contents: fs.readFileSync(metalsmithInstance.path(`node_modules/${source}`)) };
     }
