@@ -1,7 +1,10 @@
 {% from "components/_partials/text/text.njk" import text %}
 {% from "components/_partials/image/image.njk" import image %}
 
-{% set isDE = lang == 'de' %}
+{# Section templates render inside the renderSection macro, which only exposes
+   its parameters — page context like `locale` is not visible here. Detect the
+   language from urlPath instead. #}
+{% set isDE = urlPath and urlPath.startsWith('/de/') %}
 
 <div class="content container">
   {% if section.image %}
