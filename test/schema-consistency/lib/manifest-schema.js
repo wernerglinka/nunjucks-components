@@ -20,7 +20,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import { resolveFields as canonicalResolveFields } from '../../../node_modules/metalsmith-bundled-components/src/utils/schema-emitter.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
