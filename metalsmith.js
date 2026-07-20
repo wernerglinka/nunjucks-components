@@ -316,7 +316,18 @@ metalsmith
       destination: 'assets/', // Where to copy assets
       ignore: ['main.css', 'main.js', 'styles/'] // Exclude files handled by bundled-components
     })
-  );
+  )
+
+  /**
+   * Self-host the lottie-player web component. The lottie partial lazy-loads
+   * this file from /assets/lottie-player.js; serving it locally keeps the
+   * player version managed through npm instead of a runtime CDN dependency.
+   */
+  .use((files, metalsmithInstance, done) => {
+    const playerPath = metalsmithInstance.path('node_modules/@lottiefiles/lottie-player/dist/lottie-player.js');
+    files['assets/lottie-player.js'] = { contents: fs.readFileSync(playerPath) };
+    done();
+  });
 
 // These plugins only run in production mode to optimize the site
 if (isProduction) {
