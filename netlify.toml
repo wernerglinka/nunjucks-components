@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+# Reference pages renamed so filenames match their component names (2026-07)
+[[redirects]]
+  from = "/references/sections/manual-card"
+  to = "/references/sections/cards-list/"
+  status = 301
+
+[[redirects]]
+  from = "/references/sections/search"
+  to = "/references/sections/search-only/"
+  status = 301
+
+[[redirects]]
+  from = "/references/sections/simple-slider"
+  to = "/references/sections/slider/"
+  status = 301
