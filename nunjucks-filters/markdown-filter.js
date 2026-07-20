@@ -72,17 +72,31 @@ const highlighter = createHighlighterCoreSync({
  */
 const markedInstance = new Marked();
 
+/**
+ * Escapes text for the non-highlighted fallback path. Shiki escapes its own
+ * output, but the fallback interpolates the raw fence body (and the fence
+ * language tag) into HTML, so both must be escaped here.
+ * @param {string} value - Text to escape
+ * @returns {string} HTML-escaped text
+ */
+const escapeHTML = (value) =>
+  String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
 const renderer = {
   code({ text, lang }) {
     const alias = langAliases[lang];
     const grammar = alias ? alias.grammar : lang || 'text';
-    const label = alias ? alias.label : lang || 'text';
+    const label = escapeHTML(alias ? alias.label : lang || 'text');
 
     try {
       const highlighted = highlighter.codeToHtml(text, { lang: grammar, theme: THEME });
       return `<div class="code-block"><span class="code-lang ${THEME_COLOR}">${label}</span>${highlighted}</div>`;
     } catch {
-      return `<div class="code-block"><span class="code-lang ${THEME_COLOR}">${label}</span><pre><code>${text}</code></pre></div>`;
+      return `<div class="code-block"><span class="code-lang ${THEME_COLOR}">${label}</span><pre><code>${escapeHTML(text)}</code></pre></div>`;
     }
   }
 };
