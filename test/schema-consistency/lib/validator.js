@@ -9,15 +9,10 @@
  * pass the real build, and vice versa. We deliberately do NOT reimplement the
  * validation rules.
  *
- * Note on the import path: the plugin's package.json `exports` field only
- * publishes the plugin entry, so the validator is imported by direct file path
- * into node_modules. This is still the library's own code (not a copy), so the
- * tests and the build validate identically.
+ * Imported through the package's `metalsmith-bundled-components/validation`
+ * subpath export (added in 1.3.0).
  *
  * @author Werner Glinka <werner@glinka.co>
  */
 
-export {
-  validateSection,
-  validateSections
-} from '../../../node_modules/metalsmith-bundled-components/src/utils/validation.js';
+export { validateSection, validateSections } from 'metalsmith-bundled-components/validation';

@@ -11,8 +11,8 @@
  *     module that emits `build/assets/components-schema.json` for the downstream
  *     editor. We call its `resolveFields` so the tests compose `$use`/`$extends`
  *     identically to the shipped artifact, then layer test-only helpers on top
- *     (materialise defaults, walk paths). Imported by file path because the
- *     plugin's package `exports` only publishes its plugin entry.
+ *     (materialise defaults, walk paths). Imported through the package's
+ *     `metalsmith-bundled-components/schema` subpath export (added in 1.3.0).
  *
  * @author Werner Glinka <werner@glinka.co>
  */
@@ -21,7 +21,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as yaml from 'js-yaml';
-import { resolveFields as canonicalResolveFields } from '../../../node_modules/metalsmith-bundled-components/src/utils/schema-emitter.js';
+import { resolveFields as canonicalResolveFields } from 'metalsmith-bundled-components/schema';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
