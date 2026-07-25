@@ -1,23 +1,40 @@
-@import url('./styles/_css-base.css');
-@import url('./styles/_design-tokens.css');
+/**
+ * Every import and rule block below declares the cascade layer it belongs
+ * to, and that, rather than source order, decides precedence. The layer
+ * has to be explicit: unlayered CSS beats every layer, so one bare rule
+ * here would outrank every component in the catalog. The order (tokens,
+ * base, components, site) is declared by the bundler config in
+ * metalsmith.js.
+ */
 
-/* Shell chrome styles (header/footer/navigation/branding live in layouts/pages/parts, not the component catalog) */
-@import url('./styles/_header.css');
-@import url('./styles/_footer.css');
-@import url('./styles/_navigation.css');
-@import url('./styles/_branding.css');
-@import url('./styles/_breadcrumbs.css');
+@import url('./styles/_css-base.css') layer(base);
+@import url('./styles/_design-tokens.css') layer(tokens);
+
+/*
+ * Shell chrome styles (header/footer/navigation/branding live in
+ * layouts/pages/parts, not the component catalog). In the `site` layer,
+ * above components: the chrome restyles elements that component CSS also
+ * reaches with element selectors (the button partial styles every
+ * <button>), and before layers the chrome won those fights on
+ * specificity. Above `components`, it keeps winning by layer.
+ */
+@import url('./styles/_header.css') layer(site);
+@import url('./styles/_footer.css') layer(site);
+@import url('./styles/_navigation.css') layer(site);
+@import url('./styles/_branding.css') layer(site);
+@import url('./styles/_breadcrumbs.css') layer(site);
 
 /* Optional shell features, toggled by scripts/toggle-feature.mjs. Do not edit tagged lines by hand. */
 
 /* feature-styles */
-@import url('./styles/_language-switcher.css'); /* feature:language-switcher */
-@import url('./styles/_dark-light-theme-switcher.css'); /* feature:dark-light-theme-switcher */
+@import url('./styles/_language-switcher.css') layer(site); /* feature:language-switcher */
+@import url('./styles/_dark-light-theme-switcher.css') layer(site); /* feature:dark-light-theme-switcher */
 
 /**
  * Global Styles
  */
 
+@layer base {
 body {
   display: flex;
   flex-direction: column;
@@ -83,14 +100,6 @@ h4 {
 
 .is-dark .lead-in {
   color: var(--color-text-highlight-light);
-}
-
-.lead-in + :is(h1, h2, h3, h4) {
-  margin-block-start: 0.5rem;
-}
-
-:is(h1, h2, h3, h4) + .sub-title {
-  margin-top: var(--space-xs-s);
 }
 
 p {
@@ -304,11 +313,11 @@ svg {
  * Page highlight marks (for search term highlighting)
  */
 mark[data-highlight] {
-  background: var(--color-highlight, #fef08a);
-  color: var(--color-text-primary);
+  background: var(--color-highlight-background);
+  color: var(--color-text);
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
 }
 
 /** 
@@ -326,13 +335,43 @@ mark[data-highlight] {
   }
 }
 
-.css-background1 {
-  background-image: var(--pattern5);
 }
 
 /**
- * Page with sidebar layout adjustments
+ * Background pattern utility, applied via markup class. In the `site`
+ * layer: it must beat the shorthand `background` of whatever element it
+ * is applied to (the footer's, for one), which it previously did by
+ * specificity.
  */
+@layer site {
+  .css-background1 {
+    background-image: var(--pattern5);
+  }
+
+  /*
+   * Typographic rhythm around the text partial's lead-in and sub-title.
+   * In the `site` layer: these adjacency rules tighten margins on
+   * elements the text partial renders, and must beat its own flow
+   * spacing (.prose > * + *), which they previously did by specificity.
+   */
+  .lead-in + :is(h1, h2, h3, h4) {
+    margin-block-start: 0.5rem;
+  }
+
+  :is(h1, h2, h3, h4) + .sub-title {
+    margin-top: var(--space-xs-s);
+  }
+}
+
+/**
+ * Page with sidebar layout adjustments.
+ *
+ * In the `site` layer, not `base`: these rules restyle component classes
+ * (.section-wrapper, .hero, .ctas) for the reference pages, and today they
+ * win by specificity. The site layer sits above components, so they keep
+ * winning by layer instead.
+ */
+@layer site {
 body.with-sidebar {
   padding: 0 var(--space-m-l) 0 0;
 
@@ -473,4 +512,6 @@ body.with-sidebar {
       }
     }
   }
+}
+
 }

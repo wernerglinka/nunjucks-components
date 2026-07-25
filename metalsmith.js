@@ -289,6 +289,28 @@ metalsmith
         // Emit the composed editor schema for the admin to consume
         enabled: true
       },
+      /**
+       * Cascade layers. Each component's CSS is wrapped in
+       * @layer components.<name>, and lib/overrides/<name>/<name>.css in
+       * @layer site.<name>, so an override wins over the component it
+       * overrides without needing a more specific selector. The order is
+       * the whole cascade of the site, lowest first. Anything left
+       * unlayered would beat all of it, which is why every import and
+       * rule in lib/assets/main.css names its layer, and why the
+       * self-hosted vendor stylesheets (Shikwasa, Leaflet, OpenLayers)
+       * are wrapped in the `vendor` layer when they are copied.
+       */
+      layers: {
+        enabled: true,
+        /**
+         * `vendor` sits between `base` and `components`: third-party
+         * widget CSS (Leaflet, OpenLayers, Shikwasa) must beat the
+         * generic element styles in `base` (a, svg, headings), while
+         * components that deliberately restyle a vendor widget
+         * (podcast's player theme) must beat the vendor defaults.
+         */
+        order: ['tokens', 'base', 'vendor', 'components', 'site']
+      },
       postcss: {
         enabled: true,
         plugins: [
@@ -364,7 +386,17 @@ metalsmith
     files['assets/vendor/fonts/fonts.css'] = { contents: Buffer.from(fontCss.join('\n')) };
 
     for (const [destination, source] of Object.entries(vendorFiles)) {
-      files[destination] = { contents: fs.readFileSync(metalsmithInstance.path(`node_modules/${source}`)) };
+      let contents = fs.readFileSync(metalsmithInstance.path(`node_modules/${source}`));
+      // Vendor stylesheets are injected at runtime as plain <link> elements,
+      // and unlayered CSS beats every cascade layer. Wrapping them in the
+      // `vendor` layer (declared lowest in the bundle's @layer order) keeps
+      // component CSS able to override vendor defaults, as it did before
+      // layers. None of these files start with @charset or @import, which
+      // would be invalid inside a layer block.
+      if (destination.endsWith('.css')) {
+        contents = Buffer.from(`@layer vendor {\n${contents.toString()}\n}\n`);
+      }
+      files[destination] = { contents };
     }
     done();
   });

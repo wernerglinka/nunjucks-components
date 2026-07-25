@@ -169,6 +169,48 @@
   padding: var(--space-m, 1rem);
 }
 
+/*
+  The button partial styles every <button> from the components layer,
+  which under cascade layers beats the vendor layer where OpenLayers
+  styles its own controls. Re-assert the vendor control look here so map
+  controls keep it. Leaflet is unaffected: its controls are anchors.
+*/
+.ol-control button {
+  display: block;
+  margin: 1px;
+  padding: 0;
+  color: var(--ol-subtle-foreground-color);
+  font-weight: bold;
+  letter-spacing: normal;
+  text-align: center;
+  background: var(--ol-background-color);
+  backdrop-filter: none;
+  isolation: auto;
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+}
+
+.ol-control button:hover,
+.ol-control button:focus {
+  transform: none;
+  background-color: var(--ol-background-color);
+}
+
+/* Vendor rules the blanket re-assertion above would otherwise flatten */
+.ol-zoom .ol-zoom-in {
+  border-radius: 2px 2px 0 0;
+}
+
+.ol-zoom .ol-zoom-out {
+  border-radius: 0 0 2px 2px;
+}
+
+.ol-attribution.ol-uncollapsible button,
+.ol-overviewmap.ol-uncollapsible button {
+  display: none;
+}
+
 /* OpenLayers popup close button styling */
 .ol-popup-closer {
   text-decoration: none;

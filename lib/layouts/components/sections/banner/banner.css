@@ -92,15 +92,19 @@
      in scope here; fall back to literal values to keep the transition working. */
   transition: all var(--transition-duration, 0.5s) var(--transition-timing, ease-in-out);
 
+  /* !important: these state paddings must beat the default section padding
+     in commons.css. Under cascade layers the commons sublayer can come
+     later and would win regardless of specificity; important inverts that,
+     and without layers it wins the specificity fight it already won. */
   &.is-closed {
     max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   &:not(.is-closed) {
     max-height: var(--max-accordion-height, 1000px);
-    padding-top: var(--space-s);
-    padding-bottom: var(--space-s);
+    padding-top: var(--space-s) !important;
+    padding-bottom: var(--space-s) !important;
   }
 }
