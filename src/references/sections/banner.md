@@ -268,6 +268,46 @@ sections:
         felis euismod semper. Cras mattis consectetur purus sit amet fermentum.
 
 
+  - sectionType: rich-text
+    containerTag: article
+    classes: ''
+    id: 'styling'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Styling
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        The banner's adjustable values are component-scoped custom properties, declared on the component root with fallbacks into the global design tokens. Override the properties from `lib/overrides/banner/banner.css`, not the rules that consume them.
+
+        | Property | Default | Controls |
+        |----------|---------|----------|
+        | `--banner-padding` | `var(--space-s-l)` | Text block padding |
+        | `--banner-gap` | `var(--space-m-l)` | Gap between text and media |
+        | `--banner-border-radius` | `var(--glass-border-radius)` | Image corner radius |
+        | `--banner-transition-duration` | `0.5s` | Accordion open/close speed |
+        | `--banner-transition-timing` | `ease-in-out` | Accordion easing |
+        | `--banner-max-accordion-height` | `1000px` | Open accordion height cap |
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
   - sectionType: banner
     containerTag: aside
     classes: 'download-banner'
