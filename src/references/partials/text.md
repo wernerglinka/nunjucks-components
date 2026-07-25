@@ -145,6 +145,55 @@ sections:
         - Prose content is processed through the `mdToHTML` filter
         - Uses appropriate heading tags and semantic structure
 
+  - sectionType: rich-text
+    containerTag: article
+    classes: ''
+    id: 'styling'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Styling
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        The text partial's adjustable values are component-scoped custom properties, declared on `.prose` with fallbacks into the global design tokens. Override the properties from `lib/overrides/text/text.css`, not the rules that consume them. The inline-code treatment is the set sites change most.
+
+        | Property | Default | Controls |
+        |----------|---------|----------|
+        | `--text-code-font` | `'Courier New', monospace` | Inline code font |
+        | `--text-code-background` | `var(--color-background-light)` | Inline code background |
+        | `--text-code-padding` | `0.2em 0.4em` | Inline code padding |
+        | `--text-code-radius` | `0.25rem` | Inline code corner radius |
+        | `--text-blockquote-accent` | `var(--color-primary)` | Blockquote left border |
+
+        ```css
+        /* lib/overrides/text/text.css: inline code as plain prose */
+        .prose {
+          --text-code-font: monospace;
+          --text-code-background: transparent;
+          --text-code-padding: 0;
+          --text-code-radius: 0;
+        }
+        ```
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
   - sectionType: banner
     containerTag: aside
     classes: 'download-banner'
