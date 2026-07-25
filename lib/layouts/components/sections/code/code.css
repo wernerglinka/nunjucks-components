@@ -8,7 +8,7 @@
  * label position, and code scrolling.
  *
  * Design Tokens:
- * - --space-lg, --space-s-m, --space-s, --space-xs, --space-2xs, --space-3xs
+ * - --space-l, --space-s-m, --space-s, --space-xs, --space-2xs, --space-3xs
  * - --color-text, --color-text-light, --color-primary, --color-success
  * - --font-xs
  * - --contrast-text-on-dark
@@ -16,7 +16,7 @@
 
 .code {
   .code-section {
-    margin: var(--space-lg) 0;
+    margin: var(--space-l) 0;
   }
 
   .code-header {
@@ -70,8 +70,8 @@
     background: none;
     border: none;
     padding: 0;
-    width: var(--space-lg);
-    height: var(--space-lg);
+    width: var(--space-l);
+    height: var(--space-l);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -43,7 +43,7 @@
  * - --space-2xs-xs
  * - --color-text-light
  * - --font-s
- * - --default-letter-spacing
+ * - --tracking
  * - --glass-backdrop-filter
  */
 
@@ -1178,7 +1178,7 @@ svg.shk-btn_mute,
   color: var(--color-text-light);
   font-size: var(--font-s);
   font-weight: 500;
-  letter-spacing: var(--default-letter-spacing);
+  letter-spacing: var(--tracking);
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
