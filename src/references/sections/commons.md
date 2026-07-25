@@ -157,6 +157,44 @@ sections:
         - The commons CSS also provides the responsive content layout (the Every Layout switcher pattern), the `.prose` measure, and utility classes like `.sr-only`
         - Individual sections can override the layout threshold and gaps via the `--threshold` and `--content-gap` custom properties in their own CSS
 
+  - sectionType: rich-text
+    containerTag: article
+    classes: ''
+    id: 'styling'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Styling
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        The section rhythm every component inherits is exposed as component-scoped custom properties, declared on `.section-wrapper` with fallbacks into the global design tokens. Override the properties from `lib/overrides/commons/commons.css`, not the rules that consume them; because every section wrapper carries them, one override retunes the whole page rhythm.
+
+        | Property | Default | Controls |
+        |----------|---------|----------|
+        | `--commons-section-margin` | `var(--space-l-2xl)` | Vertical margin between sections |
+        | `--commons-section-padding` | `var(--space-s-l)` | Default section padding |
+        | `--commons-content-gap` | `var(--content-gap, 2rem)` | Gap in the content switcher layout |
+        | `--commons-max-width` | `var(--wrapper-max-width, 85rem)` | Max width of in-container sections |
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
   - sectionType: banner
     containerTag: aside
     classes: 'download-banner'
