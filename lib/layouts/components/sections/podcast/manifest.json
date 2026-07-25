@@ -83,7 +83,7 @@
       "maxEpisodes": {
         "widget": "number",
         "label": "Max episodes",
-        "default": 10
+        "default": 50
       },
       "initialEpisodes": {
         "widget": "number",
@@ -114,7 +114,7 @@
       "themeColor": {
         "widget": "text",
         "label": "Theme color",
-        "default": ""
+        "default": "#007aff"
       }
     },
     "ctas": {

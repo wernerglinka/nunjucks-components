@@ -6,11 +6,11 @@
  * - --space-xs
  * - --space-s
  * - --space-m
- * - --color-text-muted
+ * - --color-text-light
  * - --color-border-light
  * - --color-text
  * - --color-primary
- * - --step--1
+ * - --font-s
  * - --font-p
  * - --font-s
  */
@@ -68,8 +68,8 @@
     .caption {
       margin-top: var(--space-xs);
       font-style: italic;
-      color: var(--color-text-muted);
-      font-size: var(--step--1);
+      color: var(--color-text-light);
+      font-size: var(--font-s);
     }
   }
 

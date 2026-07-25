@@ -7,14 +7,21 @@
  * This file styles the section wrapper, the filename/copy header, the language
  * label position, and code scrolling.
  *
+ * Component Properties (override from lib/overrides/code/code.css):
+ * - --code-success
+ *
  * Design Tokens:
  * - --space-l, --space-s-m, --space-s, --space-xs, --space-2xs, --space-3xs
- * - --color-text, --color-text-light, --color-primary, --color-success
+ * - --color-text, --color-text-light, --color-primary
  * - --font-xs
  * - --contrast-text-on-dark
  */
 
 .code {
+  /* Copy-button success feedback. Was --color-success, a token no site
+     defines, so the declaration was silently dropped. */
+  --code-success: #16a34a;
+
   .code-section {
     margin: var(--space-l) 0;
   }
@@ -89,7 +96,7 @@
   }
 
   .copy-button.copied {
-    color: var(--color-success);
+    color: var(--code-success);
   }
 
   .copy-button.copied svg {
@@ -99,6 +106,6 @@
   .copy-button.copied::after {
     content: '✓';
     font-size: 14px;
-    color: var(--color-success);
+    color: var(--code-success);
   }
 }

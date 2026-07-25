@@ -8,23 +8,23 @@
     "placeholder": {
       "widget": "text",
       "label": "Search placeholder",
-      "default": ""
+      "default": "Search..."
     },
     "settings": {
       "maxResults": {
         "widget": "number",
         "label": "Max results",
-        "default": 10
+        "default": 20
       },
       "minCharacters": {
         "widget": "number",
         "label": "Minimum characters",
-        "default": 3
+        "default": 2
       },
       "showRelevanceScore": {
         "widget": "checkbox",
         "label": "Show relevance score",
-        "default": false
+        "default": true
       },
       "enableHighlighting": {
         "widget": "checkbox",

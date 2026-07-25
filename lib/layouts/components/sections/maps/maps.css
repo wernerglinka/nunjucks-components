@@ -1,10 +1,14 @@
 /**
  * Maps Section Styles
  *
+ * Component Properties (override from lib/overrides/maps/maps.css;
+ * --maps-height is also set per instance from the section's `height`):
+ * - --maps-height
+ * - --maps-radius
+ * - --maps-shadow
+ *
  * Design Tokens:
  * - --space-l
- * - --border-radius
- * - --shadow-m
  * - --color-primary
  * - --font-size-s
  * - --font-size-m
@@ -22,7 +26,13 @@
 }
 
 .maps .content {
-  --map-default-height: 400px;
+  --maps-height: 400px;
+
+  /* Map frame decoration. Both were tokens no site defines
+     (--border-radius, --shadow-m), silently dropped, so the rendered
+     defaults have always been square and shadowless. Now overridable. */
+  --maps-radius: 0;
+  --maps-shadow: none;
 
   display: block;
   width: 100%;
@@ -41,11 +51,11 @@
 .js-leaflet-map,
 .js-openlayers-map {
   width: 100%;
-  height: var(--map-default-height);
+  height: var(--maps-height);
   margin-bottom: var(--space-m);
-  border-radius: var(--border-radius);
+  border-radius: var(--maps-radius);
   overflow: hidden;
-  box-shadow: var(--shadow-m);
+  box-shadow: var(--maps-shadow);
 }
 
 .js-leaflet-map > div,

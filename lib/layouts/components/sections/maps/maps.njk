@@ -25,7 +25,7 @@
          data-clustering="{{ mapClustering | dump | e }}"
          role="application"
          aria-label="Interactive map{% if section.text.title %}: {{ section.text.title }}{% endif %}"
-         {% if section.height %}style="--map-default-height: {{ section.height }};"{% endif %}>
+         {% if section.height %}style="--maps-height: {{ section.height }};"{% endif %}>
       <div id="map-{{ section.id or 'leaflet-' + sectionIndex }}" tabindex="0" aria-label="Map view with markers and interactive controls">
         <div class="map-loading" role="status" aria-live="polite" aria-label="Loading map">
           <span class="sr-only">Loading interactive map, please wait...</span>
@@ -43,7 +43,7 @@
          data-clustering="{{ mapClustering | dump | e }}"
          role="application"
          aria-label="Interactive map{% if section.text.title %}: {{ section.text.title }}{% endif %}"
-         {% if section.height %}style="--map-default-height: {{ section.height }};"{% endif %}>
+         {% if section.height %}style="--maps-height: {{ section.height }};"{% endif %}>
       <div id="map-{{ section.id or 'openlayers-' + sectionIndex }}" tabindex="0" aria-label="Map view with markers and interactive controls">
         <div class="map-loading" role="status" aria-live="polite" aria-label="Loading map">
           <span class="sr-only">Loading interactive map, please wait...</span>

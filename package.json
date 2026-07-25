@@ -29,6 +29,7 @@
     "format": "biome format --write .",
     "lint": "biome lint --write .",
     "lint:css": "stylelint \"lib/**/*.css\" --fix",
+    "lint:components": "node scripts/component-lint.mjs",
     "check": "biome check . && stylelint \"lib/**/*.css\"",
     "fix": "biome check --write . && npm run lint:css",
     "depcheck": "depcheck",

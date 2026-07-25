@@ -4,8 +4,8 @@
  * Design Tokens:
  * - --glass-border-radius
  * - --space-xs
- * - --color-text-muted
- * - --step--1
+ * - --color-text-light
+ * - --font-s
  * - --space-m
  * - --space-m-l
  */
@@ -29,8 +29,8 @@
     .caption {
       margin-top: var(--space-xs);
       font-style: italic;
-      color: var(--color-text-muted);
-      font-size: var(--step--1);
+      color: var(--color-text-light);
+      font-size: var(--font-s);
     }
   }
 
