@@ -562,7 +562,7 @@ sections:
 
         ### Configuration Examples
 
-        Each component package includes an `examples.yaml` file with multiple configuration examples showing different use cases:
+        Each component package includes an `examples.yml` file with multiple configuration examples showing different use cases:
 
         - Minimal configuration
         - Common patterns
