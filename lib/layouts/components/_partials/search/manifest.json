@@ -1,8 +1,38 @@
 {
   "name": "search",
   "type": "partial",
+  "abstract": true,
   "styles": ["search.css"],
   "scripts": ["search.js"],
+  "fields": {
+    "placeholder": {
+      "widget": "text",
+      "label": "Search placeholder",
+      "default": ""
+    },
+    "settings": {
+      "maxResults": {
+        "widget": "number",
+        "label": "Max results",
+        "default": 10
+      },
+      "minCharacters": {
+        "widget": "number",
+        "label": "Minimum characters",
+        "default": 3
+      },
+      "showRelevanceScore": {
+        "widget": "checkbox",
+        "label": "Show relevance score",
+        "default": false
+      },
+      "enableHighlighting": {
+        "widget": "checkbox",
+        "label": "Enable highlighting",
+        "default": true
+      }
+    }
+  },
   "validation": {
     "properties": {
       "title": {

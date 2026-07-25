@@ -268,3 +268,8 @@ document.addEventListener('click', (e) => {
 - **Lazy Loading**: Load overlay content only when needed
 - **Event Delegation**: Use event delegation for multiple overlays
 - **Memory Management**: Clean up event listeners when removing overlays
+## Why No `fields` Block
+
+The template is a placeholder; this partial is a CSS-only visual
+affordance composed by the `video` partial. It carries no authorable data
+at all, so it declares no `fields`.

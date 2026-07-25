@@ -145,3 +145,9 @@ The CSS includes an optional progress bar. Add this element to your layout to di
 - [SWUP Documentation](https://swup.js.org/)
 - [SWUP Hooks API](https://swup.js.org/hooks/)
 - [SWUP Plugins](https://swup.js.org/plugins/)
+
+## Why No `fields` Block
+
+This partial has no visual output and no authorable data: including it in
+a layout is the entire interface. It loads the SWUP integration via its
+manifest `scripts`, so it declares no `fields` and no `validation`.
