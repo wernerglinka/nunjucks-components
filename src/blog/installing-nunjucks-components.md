@@ -326,7 +326,7 @@ sections:
   - sectionType: rich-text
     containerTag: article
     classes: ''
-    id: 'manual-installation'
+    id: 'starter-installer'
     isDisabled: false
     containerFields:
       inContainer: false
@@ -339,6 +339,88 @@ sections:
         bottom: false
       background:
         color: 'var(--color-background-light)'
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Installing with the Starter
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        If your project is based on the [Metalsmith2025 Structured Content Starter](https://github.com/wernerglinka/metalsmith2025-structured-content-starter), you do not download ZIP files at all. The starter ships an installer that reads this library's catalog directly:
+
+        ```bash
+        npm run components                                # pick from the list
+        node scripts/install-components.mjs hero banner   # install by name
+        ```
+
+        `npm run components` lists every catalog component not yet in your site and installs the ones you pick, along with any dependencies they need. A component named on the command line is installed again even if it is already present, which is how you pull a canon update. Dependencies are only fetched when missing.
+
+        ### One Commit per Component
+
+        Each installed component lands as its own git commit, staged from that component's directory only, so unrelated work in progress stays out of it:
+
+        ```
+        component: install hero@1.3.2 from nunjucks-components.com
+
+        Component-Name: hero
+        Component-Version: 1.3.2
+        Content-Hash: a3f9c2e17b40d8e6
+        ```
+
+        The version is the library's, not the component's. Components are published as a set, so `1.3.2` says which library release this copy of `hero` came from. `Content-Hash` is the per-component identity, and it is the field that moves when the component's own content changes.
+
+        The trailers make an install mechanically findable later, with no lockfile or sidecar file to keep in sync. What landed and from which release is a `git log` away, and what you changed since is one diff:
+
+        ```bash
+        git log --grep="Component-Name: hero" -1
+        git diff <that commit> HEAD -- lib/layouts/components/sections/hero
+        ```
+
+        ### The Installer Protects Your Edits
+
+        Because an install overwrites whatever is in the component's directory, the installer refuses to run when those paths have uncommitted changes, rather than discarding edits it cannot recover. Two flags adjust this:
+
+        - `--force` installs anyway, discarding local edits in the affected component directories
+        - `--no-commit` places files without recording commits, for sites not kept in git
+
+        `--no-commit` still honors the dirty-path refusal, since that guard protects your files rather than your history. Outside a git repository the installer says so and simply places the files.
+
+        ### Knowing What Needs Updating
+
+        ```bash
+        npm run components:status
+        ```
+
+        The check computes each installed component's content hash from the files on disk, compares it against the catalog, and uses the `Content-Hash` trailer of the last install commit as the baseline that makes any difference attributable:
+
+        - **outdated** means canon moved and your copy did not. A plain reinstall by name picks up the update.
+        - **modified** means you changed the component and canon did not. This needs nothing; it is your fork, working as intended.
+        - **diverged** means both sides moved and the two changes have to be merged.
+
+        For the `outdated` and `diverged` cases, and for components installed before install commits existed, see [Updating Installed Components](/blog/updating-installed-components/).
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
+  - sectionType: rich-text
+    containerTag: article
+    classes: ''
+    id: 'manual-installation'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
         image: ''
         imageScreen: 'none'
     text:
@@ -431,7 +513,7 @@ sections:
     id: 'dependency-management'
     isDisabled: false
     containerFields:
-      inContainer: true
+      inContainer: false
       isAnimated: true
       noMargin:
         top: true
@@ -440,7 +522,7 @@ sections:
         top: false
         bottom: false
       background:
-        color: ''
+        color: 'var(--color-background-light)'
         image: ''
         imageScreen: 'none'
     text:
@@ -515,7 +597,7 @@ sections:
     id: 'using-components'
     isDisabled: false
     containerFields:
-      inContainer: false
+      inContainer: true
       isAnimated: true
       noMargin:
         top: true
@@ -524,7 +606,7 @@ sections:
         top: false
         bottom: false
       background:
-        color: 'var(--color-background-light)'
+        color: ''
         image: ''
         imageScreen: 'none'
     text:
