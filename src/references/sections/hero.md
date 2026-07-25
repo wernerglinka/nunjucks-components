@@ -285,6 +285,52 @@ sections:
 
         **Note:** The `targetId` should be set to the `id` of the section to scroll to when the down arrow in the full-screen hero is clicked. Notice the up-arrow in the bottom right screen corner when scrolling starts, to return to the top of the page.
 
+  - sectionType: rich-text
+    containerTag: article
+    classes: ''
+    id: 'styling'
+    isDisabled: false
+    containerFields:
+      inContainer: true
+      isAnimated: true
+      noMargin:
+        top: true
+        bottom: true
+      noPadding:
+        top: false
+        bottom: false
+      background:
+        color: ''
+        image: ''
+        imageScreen: 'none'
+    text:
+      leadIn: ''
+      title: Styling
+      titleTag: 'h2'
+      subTitle: ''
+      prose: |
+        The hero's adjustable values are component-scoped custom properties, declared on the component root with fallbacks into the global design tokens. Override the properties from `lib/overrides/hero/hero.css`, not the rules that consume them; properties survive upstream restructuring, rules do not.
+
+        | Property | Default | Controls |
+        |----------|---------|----------|
+        | `--hero-text-width` | responsive clamp | Width of the glass text panel |
+        | `--hero-text-padding` | `var(--space-s-l)` | Padding inside the text panel |
+        | `--hero-text-background` | `var(--glass-background)` | Text panel background |
+        | `--hero-text-radius` | `var(--space-2xs-xs)` | Text panel corner radius |
+
+        ```css
+        /* lib/overrides/hero/hero.css */
+        .hero {
+          --hero-text-width: calc(100% - clamp(0px, calc((100vw - 600px) * 3), 50%));
+          --hero-text-background: var(--color-brand);
+        }
+        ```
+    ctas:
+      - url: ''
+        label: ''
+        isButton: false
+        buttonStyle: 'primary'
+
   - sectionType: banner
     containerTag: aside
     classes: 'download-banner'
