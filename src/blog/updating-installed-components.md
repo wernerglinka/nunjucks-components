@@ -102,6 +102,8 @@ sections:
         - **modified** means you changed it and canon did not. This needs nothing.
         - **diverged** means both sides moved. That is the case the first recipe exists for.
 
+        One caveat about timing. `components:status` reads canon from the live catalog at your configured registry, not from anything on your machine. Right after a library release there is a window where the site has not finished deploying and the catalog still describes the previous release. Inside that window the report is correct but stale: a component the release just changed still says `current`, because as far as the catalog can tell, canon has not moved yet. The `version` field of [/downloads/manifest.json](/downloads/manifest.json) says which release the catalog describes; when a clean report surprises you, check that version against the library's latest release before trusting it.
+
         The content hash covers the template, stylesheet, script and any modules. It deliberately excludes `manifest.json`, so a manifest-only change on either side does not show up in the status report. `diff -ru` against a fresh download is how you see those.
 
         Before editing a component at all, consider whether an override can do the job instead; see [Customizing Components Without Editing Them](/blog/customizing-components-without-editing-them/). A component you never touch updates with a plain copy, forever.
