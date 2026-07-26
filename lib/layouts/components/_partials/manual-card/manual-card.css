@@ -36,13 +36,13 @@
   position: relative;
 
   /* Card dimension custom properties */
-  --card-max-width: 30rem;
-  --card-decoration-height: 12rem;
-  --card-info-padding-bottom: var(--space-2xl, 3rem);
-  --card-horizontal-decoration-width: 20rem;
-  --card-horizontal-decoration-min-height: 15rem;
+  --manual-card-max-width: 30rem;
+  --manual-card-decoration-height: 12rem;
+  --manual-card-info-padding-bottom: var(--space-2xl, 3rem);
+  --manual-card-horizontal-decoration-width: 20rem;
+  --manual-card-horizontal-decoration-min-height: 15rem;
 
-  max-width: var(--card-max-width);
+  max-width: var(--manual-card-max-width);
   height: 100%;
   background-color: var(--glass-background);
   border: 1px solid var(--color-border-light);
@@ -55,7 +55,7 @@
   }
 
   .decoration {
-    height: var(--card-decoration-height);
+    height: var(--manual-card-decoration-height);
 
     img {
       width: 100%;
@@ -85,7 +85,7 @@
     flex-direction: column;
     flex-grow: 1;
     padding: var(--space-s-m);
-    padding-block-end: var(--card-info-padding-bottom);
+    padding-block-end: var(--manual-card-info-padding-bottom);
     background-color: var(--glass-background-light);
   }
 
@@ -222,9 +222,9 @@
     height: auto;
 
     .decoration {
-      flex: 0 0 var(--card-horizontal-decoration-width);
+      flex: 0 0 var(--manual-card-horizontal-decoration-width);
       height: auto;
-      min-height: var(--card-horizontal-decoration-min-height);
+      min-height: var(--manual-card-horizontal-decoration-min-height);
 
       img {
         width: 100%;
@@ -262,7 +262,7 @@
       .decoration {
         flex: 0 0 auto;
         width: 100%;
-        height: var(--card-decoration-height);
+        height: var(--manual-card-decoration-height);
       }
 
       .info {

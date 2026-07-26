@@ -45,18 +45,18 @@
   container-name: hero-slider;
 
   /* Fluid height: 680px at 1240px viewport, 480px at 500px viewport */
-  --slider-height: clamp(
+  --hero-slider-height: clamp(
     480px,
     calc(480px + (680 - 480) * ((100vw - 500px) / (1240 - 500))),
     680px
   );
-  --slider-nav-height: 80px;
-  --slider-nav-color: var(--color-text-light);
-  --slider-nav-background-color: var(--glass-background-dark-card);
-  --slider-nav-item-width: 120px;
-  --slider-nav-item-hover-color: var(--glass-background);
-  --slider-nav-item-is-selected-color: var(--color-text-highlight);
-  --slider-nav-item-is-selected-background-color: var(--glass-background-light);
+  --hero-slider-nav-height: 80px;
+  --hero-slider-nav-color: var(--color-text-light);
+  --hero-slider-nav-background-color: var(--glass-background-dark-card);
+  --hero-slider-nav-item-width: 120px;
+  --hero-slider-nav-item-hover-color: var(--glass-background);
+  --hero-slider-nav-item-is-selected-color: var(--color-text-highlight);
+  --hero-slider-nav-item-is-selected-background-color: var(--glass-background-light);
 }
 
 /* Container mode: constrain to max-width */
@@ -67,7 +67,7 @@
 
 .hero-slider-list {
   position: relative;
-  height: var(--slider-height);
+  height: var(--hero-slider-height);
   width: 100%;
 }
 
@@ -315,8 +315,8 @@
   z-index: 2;
   display: flex;
   justify-content: center;
-  height: var(--slider-nav-height);
-  background-color: var(--slider-nav-background-color);
+  height: var(--hero-slider-nav-height);
+  background-color: var(--hero-slider-nav-background-color);
   backdrop-filter: var(--glass-backdrop-filter);
 
   ul {
@@ -329,7 +329,7 @@
   }
 
   li {
-    flex: 0 0 var(--slider-nav-item-width);
+    flex: 0 0 var(--hero-slider-nav-item-width);
     margin: 0;
     background-color: transparent;
     backdrop-filter: var(--glass-backdrop-filter);
@@ -345,10 +345,10 @@
     }
 
     &.is-selected {
-      background-color: var(--slider-nav-item-is-selected-background-color);
+      background-color: var(--hero-slider-nav-item-is-selected-background-color);
 
       a {
-        color: var(--slider-nav-item-is-selected-color);
+        color: var(--hero-slider-nav-item-is-selected-color);
       }
     }
 
@@ -386,7 +386,7 @@
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-    color: var(--slider-nav-color);
+    color: var(--hero-slider-nav-color);
     transition: color var(--transition-base);
     user-select: none;
   }

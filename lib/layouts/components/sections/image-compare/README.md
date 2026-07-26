@@ -64,7 +64,7 @@ The component uses CSS custom properties for easy customization:
 
 ```css
 .image-compare {
-  --handle-size: 2.6rem; /* Size of the draggable handle */
+  --image-compare-handle-size: 2.6rem; /* Size of the draggable handle */
 }
 ```
 

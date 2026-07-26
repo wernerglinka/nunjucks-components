@@ -149,14 +149,14 @@ The component uses CSS custom properties for easy customization:
 ```css
 .hero-slider {
   /* Fluid height: 680px at 1240px viewport, 480px at 500px viewport */
-  --slider-height: clamp(480px, calc(480px + (680 - 480) * ((100vw - 500px) / (1240 - 500))), 680px);
-  --slider-nav-height: 80px;
-  --slider-nav-color: var(--color-text-light);
-  --slider-nav-background-color: var(--glass-background-dark);
-  --slider-nav-item-width: 120px;
-  --slider-nav-item-hover-color: var(--glass-background);
-  --slider-nav-item-is-selected-color: var(--color-text-highlight);
-  --slider-nav-item-is-selected-background-color: var(--glass-background-light);
+  --hero-slider-height: clamp(480px, calc(480px + (680 - 480) * ((100vw - 500px) / (1240 - 500))), 680px);
+  --hero-slider-nav-height: 80px;
+  --hero-slider-nav-color: var(--color-text-light);
+  --hero-slider-nav-background-color: var(--glass-background-dark);
+  --hero-slider-nav-item-width: 120px;
+  --hero-slider-nav-item-hover-color: var(--glass-background);
+  --hero-slider-nav-item-is-selected-color: var(--color-text-highlight);
+  --hero-slider-nav-item-is-selected-background-color: var(--glass-background-light);
 }
 ```
 

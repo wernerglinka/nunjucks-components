@@ -42,7 +42,8 @@ const COMPONENT_ROOTS = [
 
 /** Custom properties exempt from the prefix rule in every component. */
 const GLOBAL_PREFIX_EXEMPT = new Set([
-  '--threshold' // shared switcher-layout convention, declared by commons, set per section
+  '--threshold', // shared switcher-layout convention, declared by commons, set per section
+  '--flow-space' // vertical-rhythm idiom: text consumes it, a container scopes its own value; the shared name is the mechanism
 ]);
 
 /**

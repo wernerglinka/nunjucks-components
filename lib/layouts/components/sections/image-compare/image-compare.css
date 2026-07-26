@@ -14,7 +14,7 @@
  */
 
 .image-compare {
-  --handle-size: var(--space-l);
+  --image-compare-handle-size: var(--space-l);
 
   .container.content {
     flex-direction: row;
@@ -91,10 +91,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: var(--handle-size);
-    width: var(--handle-size);
-    left: calc(50% - var(--handle-size) / 2);
-    top: calc(50% - var(--handle-size) / 2);
+    height: var(--image-compare-handle-size);
+    width: var(--image-compare-handle-size);
+    left: calc(50% - var(--image-compare-handle-size) / 2);
+    top: calc(50% - var(--image-compare-handle-size) / 2);
     border-radius: 50%;
     background-color: var(--glass-background-light);
     backdrop-filter: var(--glass-backdrop-filter);
