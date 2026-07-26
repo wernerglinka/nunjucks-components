@@ -7,6 +7,13 @@
 :root {
   /* Colors */
   --color-primary: #da1e28;
+
+  /*
+   * Lighter companion to the primary, for subtle accents
+   * (slider-pagination, text). Aliased to the primary so the default is
+   * behaviour-neutral; retune it to an actual lighter shade.
+   */
+  --color-primary-light: var(--color-primary);
   --color-secondary: #fa4d56;
   --color-text: #161616;
   --color-text-light: #f4f4f4;
@@ -86,6 +93,13 @@
   --font-h2: clamp(2.0736rem, 1.8267rem + 0.9874vw, 2.592rem); /* 33px - 41px */
   --font-h1: clamp(2.4883rem, 2.1921rem + 1.1849vw, 3.1104rem); /* 40px - 50px */
   --font-xl: clamp(2.986rem, 2.6305rem + 1.4219vw, 3.7325rem); /* 48px - 60px */
+
+  /*
+   * A fixed mid size next to the fluid scale, consumed by overlay and
+   * artwork. 1.25rem matches the max of --font-p; make it fluid if the
+   * site wants that.
+   */
+  --font-md: 1.25rem;
 
   /**
    * Fluid spacing is created with utopia.fyi
