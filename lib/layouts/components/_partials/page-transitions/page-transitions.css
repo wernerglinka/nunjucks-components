@@ -31,7 +31,7 @@ html.is-changing {
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-accent, #3498db);
+  background: var(--color-primary);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;

@@ -83,7 +83,9 @@ const stripComments = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '');
 /** Collect every `--name:` definition in a CSS string. */
 const collectDefinitions = (css) => {
   const defs = new Set();
-  for (const match of stripComments(css).matchAll(/(--[a-z0-9-]+)\s*:/gi) ?? []) {
+  // The lookahead keeps selectors like `.event--all-day::before` from
+  // reading as a `--all-day:` declaration.
+  for (const match of stripComments(css).matchAll(/(--[a-z0-9-]+)\s*:(?!:)/gi) ?? []) {
     defs.add(match[1]);
   }
   return defs;

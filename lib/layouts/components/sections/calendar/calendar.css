@@ -8,17 +8,18 @@
   --calendar-bg: var(--color-background, #fff);
   --calendar-border: var(--color-border-light, #e0e0e0);
   --calendar-text: var(--color-text, #1f2937);
-  --calendar-text-muted: var(--color-text-muted, #6b7280);
+  --calendar-text-muted: var(--color-text-dark);
   --calendar-primary: var(--color-primary, #3b82f6);
-  --calendar-hover: var(--color-hover, #f3f4f6);
-  --calendar-today: var(--color-accent, #fbbf24);
+  --calendar-hover: var(--color-surface-hover);
+  --calendar-today: var(--color-highlight-background);
   --calendar-event-default: #3b82f6;
   --calendar-event-holiday: #ef4444;
   --calendar-event-personal: #10b981;
-  --calendar-spacing: var(--spacing-md, 1rem);
-  --calendar--control-bg: #f8f8f8;
+  --calendar-spacing: var(--space-m);
+  --calendar-padding: 4rem 0;
+  --calendar-control-bg: var(--color-background-light);
 
-  padding: var(--section-padding, 4rem 0);
+  padding: var(--calendar-padding);
 
   /* Enable container queries */
   container-type: inline-size;
@@ -26,7 +27,7 @@
 }
 
 .calendar .container {
-  max-width: var(--max-width, 1200px);
+  max-width: var(--wrapper-max-width);
   margin: 0 auto;
   padding: 0 var(--calendar-spacing);
 }
@@ -44,7 +45,7 @@
   justify-content: space-between;
   margin-bottom: var(--calendar-spacing);
   padding: var(--calendar-spacing);
-  background: var(--calendar--control-bg);
+  background: var(--calendar-control-bg);
   border-radius: 8px;
 
   .controls-right {

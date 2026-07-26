@@ -7,9 +7,9 @@
  * - --space-l
  * - --color-border-light
  * - --color-text
- * - --color-text-secondary
+ * - --color-text-dark
  * - --color-primary
- * - --font-size-s
+ * - --font-s
  */
 
 .related-posts {
@@ -97,8 +97,8 @@
   }
 
   .related-post-description {
-    font-size: var(--font-size-s, 0.9rem);
-    color: var(--color-text-secondary, var(--color-text));
+    font-size: var(--font-s);
+    color: var(--color-text-dark);
     line-height: 1.4;
   }
 }

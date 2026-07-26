@@ -141,6 +141,8 @@
   /* Layout */
   --header-height: 80px;
   --container-width: 1024px;
+  --wrapper-max-width: 85rem; /* Content measure; commons and multi-media resolve against it */
+  --content-gap: 2rem; /* Gap between content blocks in commons and blog-author */
   --gutter: var(--space-s-l); /* Default spacing for grid/flex gaps */
 
   /* Borders */
