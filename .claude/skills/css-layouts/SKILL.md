@@ -43,7 +43,7 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 .stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-m);
 }
 
 /* With fluid spacing */
@@ -69,7 +69,7 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 .cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
+  gap: var(--space-s);
   align-items: center;
 }
 ```
@@ -89,7 +89,7 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 .sidebar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-md);
+  gap: var(--space-m);
 }
 
 .sidebar > * {
@@ -117,7 +117,7 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: var(--space-md);
+  gap: var(--space-m);
 }
 
 /* With container queries */
@@ -224,11 +224,11 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 ```css
 /* Set custom property on container */
 .card-wrapper {
-  --featured: true;
+  --card-featured: true;
 }
 
 /* Query it */
-@container style(--featured: true) {
+@container style(--card-featured: true) {
   .card {
     grid-template-columns: 1fr 1fr;
   }
@@ -291,49 +291,53 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 
 ## Fluid Typography and Spacing
 
-### Fluid Type Scale Pattern
+### Fluid Type Scale
+
+The vocabulary in `lib/assets/styles/_design-tokens.css` already ships a
+Utopia-generated fluid type scale. Consume those tokens; never define a
+parallel scale in component CSS.
 
 ```css
-:root {
-  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
-  --font-size-md: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
-  --font-size-lg: clamp(1.5rem, 1.3rem + 1vw, 2rem);
-  --font-size-xl: clamp(2rem, 1.6rem + 2vw, 3rem);
+/* The shipped scale, smallest to largest */
+.small-print {
+  font-size: var(--font-xs);
 }
+.meta {
+  font-size: var(--font-s);
+}
+.body-copy {
+  font-size: var(--font-p);
+}
+/* Headings: --font-h5 through --font-h1, display: --font-xl */
 ```
 
-**How to calculate:**
+**Key points:**
 
-- Minimum: Mobile size (typically 16px base)
-- Maximum: Desktop size (typically 20px base)
-- Growth factor: `(max - min) / viewport-range` as vw
-- Formula: `clamp(min, min + growth-factor, max)`
+- The names are `--font-xs`, `--font-s`, `--font-p`, `--font-h5` … `--font-h1`, `--font-xl`
+- The values live in `_design-tokens.css` and are the site's to retune
+- For container-relative type, wrap in `clamp()` with `cqw` (see below)
 
-**Use this calculator:**
-https://min-max-calculator.9elements.com/
+### Fluid Spacing Scale
 
-### Fluid Spacing Scale Pattern
+The vocabulary ships a Utopia-generated fluid spacing scale in
+`_design-tokens.css`. Consume those tokens; never define a parallel
+scale in component CSS.
 
 ```css
-:root {
-  --space-3xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);
-  --space-2xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
-  --space-xs: clamp(0.75rem, 0.6rem + 0.75vw, 1.125rem);
-  --space-sm: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-  --space-md: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
-  --space-lg: clamp(2rem, 1.6rem + 2vw, 3rem);
-  --space-xl: clamp(3rem, 2.4rem + 3vw, 4.5rem);
-  --space-2xl: clamp(4rem, 3.2rem + 4vw, 6rem);
+.stack {
+  gap: var(--space-m);
+}
+.section {
+  padding-block: var(--space-l-xl);
 }
 ```
 
 **Key points:**
 
-- Maintain consistent ratios between steps
-- Each step typically 1.5x the previous
-- Use semantic names, not arbitrary numbers
-- Reference these variables everywhere
+- Single steps: `--space-3xs`, `--space-2xs`, `--space-xs`, `--space-s`, `--space-m`, `--space-l`, `--space-xl`, `--space-2xl`, `--space-3xl`, `--space-4xl`
+- Two-step pairs that widen with the viewport: `--space-3xs-2xs` … `--space-3xl-4xl`, plus `--space-s-l` and `--space-l-2xl`
+- The values live in `_design-tokens.css` and are the site's to retune
+- Reference these tokens everywhere; no magic numbers
 
 ### Component-Level Fluid Scaling
 
@@ -381,7 +385,7 @@ https://min-max-calculator.9elements.com/
 /* Layout changes based on quantity */
 .section {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--space-m);
 }
 
 /* 1-3 items: horizontal layout */
@@ -406,13 +410,13 @@ https://min-max-calculator.9elements.com/
 ```css
 /* Feature first item when 6+ items */
 .section:has(.card:nth-last-child(n + 6)) .card:first-child {
-  --featured: true;
+  --card-featured: true;
   grid-column: 1 / -1;
 }
 
 /* Feature first two items when 8+ items */
 .section:has(.card:nth-last-child(n + 8)) .card:nth-child(-n + 2) {
-  --featured: true;
+  --card-featured: true;
 }
 ```
 
@@ -423,7 +427,7 @@ https://min-max-calculator.9elements.com/
 ```css
 /* Card without image */
 .card:not(:has(img)) {
-  border-inline-start: 4px solid var(--color-accent);
+  border-inline-start: 4px solid var(--color-primary);
   padding-inline-start: 1rem;
 }
 
@@ -444,7 +448,7 @@ https://min-max-calculator.9elements.com/
 ```css
 /* First card when there's a second card */
 .card:has(+ .card) {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 /* Last card in a group */
@@ -618,7 +622,7 @@ img {
 
 .section:not(:has(*))::after {
   content: 'No content available';
-  color: var(--color-muted);
+  color: var(--color-text-inactive);
 }
 ```
 
@@ -654,15 +658,15 @@ img {
 }
 
 /* Featured variant */
-@container style(--featured: true) {
+@container style(--card-featured: true) {
   .card {
-    background: var(--color-featured);
+    background: var(--color-highlight-background);
   }
 }
 
 /* No image variant */
 .card:not(:has(.card-thumbnail)) {
-  border-inline-start: 4px solid var(--color-accent);
+  border-inline-start: 4px solid var(--color-primary);
   padding-inline-start: 1rem;
 }
 ```
@@ -691,13 +695,13 @@ img {
   flex-direction: row;
   gap: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 /* Featured first item with 6+ total */
 @container section (min-width: 600px) {
   .section:has(.card:nth-last-child(n + 6)) .card:first-child {
-    --featured: true;
+    --card-featured: true;
     grid-column: 1 / -1;
   }
 }
@@ -798,8 +802,8 @@ Before considering any layout complete, test these scenarios:
 ```css
 /* GOOD: System-based spacing */
 .element {
-  margin-top: var(--space-md);
-  padding: var(--space-sm);
+  margin-top: var(--space-m);
+  padding: var(--space-s);
 }
 ```
 
@@ -849,13 +853,13 @@ Before considering any layout complete, test these scenarios:
   /* base styles */
 }
 
-@container style(--featured: true) {
+@container style(--card-featured: true) {
   .card {
     /* featured styles */
   }
 }
 
-@container style(--compact: true) {
+@container style(--card-compact: true) {
   .card {
     /* compact styles */
   }
@@ -878,31 +882,25 @@ Before considering any layout complete, test these scenarios:
 }
 ```
 
-## Quick Reference: Common Values
+## Quick Reference: The Token Vocabulary
 
-### Fluid Typography Scale
+The scales below name the tokens every component may consume. Values
+live in `lib/assets/styles/_design-tokens.css`.
+
+### Typography
 
 ```css
---font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
---font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
---font-size-md: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
---font-size-lg: clamp(1.5rem, 1.3rem + 1vw, 2rem);
---font-size-xl: clamp(2rem, 1.6rem + 2vw, 3rem);
---font-size-2xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+--font-xs  --font-s  --font-p          /* small print, meta, body */
+--font-h5  --font-h4  --font-h3  --font-h2  --font-h1  /* headings */
+--font-xl                              /* display */
 ```
 
-### Fluid Spacing Scale
+### Spacing
 
 ```css
---space-3xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.375rem);
---space-2xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
---space-xs: clamp(0.75rem, 0.6rem + 0.75vw, 1.125rem);
---space-sm: clamp(1rem, 0.8rem + 1vw, 1.5rem);
---space-md: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
---space-lg: clamp(2rem, 1.6rem + 2vw, 3rem);
---space-xl: clamp(3rem, 2.4rem + 3vw, 4.5rem);
---space-2xl: clamp(4rem, 3.2rem + 4vw, 6rem);
---space-3xl: clamp(6rem, 4.8rem + 6vw, 9rem);
+--space-3xs … --space-4xl              /* single steps */
+--space-3xs-2xs … --space-3xl-4xl      /* fluid pairs */
+--space-s-l  --space-l-2xl             /* custom pairs */
 ```
 
 ### Container Query Breakpoints

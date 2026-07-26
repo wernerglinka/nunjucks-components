@@ -28,6 +28,35 @@ Location: `lib/layouts/components/_partials/`
 - Typically no dependencies
 - Each has: `.njk`, `.css` (optional), `.js` (optional), `manifest.json`
 
+## The Design Token Contract
+
+A component package carries no colors, spacing, or type sizes of its own.
+Its CSS consumes the shared token vocabulary with `var(--token-name)`, and
+every consuming site must define those tokens. The contract has two sides:
+
+- **Canon never references a token the vocabulary does not ship.** The
+  vocabulary is the set of custom properties defined in
+  `lib/assets/styles/_design-tokens.css` (including its `_css-patterns.css`
+  import): the colors, the fluid type scale (`--font-*`), the fluid space
+  scale and its pairs (`--space-*`), the font stacks, weights and line
+  heights, letter spacing (`--tracking*`), borders, the transition timings,
+  and the layout tokens.
+- **The vocabulary never renames or drops a token any published component
+  consumes.** Adding a token is cheap; removing one breaks every site that
+  ever installed a component consuming it.
+
+A single-component knob is not a vocabulary token. It is a component
+property: a custom property in the component's own `--<component>-`
+namespace, declared by the component on its root with its default value in
+the declaration. Unprefixed component properties squat on names other
+components or the site may want.
+
+Both rules are enforced by `npm run lint:components`: an undefined token
+without a fallback is an error, a fallback-only token and an unprefixed
+component property are warnings. Run it with `--vocab <dir>` to lint the
+catalog against a consuming site's token definitions instead of this
+repository's.
+
 ## Package Types
 
 ### 1. Individual Section Package

@@ -89,6 +89,7 @@ When creating new components for the library:
 4. **Use Semantic HTML**: Ensure accessible markup and proper ARIA attributes
 5. **Add JSDoc Comments**: Explain the component's purpose and parameters
 6. **Update Tests**: Include the new component in the test suite
+7. **Honor the Token Contract**: Component CSS consumes only vocabulary tokens (`var(--color-*)`, `var(--space-*)`, `var(--font-*)`, …) or component properties in the component's own `--<component>-` namespace. No hardcoded colors or type sizes, no token names the vocabulary does not define. See "The Design Token Contract" in [docs/COMPONENT-PACKAGE-SPEC.md](docs/COMPONENT-PACKAGE-SPEC.md) and run `npm run lint:components` before committing.
 
 ### Component Compatibility
 
