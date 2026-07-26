@@ -51,11 +51,17 @@ namespace, declared by the component on its root with its default value in
 the declaration. Unprefixed component properties squat on names other
 components or the site may want.
 
-Both rules are enforced by `npm run lint:components`: an undefined token
-without a fallback is an error, a fallback-only token and an unprefixed
-component property are warnings. Run it with `--vocab <dir>` to lint the
-catalog against a consuming site's token definitions instead of this
-repository's.
+Both rules are enforced by `npm run lint:components`. The lint reads
+exactly `_design-tokens.css` and `_css-patterns.css` as the vocabulary;
+other stylesheets in the same directory are site shell and do not widen
+what components may consume. A consumed token counts as defined only if it
+comes from the vocabulary, the consuming component itself, or a component
+in its transitive `requires` closure — a definition in an unrelated
+component does not count, because a site can install the consumer without
+it. An undefined token without a fallback is an error, a fallback-only
+token and an unprefixed component property are warnings. Run it with
+`--vocab <dir>` to lint the catalog against a consuming site's token
+definitions instead of this repository's.
 
 ## Package Types
 

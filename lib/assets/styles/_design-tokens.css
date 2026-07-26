@@ -41,6 +41,13 @@
   --color-top-message-background: #161616;
   --color-top-message-text: #f4f4f4;
 
+  /*
+   * Height of the optional top message bar. This 0rem is the vocabulary
+   * default; _header.css raises it on :root in the site layer while the
+   * bar is shown. Commons consumes it to offset full-height sections.
+   */
+  --top-message-offset: 0rem;
+
   /* Button Colors */
   --primary-button-color: rgb(218 30 40 / 80%);
   --primary-button-text-color: #f4f4f4; /* Always light text on red */
@@ -158,6 +165,13 @@
   --wrapper-max-width: 85rem; /* Content measure; commons and multi-media resolve against it */
   --content-gap: 2rem; /* Gap between content blocks in commons and blog-author */
   --gutter: var(--space-s-l); /* Default spacing for grid/flex gaps */
+
+  /*
+   * Vertical rhythm between flowing elements, the flow-space idiom. The
+   * text partial consumes it; ctas scopes its own larger value. 1em keeps
+   * the rhythm proportional to each element's font size.
+   */
+  --flow-space: 1em;
 
   /* Borders */
   --default-border-width: 0.2rem;

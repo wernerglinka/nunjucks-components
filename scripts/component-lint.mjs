@@ -15,10 +15,12 @@
  *    commons and is exempt everywhere; vendor-interface properties (values
  *    a third-party stylesheet consumes) are exempt per component below.
  * C. Undefined tokens — `var(--x)` where `--x` is defined nowhere (not in
- *    the same component, not in the token vocabulary, not by another
- *    component, not by a vendor stylesheet) is dropped at computed-value
- *    time and silently does not apply on any site. With an inline fallback
- *    it renders but cannot be retuned, which is reported as a warning.
+ *    the same component, not in the token vocabulary, not by a component in
+ *    the consumer's transitive `requires` closure, not by a vendor
+ *    stylesheet) is dropped at computed-value time and silently does not
+ *    apply on any site. With an inline fallback it renders but cannot be
+ *    retuned, which is reported as a warning. Definitions from unrelated
+ *    components do not count: a site can install the consumer without them.
  * D. Schema default drift — where a manifest declares the same path in both
  *    `fields` (editor schema) and `validation.properties` (build contract)
  *    with a `default`, the two defaults must agree, or authors see one
@@ -105,17 +107,20 @@ const collectConsumptions = (css) => {
   return uses;
 };
 
-/** Read every .css file under a directory (recursively). */
-const readCssDir = (dir) => {
+/**
+ * The vocabulary is exactly `_design-tokens.css` plus `_css-patterns.css`
+ * (COMPONENT-PACKAGE-SPEC.md, "The Design Token Contract"). Other
+ * stylesheets in the same directory are site shell, not vocabulary, and
+ * must not widen what components may consume.
+ */
+const VOCAB_FILES = ['_design-tokens.css', '_css-patterns.css'];
+
+/** Read the vocabulary stylesheets from a directory. */
+const readVocab = (dir) => {
   let css = '';
-  if (!fs.existsSync(dir)) {
-    return css;
-  }
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      css += readCssDir(full);
-    } else if (entry.name.endsWith('.css')) {
+  for (const name of VOCAB_FILES) {
+    const full = path.join(dir, name);
+    if (fs.existsSync(full)) {
       css += `\n${fs.readFileSync(full, 'utf8')}`;
     }
   }
@@ -174,7 +179,7 @@ for (const rootRel of COMPONENT_ROOTS) {
 }
 
 // Build the "defined" universe.
-const vocabulary = collectDefinitions(readCssDir(vocabDir));
+const vocabulary = collectDefinitions(readVocab(vocabDir));
 const vendorDefined = new Set();
 for (const rel of VENDOR_CSS) {
   const full = path.join(ROOT, rel);
@@ -194,17 +199,37 @@ for (const component of components) {
   }
   componentDefined.set(component.name, defs);
 }
-const anyComponentDefined = new Set();
-for (const defs of componentDefined.values()) {
-  for (const def of defs) {
-    anyComponentDefined.add(def);
+/**
+ * Transitive `requires` closure of a component (including itself), per each
+ * manifest's `requires` array. A visited set makes cycles terminate.
+ */
+const requiresOf = new Map(components.map((c) => [c.name, c.manifest.requires ?? []]));
+const closureOf = (start) => {
+  const seen = new Set([start]);
+  const queue = [start];
+  while (queue.length > 0) {
+    for (const dep of requiresOf.get(queue.pop()) ?? []) {
+      if (!seen.has(dep)) {
+        seen.add(dep);
+        queue.push(dep);
+      }
+    }
   }
-}
+  return seen;
+};
 
 // Run checks per component.
 for (const component of components) {
   const { name, cssFiles, manifest } = component;
-  const ownDefs = componentDefined.get(name);
+
+  // Definitions visible to this component: its own plus those of every
+  // component in its requires closure. Anything a site must co-install.
+  const reachableDefs = new Set();
+  for (const dep of closureOf(name)) {
+    for (const def of componentDefined.get(dep) ?? []) {
+      reachableDefs.add(def);
+    }
+  }
 
   for (const file of cssFiles) {
     const rel = path.relative(ROOT, file);
@@ -233,18 +258,17 @@ for (const component of components) {
     // C. Undefined tokens.
     for (const use of collectConsumptions(css)) {
       const known =
-        ownDefs.has(use.name) ||
+        reachableDefs.has(use.name) ||
         vocabulary.has(use.name) ||
         vendorDefined.has(use.name) ||
-        anyComponentDefined.has(use.name) ||
         TEMPLATE_SET[name]?.has(use.name);
       if (known) {
         continue;
       }
       if (use.hasFallback) {
-        warnings.push(`${rel}:${use.line}: var(${use.name}, …) — token defined nowhere; the fallback is the only value there is`);
+        warnings.push(`${rel}:${use.line}: var(${use.name}, …) — token not defined by this component, its requires closure, or the vocabulary; the fallback is the only value there is`);
       } else {
-        errors.push(`${rel}:${use.line}: var(${use.name}) — token defined nowhere; declaration is dropped at computed-value time`);
+        errors.push(`${rel}:${use.line}: var(${use.name}) — token not defined by this component, its requires closure, or the vocabulary; declaration is dropped at computed-value time`);
       }
     }
   }

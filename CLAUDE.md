@@ -47,7 +47,7 @@ npm run build
 - `npm run format` - Format JS/JSON with Biome (`.njk` and CSS are excluded)
 - `npm run lint` - Lint and fix JavaScript/JSON with Biome
 - `npm run lint:css` - Lint and fix CSS with Stylelint
-- `npm run lint:components` - Canon component lint: undefined token references, unprefixed component properties, layer-unsafe stylesheets, fields-vs-validation default drift. Errors fail, warnings are advisory (`--strict` fails on both; `--vocab <dir>` lints against another token vocabulary, e.g. the starter's)
+- `npm run lint:components` - Canon component lint: undefined token references, unprefixed component properties, layer-unsafe stylesheets, fields-vs-validation default drift. The vocabulary is exactly `_design-tokens.css` + `_css-patterns.css` (shell stylesheets do not count), and a token defined by another component only counts through the consumer's transitive manifest `requires` closure. Errors fail, warnings are advisory (`--strict` fails on both; `--vocab <dir>` lints against another vocabulary directory, e.g. the starter's)
 - `npm run check` - Verify formatting + lint with no writes (Biome + Stylelint)
 - `npm run fix` - Run Biome check --write (format + lint) then lint:css
 
