@@ -264,7 +264,7 @@ sections:
 
         ### Add Dark Mode Styles
 
-        Open your main CSS file at `lib/assets/styles/_design-tokens.css`
+        Open your main CSS file at `lib/shell/styles/_design-tokens.css`
 
         At the end of the file, add the dark theme styles. Here's an example from the Nunjucks Components library:
 
@@ -336,7 +336,7 @@ sections:
 
         ### Update main.js
 
-        Open `lib/assets/main.js`
+        Open `lib/shell/main.js`
 
         Add this code to restore the saved theme on page load:
 
@@ -414,7 +414,7 @@ sections:
 
         ### Dark Mode Styles Don't Apply
 
-        - Verify you added the dark theme CSS variables to `lib/assets/styles/_design-tokens.css`
+        - Verify you added the dark theme CSS variables to `lib/shell/styles/_design-tokens.css`
         - Check that custom properties use consistent naming (e.g., `--color-*`)
         - Inspect an element in DevTools to see which CSS variables are applied
         - Make sure your components use CSS variables, not hardcoded colors

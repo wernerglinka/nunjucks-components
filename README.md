@@ -461,7 +461,7 @@ All components include live examples and documentation at the [Component Library
 
 ## Page Shell
 
-Page chrome lives outside the component catalog, in `lib/layouts/pages/parts/` (templates) and `lib/assets/styles/` (styles). It is part of the site scaffold a project owns and edits directly, rather than catalog components you install:
+Page chrome lives outside the component catalog, in `lib/layouts/pages/parts/` (templates) and `lib/shell/styles/` (styles). It is part of the site scaffold a project owns and edits directly, rather than catalog components you install:
 
 - **head**, **header**, **footer**, **navigation**, **branding**, **breadcrumbs** — the always-on frame. Their CSS is pulled into the base bundle via `main.css`, and the header and navigation scripts are imported by `main.js`.
 - **language-switcher**, **dark-light-theme-switcher** — optional features. They sit inert in `pages/parts/` until wired in, so a site that does not use them ships none of their CSS or JS.

@@ -28,7 +28,7 @@
  *
  * Advisory posture: errors exit 1, warnings exit 0. Run with --strict to
  * fail on warnings too. Run with --vocab <dir> to lint against a different
- * token vocabulary (e.g. the starter's lib/assets/styles) instead of this
+ * token vocabulary (e.g. the starter's lib/shell/styles) instead of this
  * repository's.
  */
 
@@ -78,7 +78,7 @@ const VENDOR_CSS = [
 const args = process.argv.slice(2);
 const strict = args.includes('--strict');
 const vocabIndex = args.indexOf('--vocab');
-const vocabDir = vocabIndex !== -1 ? args[vocabIndex + 1] : path.join(ROOT, 'lib/assets/styles');
+const vocabDir = vocabIndex !== -1 ? args[vocabIndex + 1] : path.join(ROOT, 'lib/shell/styles');
 
 /** Strip CSS comments so definitions inside them are not counted. */
 const stripComments = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '');

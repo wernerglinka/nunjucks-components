@@ -725,7 +725,7 @@ sections:
 
         ### Update main.js
 
-        Add the following code to your `lib/assets/main.js` (or equivalent main JavaScript entry point):
+        Add the following code to your `lib/shell/main.js` (or equivalent main JavaScript entry point):
 
         ```javascript
         /**

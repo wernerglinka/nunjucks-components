@@ -252,7 +252,7 @@ sections:
             plugins: [
               stylelint(),           // Lint CSS for errors
               postcssImport({        // Resolve @import statements
-                path: ['lib/assets', 'lib/assets/styles']
+                path: ['lib/shell', 'lib/shell/styles']
               }),
               autoprefixer(),        // Add vendor prefixes
               cssnano({              // Minify CSS
@@ -301,8 +301,8 @@ sections:
           .use(componentDependencyBundler({
             basePath: 'lib/layouts/components/_partials',
             sectionsPath: 'lib/layouts/components/sections',
-            mainCSSEntry: 'lib/assets/main.css',
-            mainJSEntry: 'lib/assets/main.js',
+            mainCSSEntry: 'lib/shell/main.css',
+            mainJSEntry: 'lib/shell/main.js',
             cssDest: 'assets/main.css',
             jsDest: 'assets/main.js',
             minifyOutput: isProduction,
@@ -311,7 +311,7 @@ sections:
               plugins: [
                 stylelint(),
                 postcssImport({
-                  path: ['lib/assets', 'lib/assets/styles']
+                  path: ['lib/shell', 'lib/shell/styles']
                 }),
                 autoprefixer(),
                 cssnano({ preset: 'default' })
@@ -328,8 +328,8 @@ sections:
           eleventyConfig.addPlugin(componentsBundler, {
             basePath: 'lib/layouts/components/_partials',
             sectionsPath: 'lib/layouts/components/sections',
-            mainCSSEntry: 'lib/assets/main.css',
-            mainJSEntry: 'lib/assets/main.js',
+            mainCSSEntry: 'lib/shell/main.css',
+            mainJSEntry: 'lib/shell/main.js',
             cssDest: 'assets/main.css',
             jsDest: 'assets/main.js',
             minifyOutput: process.env.NODE_ENV === 'production',
@@ -338,7 +338,7 @@ sections:
               plugins: [
                 stylelint(),
                 postcssImport({
-                  path: ['lib/assets', 'lib/assets/styles']
+                  path: ['lib/shell', 'lib/shell/styles']
                 }),
                 autoprefixer(),
                 cssnano({ preset: 'default' })
@@ -654,8 +654,8 @@ sections:
         metalsmith.use(componentDependencyBundler({
           basePath: 'lib/layouts/components/_partials',
           sectionsPath: 'lib/layouts/components/sections',
-          mainCSSEntry: 'lib/assets/main.css',
-          mainJSEntry: 'lib/assets/main.js',
+          mainCSSEntry: 'lib/shell/main.css',
+          mainJSEntry: 'lib/shell/main.js',
           cssDest: 'assets/main.css',
           jsDest: 'assets/main.js'
         }))

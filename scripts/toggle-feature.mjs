@@ -1,7 +1,7 @@
 /**
  * Toggle optional shell features (language switcher, theme switcher, ...) on or off.
  *
- * Optional chrome lives in `lib/layouts/pages/parts/` and `lib/assets/styles/` but is
+ * Optional chrome lives in `lib/layouts/pages/parts/` and `lib/shell/styles/` but is
  * inert until wired in. Wiring a feature means adding three tagged lines: a macro import
  * and a call in the header, an `@import` in `main.css`, and an `import` in `main.js`.
  * Each line is inserted after a fixed anchor and tagged with `feature:<name>` so it can be
@@ -26,8 +26,8 @@ const repoRoot = path.resolve(scriptDirectory, '..');
 /** Files the toggler edits, relative to the repo root. */
 const targetFiles = {
   header: 'lib/layouts/pages/parts/header.njk',
-  css: 'lib/assets/main.css',
-  js: 'lib/assets/main.js'
+  css: 'lib/shell/main.css',
+  js: 'lib/shell/main.js'
 };
 
 /**

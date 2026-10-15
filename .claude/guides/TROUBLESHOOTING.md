@@ -78,7 +78,7 @@ This guide covers common issues you might encounter when developing with the Nun
 **Solutions:**
 1. Restart development server: `npm start`
 2. Check if file is excluded from watch (like auto-generated files)
-3. Verify file is inside `src/`, `lib/layouts/`, or `lib/assets/`
+3. Verify file is inside `src/`, `lib/layouts/`, `lib/shell/`, or `lib/assets/`
 4. Clear build directory and restart: `rm -rf build && npm start`
 5. See [Watch Mode Exclusions](../CLAUDE.md#watch-mode-exclusions) section
 

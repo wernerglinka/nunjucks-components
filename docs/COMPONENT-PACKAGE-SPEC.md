@@ -36,7 +36,7 @@ every consuming site must define those tokens. The contract has two sides:
 
 - **Canon never references a token the vocabulary does not ship.** The
   vocabulary is the set of custom properties defined in
-  `lib/assets/styles/_design-tokens.css` (including its `_css-patterns.css`
+  `lib/shell/styles/_design-tokens.css` (including its `_css-patterns.css`
   import): the colors, the fluid type scale (`--font-*`), the fluid space
   scale and its pairs (`--space-*`), the font stacks, weights and line
   heights, letter spacing (`--tracking*`), borders, the transition timings,

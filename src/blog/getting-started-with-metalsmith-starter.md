@@ -215,9 +215,13 @@ sections:
 
         **Partials** - Smaller reusable UI elements like text blocks, CTAs, and images. Sections typically depend on multiple partials.
 
+        ### Page shell (`lib/shell/`)
+
+        The CSS and JS entry points (`main.css`, `main.js`) and the shell stylesheets in `styles/`: design tokens, base styles, header, footer and navigation. The component bundler assembles these with each component's own CSS and JS.
+
         ### Assets (`lib/assets/`)
 
-        Static assets like images, fonts, and global stylesheets. The build system automatically processes and optimizes these files.
+        Static assets like images, icons and fonts, copied to `build/assets/` untouched. The image plugin generates responsive variants from them.
 
         ### Data Files (`lib/data/`)
 
@@ -412,6 +416,7 @@ sections:
         The development server watches these locations:
         - `src/**/*` - Content files
         - `lib/layouts/**/*` - Templates and components
+        - `lib/shell/**/*` - Page shell CSS/JS entry points and styles
         - `lib/assets/**/*` - Static assets
 
         Changes to these files trigger automatic rebuilds and browser refresh.
@@ -574,7 +579,7 @@ sections:
 
         ### Styling and Design Tokens
 
-        Global styles are in `lib/assets/styles/`:
+        Global styles are in `lib/shell/styles/`:
 
         **Design tokens** (`_design-tokens.css`):
         ```css

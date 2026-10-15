@@ -111,6 +111,7 @@ metalsmith
       : [
           'src/**/*',
           'lib/layouts/**/*',
+          'lib/shell/**/*',
           'lib/assets/**/*',
           'lib/data/**/*',
           '!lib/layouts/components/sections/maps/modules/helpers/icon-loader.js' // Exclude generated file to prevent rebuild loops
@@ -280,8 +281,8 @@ metalsmith
     componentDependencyBundler({
       basePath: 'lib/layouts/components/_partials',
       sectionsPath: 'lib/layouts/components/sections',
-      mainCSSEntry: 'lib/assets/main.css',
-      mainJSEntry: 'lib/assets/main.js',
+      mainCSSEntry: 'lib/shell/main.css',
+      mainJSEntry: 'lib/shell/main.js',
       cssDest: 'assets/main.css',
       jsDest: 'assets/main.js',
       minifyOutput: isProduction,
@@ -296,7 +297,7 @@ metalsmith
        * overrides without needing a more specific selector. The order is
        * the whole cascade of the site, lowest first. Anything left
        * unlayered would beat all of it, which is why every import and
-       * rule in lib/assets/main.css names its layer, and why the
+       * rule in lib/shell/main.css names its layer, and why the
        * self-hosted vendor stylesheets (Shikwasa, Leaflet, OpenLayers)
        * are wrapped in the `vendor` layer when they are copied.
        */
@@ -316,7 +317,7 @@ metalsmith
         plugins: [
           stylelint(), // CSS linting - run first to catch syntax errors
           postcssImport({
-            path: ['lib/assets', 'lib/assets/styles']
+            path: ['lib/shell', 'lib/shell/styles']
           }),
           autoprefixer(),
           cssnano({ preset: 'default' })
@@ -336,7 +337,6 @@ metalsmith
     assets({
       source: 'lib/assets/', // Where to find assets
       destination: 'assets/', // Where to copy assets
-      ignore: ['main.css', 'main.js', 'styles/'] // Exclude files handled by bundled-components
     })
   )
 

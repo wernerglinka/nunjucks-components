@@ -102,7 +102,7 @@ sections:
 
         In the cascade, a later layer beats an earlier one regardless of specificity. Anything in `site` beats anything in `components`, whatever its selector and wherever it sits in the file. A one-class override wins over a canon rule with three, so overrides stay small, and there is no `!important` and no `.page .section .hero .text` arms race.
 
-        One rule comes with this model, and it is not optional: **unlayered CSS beats every cascade layer**. Your site's own stylesheets must be assigned to layers too, below `components`, or one bare `@import` will outrank the entire component catalog. In the starter, every import in `lib/assets/main.css` names its layer for exactly this reason.
+        One rule comes with this model, and it is not optional: **unlayered CSS beats every cascade layer**. Your site's own stylesheets must be assigned to layers too, below `components`, or one bare `@import` will outrank the entire component catalog. In the starter, every import in `lib/shell/main.css` names its layer for exactly this reason.
     ctas:
       - url: ''
         label: ''

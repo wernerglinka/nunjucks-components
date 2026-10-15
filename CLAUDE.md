@@ -165,7 +165,8 @@ Quick reference for creating a new component:
   - `lib/layouts/components/sections/` - 40 section components
   - `lib/layouts/pages/` - Page templates (sections.njk, etc.)
   - `lib/layouts/icons/` - 298 Feather icon SVG templates
-- `lib/assets/` - CSS/JS entry points, styles, and static assets (images, audio, icons, lotties; copied to `build/assets/` via metalsmith-static-files)
+- `lib/shell/` - the page shell's CSS/JS entry points and styles (`main.css`, `main.js`, `styles/`)
+- `lib/assets/` - static assets (images, audio, icons, lotties; copied to `build/assets/` via metalsmith-static-files)
   - `main.css` - Main CSS entry point (processed through component bundler)
   - `main.js` - Main JavaScript entry point (bundled with esbuild)
   - `styles/` - Design tokens and base styles (imported by bundler)

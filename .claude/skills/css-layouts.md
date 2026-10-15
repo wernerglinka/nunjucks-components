@@ -289,7 +289,7 @@ This skill provides prescriptive guidance for writing modern CSS layouts using i
 
 ### Fluid Type Scale
 
-The vocabulary in `lib/assets/styles/_design-tokens.css` already ships a
+The vocabulary in `lib/shell/styles/_design-tokens.css` already ships a
 Utopia-generated fluid type scale. Consume those tokens; never define a
 parallel scale in component CSS.
 
@@ -881,7 +881,7 @@ Before considering any layout complete, test these scenarios:
 ## Quick Reference: The Token Vocabulary
 
 The scales below name the tokens every component may consume. Values
-live in `lib/assets/styles/_design-tokens.css`.
+live in `lib/shell/styles/_design-tokens.css`.
 
 ### Typography
 
