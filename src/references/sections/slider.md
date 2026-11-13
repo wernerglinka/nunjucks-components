@@ -69,7 +69,7 @@ sections:
         color: ''
         image: ''
         imageScreen: 'none' # light, dark, none
-    isTabs: true
+    isTabs: true # tabs show each slide's text.title
     slides:
       - slideClasses: ''
         image:
@@ -77,7 +77,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: What's this?
-          title: Slider Number 1
+          title: Tab Number 1
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -94,7 +94,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: And this?
-          title: Slider Number 2
+          title: Tab Number 2
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -106,7 +106,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: Oh, one more!
-          title: Slider Number 3
+          title: Tab Number 3
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -158,7 +158,7 @@ sections:
         color: ''
         image: ''
         imageScreen: 'none' # light, dark, none
-    isTabs: false
+    isTabs: false # numbered pagination
     slides:
       - slideClasses: ''
         image:
@@ -166,7 +166,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: What's this?
-          title: Tab Number 1
+          title: Slider Number 1
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -187,7 +187,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: And this?
-          title: Tab Number 2
+          title: Slider Number 2
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -199,7 +199,7 @@ sections:
           alt: 'nunjucks'
         text:
           leadIn: Oh, one more!
-          title: Tab Number 3
+          title: Slider Number 3
           titleTag: 'h2'
           subTitle: ''
           prose: |-
@@ -234,7 +234,7 @@ sections:
           containerTag: section
           # container settings
 
-          config: '' # "" = default slides, "isTabs" for tabbed interface
+          isTabs: false # true = tabs labelled with each slide's title
           slides:
             - slideClasses: ''
               image:
@@ -260,7 +260,7 @@ sections:
 
         | Property | Type | Required | Description |
         |----------|------|----------|-------------|
-        | `config` | string | No | Slider type - `""` for default pagination, `"isTabs"` for tabbed interface |
+        | `isTabs` | boolean | No | `true` shows tabs labelled with each slide's `text.title`; `false` (default) shows numbered pagination |
 
         #### Slide Content
 
