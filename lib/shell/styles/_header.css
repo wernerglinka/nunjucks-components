@@ -95,7 +95,7 @@
     background: transparent;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-top-message-text);
     outline-offset: 2px;
     box-shadow: none;
@@ -138,12 +138,15 @@ header {
 
     &:hover,
     &.active,
-    &:focus,
-    &:focus-visible {
+    &:focus {
       transform: none;
       background: transparent;
       box-shadow: none;
-      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-link-navigation);
+      outline-offset: 2px;
     }
   }
 
@@ -172,7 +175,6 @@ header {
         background: transparent;
       }
 
-      &:focus,
       &:focus-visible {
         outline: 2px solid var(--color-link-navigation);
         outline-offset: 2px;
@@ -273,6 +275,12 @@ header {
     border-radius: var(--space-3xs, 0.25rem);
     overflow: hidden;
     background: var(--background-color-light, #fff);
+
+    /* The input has no outline of its own, so the form shows its focus */
+    &:has(.header-search-input:focus-visible) {
+      outline: 2px solid var(--color-link-navigation);
+      outline-offset: 2px;
+    }
 
     .header-search-input {
       flex: 1;

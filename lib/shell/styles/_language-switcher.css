@@ -29,13 +29,9 @@
   appearance: none;
 
   /* Focus indicator */
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-primary, #007acc);
     outline-offset: 2px;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
   }
 
   a {
@@ -122,8 +118,10 @@ a.language-option {
     border-bottom: none;
   }
 
-  &:focus {
-    outline: none;
+  /* Inset ring: the menu clips anything drawn outside the option */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, #007acc);
+    outline-offset: -2px;
     background: var(--color-hover, #f5f5f5);
   }
 }

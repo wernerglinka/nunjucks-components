@@ -151,11 +151,6 @@
   color: var(--color-text);
 }
 
-.js-focus-visible:focus:not(.focus-visible),
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
-}
-
 .shk[data-fixed-type='fixed'] {
   position: fixed;
   bottom: 0;
@@ -1205,7 +1200,7 @@ svg.shk-btn_mute,
   }
 }
 
-.load-more-episodes:focus {
+.load-more-episodes:focus-visible {
   outline: 2px solid var(--color-text-light);
   outline-offset: 2px;
   box-shadow:

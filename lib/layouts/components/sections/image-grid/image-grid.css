@@ -147,11 +147,11 @@
 }
 
 /* Focus styles for accessibility */
-.image-grid-link:focus {
-  outline: none;
+.image-grid-link:focus-visible {
+  outline: none; /* The figure below carries the ring */
 }
 
-.image-grid-link:focus .image-grid-figure {
+.image-grid-link:focus-visible .image-grid-figure {
   outline: 2px solid var(--color-primary);
   outline-offset: -2px;
 }

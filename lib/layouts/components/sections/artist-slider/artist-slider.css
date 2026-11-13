@@ -29,7 +29,7 @@
   height: 100vh;
   overflow: hidden;
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: -2px;
   }
@@ -204,7 +204,7 @@
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
@@ -318,7 +318,7 @@
     cursor: default;
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
