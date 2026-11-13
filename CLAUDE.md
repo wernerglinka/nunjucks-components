@@ -303,6 +303,10 @@ These filters are essential for template development and are automatically avail
 
 **For CSS layout patterns and best practices, see [CSS Layouts Skill](.claude/skills/css-layouts.md).**
 
+### Browser Support
+
+**Browser Support:** allow Newly Available features when feature-detected, fallbacks of 20 lines or fewer, no polyfill dependencies.
+
 ## Site-Wide Search System
 
 The component library includes a comprehensive search system for discovering content across the entire site.
