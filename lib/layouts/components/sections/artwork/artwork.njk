@@ -15,9 +15,9 @@
     {% endif %}
 
     <div class="media">
-      <a class="artwork-zoom js-artwork-zoom" role="button" tabindex="0" aria-haspopup="dialog" aria-label="{{ 'Vergrößerte Ansicht öffnen' if isDE else 'View larger image' }}">
+      <button type="button" class="artwork-zoom js-artwork-zoom" aria-haspopup="dialog" aria-label="{{ 'Vergrößerte Ansicht öffnen' if isDE else 'View larger image' }}">
         {{ image({ src: section.image.src, alt: section.image.alt }) }}
-      </a>
+      </button>
       {% if section.image.caption %}
         <p class="caption">{{ section.image.caption }}</p>
       {% endif %}

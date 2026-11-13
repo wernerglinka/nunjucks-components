@@ -228,6 +228,12 @@
 
 /* OpenLayers popup close button styling */
 .ol-popup-closer {
+  /* A real button without the global button look */
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  cursor: pointer;
   text-decoration: none;
   position: absolute;
   top: 8px;
@@ -242,6 +248,7 @@
 }
 
 .ol-popup-closer:hover {
+  transform: none;
   color: #000;
   background-color: rgb(0 0 0 / 10%);
 }

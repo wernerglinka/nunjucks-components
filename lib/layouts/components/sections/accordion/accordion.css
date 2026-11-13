@@ -26,13 +26,24 @@
   .accordion-toggle-all {
     margin-bottom: var(--space-s);
     text-transform: uppercase;
+    font: inherit;
     font-size: 0.7em;
+    letter-spacing: normal;
     padding: 4px 8px;
     border-radius: 4px;
     transition: outline 0.2s ease;
 
+    /* A real button that keeps the look of a text link */
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--color-primary);
+    cursor: pointer;
+
     &:hover {
-      text-decoration: none;
+      transform: none;
+      background-color: var(--glass-background);
     }
   }
 

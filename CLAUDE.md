@@ -47,7 +47,7 @@ npm run build
 - `npm run format` - Format JS/JSON with Biome (`.njk` and CSS are excluded)
 - `npm run lint` - Lint and fix JavaScript/JSON with Biome
 - `npm run lint:css` - Lint and fix CSS with Stylelint
-- `npm run lint:components` - Canon component lint: undefined token references, unprefixed component properties, layer-unsafe stylesheets, fields-vs-validation default drift. The vocabulary is exactly `_design-tokens.css` + `_css-patterns.css` (shell stylesheets do not count), and a token defined by another component only counts through the consumer's transitive manifest `requires` closure. Errors fail, warnings are advisory (`--strict` fails on both; `--vocab <dir>` lints against another vocabulary directory, e.g. the starter's)
+- `npm run lint:components` - Canon component lint: undefined token references, unprefixed component properties, layer-unsafe stylesheets, fields-vs-validation default drift, placeholder links (`href="#"`, `<a role="button">`), missing styling dependencies (a component that emits `<button>` must have `button` in its `requires` closure), and focus indicators (`outline: none` needs a same-line comment naming where the ring is shown; outlines go on `:focus-visible`). The link and focus rules also cover the page shell. It runs inside `npm test` through `test/component-lint.test.js`. The vocabulary is exactly `_design-tokens.css` + `_css-patterns.css` (shell stylesheets do not count), and a token defined by another component only counts through the consumer's transitive manifest `requires` closure. Errors fail, warnings are advisory (`--strict` fails on both; `--vocab <dir>` lints against another vocabulary directory, e.g. the starter's)
 - `npm run check` - Verify formatting + lint with no writes (Biome + Stylelint)
 - `npm run fix` - Run Biome check --write (format + lint) then lint:css
 
@@ -188,7 +188,8 @@ Comprehensive test suite using Node's native test runner (`node --test`, with `n
 - `test/build-integration.test.js` - Tests complete Metalsmith build pipeline, HTML generation, collections, pagination
 - `test/content-structure.test.js` - Verifies frontmatter structure, global data file validity, SEO metadata
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, bundler integration
-- `test/schema-consistency/` - Holds each section's template, manifest `validation`, `fields`, and example `.yml` in agreement (see its README)
+- `test/schema-consistency/` - Holds each section's template, manifest `validation`, `fields`, and example `.yml` in agreement, and holds the pages under `src/` to the same contract against a shrink-only baseline (see its README)
+- `test/component-lint.test.js` - Runs `npm run lint:components` so its rules gate the test suite
 
 ### Testing Workflow
 

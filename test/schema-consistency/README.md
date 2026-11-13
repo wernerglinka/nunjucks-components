@@ -66,6 +66,14 @@ runs `test/**/*.test.js`; `test:schema` narrows to this directory.
   Not to be confused with a field literally named `source` (e.g. accordion's
   `faqs.source` text input), which is a widget leaf, not a `source` property.
 
+- **`page-content.test.js` (G)** — applies the A2 rule to every section of
+  every page under `src/`, not just the component examples. Catches a page
+  that sets a key its component does not declare (the slider `isTabs` class:
+  the reference page set a key the template did not read, so the demo rendered
+  the wrong variant). Existing violations live in `page-content-baseline.json`,
+  which may only shrink: a new off-contract key fails the test, and so does a
+  baseline entry that no longer occurs.
+
 ## Why static checks AND a render test
 
 Statically parsing Nunjucks (macros, dynamic includes, partial imports) to

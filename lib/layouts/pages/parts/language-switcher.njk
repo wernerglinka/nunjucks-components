@@ -1,5 +1,3 @@
-{% from "components/_partials/icon/icon.njk" import icon %}
-
 {#
   Language Switcher Component
 
@@ -21,7 +19,9 @@
   {% set fallback = fallbackUrl or data.languages.fallbackUrl or '/404/' %}
 
   <div class="language-switcher js-language-switcher" data-default-lang="{{ default }}" data-fallback-url="{{ fallback }}">
-    {{ icon({ url: "#", icon: "globe" }) }}
+    <button type="button" class="language-toggle icon-wrapper js-language-toggle" aria-label="Choose language" aria-haspopup="listbox" aria-expanded="false">
+      {% include "icons/globe.njk" %}
+    </button>
     <span class="current-lang js-current-lang">{{ default | upper }}</span>
 
     <ul class="language-dropdown js-language-dropdown" role="listbox" aria-label="Available languages">

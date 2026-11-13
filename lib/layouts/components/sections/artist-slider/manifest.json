@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["artist-slider.css"],
   "scripts": ["artist-slider.js"],
-  "requires": ["commons"],
+  "requires": ["commons", "button"],
   "context": ["data.artworks"],
   "validation": {
     "required": ["sectionType", "artworks"],

@@ -4,6 +4,7 @@
   "abstract": true,
   "styles": ["search.css"],
   "scripts": ["search.js"],
+  "requires": ["button"],
   "fields": {
     "placeholder": {
       "widget": "text",

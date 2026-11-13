@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["multi-tab.css"],
   "scripts": ["multi-tab.js"],
-  "requires": ["text", "commons"],
+  "requires": ["text", "commons", "button"],
   "context": ["data", "collections", "urlPath"],
   "validation": {
     "required": ["sectionType", "tabs"],

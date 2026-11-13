@@ -45,14 +45,21 @@
   }
 
   .media {
-    /* Link with role="button"; neutralize the global anchor hover/transition */
+    /* The zoom trigger: a button that shows only the image */
     .artwork-zoom {
       display: block;
       margin-inline: auto;
       transition: none;
       cursor: zoom-in;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      box-shadow: none;
 
       &:hover {
+        transform: none;
         background-color: transparent;
       }
     }

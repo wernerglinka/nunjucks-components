@@ -37,9 +37,9 @@
          {% if section.expandIndex is not null %}data-expand-index="{{ section.expandIndex }}"{% endif %}>
       {# Add toggle all link when multiple panels are allowed #}
       {% if section.allowMultiple %}
-        <a href="#" class="accordion-toggle-all js-accordion-toggle-all" aria-label="Toggle all panels">
+        <button type="button" class="accordion-toggle-all js-accordion-toggle-all">
           <span class="toggle-text">Open All</span>
-        </a>
+        </button>
       {% endif %}
       {% for faq in faqsList %}
         <div class="accordion-item{% if faq.isFancy %} is-fancy{% endif %}">

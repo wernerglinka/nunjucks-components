@@ -291,7 +291,7 @@ header {
       color: var(--color-text);
 
       &:focus {
-        outline: none;
+        outline: none; /* The form shows the ring, see :has() above */
       }
 
       &::placeholder {
