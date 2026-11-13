@@ -107,61 +107,23 @@
 }
 
 /*
- * Artwork modal overlay
- * Mirrors the video overlay pattern; the fadein/fadeout keyframes
- * are provided by the overlay partial.
+ * Enlarged artwork modal. The dialog itself comes from the overlay partial
+ * (.modal-dialog). It shrink-wraps the image, so a click anywhere outside
+ * the image and the Close control lands on the backdrop and dismisses it.
  */
-#artwork-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  background-color: rgb(0 0 0 / 80%);
-  display: none;
+.modal-dialog.artwork-dialog {
+  width: fit-content;
 
-  &.is-open {
+  img {
     display: block;
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: calc(100dvh - 10rem);
   }
 
-  .close {
-    position: absolute;
-    z-index: 1;
-    top: 7vh;
-    right: 10vw;
-    padding: 0;
-    border: none;
-    background: none;
-    font-family: inherit;
-    font-size: var(--font-md, 1.25rem);
-    color: var(--contrast-text-on-dark);
-
-    &:hover {
-      cursor: pointer;
-      color: var(--color-text-light);
-    }
-  }
-
-  .artwork-wrapper {
-    position: absolute;
-    inset: 10vh 10vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-    }
-  }
-
-  &.fadeout {
-    display: block;
-    animation: fadeout 1s ease-in-out forwards;
-  }
-
-  &.fadein {
-    display: block;
-    animation: fadein 1s ease-in-out forwards;
+  /* Darker than the default backdrop, so the artwork is not competing with the page */
+  &[open]:not([data-closing])::backdrop {
+    background-color: rgb(0 0 0 / 80%);
   }
 }

@@ -216,15 +216,15 @@ The modal is a native `<dialog>` opened with `showModal()`. One dialog is create
 ### Modal Structure
 
 ```html
-<dialog class="video-dialog" aria-label="Video player" closedby="any">
+<dialog class="modal-dialog video-dialog" aria-label="Video player" closedby="any">
   <button type="button" class="close" aria-label="Close video" autofocus>Close</button>
-  <div class="video-container">
+  <div class="modal-dialog-content video-container">
     <!-- Provider-specific player inserted here -->
   </div>
 </dialog>
 ```
 
-The dialog styles live in the `overlay` partial (`overlay.css`).
+The dialog is built by the `overlay` partial's `modules/modal-dialog.js`, which also carries the shared `.modal-dialog` styles in `overlay.css`. The video partial only sets the dialog's size and the 16:9 player box (`.video-dialog` in `video.css`).
 
 ## CSS Classes
 
