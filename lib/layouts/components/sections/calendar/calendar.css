@@ -262,28 +262,43 @@
 
 /* Event Details Modal/Panel */
 .calendar .event-details {
+  /* Undo the browser's centered-box <dialog> defaults: this is a side panel */
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0 0 0 auto;
   width: 400px;
   max-width: 100%;
-  background: var(--calendar-bg);
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: none;
   border-left: 1px solid var(--calendar-border);
+  background: var(--calendar-bg);
+  color: inherit;
   box-shadow: -4px 0 12px rgb(0 0 0 / 10%);
   z-index: 1000;
   overflow-y: auto;
+
+  /* Closed look; also the end state of the slide out */
   transform: translateX(100%);
   transition: transform 0.3s ease;
 
-  /* The transform is what hides the panel, so keep it and drop the slide */
+  /* Reduced motion: appear and disappear without the slide */
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 }
 
-.calendar .event-details.is-open {
-  transform: translateX(0);
+/*
+ * Open look. @starting-style slides it in; the script sets [data-closing] to
+ * slide it back out before it calls close().
+ */
+.calendar .event-details[open]:not([data-closing]) {
+  transform: none;
+
+  @starting-style {
+    transform: translateX(100%);
+  }
 }
 
 .calendar .event-details-content {

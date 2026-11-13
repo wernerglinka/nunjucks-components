@@ -363,6 +363,7 @@ The component gracefully handles various error scenarios:
 - Semantic HTML structure
 - ARIA labels for navigation controls
 - Keyboard navigation support (Escape to close details panel)
+- The event details panel is a non-modal `<dialog>`: focus moves into it when it opens and returns to the event that opened it when it closes, and the calendar stays usable while it is open
 - Focus management
 - Screen reader friendly event information
 

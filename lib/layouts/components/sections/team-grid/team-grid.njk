@@ -39,9 +39,10 @@
               <p class="member-bio">
                 {{- member.bio -}}
                 {%- if member.extendedBio -%}
-                  ...<a href="#" class="text-link"
+                  ...<button type="button" class="text-link"
                       data-dialog-target="{{ memberId }}-dialog"
-                      aria-haspopup="dialog">More</a>
+                      aria-haspopup="dialog"
+                      aria-label="More about {{ member.name }}">More</button>
                 {%- endif -%}
               </p>
             {% endif %}
@@ -77,11 +78,11 @@
 
         {# Dialog for extended bio (grid layout only) #}
         {% if member.extendedBio and layout === "grid" %}
-          <dialog id="{{ memberId }}-dialog" class="member-dialog" aria-labelledby="{{ memberId }}-title">
+          <dialog id="{{ memberId }}-dialog" class="modal-dialog member-dialog" closedby="any" aria-labelledby="{{ memberId }}-title">
             <div class="dialog-content">
-              <span class="dialog-close" role="button" tabindex="0" aria-label="Close dialog">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </span>
+              <button type="button" class="dialog-close" aria-label="Close" autofocus>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
 
               <div class="dialog-header">
                 {% if member.image | hasImage %}

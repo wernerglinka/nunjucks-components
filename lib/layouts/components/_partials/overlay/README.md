@@ -1,10 +1,10 @@
 # Overlay Component
 
-Shared modal dialog for components that show content above the page. It is used by the `video` partial (modal player) and the `artwork` section (enlarged image). The overlay has no template of its own and is not placed in frontmatter; a component pulls it in by listing `overlay` in its manifest `requires` and importing the helper.
+Shared modal dialog for components that show content above the page. It is used by the `video` partial (modal player), the `artwork` section (enlarged image), the `team-grid` section (member bios) and the `calendar` section (event details panel). The overlay has no template of its own and is not placed in frontmatter; a component pulls it in by listing `overlay` in its manifest `requires` and importing the helper.
 
 ## Files
 
-- `modules/modal-dialog.js`: builds a native modal `<dialog>` and exports `createModalDialog` and `closeModalDialog`
+- `modules/modal-dialog.js`: builds or enhances a native `<dialog>` and exports `createModalDialog`, `enhanceModalDialog` and `closeModalDialog`
 - `overlay.css`: the shared `.modal-dialog` styles (backdrop, fades, Close control)
 - `overlay.njk`: placeholder, renders nothing
 
@@ -44,6 +44,25 @@ closeModalDialog(dialog, { immediate: true }); // e.g. before a page transition
 ```
 
 Create the dialog once and reuse it; `createModalDialog` appends it to `<body>`.
+
+### A dialog that is already in the markup
+
+When the dialog's content is rendered by the template (as in `team-grid`), give it the `modal-dialog` class and pass it to `enhanceModalDialog`. That adds light dismiss and the fade out; you supply your own close button.
+
+```javascript
+import { closeModalDialog, enhanceModalDialog } from '../../_partials/overlay/modules/modal-dialog.js';
+
+enhanceModalDialog(dialog);
+trigger.addEventListener('click', () => {
+  trigger.focus();
+  dialog.showModal();
+});
+closeButton.addEventListener('click', () => closeModalDialog(dialog));
+```
+
+### Non-modal panels
+
+`closeModalDialog` also works for a dialog opened with `dialog.show()`, such as the calendar's event details panel. Style the open state as `[open]:not([data-closing])` and the helper lets the exit transition finish before it closes the dialog.
 
 ## Generated markup
 

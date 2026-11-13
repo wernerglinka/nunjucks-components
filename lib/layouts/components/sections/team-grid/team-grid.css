@@ -146,53 +146,70 @@
   }
 }
 
-/* Member Dialog (uses native <dialog> element) */
-.member-dialog {
-  position: fixed;
-  max-width: min(90vw, 32rem);
-  max-height: 85vh;
-  padding: 0;
+/*
+ * "More" trigger: a button, because it opens a dialog and goes nowhere. These
+ * rules undo the global button surface so it reads as the text link it is.
+ */
+.team-grid .member-bio .text-link {
   border: none;
-  border-radius: var(--space-xs);
-  box-shadow: var(--color-shadow);
-  background: var(--color-background);
-  opacity: 0;
-  transform: scale(0.95);
-  transition:
-    opacity 300ms ease-out,
-    transform 300ms ease-out,
-    display 300ms ease-out allow-discrete;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  font: inherit;
+  font-size: var(--font-s);
+  letter-spacing: inherit;
+  color: var(--color-primary);
+  cursor: pointer;
 
-  &[open] {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  &::backdrop {
-    background: rgb(0 0 0 / 0%);
-    backdrop-filter: blur(0);
-    transition:
-      background 300ms ease-out,
-      backdrop-filter 300ms ease-out,
-      display 300ms ease-out allow-discrete;
-  }
-
-  &[open]::backdrop {
-    background: rgb(0 0 0 / 60%);
-    backdrop-filter: blur(4px);
+  &:hover {
+    transform: none; /* Override button.css scale */
+    background-color: var(--background-color-link-hover);
   }
 }
 
-/* Define starting style for entry animation */
-@starting-style {
-  .member-dialog[open] {
-    opacity: 0;
-    transform: scale(0.95);
+/*
+ * Member dialog: a native <dialog> using the overlay partial's shared
+ * .modal-dialog behavior (fade, backdrop, scroll containment). Only the card
+ * look, the backdrop blur and the scale are set here.
+ */
+.modal-dialog.member-dialog {
+  max-width: min(90vw, 32rem);
+  max-height: 85vh;
+  border-radius: var(--space-xs);
+  box-shadow: var(--color-shadow);
+  background: var(--color-background);
+  color: var(--color-text);
+
+  &::backdrop {
+    backdrop-filter: blur(0);
+    transition:
+      background-color 0.3s ease-out,
+      backdrop-filter 0.3s ease-out;
   }
 
-  .member-dialog[open]::backdrop {
-    background: rgb(0 0 0 / 0%);
-    backdrop-filter: blur(0);
+  &[open]:not([data-closing])::backdrop {
+    backdrop-filter: blur(4px);
+
+    @starting-style {
+      backdrop-filter: blur(0);
+    }
+  }
+
+  /* Scale in and out only for visitors who have not asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    transform: scale(0.95);
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+
+    &[open]:not([data-closing]) {
+      transform: scale(1);
+
+      @starting-style {
+        transform: scale(0.95);
+      }
+    }
   }
 }
 
@@ -216,7 +233,13 @@
     color: var(--color-text-dark);
     transition: color var(--transition-base);
 
+    /* A real button now: drop the glass surface the global button styles add */
+    backdrop-filter: none;
+    box-shadow: none;
+    border-radius: 0;
+
     &:hover {
+      transform: none; /* Override button.css scale */
       color: var(--color-primary);
     }
 

@@ -3,7 +3,7 @@
   "type": "section",
   "styles": ["team-grid.css"],
   "scripts": ["team-grid.js"],
-  "requires": ["text", "image", "text-link", "commons"],
+  "requires": ["text", "image", "text-link", "overlay", "commons"],
   "context": ["data.team"],
   "validation": {
     "required": ["sectionType"],
