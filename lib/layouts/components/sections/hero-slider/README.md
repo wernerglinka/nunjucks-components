@@ -232,3 +232,9 @@ This component requires:
 5. **Autoplay Timing**: 5-7 seconds per slide is recommended
 6. **Mobile Images**: Consider hiding decorative images on mobile
 7. **Video Backgrounds**: Provide fallback images for video backgrounds
+
+## Motion and Pausing
+
+When `autoplay` is on, the navigation bar shows a pause/play button, so visitors can stop the slideshow with the mouse or the keyboard. Its accessible name is the action it performs ("Pause slideshow" or "Play slideshow"). A pause stays in effect while the visitor moves between slides, until they press play. Double-clicking the selected tab still toggles the pause, and hovering still holds the slideshow while the pointer is over it.
+
+For visitors who prefer reduced motion (`prefers-reduced-motion: reduce`) the slideshow starts paused, background videos do not autoplay, slides cut instead of sliding, and slide content fades in place. Pressing play opts back in to auto-advancing.

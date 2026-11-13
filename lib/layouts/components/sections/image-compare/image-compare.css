@@ -41,6 +41,10 @@
     transform: translateY(20px);
     transition: transform 0.5s ease-in-out 0.7s, opacity 0.5s ease-in-out 0.7s;
 
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+
     &.is-hidden {
       visibility: hidden;
     }
@@ -83,7 +87,11 @@
   
   .is-visible .after-image {
     width: 50%;
-    animation: show-after 0.5s;
+
+    /* Reveal sweep only for visitors who have not asked for reduced motion */
+    @media (prefers-reduced-motion: no-preference) {
+      animation: show-after 0.5s;
+    }
   }
 
   .comparison-handle {

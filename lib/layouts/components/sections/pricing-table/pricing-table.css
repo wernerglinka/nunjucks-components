@@ -55,6 +55,11 @@
 
       &:hover {
         transform: scale(1.04);
+
+        /* Keep the featured card's resting size */
+        @media (prefers-reduced-motion: reduce) {
+          transform: scale(1.02);
+        }
       }
     }
   }

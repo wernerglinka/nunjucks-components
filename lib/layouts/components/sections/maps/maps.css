@@ -86,6 +86,10 @@
 .custom-div-icon:hover svg,
 .ol-marker-icon:hover svg {
   transform: scale(1.1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
 }
 
 /* Ensure consistent marker positioning */
@@ -284,6 +288,10 @@
   border: none;
   text-decoration: none;
   transform: scale(1.05);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
 }
 
 .leaflet-popup-content a:focus,

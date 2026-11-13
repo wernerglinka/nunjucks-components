@@ -193,7 +193,9 @@
 
 /* Animation for results appearance */
 .search-result {
-  animation: slide-in 0.3s ease-in-out;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: slide-in 0.3s ease-in-out;
+  }
 }
 
 @keyframes slide-in {

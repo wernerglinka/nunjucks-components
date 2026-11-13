@@ -187,6 +187,11 @@
       /* All content starts translated to the right for slide-in effect */
       opacity: 0;
       transform: translateX(10rem);
+
+      /* Reduced motion: content fades in place instead of sliding in */
+      @media (prefers-reduced-motion: reduce) {
+        transform: none;
+      }
     }
 
     /* Only center text when explicitly requested */
@@ -216,6 +221,12 @@
   &.is-moving,
   &.is-selected {
     transition: transform var(--transition-fade);
+
+    /* Reduced motion: cut instead of slide. A near-zero duration keeps
+       transitionend firing, which hero-slider.js relies on for cleanup. */
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0.01s;
+    }
   }
 
   &.is-moving {
@@ -326,6 +337,52 @@
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  /* Pause/play control for the auto-advancing slideshow */
+  .autoplay-toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--space-s);
+    translate: 0 -50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    color: var(--hero-slider-nav-color);
+    cursor: pointer;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .icon-play,
+    .icon-pause {
+      display: flex;
+    }
+
+    /* Show the icon for the action the button performs */
+    .icon-play,
+    &.is-paused .icon-pause {
+      display: none;
+    }
+
+    &.is-paused .icon-play {
+      display: flex;
+    }
+
+    &:hover {
+      transform: none; /* Override button.css scale */
+      color: var(--hero-slider-nav-item-is-selected-color);
+    }
   }
 
   li {

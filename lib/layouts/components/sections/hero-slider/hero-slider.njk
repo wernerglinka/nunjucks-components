@@ -107,6 +107,13 @@
           </li>
         {% endfor %}
       </ul>
+      {# Auto-advancing content needs a visible, keyboard-operable way to stop it #}
+      {% if section.autoplay %}
+        <button type="button" class="autoplay-toggle js-autoplay-toggle" aria-label="Pause slideshow">
+          <span class="icon-pause">{% include "icons/pause.njk" %}</span>
+          <span class="icon-play">{% include "icons/play.njk" %}</span>
+        </button>
+      {% endif %}
     </nav>
   </div>
 </div>

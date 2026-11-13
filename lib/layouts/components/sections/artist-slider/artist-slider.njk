@@ -58,6 +58,12 @@
     </div>
   </div>
 
+  {# Pause/play: auto-advancing content needs a visible way to stop it #}
+  <button type="button" class="autoplay-toggle" aria-label="Pause slideshow">
+    <span class="icon-pause">{% include "icons/pause.njk" %}</span>
+    <span class="icon-play">{% include "icons/play.njk" %}</span>
+  </button>
+
   {# Info toggle button #}
   <button
     type="button"

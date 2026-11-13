@@ -67,6 +67,10 @@
       picture,
       .responsive-wrapper {
         transform: scale(1.05);
+
+        @media (prefers-reduced-motion: reduce) {
+          transform: none;
+        }
       }
 
       .play-button {

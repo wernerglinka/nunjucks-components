@@ -256,7 +256,11 @@
 
 .shk-title_wrap[data-overflow] .shk-title_inner::after,
 .shk-title_wrap[data-overflow] .shk-title {
-  animation: marquee linear infinite;
+  /* Scrolling title: only for visitors who have not asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    animation: marquee linear infinite;
+  }
+
   animation-duration: inherit;
   padding-right: 60px;
 }
@@ -792,7 +796,10 @@ svg.shk-btn_mute,
   box-sizing: border-box;
   padding: 0 40px;
   mask-image: linear-gradient(to bottom, transparent, #202124 5%, #202124 95%, transparent);
-  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 }
 
 .shk-chapter_list {
@@ -944,7 +951,11 @@ svg.shk-btn_mute,
   .shk-chapter_title_wrap[data-overflow]
   .shk-chapter_title_inner::after,
 .shk-chapter_item[data-active] .shk-chapter_title_wrap[data-overflow] .shk-chapter_title {
-  animation: marquee linear infinite;
+  /* Scrolling title: only for visitors who have not asked for reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    animation: marquee linear infinite;
+  }
+
   animation-duration: inherit;
   padding-right: 60px;
   color: currentcolor;
@@ -1188,6 +1199,10 @@ svg.shk-btn_mute,
 
 .load-more-episodes:hover {
   transform: scale(1.05);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
 }
 
 .load-more-episodes:focus {

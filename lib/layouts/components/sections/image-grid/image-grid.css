@@ -97,6 +97,10 @@
 .image-grid-item:hover .image-grid-figure img,
 .image-grid-link:focus .image-grid-figure img {
   transform: scale(1.05);
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
 }
 
 /* Details container */

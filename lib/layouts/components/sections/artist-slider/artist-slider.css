@@ -195,6 +195,10 @@
   &:hover {
     transform: scale(1.1);
 
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
+
     svg {
       stroke-width: 2px;
     }
@@ -211,6 +215,65 @@
     svg {
       stroke: white;
     }
+  }
+}
+
+/* Pause/play control, to the left of the info toggle and styled like it */
+.artist-slider-wrapper .autoplay-toggle {
+  position: absolute;
+  bottom: var(--space-l);
+  right: calc(var(--space-l) * 2 + var(--space-s));
+  z-index: 20;
+  width: var(--space-l);
+  height: var(--space-l);
+  padding: var(--space-3xs);
+  border: var(--glass-border);
+  border-radius: 50%;
+  background: var(--glass-background);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--glass-box-shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    stroke: var(--color-text);
+    stroke-width: 1.5px;
+  }
+
+  .icon-play,
+  .icon-pause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Show the icon for the action the button performs */
+  .icon-play,
+  &.is-paused .icon-pause {
+    display: none;
+  }
+
+  &.is-paused .icon-play {
+    display: flex;
+  }
+
+  &:hover {
+    transform: none; /* Override button.css scale */
+
+    svg {
+      stroke-width: 2px;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -244,6 +307,10 @@
   &:hover {
     background: rgb(255 255 255 / 50%);
     transform: scale(1.2);
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
   }
 
   &.is-active {

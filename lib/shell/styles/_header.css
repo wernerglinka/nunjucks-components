@@ -249,6 +249,10 @@ header {
   visibility: hidden;
   transform: translateY(-1rem);
 
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+
   &.active {
     opacity: 1;
     visibility: visible;
