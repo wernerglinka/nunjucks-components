@@ -1,0 +1,12 @@
+{#
+  Applies a stored dark theme before the first paint. main.js loads at the end
+  of the body, so without this a dark page flashes light on every full load.
+  Must stay inline and directly after the opening body tag.
+#}
+<script>
+  try {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-theme');
+    }
+  } catch (e) {}
+</script>

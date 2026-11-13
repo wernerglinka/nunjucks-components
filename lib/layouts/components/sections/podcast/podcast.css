@@ -96,17 +96,10 @@
   --shadow-handle: 0px 0px 9px -3px rgb(0 0 0 / 80%);
 }
 
-@media (prefers-color-scheme: dark) {
-  .shk[data-theme='auto'] {
-    --color-theme: #333;
-    --color-secondary: #b9b6b6;
-    --color-text: #fff;
-    --color-handle-shadow-mobile: #141414;
-    --color-shadow: #14141480;
-  }
-}
-
-/* Override Shikwasa theme when our custom dark theme is active */
+/*
+ * The "auto" player theme follows the site theme, not the system preference:
+ * the site is light unless its own dark theme is on.
+ */
 .dark-theme .shk[data-theme='auto'] {
   --color-bar-played: linear-gradient(90deg, #4158d0, #c850c0, #ffcc70);
   --color-bar-loaded: repeating-linear-gradient(45deg, #797979, grey 10px, #969696 0, #969696 20px);

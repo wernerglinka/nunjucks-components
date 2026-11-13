@@ -218,6 +218,18 @@
   --token-variable: #e90;
 }
 
+/*
+ * Native UI (scrollbars, form controls, the canvas behind the page) follows
+ * the theme. The site is light unless the visitor turns the dark theme on.
+ */
+:root {
+  color-scheme: light;
+
+  &:has(body.dark-theme) {
+    color-scheme: dark;
+  }
+}
+
 /* Dark Theme */
 body.dark-theme {
   /* Colors */
