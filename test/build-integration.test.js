@@ -98,7 +98,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should complete a basic build without errors', (t, done) => {
+    it('should complete a basic build without errors', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false) // Don't clean to avoid conflicts with main build
         .source('./src')
@@ -132,7 +132,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should generate HTML files from markdown sources', (t, done) => {
+    it('should generate HTML files from markdown sources', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false)
         .source('./src')
@@ -194,7 +194,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should create blog collections correctly', (t, done) => {
+    it('should create blog collections correctly', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false)
         .source('./src')
@@ -248,7 +248,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should generate clean URLs', (t, done) => {
+    it('should generate clean URLs', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false)
         .source('./src')
@@ -302,7 +302,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should copy static assets', (t, done) => {
+    it('should copy static assets', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false)
         .source('./src')
@@ -353,7 +353,7 @@ describe('Build Integration', () => {
      *
      * @param {Function} done - Mocha callback for async test completion
      */
-    it('should preserve frontmatter data in built files', (t, done) => {
+    it('should preserve frontmatter data in built files', (_t, done) => {
       const metalsmith = Metalsmith(projectRoot)
         .clean(false)
         .source('./src')

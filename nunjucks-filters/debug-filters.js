@@ -21,7 +21,7 @@ export const myDump = (obj) => {
     const seen = new WeakSet();
     // The key parameter is required by JSON.stringify but not used in this function
 
-    return (key, value) => {
+    return (_key, value) => {
       if (typeof value === 'object' && value !== null) {
         if (seen.has(value)) {
           return;
@@ -46,7 +46,7 @@ export const safeDump = (obj) => {
     const seen = [];
     return JSON.stringify(
       obj,
-      (key, val) => {
+      (_key, val) => {
         if (val !== null && typeof val === 'object') {
           if (seen.indexOf(val) >= 0) {
             return '[Circular Reference]';

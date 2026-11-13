@@ -307,7 +307,7 @@ describe('Content Structure', () => {
 
         // Validate date format
         const date = new Date(data.card.date);
-        assert.ok(!isNaN(date.getTime()), `${postPath} card.date should be a valid date`);
+        assert.ok(!Number.isNaN(date.getTime()), `${postPath} card.date should be a valid date`);
       }
     });
   });

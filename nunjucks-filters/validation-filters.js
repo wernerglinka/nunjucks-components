@@ -29,7 +29,7 @@ export const isString = (value) => {
  * @returns {boolean} True if the image has a valid src, false otherwise
  */
 export const hasImage = (imageObj) => {
-  return imageObj && imageObj.src && imageObj.src.trim() !== '';
+  return imageObj?.src && imageObj.src.trim() !== '';
 };
 
 /**
@@ -43,7 +43,7 @@ export const hasCtas = (ctasArray) => {
     return false;
   }
 
-  return ctasArray.some((cta) => cta && cta.url && cta.url.trim() !== '' && cta.label && cta.label.trim() !== '');
+  return ctasArray.some((cta) => cta?.url && cta.url.trim() !== '' && cta.label && cta.label.trim() !== '');
 };
 
 /**
@@ -79,7 +79,7 @@ export const hasAuthor = (author) => {
 
   // If it's an array, check if it has length and at least one non-empty item
   if (Array.isArray(author)) {
-    return author.length > 0 && author.some((a) => a && a.trim && a.trim() !== '');
+    return author.length > 0 && author.some((a) => a?.trim && a.trim() !== '');
   }
 
   // If it's a string, check if it's not empty

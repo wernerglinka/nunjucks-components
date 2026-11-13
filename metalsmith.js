@@ -134,7 +134,7 @@ metalsmith
    * Each JSON file in lib/data becomes a key under metadata.data (e.g., site.json -> data.site)
    * Subdirectories are processed recursively
    */
-  .use((files, metalsmith, done) => {
+  .use((_files, metalsmith, done) => {
     const dataDir = path.join(metalsmith.directory(), 'lib', 'data');
 
     const processDirectory = (dirPath) => {
@@ -336,7 +336,7 @@ metalsmith
   .use(
     assets({
       source: 'lib/assets/', // Where to find assets
-      destination: 'assets/', // Where to copy assets
+      destination: 'assets/' // Where to copy assets
     })
   )
 
@@ -468,7 +468,7 @@ if (mainFile === thisFile) {
     }
 
     // Log build success and time taken
-    /* eslint-disable no-console */
+    // biome-ignore lint/suspicious/noConsole: build timing output for the terminal
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`);
 
     // If watch mode is enabled, set up the development server
