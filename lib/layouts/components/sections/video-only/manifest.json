@@ -27,7 +27,7 @@
       "video.tn": {
         "type": "string"
       },
-      "video.inline": {
+      "video.inSitu": {
         "type": "boolean"
       },
       "ctas": {
