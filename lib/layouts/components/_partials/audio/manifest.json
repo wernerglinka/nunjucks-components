@@ -3,7 +3,7 @@
   "type": "partial",
   "styles": ["audio.css"],
   "scripts": ["audio.js"],
-  "requires": ["image", "icon"],
+  "requires": ["image", "icon", "button"],
   "validation": {
     "properties": {
       "bgImage": {
