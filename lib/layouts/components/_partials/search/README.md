@@ -139,7 +139,8 @@ This component implements a sophisticated two-step search process for optimal us
 #### Layer 2: User Experience Filtering (UX Layer)
 - **Exact Substring Verification**: Only shows results where the search term actually appears in the content
 - **Meaningful Match Filtering**: Prevents confusing partial matches (e.g., "dors" won't match "doors")
-- **Relevance Threshold**: Applies minimum relevance scores for quality results
+- **No Score Cut-off**: Every page that contains the term is listed, ranked by Fuse.js; a match deep in a long page is not dropped
+- **Match in Context**: Each result shows the passage around the first match
 - **User-Focused Results**: Ensures users see content that genuinely contains their search terms
 
 ### Content Types Searched
@@ -160,7 +161,7 @@ The search component can find content in:
 ❌ **Filtered Out**:
 - "dors" → won't match "doors" (meaningless partial match)
 - "xyz" → won't match anything (nonsense term)
-- Low relevance fuzzy matches that don't contain the actual search term
+- Fuzzy matches that don't contain the actual search term
 
 ### Real-time Features
 - **Debounced Input**: 300ms delay prevents excessive searching while typing

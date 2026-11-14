@@ -253,7 +253,19 @@ metalsmith
       // Only the site-level search page itself is excluded; the search
       // component reference pages under references/ should be indexed.
       // This plugin runs after permalinks, so file keys are directory-style.
-      ignore: ['search/index.html', '**/search-index.json']
+      ignore: ['search/index.html', '**/search-index.json'],
+      // Index what a page says, not the chrome every page repeats. The
+      // sidebar alone lists every component by name, which made each
+      // reference page a match for "pricing", "maps" and the rest.
+      excludeSelectors: [
+        'nav',
+        'header',
+        'footer',
+        'aside.sidebar',
+        '.breadcrumbs',
+        '.header-search-overlay',
+        '.to-top'
+      ]
     })
   )
 

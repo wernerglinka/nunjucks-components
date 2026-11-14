@@ -343,7 +343,7 @@ sections:
           threshold: 0.4,
           includeScore: true,
           includeMatches: true,
-          minMatchCharLength: 3,
+          minMatchCharLength: 3,   // lowered to `minCharacters` when that is smaller
           ignoreLocation: true
         };
         ```
@@ -352,10 +352,11 @@ sections:
 
         ### Performance Optimization
 
-        **Two-Stage Relevance Filtering** (in `search.js`):
-        - Fuse returns fuzzy matches above threshold `0.4`
-        - Client then drops any result below 50% relevance (`(1 - score) * 100 < 50`)
-        - Client also requires an **exact case-insensitive substring match** in title, content, excerpt, or a heading — this removes typical fuzzy-search false positives
+        **Two-Stage Filtering** (in `search.js`):
+        - Fuse returns fuzzy matches within threshold `0.4` and ranks them
+        - Client then keeps only results with an **exact case-insensitive substring match** in title, content, excerpt, or a heading. This removes fuzzy-search false positives
+        - There is no score cut-off. Fuse scores a match in a long page body low, so a cut-off hides pages that do contain the query
+        - Each result shows the passage around the first match in the page body
 
         **Dynamic Library Loading:**
         - Fuse.js is bundled into the page JavaScript only when the search component is used
@@ -404,7 +405,7 @@ sections:
         - Confirm pages actually produce text content after `excludeSelectors` are stripped
 
         **Poor search results:**
-        - Adjust the client-side relevance threshold (50%) in `search.js`
+        - Too many pages match a component name: site chrome (a sidebar, breadcrumbs) is being indexed. Exclude it with `excludeSelectors`
         - Tune the client-side `threshold` in `fuseOptions` (lower = stricter)
         - Add more specific `excludeSelectors` to remove repetitive chrome text
 

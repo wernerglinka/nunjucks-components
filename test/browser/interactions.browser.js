@@ -224,6 +224,47 @@ const INTERACTIONS = [
     }
   },
   {
+    name: 'search lists every page that contains the query, and only those',
+    path: '/search/',
+    run: async (page) => {
+      const query = 'leaflet';
+      const index = await page.evaluate(() => fetch('/search-index.json').then((response) => response.json()));
+      const contains = (text) => typeof text === 'string' && text.toLowerCase().includes(query);
+      const expected = index.entries
+        .filter(
+          (entry) =>
+            [entry.title, entry.content, entry.excerpt].some(contains) ||
+            (entry.headings || []).some((heading) => contains(heading.title))
+        )
+        .map((entry) => entry.url);
+      assert.ok(expected.length > 1, 'the query is found on several pages');
+
+      // Site chrome is kept out of the index. With the sidebar indexed, every
+      // reference page contained every component name.
+      const naming = index.entries.filter((entry) => entry.content.toLowerCase().includes('accordion')).length;
+      assert.ok(naming < index.entries.length / 4, `"accordion" is on ${naming} of ${index.entries.length} pages`);
+
+      await page.locator('.search-input').first().fill(query);
+      const results = page.locator('.search-results').first().locator(':scope > .search-result');
+      await results.first().waitFor({ state: 'visible', timeout: 10000 });
+      const shown = await results.evaluateAll((elements) =>
+        elements.map((element) => ({
+          url: new URL(element.querySelector('a').href).pathname.replace(/\/$/, ''),
+          text: element.textContent.toLowerCase()
+        }))
+      );
+      assert.deepEqual(shown.map((result) => result.url).sort(), [...expected].sort(), 'the results are those pages');
+
+      // A result whose match is in the page body shows the passage around it
+      for (const result of shown) {
+        const entry = index.entries.find((candidate) => candidate.url === result.url);
+        if (contains(entry.content)) {
+          assert.ok(result.text.includes(query), `${result.url} shows the query in context`);
+        }
+      }
+    }
+  },
+  {
     name: 'tabs work when a tab key holds a dot, a space and a slash',
     path: '/references/sections/multi-tab/',
     run: async (page) => {
