@@ -191,6 +191,40 @@ const INTERACTIONS = [
     }
   },
   {
+    name: 'OpenLayers markers can be opened from the keyboard',
+    path: '/references/sections/maps/',
+    run: async (page) => {
+      const frame = page.locator('.map-frame').first();
+      await frame.scrollIntoViewIfNeeded();
+      const list = frame.locator('.js-map-locations');
+      const button = list.locator('.map-location').first();
+      // The list is unreachable until the map script has wired it up
+      await eventually(async () => !(await list.evaluate((element) => element.hidden)), 'the list is enabled');
+      const size = () => list.evaluate((element) => element.getBoundingClientRect().width);
+      assert.ok((await size()) <= 1, 'the list is out of sight while nothing in it has focus');
+
+      await button.focus();
+      assert.ok((await size()) > 40, 'and shows when one of its buttons has focus');
+
+      await page.keyboard.press('Enter');
+      const popup = frame.locator('.ol-popup');
+      await popup.waitFor({ state: 'visible' });
+      assert.ok(
+        await popup.evaluate((element) => element === document.activeElement),
+        'the popup takes focus when opened from the list'
+      );
+      const name = (await button.textContent()).trim();
+      assert.ok((await popup.textContent()).includes(name), 'and shows the chosen location');
+
+      await page.keyboard.press('Escape');
+      await popup.waitFor({ state: 'hidden' });
+      assert.ok(
+        await button.evaluate((element) => element === document.activeElement),
+        'closing returns focus to the button'
+      );
+    }
+  },
+  {
     name: 'a query in the URL runs however long the search index takes',
     path: '/',
     run: async (page) => {

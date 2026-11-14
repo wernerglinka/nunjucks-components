@@ -316,9 +316,10 @@ const svgMarker = `
 
 ## Accessibility
 
-- **Keyboard Navigation**: Both libraries support keyboard interaction
+- **Keyboard Navigation**: Both libraries pan with the arrow keys and zoom with plus and minus once the map has focus
+- **Markers, Leaflet**: Each marker is an element that takes focus; Enter opens its popup
+- **Markers, OpenLayers**: OpenLayers paints markers on a canvas, where the keyboard cannot reach them. The template renders a list with one button per marker (`.map-locations`) just before the map. It is out of sight until one of its buttons has focus, then shows as a panel over the map's top-left corner. A button centres the map on its marker and opens the popup, which takes focus; Escape or the close button returns focus to the button. With clustering the list still names every marker
 - **Screen Readers**: Markers include descriptive titles
-- **Focus Management**: Proper focus handling for interactive elements
 - **ARIA Labels**: Popups include appropriate ARIA attributes
 - **Color Contrast**: High contrast SVG markers
 

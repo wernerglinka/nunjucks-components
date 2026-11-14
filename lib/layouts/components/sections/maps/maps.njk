@@ -34,6 +34,22 @@
       </div>
     </div>
   {% else %}
+    {# OpenLayers paints its markers on a canvas, where the keyboard cannot
+       reach them. This list gives each marker a real button. It stays out of
+       sight until one of its buttons has focus, and out of reach (hidden)
+       until the map script has wired the buttons up. #}
+    <div class="map-frame">
+      {% if mapMarkers | length %}
+        <ul class="map-locations js-map-locations" aria-label="Locations on this map" hidden>
+          {% for marker in mapMarkers %}
+            <li>
+              <button type="button" class="map-location" data-marker-index="{{ loop.index0 }}">
+                {{ marker.title or marker.content.title or 'Location ' + loop.index }}
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     <div class="js-openlayers-map map-wrapper"
          data-provider="openlayers"
          data-latitude="{{ mapLat }}"
@@ -50,6 +66,7 @@
           Loading map...
         </div>
       </div>
+    </div>
     </div>
   {% endif %}
 
