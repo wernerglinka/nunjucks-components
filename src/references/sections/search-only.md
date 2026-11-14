@@ -26,7 +26,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -51,7 +51,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -80,7 +80,7 @@ sections:
     id: 'search-architecture'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -112,7 +112,7 @@ sections:
     id: 'plugin-configuration'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -213,7 +213,7 @@ sections:
     id: 'content-architecture'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -288,7 +288,7 @@ sections:
     id: 'field-mapping'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -367,7 +367,7 @@ sections:
     id: 'debugging'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -418,7 +418,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false

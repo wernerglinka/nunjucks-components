@@ -26,7 +26,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -50,7 +50,7 @@ sections:
     id: 'configuration'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -128,7 +128,7 @@ sections:
     id: 'basic-cards'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -248,7 +248,7 @@ sections:
     id: 'background-image-cards'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -274,7 +274,7 @@ sections:
     id: 'background-examples'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -394,7 +394,7 @@ sections:
     id: 'linked-cards'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -418,7 +418,7 @@ sections:
     id: 'linked-examples'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -517,7 +517,7 @@ sections:
     id: 'horizontal-cards'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -541,7 +541,7 @@ sections:
     id: 'linked-examples'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true

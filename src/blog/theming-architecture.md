@@ -28,7 +28,7 @@ sections:
     isReverse: false
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false
@@ -62,7 +62,7 @@ sections:
     id: 'philosophy'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: false
@@ -108,7 +108,7 @@ sections:
     id: 'design-tokens'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -177,7 +177,7 @@ sections:
     id: 'inversion-logic'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: false
@@ -240,7 +240,7 @@ sections:
     id: 'component-patterns'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -316,7 +316,7 @@ sections:
     id: 'special-cases'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: false
@@ -409,7 +409,7 @@ sections:
     id: 'implementation-guide'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -463,7 +463,7 @@ sections:
     id: 'best-practices'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: false
@@ -507,7 +507,7 @@ sections:
     id: 'limitations'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false
@@ -553,7 +553,7 @@ sections:
     id: 'conclusion'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: false
@@ -596,7 +596,7 @@ sections:
     isDisabled: false
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false

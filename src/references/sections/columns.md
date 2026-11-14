@@ -26,7 +26,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -52,7 +52,7 @@ sections:
     id: 'first-section'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -85,7 +85,7 @@ sections:
     isDisabled: false
     containerFields:
       inContainer: true
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false
@@ -129,7 +129,7 @@ sections:
     id: 'first-section'
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -162,7 +162,7 @@ sections:
     # Implements a three column image gallery.
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: true
       noMargin:
         top: true
@@ -205,7 +205,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false

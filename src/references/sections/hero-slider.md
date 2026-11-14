@@ -26,7 +26,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: true
@@ -271,7 +271,7 @@ sections:
     id: ''
     isDisabled: false
     containerFields:
-      isAnimated: true
+      isAnimated: false
       inContainer: false
       noMargin:
         top: false

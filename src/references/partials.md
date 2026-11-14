@@ -27,7 +27,7 @@ sections:
     isDisabled: false
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false

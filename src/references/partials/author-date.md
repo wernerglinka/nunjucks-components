@@ -18,7 +18,7 @@ sections:
     containerTag: section
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: true
@@ -75,7 +75,7 @@ sections:
     isReverse: false
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false
@@ -101,7 +101,7 @@ sections:
     containerTag: section
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: true

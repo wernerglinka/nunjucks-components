@@ -18,7 +18,7 @@ sections:
     containerTag: section
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: true
@@ -72,7 +72,7 @@ sections:
     containerTag: section
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: false
         bottom: false
@@ -88,7 +88,7 @@ sections:
     classes: 'has-demo-background'
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false
@@ -113,7 +113,7 @@ sections:
     classes: 'has-demo-background'
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: false
@@ -132,7 +132,7 @@ sections:
     containerTag: section
     containerFields:
       inContainer: false
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: true
@@ -152,7 +152,7 @@ sections:
     isDisabled: false
     containerFields:
       inContainer: true
-      isAnimated: true
+      isAnimated: false
       noMargin:
         top: true
         bottom: true
