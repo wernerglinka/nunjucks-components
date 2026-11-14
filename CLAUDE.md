@@ -44,6 +44,7 @@ npm run build
 - `npm test` - Run all tests using Node's native test runner (`node --test`)
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:schema` - Run only the schema-consistency suite (no build needed)
+- `npm run test:browser` - Real-browser smoke and interaction tests in Chromium, Firefox and WebKit (Playwright). Needs a build in `build/` and network access; not part of `npm test`. See `test/browser/README.md`
 - `npm run format` - Format JS/JSON with Biome (`.njk` and CSS are excluded)
 - `npm run lint` - Lint and fix JavaScript/JSON with Biome
 - `npm run lint:css` - Lint and fix CSS with Stylelint
@@ -190,6 +191,7 @@ Comprehensive test suite using Node's native test runner (`node --test`, with `n
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, bundler integration
 - `test/schema-consistency/` - Holds each section's template, manifest `validation`, `fields`, and example `.yml` in agreement, and holds the pages under `src/` to the same contract against a shrink-only baseline (see its README)
 - `test/component-lint.test.js` - Runs `npm run lint:components` so its rules gate the test suite
+- `test/browser/` - Playwright tests run by `npm run test:browser`: every built page loads without errors, and one scripted interaction per interactive component, including after a page transition (see its README)
 
 ### Testing Workflow
 
