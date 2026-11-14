@@ -191,6 +191,7 @@ Comprehensive test suite using Node's native test runner (`node --test`, with `n
 - `test/component-dependency-bundler.test.js` - Tests component directory structure, file associations, bundler integration
 - `test/schema-consistency/` - Holds each section's template, manifest `validation`, `fields`, and example `.yml` in agreement, and holds the pages under `src/` to the same contract against a shrink-only baseline (see its README)
 - `test/component-lint.test.js` - Runs `npm run lint:components` so its rules gate the test suite
+- `test/calendar-dates.test.js` - All-day calendar events stay on their calendar day in every time zone
 - `test/browser/` - Playwright tests run by `npm run test:browser`: every built page loads without errors, and one scripted interaction per interactive component, including after a page transition (see its README)
 
 ### Testing Workflow

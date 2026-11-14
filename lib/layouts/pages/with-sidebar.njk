@@ -4,7 +4,7 @@
 <html class="no-js" lang="">
   {% include "pages/parts/head.njk" %}
 
-  <body class="with-sidebar {{ bodyClasses }}">
+  <body class="with-sidebar {{ bodyClasses }}" data-page-classes="{{ bodyClasses }}">
     {% include "pages/parts/dark-light-theme-init.njk" %} {# feature:dark-light-theme-switcher #}
     <span id="top"></span>
     {% include "pages/parts/header.njk" %}

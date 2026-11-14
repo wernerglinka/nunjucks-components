@@ -189,6 +189,131 @@ const INTERACTIONS = [
       assert.equal(await page.evaluate(() => window.scrollY), scrollBefore, 'closing did not scroll the page');
       assert.equal(await page.evaluate(() => window.location.hash), '', 'closing did not change the URL');
     }
+  },
+  {
+    name: 'a query in the URL runs however long the search index takes',
+    path: '/',
+    run: async (page) => {
+      await page.route('**/search-index.json', async (route) => {
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await route.continue();
+      });
+      await page.goto(new URL('/search/?q=hero', page.url()).href, { waitUntil: 'load' });
+      const input = page.locator('.search-input').first();
+      await page.locator('.search-results').first().locator(':scope > .search-result').first().waitFor({
+        state: 'visible',
+        timeout: 10000
+      });
+      assert.equal(await input.inputValue(), 'hero', 'the query from the URL is in the field');
+    }
+  },
+  {
+    name: 'search accepts a query as short as its stated minimum',
+    path: '/search/',
+    run: async (page) => {
+      const input = page.locator('.search-input').first();
+      const minimum = await input.evaluate((field) =>
+        Number(field.closest('.search-container').dataset.minCharacters || 2)
+      );
+      assert.equal(minimum, 2, 'the search page asks for two characters');
+      await input.fill('js');
+      await page.locator('.search-results').first().locator(':scope > .search-result').first().waitFor({
+        state: 'visible',
+        timeout: 10000
+      });
+    }
+  },
+  {
+    name: 'tabs work when a tab key holds a dot, a space and a slash',
+    path: '/references/sections/multi-tab/',
+    run: async (page) => {
+      const component = page.locator('.tabs-component').first();
+      // No page uses such a key, so give the second tab one after the fact
+      await component.evaluate((container) => {
+        const tab = container.querySelectorAll('.tabs-button')[1];
+        const panel = container.querySelector(`#${CSS.escape(tab.getAttribute('aria-controls'))}`);
+        tab.id = 'tab-v1.2 a/b';
+        panel.id = 'panel-v1.2 a/b';
+        tab.setAttribute('aria-controls', panel.id);
+        panel.setAttribute('aria-labelledby', tab.id);
+      });
+      const tab = component.locator('.tabs-button').nth(1);
+      await tab.click();
+      assert.equal(await tab.getAttribute('aria-selected'), 'true', 'the tab is selected');
+      const visible = await component.evaluate((container) =>
+        [...container.querySelectorAll('.tabs-panel')].filter((panel) => !panel.hidden).map((panel) => panel.id)
+      );
+      assert.deepEqual(visible, ['panel-v1.2 a/b'], 'only its panel is shown');
+      // The key travels through the URL percent-encoded and has to come back
+      await component.locator('.tabs-button').first().click();
+      await page.goBack();
+      await eventually(async () => (await tab.getAttribute('aria-selected')) === 'true', 'Back restores the tab');
+    }
+  },
+  {
+    name: 'hero slider advances after its own autoPlayDelay',
+    path: '/',
+    run: async (page) => {
+      // A controlled clock applies to the whole context, so use a separate one
+      const context = await page
+        .context()
+        .browser()
+        .newContext({ viewport: { width: 1280, height: 900 } });
+      try {
+        const own = await context.newPage();
+        await own.clock.install();
+        await own.goto(new URL('/references/sections/hero-slider/', page.url()).href, { waitUntil: 'load' });
+        const slider = own.locator('.js-hero-slider.is-autoplay').first();
+        const delay = Number(await slider.getAttribute('data-autoplay-delay'));
+        assert.ok(delay > 5000, 'the first example sets a delay longer than the default of 5 seconds');
+        const selected = () =>
+          slider.evaluate((element) =>
+            [...element.querySelectorAll('.js-slide')].findIndex((slide) => slide.classList.contains('is-selected'))
+          );
+        // Stop the clock, then pick a slide by hand and move the pointer off
+        // the slider (hovering pauses it): that restarts the delay at a known
+        // moment, whatever time the page took to load
+        await own.clock.pauseAt(new Date(Date.now() + 60000));
+        await slider.locator('.js-nav li a').nth(1).click();
+        await own.mouse.move(0, 0);
+        await eventually(async () => (await selected()) === 1, 'the chosen slide is shown');
+        await own.clock.runFor(delay - 300);
+        assert.equal(await selected(), 1, 'the slide stays until the delay has passed');
+        await own.clock.runFor(600);
+        assert.notEqual(await selected(), 1, 'and changes once it has');
+      } finally {
+        await context.close();
+      }
+    }
+  },
+  {
+    name: 'podcast player shows markup in an episode title as text',
+    path: '/',
+    run: async (page) => {
+      const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Test feed</title>
+<item><title>&lt;img src=x onerror="window.__feedScriptRan = true"&gt; Tom &amp; Jerry</title>
+<enclosure url="/assets/audio/shattered-reflections.mp3" type="audio/mpeg" length="1"/></item>
+</channel></rss>`;
+      const local = new URL(page.url()).origin;
+      await page.route(
+        (url) => url.origin !== local && /rss|feeds?\.|allorigins/.test(url.href),
+        (route) =>
+          route.fulfill({
+            status: 200,
+            contentType: 'application/rss+xml',
+            headers: { 'access-control-allow-origin': '*' },
+            body: feed
+          })
+      );
+      await page.goto(new URL('/references/sections/podcast/', page.url()).href, { waitUntil: 'load' });
+      const title = page.locator('.shk-title').first();
+      await title.waitFor({ state: 'attached', timeout: 15000 });
+      await eventually(async () => (await title.textContent()).includes('Tom & Jerry'), 'the player shows the title');
+      assert.match(await title.textContent(), /<img src=x/, 'the markup is shown as text');
+      assert.equal(await title.locator('img').count(), 0, 'and no element was created from it');
+      assert.equal(await page.evaluate(() => window.__feedScriptRan), undefined, 'so its script did not run');
+    }
   }
 ];
 
@@ -240,6 +365,61 @@ for (const engine of ENGINES) {
           const before = await isDark();
           await page.locator('.js-theme-toggle').first().click();
           assert.equal(await isDark(), !before, 'the theme toggle fires exactly once after a transition');
+          assert.deepEqual(problems, [], 'the pages reported no errors');
+        } finally {
+          await page.close();
+        }
+      });
+
+      await t.test('cleanup runs while the outgoing page is still in the document', async () => {
+        const page = await context.newPage();
+        const problems = watchPage(page, site.origin);
+        try {
+          await page.goto(`${site.origin}/references/sections/`, { waitUntil: 'load' });
+          await page.evaluate(() => {
+            const outgoing = document.querySelector('#swup').firstElementChild;
+            window.PageTransitions.registerCleanup('test-probe', () => {
+              window.__cleanupSawOutgoingPage = outgoing.isConnected;
+            });
+          });
+          await page.locator('a[href^="/references/sections/accordion"]').first().click();
+          await page.waitForURL(/\/references\/sections\/accordion\/?$/);
+          await page.locator('.js-accordion-toggle-all').first().waitFor({ state: 'visible' });
+          assert.equal(
+            await page.evaluate(() => window.__cleanupSawOutgoingPage),
+            true,
+            'a cleanup function can still find the elements of the page being left'
+          );
+          assert.deepEqual(problems, [], 'the pages reported no errors');
+        } finally {
+          await page.close();
+        }
+      });
+
+      await t.test('body classes follow the page through a transition', async () => {
+        const page = await context.newPage();
+        const problems = watchPage(page, site.origin);
+        try {
+          await page.goto(`${site.origin}/search/`, { waitUntil: 'load' });
+          const toggle = page.locator('header .search-icon-toggle');
+          assert.equal(await toggle.isVisible(), false, 'the search page hides the header search icon');
+          await page.evaluate(() => {
+            window.__sameDocument = true;
+          });
+          const themeBefore = await page.evaluate(() => document.body.classList.contains('dark-theme'));
+          await page.locator('a[href="/blog/"]').first().click();
+          await page.waitForURL(/\/blog\/?$/);
+          await eventually(
+            () => page.evaluate(() => !document.body.classList.contains('search-page')),
+            'the search page class is gone on the next page'
+          );
+          assert.ok(await page.evaluate(() => window.__sameDocument === true), 'the visit was a transition');
+          assert.equal(await toggle.isVisible(), true, 'and the header search icon is back');
+          assert.equal(
+            await page.evaluate(() => document.body.classList.contains('dark-theme')),
+            themeBefore,
+            'classes set by scripts are left alone'
+          );
           assert.deepEqual(problems, [], 'the pages reported no errors');
         } finally {
           await page.close();

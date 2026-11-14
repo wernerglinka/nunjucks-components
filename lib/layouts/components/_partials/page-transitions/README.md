@@ -62,16 +62,20 @@ Sites with multiple layouts (e.g., default and sidebar) need the `with-sidebar` 
 
 ```html
 <!-- default.njk -->
-<body class="{{ bodyClasses }}">
+<body class="{{ bodyClasses }}" data-page-classes="{{ bodyClasses }}">
   <main class="transition-fade" id="swup">...</main>
 </body>
 
 <!-- with-sidebar.njk -->
-<body class="with-sidebar {{ bodyClasses }}">
+<body class="with-sidebar {{ bodyClasses }}" data-page-classes="{{ bodyClasses }}">
   <aside class="sidebar">...</aside>
   <main class="transition-fade" id="swup">...</main>
 </body>
 ```
+
+`<body>` is outside the container, so it is not replaced. The `data-page-classes` attribute lists the classes that belong to the page (`bodyClasses`); after each transition the module removes the outgoing page's listed classes and adds the incoming page's. Classes that scripts add at runtime, such as `dark-theme`, are not listed and stay. A layout without the attribute keeps its body classes unchanged across transitions.
+
+Cleanup functions run on `content:replace` through `swup.hooks.before()`, while the outgoing content is still in the document, so they can find the elements they need to stop.
 
 The page-transitions module automatically detects layout changes and forces a full page reload when transitioning between different layouts. This ensures:
 - **Same layout**: Smooth SWUP animations

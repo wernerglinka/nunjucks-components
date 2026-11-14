@@ -3,7 +3,7 @@
 {% from "components/_partials/image/image.njk" import image %}
 {% from "components/_partials/video/video.njk" import video %}
 
-<div class="{% if section.autoplay %}is-autoplay{% endif %} {% if section.containerFields.inContainer %}in-container{% endif %} js-hero-slider">
+<div class="{% if section.autoplay %}is-autoplay{% endif %} {% if section.containerFields.inContainer %}in-container{% endif %} js-hero-slider"{% if section.autoPlayDelay %} data-autoplay-delay="{{ section.autoPlayDelay }}"{% endif %}>
   <div class="hero-slider-list">
     <ul class="hero-slides">
       {% for slide in section.slides %}
