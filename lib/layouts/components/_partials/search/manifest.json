@@ -6,6 +6,21 @@
   "scripts": ["search.js"],
   "requires": ["button"],
   "fields": {
+    "title": {
+      "widget": "text",
+      "label": "Search title",
+      "default": ""
+    },
+    "subtitle": {
+      "widget": "text",
+      "label": "Search subtitle",
+      "default": ""
+    },
+    "source": {
+      "widget": "text",
+      "label": "Search index URL (defaults to /search-index.json)",
+      "default": ""
+    },
     "placeholder": {
       "widget": "text",
       "label": "Search placeholder",
@@ -40,6 +55,9 @@
         "type": "string"
       },
       "subtitle": {
+        "type": "string"
+      },
+      "source": {
         "type": "string"
       },
       "placeholder": {

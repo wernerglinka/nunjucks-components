@@ -17,6 +17,10 @@
         "type": "string",
         "description": "Name of the collection to display (e.g., 'blog', 'components')"
       },
+      "domainName": {
+        "type": "string",
+        "description": "URL segment the pagination links are built on (e.g., 'blog')"
+      },
       "containerFields.inContainer": {
         "type": "boolean"
       },
@@ -44,6 +48,11 @@
       "source": {
         "collections": true
       },
+      "default": ""
+    },
+    "domainName": {
+      "widget": "text",
+      "label": "Pagination URL segment",
       "default": ""
     },
     "$extends": ["commons"]

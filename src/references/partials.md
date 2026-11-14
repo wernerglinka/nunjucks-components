@@ -23,7 +23,7 @@ sections:
   - sectionType: rich-text
     containerTag: section
     id: ''
-    description: 'Introduction to partials'
+    # Introduction to partials
     isDisabled: false
     containerFields:
       inContainer: false

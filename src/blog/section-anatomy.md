@@ -23,7 +23,7 @@ sections:
     containerTag: section
     classes: 'first-section'
     id: ''
-    description: 'This is a hero section'
+    # This is a hero section
     isDisabled: false
     isFullScreen: false
     isReverse: true
@@ -64,7 +64,6 @@ sections:
     classes: 'single-column'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: false
       isAnimated: true
@@ -273,7 +272,6 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: false
       isAnimated: true

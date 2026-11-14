@@ -87,7 +87,7 @@
     margin: 0;
     padding: 0;
 
-    &[aria-selected="true"] .language-option {
+    .language-option[aria-current="true"] {
       background: var(--color-primary-light, #e6f2ff);
     }
   }
@@ -133,10 +133,10 @@ a.language-option {
 
 /* Dark theme adjustments - glass tokens auto-adjust via CSS custom properties */
 .dark-theme .language-option:hover,
-.dark-theme .language-option:focus {
+.dark-theme .language-option:focus-visible {
   background: rgb(255 255 255 / 10%);
 }
 
-.dark-theme .language-dropdown li[aria-selected="true"] .language-option {
+.dark-theme .language-dropdown .language-option[aria-current="true"] {
   background: rgb(255 255 255 / 15%);
 }

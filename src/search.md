@@ -14,7 +14,7 @@ sections:
     containerTag: section
     classes: ''
     id: ''
-    description: 'This is a hero section for the search page'
+    # This is a hero section for the search page
     isDisabled: false
     isFullScreen: false
     isReverse: false
@@ -54,7 +54,6 @@ sections:
     classes: 'search-page-section'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: false

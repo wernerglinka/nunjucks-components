@@ -25,7 +25,7 @@ sections:
     containerTag: section
     classes: 'first-section'
     id: ''
-    description: "This is a full screen hero section with a background image and text overlay. The proporty 'isFullScreen' is set to true, which turn a standard hero section into full screen."
+    # This is a full screen hero section with a background image and text overlay. The proporty 'isFullScreen' is set to true, which turn a standard hero section into full screen.
     isDisabled: false
     isReverse: false
     isFullScreen: true
@@ -180,7 +180,7 @@ sections:
     containerTag: section
     classes: ''
     id: 'hero2'
-    description: 'This is a regular hero section with a background image and text overlay.'
+    # This is a regular hero section with a background image and text overlay.
     isDisabled: false
     isReverse: false
     isFullScreen: false

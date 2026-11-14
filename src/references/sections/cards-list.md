@@ -25,7 +25,6 @@ sections:
     containerTag: article
     id: ''
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -50,7 +49,6 @@ sections:
     classes: ''
     id: 'configuration'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -129,7 +127,6 @@ sections:
     classes: ''
     id: 'basic-cards'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -250,7 +247,6 @@ sections:
     classes: 'demo-section'
     id: 'background-image-cards'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -277,7 +273,6 @@ sections:
     classes: 'demo-section background-cards'
     id: 'background-examples'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -398,7 +393,6 @@ sections:
     classes: 'demo-section'
     id: 'linked-cards'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -423,7 +417,6 @@ sections:
     classes: 'demo-section linked-cards'
     id: 'linked-examples'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -523,7 +516,6 @@ sections:
     classes: 'demo-section'
     id: 'horizontal-cards'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false
@@ -548,7 +540,6 @@ sections:
     classes: 'demo-section linked-cards'
     id: 'linked-examples'
     isDisabled: false
-    inContainer: true
     containerFields:
       isAnimated: true
       inContainer: false

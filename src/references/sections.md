@@ -23,12 +23,9 @@ sections:
   - sectionType: rich-text
     containerTag: section
     id: ''
-    description: 'Introduction to section components'
+    # Introduction to section components
     isDisabled: false
     isFullScreen: false
-    isReverse: false
-    date: ''
-    author: ''
     containerFields:
       inContainer: false
       isAnimated: true

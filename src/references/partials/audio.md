@@ -75,7 +75,6 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: false
       isAnimated: true

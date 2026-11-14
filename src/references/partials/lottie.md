@@ -79,10 +79,6 @@ sections:
         bottom: true
       background:
         isDark: false
-    text:
-      title: 'Lottie Animation Demo'
-      titleTag: 'h2'
-      prose: 'This component supports Lottie animations for enhanced visual experiences.'
     lottie:
       src: '/assets/lotties/example4.json'
       speed: 1

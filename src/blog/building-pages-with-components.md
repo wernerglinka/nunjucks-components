@@ -61,7 +61,6 @@ sections:
     classes: 'single-column'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: true
@@ -122,7 +121,6 @@ sections:
     classes: 'single-column'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: true
@@ -194,7 +192,6 @@ sections:
     classes: 'single-column'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: true
@@ -267,7 +264,6 @@ sections:
     classes: 'single-column'
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: true
@@ -299,7 +295,6 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: true
       isAnimated: true

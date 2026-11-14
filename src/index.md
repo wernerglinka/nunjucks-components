@@ -25,7 +25,7 @@ sections:
     containerTag: section
     classes: ''
     id: ''
-    description: 'This is a hero section'
+    # This is a hero section
 
     isDisabled: false
     isFullScreen: false
@@ -69,7 +69,6 @@ sections:
     classes: ''
     id: ''
     isDisabled: false
-    isReverse: false
     containerFields:
       inContainer: false
       isAnimated: true

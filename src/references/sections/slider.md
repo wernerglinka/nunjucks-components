@@ -53,7 +53,7 @@ sections:
     containerTag: section
     classes: ''
     id: ''
-    description: 'Implements a manual slider section.'
+    # Implements a manual slider section.
     isDisabled: false
     containerFields:
       isAnimated: true
@@ -142,7 +142,7 @@ sections:
     containerTag: section
     classes: ''
     id: ''
-    description: 'Implements a manual slider section.'
+    # Implements a manual slider section.
     isDisabled: false
     containerFields:
       isAnimated: true

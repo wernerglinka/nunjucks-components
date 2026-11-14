@@ -50,7 +50,7 @@ sections:
     containerTag: section
     classes: 'first-section'
     id: ''
-    description: 'Hero slider with multiple slides, each featuring unique content, backgrounds, and navigation controls'
+    # Hero slider with multiple slides, each featuring unique content, backgrounds, and navigation controls
     isDisabled: false
     isFullScreen: false
     containerFields:
@@ -169,7 +169,7 @@ sections:
     containerTag: section
     classes: 'demo'
     id: ''
-    description: 'Example with different background types and content layouts'
+    # Example with different background types and content layouts
     isDisabled: false
     containerFields:
       inContainer: false

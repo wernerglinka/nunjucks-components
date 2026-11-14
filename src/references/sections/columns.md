@@ -81,7 +81,7 @@ sections:
     containerTag: section
     classes: 'media-image hero-cta'
     id: ''
-    description: 'This is a composed section]'
+    # This is a composed section]
     isDisabled: false
     containerFields:
       inContainer: true
@@ -159,7 +159,7 @@ sections:
     containerTag: section
     classes: 'image-gallery'
     id: 'section-id'
-    description: 'Implements a three column image gallery.'
+    # Implements a three column image gallery.
     isDisabled: false
     containerFields:
       isAnimated: true

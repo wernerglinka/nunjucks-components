@@ -20,7 +20,7 @@
       "text.title": {
         "type": "string"
       },
-      "text.subtitle": {
+      "text.subTitle": {
         "type": "string"
       },
       "placeholder": {

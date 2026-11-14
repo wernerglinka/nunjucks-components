@@ -1,36 +1,4 @@
 {
   "note": "Known page-content keys outside their component contract. See page-content.test.js. This list may only shrink.",
-  "known": [
-    "audio-only: isReverse",
-    "banner: componentDownload",
-    "cards-list: inContainer",
-    "collection-links: isReverse",
-    "collection-list: description",
-    "collection-list: domainName",
-    "collection-list: isFullScreen",
-    "collection-list: isReverse",
-    "columns: description",
-    "flip-cards: isReverse",
-    "hero-slider: description",
-    "hero-slider: isFullScreen",
-    "hero: author",
-    "hero: date",
-    "hero: description",
-    "hero: targetId",
-    "lottie-only: text",
-    "lottie-only: text.prose",
-    "lottie-only: text.title",
-    "lottie-only: text.titleTag",
-    "rich-text: author",
-    "rich-text: date",
-    "rich-text: description",
-    "rich-text: inContainer",
-    "rich-text: isFullScreen",
-    "rich-text: isReverse",
-    "search-only: isReverse",
-    "search-only: source",
-    "search-only: subtitle",
-    "search-only: title",
-    "slider: description"
-  ]
+  "known": []
 }

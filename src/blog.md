@@ -18,7 +18,7 @@ sections:
     containerTag: section
     classes: ''
     id: ''
-    description: "This is a blog post hero section. The hero section has a class of 'blog-hero'."
+    # This is a blog post hero section. The hero section has a class of 'blog-hero'.
     isDisabled: false
     isFullScreen: false
     isReverse: false
@@ -60,10 +60,9 @@ sections:
     containerTag: section # section || article || aside
     classes: ''
     id: ''
-    description: 'section with all blogposts'
+    # section with all blogposts
     isDisabled: false
     isFullScreen: false
-    isReverse: false
     containerFields:
       inContainer: false
       isAnimated: true
