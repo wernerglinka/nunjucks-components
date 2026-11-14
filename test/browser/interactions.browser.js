@@ -591,6 +591,9 @@ for (const engine of ENGINES) {
           await page.locator('a[href^="/references/sections/accordion"]').first().click();
           await page.waitForURL(/\/references\/sections\/accordion\/?$/);
           await page.locator('.js-accordion-toggle-all').first().waitFor({ state: 'visible' });
+          // Components are set up again when the transition ends, a moment
+          // after the new content is visible. Wait for that before using them.
+          await page.locator('#swup [data-initialized="true"]').first().waitFor({ state: 'attached' });
           assert.ok(
             await page.evaluate(() => window.__sameDocument === true),
             'the visit was a transition, not a reload'

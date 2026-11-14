@@ -175,10 +175,12 @@ a {
   &::-webkit-scrollbar-thumb {
     background: var(--color-border-light);
     border-radius: 4px;
+  }
 
-    &:hover {
-      background: var(--color-text-dark);
-    }
+  /* Not nested in the rule above: "&" cannot stand for a pseudo-element, so
+     a nested "&:hover" never matched */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-dark);
   }
 
   /* Firefox scrollbar */

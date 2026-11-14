@@ -96,7 +96,9 @@
       }
 
       .media {
-        top: -var(--space-s-m);
+        /* A "top: -var(--space-s-m)" stood here. A minus sign cannot be put
+           in front of var(), so browsers always dropped it; removed to keep
+           the rendering as it has been. */
         left: -1rem;
       }
 
