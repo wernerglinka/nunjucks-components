@@ -22,6 +22,27 @@
           "source": {
             "type": "string",
             "description": "Data source file name in lib/data/calendars/"
+          },
+          "apiKey": {
+            "type": "string",
+            "description": "Google Calendar API key, when the calendars are listed inline"
+          },
+          "calendars": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -53,10 +74,26 @@
         "label": "Google API key (optional)",
         "default": ""
       },
-      "calendarId": {
-        "widget": "text",
-        "label": "Calendar ID (optional)",
-        "default": ""
+      "calendars": {
+        "widget": "array",
+        "label": "Calendars",
+        "items": {
+          "id": {
+            "widget": "text",
+            "label": "Calendar ID",
+            "default": ""
+          },
+          "name": {
+            "widget": "text",
+            "label": "Display name",
+            "default": ""
+          },
+          "category": {
+            "widget": "text",
+            "label": "Category (used for styling)",
+            "default": ""
+          }
+        }
       }
     },
     "$extends": ["commons"]

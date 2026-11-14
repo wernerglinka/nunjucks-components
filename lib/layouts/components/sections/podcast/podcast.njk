@@ -27,7 +27,7 @@
         {% endif %}
         
         <!-- Main podcast player -->
-        <div class="main-player" id="main-player"></div>
+        <div class="main-player"></div>
         
         {% if podcastData.episodes %}
           <!-- Always render first episode data for player initialization (hidden if showEpisodeList is false) -->
@@ -56,7 +56,7 @@
                      data-episode-thumbnail="{{ episode.thumbnail or podcastData.coverImage }}">
                   <button class="episode-selector">
                     <div class="episode-thumbnail">
-                      <img src="{{ episode.thumbnail or podcastData.coverImage }}" alt="Episode thumbnail: {{ episode.title }}">
+                      <img src="{{ episode.thumbnail or podcastData.coverImage }}" alt="" loading="lazy">
                       <div class="play-indicator">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                           <path d="M8 5v14l11-7z"/>

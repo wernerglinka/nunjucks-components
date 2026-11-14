@@ -91,11 +91,18 @@ const INTERACTIONS = [
     name: 'tabs show the selected panel and hide the others',
     path: '/references/sections/multi-tab/',
     run: async (page) => {
-      await page.locator('#tab-image').click();
-      assert.equal(await page.locator('#tab-image').getAttribute('aria-selected'), 'true');
-      assert.equal(await page.locator('#tab-text').getAttribute('aria-selected'), 'false');
-      assert.ok(await page.locator('#panel-image').isVisible(), 'the selected panel is shown');
-      assert.ok(await page.locator('#panel-text').isHidden(), 'the previous panel is hidden');
+      const component = page.locator('.tabs-component').first();
+      const tab = (key) => component.locator(`.tabs-button[data-tab-key="${key}"]`);
+      const panelOf = async (key) => page.locator(`[id="${await tab(key).getAttribute('aria-controls')}"]`);
+      await tab('image').click();
+      assert.equal(await tab('image').getAttribute('aria-selected'), 'true');
+      assert.equal(await tab('text').getAttribute('aria-selected'), 'false');
+      assert.ok(await (await panelOf('image')).isVisible(), 'the selected panel is shown');
+      assert.ok(await (await panelOf('text')).isHidden(), 'the previous panel is hidden');
+      const ids = await page.evaluate(() =>
+        [...document.querySelectorAll('[role="tab"], [role="tabpanel"]')].map((element) => element.id)
+      );
+      assert.equal(new Set(ids).size, ids.length, 'tab and panel ids are unique across the page');
     }
   },
   {
@@ -225,6 +232,160 @@ const INTERACTIONS = [
     }
   },
   {
+    name: 'calendar shows multi-day events on each day and unfolds "+N more"',
+    path: '/',
+    run: async (page) => {
+      const now = new Date();
+      const day = (number) =>
+        `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(number).padStart(2, '0')}`;
+      const items = [
+        { id: 'span', summary: 'Three days', start: { date: day(10) }, end: { date: day(13) } },
+        ...[1, 2, 3, 4, 5].map((number) => ({
+          id: `busy-${number}`,
+          summary: `Busy ${number}`,
+          start: { date: day(15) },
+          end: { date: day(16) }
+        }))
+      ];
+      // The first calendar asked for gets the events, any other an empty list
+      let served = false;
+      await page.route('**/calendar/v3/calendars/**', (route) => {
+        const body = JSON.stringify({ items: served ? [] : items });
+        served = true;
+        return route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          headers: { 'access-control-allow-origin': '*' },
+          body
+        });
+      });
+      await page.goto(new URL('/references/sections/calendar/', page.url()).href, { waitUntil: 'load' });
+      const calendar = page.locator('[data-component="calendar"]').first();
+      const cells = calendar.locator('[data-calendar-days] .day:not(.day--other-month)');
+      await eventually(async () => (await cells.count()) >= 28, 'the month is rendered');
+
+      const daysShowing = await cells.evaluateAll((elements) =>
+        elements
+          .filter((element) => element.textContent.includes('Three days'))
+          .map((element) => element.querySelector('.day-number').textContent.trim())
+      );
+      assert.deepEqual(daysShowing, ['10', '11', '12'], 'a three-day event is on all three days');
+
+      const busy = cells.nth(14);
+      const more = busy.locator('.event--more');
+      assert.equal((await more.textContent()).trim(), '+2 more');
+      await more.focus();
+      await page.keyboard.press('Enter');
+      await eventually(async () => (await busy.locator('.event').count()) === 5, 'all five events are shown');
+      assert.equal(await more.count(), 0, 'and the "+N more" control is gone');
+      assert.ok(
+        await busy
+          .locator('.event')
+          .nth(3)
+          .evaluate((element) => element === document.activeElement),
+        'focus is on the first event that was revealed'
+      );
+    }
+  },
+  {
+    name: 'calendar says so when its events cannot be loaded',
+    path: '/',
+    run: async (page) => {
+      await page.route('**/calendar/v3/calendars/**', (route) =>
+        route.fulfill({ status: 403, headers: { 'access-control-allow-origin': '*' }, body: '{}' })
+      );
+      await page.goto(new URL('/references/sections/calendar/', page.url()).href, { waitUntil: 'load' });
+      const calendar = page.locator('[data-component="calendar"]').first();
+      const error = calendar.locator('[data-calendar-error]');
+      await error.waitFor({ state: 'visible', timeout: 10000 });
+      assert.match(await error.textContent(), /Failed to load calendar events/);
+      assert.equal(await calendar.locator('[data-calendar-grid]').isVisible(), false, 'no empty month is shown');
+      assert.equal(await calendar.locator('[data-calendar-list]').isVisible(), false, 'nor "No events this month"');
+    }
+  },
+  {
+    name: 'hero slider keeps hidden slides out of reach',
+    path: '/references/sections/hero-slider/',
+    run: async (page) => {
+      const reachable = await page
+        .locator('.js-hero-slider')
+        .evaluateAll((sliders) => sliders.map((slider) => slider.querySelectorAll('.js-slide:not([inert])').length));
+      assert.ok(reachable.length > 0, 'the page has sliders');
+      assert.ok(
+        reachable.every((count) => count === 1),
+        `one reachable slide per slider, got ${reachable}`
+      );
+      const slider = page.locator('.js-hero-slider').first();
+      await slider.locator('.js-nav li a').nth(1).click();
+      await eventually(
+        () =>
+          slider.evaluate((element) => {
+            const slides = [...element.querySelectorAll('.js-slide')];
+            return (
+              slides.findIndex((slide) => !slide.inert) === 1 && slides.filter((slide) => !slide.inert).length === 1
+            );
+          }),
+        'the chosen slide is the reachable one'
+      );
+    }
+  },
+  {
+    name: 'image comparison handle stays on the divider when the page is resized',
+    path: '/references/sections/image-compare/',
+    run: async (page) => {
+      const container = page.locator('.image-comparison-container').first();
+      await container.scrollIntoViewIfNeeded();
+      const handle = container.locator('.comparison-handle');
+      await handle.focus();
+      for (let presses = 0; presses < 5; presses++) {
+        await page.keyboard.press('Shift+ArrowRight');
+      }
+      const gap = () =>
+        container.evaluate((element) => {
+          const grip = element.querySelector('.comparison-handle').getBoundingClientRect();
+          const edge = element.querySelector('.after-image').getBoundingClientRect().right;
+          return Math.abs(grip.left + grip.width / 2 - edge);
+        });
+      // The reveal animation that runs on load overrides the width until it ends
+      await eventually(async () => (await gap()) <= 2, 'the handle sits on the divider after moving it');
+      await page.setViewportSize({ width: 700, height: 900 });
+      await page.waitForTimeout(300);
+      assert.ok((await gap()) <= 2, `and still does after a resize (off by ${await gap()}px)`);
+    }
+  },
+  {
+    name: 'header search returns focus to its button when closed with Escape',
+    path: '/',
+    run: async (page) => {
+      const toggle = page.locator('header .search-icon-toggle');
+      const input = page.locator('#header-search-input');
+      await toggle.click();
+      await eventually(() => input.evaluate((element) => element === document.activeElement), 'the field has focus');
+      await page.keyboard.press('Escape');
+      await eventually(
+        () => toggle.evaluate((element) => element === document.activeElement),
+        'focus is back on the search button'
+      );
+      assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
+    }
+  },
+  {
+    name: 'artist slider info button names its panel',
+    path: '/references/sections/artist-slider/',
+    run: async (page) => {
+      const toggle = page.locator('.artist-slider-wrapper .info-toggle').first();
+      const controlsPanel = () =>
+        toggle.evaluate((button) =>
+          document.getElementById(button.getAttribute('aria-controls'))?.classList.contains('info-panel')
+        );
+      assert.equal(await controlsPanel(), true, 'aria-controls points at the info panel');
+      const panel = page.locator('.artist-slider-wrapper .info-panel').first();
+      assert.equal(await panel.evaluate((element) => element.inert), true, 'the closed panel cannot be reached');
+      await toggle.click();
+      assert.equal(await panel.evaluate((element) => element.inert), false, 'the open panel can');
+    }
+  },
+  {
     name: 'a query in the URL runs however long the search index takes',
     path: '/',
     run: async (page) => {
@@ -307,8 +468,9 @@ const INTERACTIONS = [
       await component.evaluate((container) => {
         const tab = container.querySelectorAll('.tabs-button')[1];
         const panel = container.querySelector(`#${CSS.escape(tab.getAttribute('aria-controls'))}`);
-        tab.id = 'tab-v1.2 a/b';
-        panel.id = 'panel-v1.2 a/b';
+        tab.dataset.tabKey = 'v1.2 a/b';
+        tab.id = 'tab-x-v1.2 a/b';
+        panel.id = 'panel-x-v1.2 a/b';
         tab.setAttribute('aria-controls', panel.id);
         panel.setAttribute('aria-labelledby', tab.id);
       });
@@ -318,7 +480,7 @@ const INTERACTIONS = [
       const visible = await component.evaluate((container) =>
         [...container.querySelectorAll('.tabs-panel')].filter((panel) => !panel.hidden).map((panel) => panel.id)
       );
-      assert.deepEqual(visible, ['panel-v1.2 a/b'], 'only its panel is shown');
+      assert.deepEqual(visible, ['panel-x-v1.2 a/b'], 'only its panel is shown');
       // The key travels through the URL percent-encoded and has to come back
       await component.locator('.tabs-button').first().click();
       await page.goBack();
@@ -441,6 +603,23 @@ for (const engine of ENGINES) {
           await page.locator('.js-theme-toggle').first().click();
           assert.equal(await isDark(), !before, 'the theme toggle fires exactly once after a transition');
           assert.deepEqual(problems, [], 'the pages reported no errors');
+        } finally {
+          await page.close();
+        }
+      });
+
+      await t.test('a map whose library fails to load says so, and the others still start', async () => {
+        const page = await context.newPage();
+        try {
+          await page.route('**/assets/vendor/ol/ol.js', (route) => route.abort());
+          await page.goto(`${site.origin}/references/sections/maps/`, { waitUntil: 'load' });
+          const failed = page.locator('.js-openlayers-map').first();
+          await failed.locator('.map-error').waitFor({ state: 'attached', timeout: 15000 });
+          assert.equal(await failed.locator('.map-loading').count(), 0, 'the loading message is gone');
+          await page
+            .locator('.js-leaflet-map .leaflet-marker-icon')
+            .first()
+            .waitFor({ state: 'attached', timeout: 15000 });
         } finally {
           await page.close();
         }

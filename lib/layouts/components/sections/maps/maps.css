@@ -98,6 +98,16 @@
   margin-top: -62px !important;
 }
 
+/* Shown in place of the loading message when a map cannot start */
+.map-error {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  margin: 0;
+  padding: var(--space-m);
+  text-align: center;
+}
+
 /* Keyboard access to OpenLayers markers: a button per marker, out of sight
    until one of them has focus, then shown as a panel over the map corner */
 .map-frame {

@@ -243,6 +243,13 @@
   border-left: 3px solid #f59e0b;
 }
 
+/* "+N more": shows the day's remaining events in place */
+.calendar .event--more {
+  color: var(--calendar-text, inherit);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* All-day event badge */
 .calendar .event--all-day::before {
   content: '⏰';

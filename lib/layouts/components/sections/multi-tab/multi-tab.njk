@@ -37,6 +37,11 @@
 #}
 
 {% set tabsSection = section %}
+
+{# Page-unique prefix for element ids, so two tab sections on one page (or a
+   tab section inside a pane) can use the same keys. The key itself travels in
+   data-tab-key, which is what the script and the URL hash go by. #}
+{% set tabsUid = tabsSection.id or sectionIndex or 'tabs' %}
 {% set currentYearStr = "" | currentYear | string %}
 
 {# Build a flat list of tab keys for default-tab lookup #}
@@ -84,8 +89,9 @@
           <button
             class="tabs-button"
             role="tab"
-            id="tab-{{ tab.key }}"
-            aria-controls="panel-{{ tab.key }}"
+            id="tab-{{ tabsUid }}-{{ tab.key }}"
+            data-tab-key="{{ tab.key }}"
+            aria-controls="panel-{{ tabsUid }}-{{ tab.key }}"
             aria-selected="{{ 'true' if tab.key == defaultTab else 'false' }}"
             tabindex="{{ '0' if tab.key == defaultTab else '-1' }}"
           >
@@ -98,11 +104,12 @@
         <div
           class="tabs-panel"
           role="tabpanel"
-          id="panel-{{ tab.key }}"
-          aria-labelledby="tab-{{ tab.key }}"
+          id="panel-{{ tabsUid }}-{{ tab.key }}"
+          aria-labelledby="tab-{{ tabsUid }}-{{ tab.key }}"
           {% if tab.key != defaultTab %}hidden{% endif %}
         >
-          {{ renderSection(tab.pane, paneContext) }}
+          {# The pane gets its own index, so ids its component derives from it stay unique too #}
+          {{ renderSection(tab.pane, paneContext, tabsUid + '-' + loop.index) }}
         </div>
       {% endfor %}
     </div>

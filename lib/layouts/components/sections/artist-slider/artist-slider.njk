@@ -36,7 +36,7 @@
   </ul>
 
   {# Info panel overlay #}
-  <div class="info-panel" aria-hidden="true">
+  <div class="info-panel" id="artist-info-{{ section.id or sectionIndex }}" aria-hidden="true" inert>
     <div class="info-content">
       <h2 class="info-title"></h2>
       <p class="info-description"></p>
@@ -71,7 +71,7 @@
     class="info-toggle"
     aria-label="Show artwork information"
     aria-expanded="false"
-    aria-controls="info-panel"
+    aria-controls="artist-info-{{ section.id or sectionIndex }}"
   >
     {% include "icons/info.njk" %}
   </button>
