@@ -139,6 +139,7 @@ This component implements a sophisticated two-step search process for optimal us
 #### Layer 2: User Experience Filtering (UX Layer)
 - **Exact Substring Verification**: Only shows results where the search term actually appears in the content
 - **Meaningful Match Filtering**: Prevents confusing partial matches (e.g., "dors" won't match "doors")
+- **Every Word Counts**: A query of several words finds the pages that contain every word, wherever each one stands; the words need not be next to each other or in order
 - **No Score Cut-off**: Every page that contains the term is listed, ranked by Fuse.js; a match deep in a long page is not dropped
 - **Match in Context**: Each result shows the passage around the first match
 - **User-Focused Results**: Ensures users see content that genuinely contains their search terms
